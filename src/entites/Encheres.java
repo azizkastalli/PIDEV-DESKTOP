@@ -24,6 +24,10 @@ public class Encheres {
         this.date_debut = date_debut;
     }
 
+    public void setId_encheres(int id_encheres) {
+        this.id_encheres = id_encheres;
+    }
+
     public int getId_encheres() {
         return id_encheres;
     }
