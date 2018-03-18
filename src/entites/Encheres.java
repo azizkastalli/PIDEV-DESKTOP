@@ -16,7 +16,8 @@ public class Encheres {
     private String id_cible;
     private Date   date_debut;
 
-    public Encheres(double seuil_mise, String id_proprietaire, String id_cible, Date date_debut) {
+    public Encheres(int id_encheres,double seuil_mise, String id_proprietaire, String id_cible, Date date_debut) {
+        this.id_encheres=id_encheres;
         this.seuil_mise = seuil_mise;
         this.id_proprietaire = id_proprietaire;
         this.id_cible = id_cible;
