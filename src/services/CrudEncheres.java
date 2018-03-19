@@ -31,7 +31,7 @@ public class CrudEncheres implements ICrud<Encheres> {
     }
 
     @Override
-    public List<Encheres> SelectAll(Encheres obj) throws SQLException {
+    public List<Encheres> SelectAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

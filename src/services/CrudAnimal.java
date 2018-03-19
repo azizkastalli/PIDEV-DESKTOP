@@ -31,7 +31,7 @@ public class CrudAnimal implements ICrud<Animal>{
     }
 
     @Override
-    public List<Animal> SelectAll(Animal obj) throws SQLException {
+    public List<Animal> SelectAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
