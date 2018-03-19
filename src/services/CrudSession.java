@@ -31,7 +31,7 @@ public class CrudSession implements ICrud<Session>{
     }
 
     @Override
-    public List<Session> SelectAll(Session obj) throws SQLException {
+    public List<Session> SelectAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

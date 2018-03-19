@@ -17,7 +17,7 @@ public interface ICrud <T>
     void Create(T obj) throws SQLException;
     void Update(T obj) throws SQLException;
     T Select(T obj) throws SQLException;
-    List<T> SelectAll(T obj) throws SQLException;
+    List<T> SelectAll() throws SQLException;
     void Delete(T obj) throws SQLException;
     
 }

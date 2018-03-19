@@ -31,7 +31,7 @@ public class CrudEvenement implements ICrud<Evenement> {
     }
 
     @Override
-    public List<Evenement> SelectAll(Evenement obj) throws SQLException {
+    public List<Evenement> SelectAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
