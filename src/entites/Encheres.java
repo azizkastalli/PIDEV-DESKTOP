@@ -16,6 +16,17 @@ public class Encheres {
     private String id_cible;
     private Date   date_debut;
 
+   public Encheres(int id_encheres) {
+        this.id_encheres=id_encheres;
+        }
+
+    
+    public Encheres(int id_encheres,double seuil_mise, Date date_debut) {
+        this.id_encheres=id_encheres;
+        this.seuil_mise = seuil_mise;
+        this.date_debut = date_debut;
+    }
+    
     public Encheres(int id_encheres,double seuil_mise, String id_proprietaire, String id_cible, Date date_debut) {
         this.id_encheres=id_encheres;
         this.seuil_mise = seuil_mise;

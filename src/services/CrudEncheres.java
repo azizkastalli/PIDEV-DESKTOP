@@ -42,8 +42,6 @@ public class CrudEncheres implements ICrud<Encheres> {
             pst.setDouble(5,obj.getId_encheres());            
             
             pst.executeUpdate();
-
-            System.out.println("Enchere ajoutée");
     }
 
     @Override
