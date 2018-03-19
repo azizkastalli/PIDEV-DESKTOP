@@ -37,7 +37,7 @@ public class CrudEncheres implements ICrud<Encheres> {
            
             pst.setString(1,obj.getId_cible());
             pst.setString(2,obj.getId_proprietaire());
-            pst.setDate(3,null);
+            pst.setDate(3,obj.getDate_debut());
             pst.setDouble(4,obj.getSeuil_mise());            
             pst.setDouble(5,obj.getId_encheres());            
             
@@ -52,7 +52,7 @@ public class CrudEncheres implements ICrud<Encheres> {
         
         PreparedStatement pst = cnx.prepareStatement(requete);
            
-            pst.setDate(1,null);
+            pst.setDate(1,obj.getDate_debut());
             pst.setDouble(2,obj.getSeuil_mise());
             pst.setInt(3,obj.getId_encheres());
             
@@ -72,7 +72,7 @@ public class CrudEncheres implements ICrud<Encheres> {
             obj.setSeuil_mise(rs.getDouble(2)); 
             obj.setId_proprietaire(rs.getString(3)); 
             obj.setId_cible(rs.getString(4)); 
-            obj.setDate_debut(rs.getTimestamp(5)); 
+            obj.setDate_debut(rs.getDate(5)); 
                             
                        
        return obj;                 
@@ -88,7 +88,7 @@ public class CrudEncheres implements ICrud<Encheres> {
         
            while(rs.next())
            {
-            Encheres E =new Encheres(rs.getInt(1),rs.getDouble(2),rs.getString(3),rs.getString(4),rs.getTimestamp(5));   
+            Encheres E =new Encheres(rs.getInt(1),rs.getDouble(2),rs.getString(3),rs.getString(4),rs.getDate(5));   
             liste.add(E);
            }
            

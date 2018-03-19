@@ -5,13 +5,18 @@
  */
 package gui;
 
+import entites.Encheres;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import services.CrudEncheres;
 
 /**
  * FXML Controller class
@@ -34,5 +39,16 @@ public class UpdateEncheresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    @FXML  
+    private void UpdateEncheres(ActionEvent event) throws SQLException {
+        
+        double mise = Double.parseDouble(tfmise.getText());
+        Date date1 = java.sql.Date.valueOf(date.getValue()); 
+        Encheres E = new Encheres(99,mise,date1);
+        CrudEncheres CE = new CrudEncheres();
+        CE.Update(E);
+        
+    }  
     
 }
