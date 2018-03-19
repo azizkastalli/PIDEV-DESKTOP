@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SDEncheresController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="780.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.SDEncheresController">
     <stylesheets>
-        <URL value="@sdencheres.css"/>
+        <URL value="@sdencheres.css" />
     </stylesheets>
+   <children>
+      <TableView fx:id="tv" layoutX="54.0" layoutY="44.0" prefHeight="382.0" prefWidth="689.0">
+        <columns>
+          <TableColumn fx:id="tvimage" prefWidth="235.0" text="image" />
+          <TableColumn fx:id="tvlabel" prefWidth="75.0" text="label" />
+            <TableColumn fx:id="tvmise" prefWidth="111.0" text="seuil mise" />
+            <TableColumn fx:id="tvdate" prefWidth="149.0" text="date de debut" />
+            <TableColumn fx:id="tvaction" prefWidth="118.0" text="action" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
