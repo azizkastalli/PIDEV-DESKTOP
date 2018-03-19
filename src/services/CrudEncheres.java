@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -29,14 +30,14 @@ public class CrudEncheres implements ICrud<Encheres> {
     
     @Override
     public void Create(Encheres obj) throws SQLException {
-          String requete = "INSERT INTO Encheres (id_cible,id_propietaire,date_debut,seuil_mise,id_encheres) "
+          String requete = "INSERT INTO Encheres (id_cible,id_proprietaire,date_debut,seuil_mise,id_encheres) "
                     + "VALUES(?,?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setString(1,obj.getId_cible());
             pst.setString(2,obj.getId_proprietaire());
-            pst.setDate(3, (Date) obj.getDate_debut());
+            pst.setDate(3,null);
             pst.setDouble(4,obj.getSeuil_mise());            
             pst.setDouble(5,obj.getId_encheres());            
             
@@ -53,7 +54,7 @@ public class CrudEncheres implements ICrud<Encheres> {
         
         PreparedStatement pst = cnx.prepareStatement(requete);
            
-            pst.setDate(1, (Date) obj.getDate_debut());
+            pst.setDate(1,null);
             pst.setDouble(2,obj.getSeuil_mise());
             pst.setInt(3,obj.getId_encheres());
             
@@ -68,12 +69,12 @@ public class CrudEncheres implements ICrud<Encheres> {
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         pSmt.setInt(1,obj.getId_encheres());
         ResultSet rs = pSmt.executeQuery();
-           
+            rs.next();
             obj.setId_encheres(rs.getInt(1)); 
-            obj.setSeuil_mise(rs.getDouble(1)); 
-            obj.setId_proprietaire(rs.getString(1)); 
-            obj.setId_cible(rs.getString(1)); 
-            obj.setDate_debut(rs.getDate(1)); 
+            obj.setSeuil_mise(rs.getDouble(2)); 
+            obj.setId_proprietaire(rs.getString(3)); 
+            obj.setId_cible(rs.getString(4)); 
+            obj.setDate_debut(rs.getTimestamp(5)); 
                             
                        
        return obj;                 
@@ -82,13 +83,14 @@ public class CrudEncheres implements ICrud<Encheres> {
     @Override
     public List<Encheres> SelectAll() throws SQLException {
         List<Encheres> liste = new ArrayList<>();
-        String requete=" SELECT * FROM encheres";
+        String requete=" SELECT * FROM encheres ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
+        
            while(rs.next())
            {
-            Encheres E =new Encheres(rs.getInt(1),rs.getDouble(1),rs.getString(1),rs.getString(1),rs.getDate(1));   
+            Encheres E =new Encheres(rs.getInt(1),rs.getDouble(2),rs.getString(3),rs.getString(4),rs.getTimestamp(5));   
             liste.add(E);
            }
            
