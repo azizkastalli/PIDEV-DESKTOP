@@ -31,7 +31,7 @@ public class CrudWallet implements ICrud<Wallet>{
     }
 
     @Override
-    public List<Wallet> SelectAll(Wallet obj) throws SQLException {
+    public List<Wallet> SelectAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

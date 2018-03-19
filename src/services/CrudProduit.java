@@ -31,7 +31,7 @@ public class CrudProduit implements ICrud<Produit> {
     }
 
     @Override
-    public List<Produit> SelectAll(Produit obj) throws SQLException {
+    public List<Produit> SelectAll() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
