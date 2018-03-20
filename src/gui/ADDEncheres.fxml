@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="780.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.ADDEncheresController">
+    <stylesheets>
+        <URL value="@addencheres.css" />
+    </stylesheets>
+   <children>
+      <Button fx:id="btadd" layoutX="505.0" layoutY="275.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="112.0" text="ADD" />
+      <TextField fx:id="tfmise" layoutX="272.0" layoutY="126.0" prefHeight="25.0" prefWidth="345.0" />
+      <DatePicker fx:id="tfdate" layoutX="272.0" layoutY="191.0" prefHeight="25.0" prefWidth="345.0" />
+      <Label layoutX="95.0" layoutY="130.0" text="Seuil Mise :" />
+      <Label layoutX="95.0" layoutY="195.0" text="Date de debut :" />
+   </children>
+</AnchorPane>
