@@ -15,6 +15,13 @@ public class Session {
   private int id;
   private String id_gagnant;
 
+    public Session(int id, String etat,double derniere_mise, String id_gagnant) {
+        this.id=id;
+        this.derniere_mise = derniere_mise;
+        this.etat = etat;
+        this.id_gagnant = id_gagnant;
+    }
+    
     public Session(double derniere_mise, String etat, String id_gagnant) {
         this.derniere_mise = derniere_mise;
         this.etat = etat;
@@ -47,6 +54,10 @@ public class Session {
 
     public void setId_gagnant(String id_gagnant) {
         this.id_gagnant = id_gagnant;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
    
    
