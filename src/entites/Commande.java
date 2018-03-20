@@ -5,7 +5,6 @@
  */
 package entites;
 
-import java.util.Date;
 
 /**
  *
@@ -14,26 +13,23 @@ import java.util.Date;
 public class Commande {
     
     private int id;
-    private int nbr_totale;
     private double prix_totale;
-    private Date date;
     private int etat;
+    private int id_client;
 
     public Commande() {}
 
-    public Commande(int id, int nbr_totale, double prix_totale, Date date, int etat) {
+    public Commande(int id, double prix_totale,int id_client, int etat) {
         this.id = id;
-        this.nbr_totale = nbr_totale;
+        this.id_client = id_client;
         this.prix_totale = prix_totale;
-        this.date = date;
         this.etat = etat;
     }
     
-    public Commande(int nbr_totale, double prix_totale, Date date, int etat) {
-        this.nbr_totale = nbr_totale;
+    public Commande(double prix_totale, int id_client, int etat) {
         this.prix_totale = prix_totale;
-        this.date = date;
         this.etat = etat;
+        this.id_client = id_client;
     }
 
     public int getId() {
@@ -42,13 +38,7 @@ public class Commande {
 
     
 
-    public int getNbr_totale() {
-        return nbr_totale;
-    }
 
-    public void setNbr_totale(int nbr_totale) {
-        this.nbr_totale = nbr_totale;
-    }
 
     public double getPrix_totale() {
         return prix_totale;
@@ -58,13 +48,6 @@ public class Commande {
         this.prix_totale = prix_totale;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 
     public int getEtat() {
         return etat;
@@ -73,7 +56,13 @@ public class Commande {
     public void setEtat(int etat) {
         this.etat = etat;
     }
-    
+    public int getId_client() {
+        return id_client;
+    }
+
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
+    }
     
     
     
