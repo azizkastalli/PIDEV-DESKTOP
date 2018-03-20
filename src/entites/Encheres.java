@@ -31,12 +31,12 @@ public class Encheres {
     public int getId_encheres() {
         return id_encheres;
     }
-
-    public void setId_encheres(int id_encheres) {
-        this.id_encheres = id_encheres;
-    }
-
-    public double getSeuil_mise() {
+    
+   
+    
+    
+    
+public double getSeuil_mise() {
         return seuil_mise;
     }
 
