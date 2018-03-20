@@ -21,6 +21,8 @@ public class Livraison {
     private String id_client;
     private boolean etat;
 
+    public Livraison() {}
+
     public Livraison(String id_commande, Date date_livraison, double frais_livraison, String adresse_livraison, String id_livreur, String id_client, boolean etat) {
         this.id_commande = id_commande;
         this.date_livraison = date_livraison;
@@ -31,8 +33,17 @@ public class Livraison {
         this.etat = etat;
     }
 
-    public Livraison() {
+    public Livraison(int id, String id_commande, Date date_livraison, double frais_livraison, String adresse_livraison, String id_livreur, String id_client, boolean etat) {
+        this.id = id;
+        this.id_commande = id_commande;
+        this.date_livraison = date_livraison;
+        this.frais_livraison = frais_livraison;
+        this.adresse_livraison = adresse_livraison;
+        this.id_livreur = id_livreur;
+        this.id_client = id_client;
+        this.etat = etat;
     }
+
 
     public int getId() {
         return id;
