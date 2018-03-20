@@ -5,76 +5,64 @@
  */
 package entites;
 
-import java.util.Date;
-
 /**
  *
  * @author iheb bf
  */
 public class Commande {
     
-    private int id;
-    private int nbr_totale;
-    private double prix_totale;
-    private Date date;
-    private Boolean etat;
+  private  int    etat;
+  private  int    id;
+  private  int    id_client;
+  private  double prix_tot;
 
-    public Commande() {}
-
-    public Commande(int id, int nbr_totale, double prix_totale, Date date, Boolean etat) {
-        this.id = id;
-        this.nbr_totale = nbr_totale;
-        this.prix_totale = prix_totale;
-        this.date = date;
-        this.etat = etat;
+    public Commande() {
     }
-    
-    public Commande(int nbr_totale, double prix_totale, Date date, Boolean etat) {
-        this.nbr_totale = nbr_totale;
-        this.prix_totale = prix_totale;
-        this.date = date;
+
+    public Commande(int etat, int id, int id_client, double prix_tot) {
         this.etat = etat;
+        this.id = id;
+        this.id_client = id_client;
+        this.prix_tot = prix_tot;
+    }
+
+    public Commande(int etat, int id_client, double prix_tot) {
+        this.etat = etat;
+        this.id_client = id_client;
+        this.prix_tot = prix_tot;
+    }
+
+    public int getEtat() {
+        return etat;
     }
 
     public int getId() {
         return id;
     }
 
-    
-
-    public int getNbr_totale() {
-        return nbr_totale;
+    public int getId_client() {
+        return id_client;
     }
 
-    public void setNbr_totale(int nbr_totale) {
-        this.nbr_totale = nbr_totale;
+    public double getPrix_tot() {
+        return prix_tot;
     }
 
-    public double getPrix_totale() {
-        return prix_totale;
-    }
-
-    public void setPrix_totale(double prix_totale) {
-        this.prix_totale = prix_totale;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Boolean getEtat() {
-        return etat;
-    }
-
-    public void setEtat(Boolean etat) {
+    public void setEtat(int etat) {
         this.etat = etat;
     }
-    
-    
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setId_client(int id_client) {
+        this.id_client = id_client;
+    }
+
+    public void setPrix_tot(double prix_tot) {
+        this.prix_tot = prix_tot;
+    }
+
     
 }
