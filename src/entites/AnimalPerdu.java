@@ -19,6 +19,27 @@ public class AnimalPerdu {
     private Date date_disparition;
     private String lieu_dispairition; 
 
+    
+        public AnimalPerdu() {}
+
+        public AnimalPerdu(int id, int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
+        this.id = id;
+        this.id_animal = id_animal;
+        this.etat = etat;
+        this.date_disparition = date_disparition;
+        this.lieu_dispairition = lieu_dispairition;
+    }
+    
+
+
+        public AnimalPerdu( int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
+        
+        this.id_animal = id_animal;
+        this.etat = etat;
+        this.date_disparition = date_disparition;
+        this.lieu_dispairition = lieu_dispairition;
+    }
+
     public int getId() {
         return id;
     }
@@ -82,17 +103,5 @@ public class AnimalPerdu {
     public void setLieu_dispairition(String lieu_dispairition) {
         this.lieu_dispairition = lieu_dispairition;
     }
- 
 
-    public AnimalPerdu( int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
-        
-        this.id_animal = id_animal;
-        this.etat = etat;
-        this.date_disparition = date_disparition;
-        this.lieu_dispairition = lieu_dispairition;
-    }
-
-    public AnimalPerdu() {
-    }
-    
 }

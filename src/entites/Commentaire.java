@@ -19,8 +19,24 @@ public class Commentaire {
     private Date myDate ;
     private String client;
     private int id_cible;
-  
 
+    public Commentaire(){}
+    
+    public Commentaire(int id, String texte, Date myDate, String client, int id_cible) {
+        this.id = id;
+        this.texte = texte;
+        this.myDate = myDate;
+        this.client = client;
+        this.id_cible = id_cible;
+    }
+    
+    public Commentaire(String texte, String client, int id_cible) {
+        this.texte = texte;
+        this.client = client;
+        this.id_cible = id_cible;
+    }
+    
+    
     public Date getMyDate() {
         return myDate;
     }
@@ -54,11 +70,7 @@ public class Commentaire {
         this.id_cible = id_cible;
     }
 
-    public Commentaire(String texte, String client, int id_cible) {
-        this.texte = texte;
-        this.client = client;
-        this.id_cible = id_cible;
-    }
+
     
 
 

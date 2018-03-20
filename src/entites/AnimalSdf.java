@@ -17,6 +17,26 @@ public class AnimalSdf {
     private Date date_trouvaille;
     private String lieu_trouvaille;
     private int id_client;
+    
+        public AnimalSdf(){}
+
+        public AnimalSdf(int id, String sexe, Date date_trouvaille, String lieu_trouvaille, int id_client, String nom_image) {
+        this.id = id;
+        this.sexe = sexe;
+        this.date_trouvaille = date_trouvaille;
+        this.lieu_trouvaille = lieu_trouvaille;
+        this.id_client = id_client;
+        this.nom_image = nom_image;
+    }
+    
+        public AnimalSdf(String sexe, String nom_image, Date date_trouvaille, String lieu_trouvaille, int id_client) {
+        
+        this.sexe = sexe;
+        this.nom_image = nom_image;
+        this.date_trouvaille = date_trouvaille;
+        this.lieu_trouvaille = lieu_trouvaille;
+        this.id_client = id_client;
+    }    
 
     public int getId() {
         return id;
@@ -63,20 +83,8 @@ public class AnimalSdf {
     public void setId_client(int id_client) {
         this.id_client = id_client;
     }
-   
-
-    public AnimalSdf(String sexe, String nom_image, Date date_trouvaille, String lieu_trouvaille, int id_client) {
-        
-        this.sexe = sexe;
-        this.nom_image = nom_image;
-        this.date_trouvaille = date_trouvaille;
-        this.lieu_trouvaille = lieu_trouvaille;
-        this.id_client = id_client;
-    }
-
-    public AnimalSdf() {
-    }
-
+  
+    
     @Override
     public int hashCode() {
         int hash = 5;

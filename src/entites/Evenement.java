@@ -25,6 +25,8 @@ public class Evenement {
    private Boolean etat;
    private String nom_image;
 
+    public Evenement(){}
+
     public Evenement(String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image) {
         this.nom = nom;
         this.description = description;
@@ -35,7 +37,15 @@ public class Evenement {
         this.nom_image = nom_image;
     }
 
-    public Evenement() {
+    public Evenement(int id, String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.nbr_participants = nbr_participants;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.etat = etat;
+        this.nom_image = nom_image;
     }
 
     public int getId() {
