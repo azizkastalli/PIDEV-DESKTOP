@@ -17,11 +17,11 @@ public class Commande {
     private int nbr_totale;
     private double prix_totale;
     private Date date;
-    private Boolean etat;
+    private int etat;
 
     public Commande() {}
 
-    public Commande(int id, int nbr_totale, double prix_totale, Date date, Boolean etat) {
+    public Commande(int id, int nbr_totale, double prix_totale, Date date, int etat) {
         this.id = id;
         this.nbr_totale = nbr_totale;
         this.prix_totale = prix_totale;
@@ -29,7 +29,7 @@ public class Commande {
         this.etat = etat;
     }
     
-    public Commande(int nbr_totale, double prix_totale, Date date, Boolean etat) {
+    public Commande(int nbr_totale, double prix_totale, Date date, int etat) {
         this.nbr_totale = nbr_totale;
         this.prix_totale = prix_totale;
         this.date = date;
@@ -66,11 +66,11 @@ public class Commande {
         this.date = date;
     }
 
-    public Boolean getEtat() {
+    public int getEtat() {
         return etat;
     }
 
-    public void setEtat(Boolean etat) {
+    public void setEtat(int etat) {
         this.etat = etat;
     }
     
