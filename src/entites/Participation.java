@@ -40,6 +40,12 @@ public class Participation {
         return id_evenement;
     }
 
+    public Participation(int id, int id_client, int id_evenement) {
+        this.id = id;
+        this.id_client = id_client;
+        this.id_evenement = id_evenement;
+    }
+
    
     
     

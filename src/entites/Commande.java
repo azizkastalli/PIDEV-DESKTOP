@@ -26,6 +26,15 @@ public class Commande {
         this.etat = etat;
     }
 
+    public Commande(int id, int nbr_totale, double prix_totale, Date date, Boolean etat) {
+        this.id = id;
+        this.nbr_totale = nbr_totale;
+        this.prix_totale = prix_totale;
+        this.date = date;
+        this.etat = etat;
+    }
+    
+
     public Commande() {
     }
 
