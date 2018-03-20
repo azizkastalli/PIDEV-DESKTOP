@@ -5,8 +5,6 @@
  */
 package pidev;
 
-import pidev.*;
-
 /**
  *
  * @author iheb bf
