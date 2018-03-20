@@ -22,6 +22,8 @@ public class Rdv_Dresseur {
     private boolean etat;
     private int id_dresseur;
 
+    public Rdv_Dresseur() {}
+    
     public Rdv_Dresseur(int id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, int id_dresseur) {
         this.id_client = id_client;
         this.coordonnees = coordonnees;
@@ -31,6 +33,19 @@ public class Rdv_Dresseur {
         this.etat = etat;
         this.id_dresseur = id_dresseur;
     }
+
+    public Rdv_Dresseur(int id, int id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, int id_dresseur) {
+        this.id = id;
+        this.id_client = id_client;
+        this.coordonnees = coordonnees;
+        this.id_animal = id_animal;
+        this.date_rdv = date_rdv;
+        this.duree_seance = duree_seance;
+        this.etat = etat;
+        this.id_dresseur = id_dresseur;
+    }
+    
+    
 
     public int getId_client() {
         return id_client;
@@ -116,12 +131,6 @@ public class Rdv_Dresseur {
     @Override
     public String toString() {
         return "Rdv_Dresseur{" + "id=" + id + ", id_client=" + id_client + ", coordonnees=" + coordonnees + ", id_animal=" + id_animal + ", date_rdv=" + date_rdv + ", duree_seance=" + duree_seance + ", etat=" + etat + ", id_dresseur=" + id_dresseur + '}';
-    }
-
-    public Rdv_Dresseur() {
-    }
-
-  
-    
+    }    
     
 }

@@ -16,6 +16,8 @@ private String  id_client;
 private String  id_produit;
 private int     quantite;
 
+    public Panier(){}
+    
     public Panier(String id_client, String id_produit, int quantite) {
         this.id_client = id_client;
         this.id_produit = id_produit;

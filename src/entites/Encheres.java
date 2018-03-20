@@ -15,6 +15,8 @@ public class Encheres {
     private String id_proprietaire;
     private String id_cible;
     private Date   date_debut;
+   
+    public Encheres(){}
     
     public Encheres(int id_encheres) {
         this.id_encheres=id_encheres;

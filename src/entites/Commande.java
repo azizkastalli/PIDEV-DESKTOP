@@ -19,14 +19,21 @@ public class Commande {
     private Date date;
     private Boolean etat;
 
-    public Commande(int nbr_totale, double prix_totale, Date date, Boolean etat) {
+    public Commande() {}
+
+    public Commande(int id, int nbr_totale, double prix_totale, Date date, Boolean etat) {
+        this.id = id;
         this.nbr_totale = nbr_totale;
         this.prix_totale = prix_totale;
         this.date = date;
         this.etat = etat;
     }
-
-    public Commande() {
+    
+    public Commande(int nbr_totale, double prix_totale, Date date, Boolean etat) {
+        this.nbr_totale = nbr_totale;
+        this.prix_totale = prix_totale;
+        this.date = date;
+        this.etat = etat;
     }
 
     public int getId() {

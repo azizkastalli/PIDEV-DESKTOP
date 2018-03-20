@@ -29,6 +29,8 @@ private String  salt;
 private String  username;
 private String  username_canonical;
 
+    public User(){}
+
     public User(int id, String confirmation_token, String email, String email_canonical, int enabled, Date last_login, String nom, String password, Date password_requested_at, String prenom, int prix_unitaire, String roles, String salt, String username, String username_canonical) {
         this.id = id;
         this.confirmation_token = confirmation_token;

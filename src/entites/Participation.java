@@ -15,15 +15,19 @@ public class Participation {
     private int id_client;
     private int id_evenement;
 
-    public Participation() {
-    }
-
+    public Participation() {}
     
     public Participation(int id_client, int id_evenement) {
         this.id_client = id_client;
         this.id_evenement = id_evenement;
     }
 
+    public Participation(int id, int id_client, int id_evenement) {
+        this.id = id;
+        this.id_client = id_client;
+        this.id_evenement = id_evenement;
+    }
+    
     public int getId() {
         return id;
     }

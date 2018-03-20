@@ -23,6 +23,13 @@ public class Lignecommande {
         this.id_commande = id_commande;
     }
 
+    public Lignecommande(int id, int id_panier, int id_commande) {
+        this.id = id;
+        this.id_panier = id_panier;
+        this.id_commande = id_commande;
+    }
+
+    
     public int getId() {
         return id;
     }
