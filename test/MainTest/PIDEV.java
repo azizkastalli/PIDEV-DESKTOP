@@ -3,13 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pidev;
-
-import pidev.*;
+package MainTest;
 
 /**
  *
- * @author iheb bf
+ * @author azizkastalli
  */
 public class PIDEV {
 

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package entites;
-import java.util.Date;
+import java.sql.Date;
 /**
  *
  * @author azizkastalli
@@ -15,7 +15,18 @@ public class Encheres {
     private String id_proprietaire;
     private String id_cible;
     private Date   date_debut;
+    
+    public Encheres(int id_encheres) {
+        this.id_encheres=id_encheres;
+        }
 
+    
+    public Encheres(int id_encheres,double seuil_mise, Date date_debut) {
+        this.id_encheres=id_encheres;
+        this.seuil_mise = seuil_mise;
+        this.date_debut = date_debut;
+    }
+    
     public Encheres(int id_encheres,double seuil_mise, String id_proprietaire, String id_cible, Date date_debut) {
         this.id_encheres=id_encheres;
         this.seuil_mise = seuil_mise;
@@ -63,5 +74,5 @@ public class Encheres {
     public void setDate_debut(Date date_debut) {
         this.date_debut = date_debut;
     }
-    
+ 
 }
