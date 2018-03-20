@@ -31,12 +31,8 @@ public class Encheres {
     public int getId_encheres() {
         return id_encheres;
     }
-    
-   
-    
-    
-    
-public double getSeuil_mise() {
+
+    public double getSeuil_mise() {
         return seuil_mise;
     }
 
