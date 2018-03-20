@@ -32,7 +32,6 @@ public class Encheres {
         return id_encheres;
     }
 
-
     public double getSeuil_mise() {
         return seuil_mise;
     }

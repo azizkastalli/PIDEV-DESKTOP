@@ -7,7 +7,7 @@ package pidev;
 
 /**
  *
- * @author azizkastalli
+ * @author iheb bf
  */
 public class PIDEV {
 
@@ -15,7 +15,7 @@ public class PIDEV {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    //do some code here 
+        // TODO code application logic here
     }
     
 }
