@@ -43,8 +43,5 @@ public class Participation {
     public int getId_evenement() {
         return id_evenement;
     }
-
-   
-    
     
 }

@@ -45,9 +45,6 @@ public class Lignecommande {
     public int getId_commande() {
         return id_commande;
     }
-
-    
-    
     
     
 }

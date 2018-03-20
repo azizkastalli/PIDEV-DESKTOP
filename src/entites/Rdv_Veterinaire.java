@@ -20,10 +20,19 @@ public class Rdv_Veterinaire {
     private double prix;
     private boolean etat;
 
-    public Rdv_Veterinaire() {
-    }
+    public Rdv_Veterinaire() {}
 
     public Rdv_Veterinaire(String id_client, String id_vet, Date date_rdv, Date duree_seance, double prix, boolean etat) {
+        this.id_client = id_client;
+        this.id_vet = id_vet;
+        this.date_rdv = date_rdv;
+        this.duree_seance = duree_seance;
+        this.prix = prix;
+        this.etat = etat;
+    }
+
+    public Rdv_Veterinaire(int id, String id_client, String id_vet, Date date_rdv, Date duree_seance, double prix, boolean etat) {
+        this.id = id;
         this.id_client = id_client;
         this.id_vet = id_vet;
         this.date_rdv = date_rdv;
