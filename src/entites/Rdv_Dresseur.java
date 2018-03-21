@@ -6,7 +6,7 @@
 package entites;
 
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -14,17 +14,17 @@ import java.util.Date;
  */
 public class Rdv_Dresseur {
     private int id;
-    private int id_client;
+    private String id_client;
     private String coordonnees;
     private int id_animal;
     private Date date_rdv;
-    private Date duree_seance;
+    private Time duree_seance;
     private boolean etat;
-    private int id_dresseur;
+    private String id_dresseur;
 
     public Rdv_Dresseur() {}
     
-    public Rdv_Dresseur(int id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, int id_dresseur) {
+    public Rdv_Dresseur(String id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, String id_dresseur) {
         this.id_client = id_client;
         this.coordonnees = coordonnees;
         this.id_animal = id_animal;
@@ -34,7 +34,7 @@ public class Rdv_Dresseur {
         this.id_dresseur = id_dresseur;
     }
 
-    public Rdv_Dresseur(int id, int id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, int id_dresseur) {
+    public Rdv_Dresseur(int id, String id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, String id_dresseur) {
         this.id = id;
         this.id_client = id_client;
         this.coordonnees = coordonnees;
@@ -47,11 +47,11 @@ public class Rdv_Dresseur {
     
     
 
-    public int getId_client() {
+    public String getId_client() {
         return id_client;
     }
 
-    public void setId_client(int id_client) {
+    public void setId_client(String id_client) {
         this.id_client = id_client;
     }
 
@@ -79,11 +79,11 @@ public class Rdv_Dresseur {
         this.date_rdv = date_rdv;
     }
 
-    public Date getDuree_seance() {
+    public Time getDuree_seance() {
         return duree_seance;
     }
 
-    public void setDuree_seance(Date duree_seance) {
+    public void setDuree_seance(Time duree_seance) {
         this.duree_seance = duree_seance;
     }
 
@@ -95,11 +95,11 @@ public class Rdv_Dresseur {
         this.etat = etat;
     }
 
-    public int getId_dresseur() {
+    public String getId_dresseur() {
         return id_dresseur;
     }
 
-    public void setId_dresseur(int id_dresseur) {
+    public void setId_dresseur(String id_dresseur) {
         this.id_dresseur = id_dresseur;
     }
 

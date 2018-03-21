@@ -5,7 +5,7 @@
  */
 package entites;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -13,16 +13,16 @@ import java.util.Date;
  */
 public class Rdv_Veterinaire {
     private int id;
-    private String id_client;
-    private String id_vet;
+    private int id_client;
+    private int id_vet;
     private Date date_rdv;
-    private Date duree_seance;
+    private int duree_seance;
     private double prix;
     private boolean etat;
 
     public Rdv_Veterinaire() {}
 
-    public Rdv_Veterinaire(String id_client, String id_vet, Date date_rdv, Date duree_seance, double prix, boolean etat) {
+    public Rdv_Veterinaire(int id_client, int id_vet, Date date_rdv, int duree_seance, double prix, boolean etat) {
         this.id_client = id_client;
         this.id_vet = id_vet;
         this.date_rdv = date_rdv;
@@ -31,7 +31,7 @@ public class Rdv_Veterinaire {
         this.etat = etat;
     }
 
-    public Rdv_Veterinaire(int id, String id_client, String id_vet, Date date_rdv, Date duree_seance, double prix, boolean etat) {
+    public Rdv_Veterinaire(int id, int id_client, int id_vet, Date date_rdv, int duree_seance, double prix, boolean etat) {
         this.id = id;
         this.id_client = id_client;
         this.id_vet = id_vet;
@@ -45,19 +45,19 @@ public class Rdv_Veterinaire {
         return id;
     }
 
-    public String getId_client() {
+    public int getId_client() {
         return id_client;
     }
 
-    public void setId_client(String id_client) {
+    public void setId_client(int id_client) {
         this.id_client = id_client;
     }
 
-    public String getId_vet() {
+    public int getId_vet() {
         return id_vet;
     }
 
-    public void setId_vet(String id_vet) {
+    public void setId_vet(int id_vet) {
         this.id_vet = id_vet;
     }
 
@@ -69,11 +69,11 @@ public class Rdv_Veterinaire {
         this.date_rdv = date_rdv;
     }
 
-    public Date getDuree_seance() {
+    public int getDuree_seance() {
         return duree_seance;
     }
 
-    public void setDuree_seance(Date duree_seance) {
+    public void setDuree_seance(int duree_seance) {
         this.duree_seance = duree_seance;
     }
 
