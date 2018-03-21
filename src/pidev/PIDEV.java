@@ -5,11 +5,9 @@
  */
 package pidev;
 
-import pidev.*;
-
 /**
  *
- * @author azizkastalli
+ * @author iheb bf
  */
 public class PIDEV {
 

@@ -15,6 +15,8 @@ public class Encheres {
     private String id_proprietaire;
     private String id_cible;
     private Date   date_debut;
+   
+    public Encheres(){}
     
     public Encheres(int id_encheres) {
         this.id_encheres=id_encheres;
@@ -35,12 +37,12 @@ public class Encheres {
         this.date_debut = date_debut;
     }
 
-    public int getId_encheres() {
-        return id_encheres;
-    }
-
     public void setId_encheres(int id_encheres) {
         this.id_encheres = id_encheres;
+    }
+
+    public int getId_encheres() {
+        return id_encheres;
     }
 
     public double getSeuil_mise() {
