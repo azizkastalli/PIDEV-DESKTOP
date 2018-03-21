@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="1024.0" style="-fx-background-color: #FF4500;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MenuController">
+    <stylesheets>
+        <URL value="@menu.css" />
+    </stylesheets>
+   <children>
+      <HBox layoutX="-1.0" prefHeight="95.0" prefWidth="1025.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="20.0" top="15.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../../../../../Desktop/Zanimauxlogo.png" />
+               </image>
+            </ImageView>
+            <Label lineSpacing="10.0" styleClass="menu-item" text="Acceuil" textAlignment="CENTER" textFill="#5c5c5c">
+               <font>
+                  <Font name="System Italic" size="25.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" top="38.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label lineSpacing="10.0" styleClass="menu-item" text="Services" textAlignment="CENTER" textFill="#5e5e5e">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="38.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label lineSpacing="10.0" styleClass="menu-item" text="Produit" textAlignment="CENTER" textFill="#5e5e5e">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets top="38.0" />
+               </HBox.margin>
+            </Label>
+            <Label lineSpacing="10.0" styleClass="menu-item" text="Evenements" textAlignment="CENTER" textFill="#5e5e5e">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets top="38.0" />
+               </HBox.margin>
+            </Label>
+            <Label lineSpacing="10.0" styleClass="menu-item" text="Veterinaires" textAlignment="CENTER" textFill="#5e5e5e">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets top="38.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/panier.png" />
+               </image>
+               <HBox.margin>
+                  <Insets top="38.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane layoutX="-1.0" layoutY="99.0" prefHeight="476.0" prefWidth="1025.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <ImageView fitHeight="111.0" fitWidth="110.0" layoutX="903.0" layoutY="-64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Desktop/profil_aziz.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
