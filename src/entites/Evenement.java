@@ -5,10 +5,8 @@
  */
 package entites;
 
-import java.util.Date;
-import java.util.TimeZone;
-import javax.print.DocFlavor;
-import java.util.Timer;
+import java.sql.Date;
+
 
 /**
  *
@@ -24,8 +22,15 @@ public class Evenement {
    private Date date_fin;
    private Boolean etat;
    private String nom_image;
+   private String nom_association;
+   private int prix;
+   private int id_association;
+   private int id_categorie;
+   
+    public Evenement(){}
 
-    public Evenement(String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image) {
+    public Evenement(int id, String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image, String nom_association, int prix, int id_association, int id_categorie) {
+        this.id = id;
         this.nom = nom;
         this.description = description;
         this.nbr_participants = nbr_participants;
@@ -33,75 +38,125 @@ public class Evenement {
         this.date_fin = date_fin;
         this.etat = etat;
         this.nom_image = nom_image;
+        this.nom_association = nom_association;
+        this.prix = prix;
+        this.id_association = id_association;
+        this.id_categorie = id_categorie;
     }
 
-    public Evenement() {
+    public Evenement(String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image, String nom_association, int prix, int id_association, int id_categorie) {
+        this.nom = nom;
+        this.description = description;
+        this.nbr_participants = nbr_participants;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.etat = etat;
+        this.nom_image = nom_image;
+        this.nom_association = nom_association;
+        this.prix = prix;
+        this.id_association = id_association;
+        this.id_categorie = id_categorie;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNom() {
         return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public int getNbr_participants() {
         return nbr_participants;
-    }
-
-    public void setNbr_participants(int nbr_participants) {
-        this.nbr_participants = nbr_participants;
     }
 
     public Date getDate_debut() {
         return date_debut;
     }
 
-    public void setDate_debut(Date date_debut) {
-        this.date_debut = date_debut;
-    }
-
     public Date getDate_fin() {
         return date_fin;
-    }
-
-    public void setDate_fin(Date date_fin) {
-        this.date_fin = date_fin;
     }
 
     public Boolean getEtat() {
         return etat;
     }
 
-    public void setEtat(Boolean etat) {
-        this.etat = etat;
-    }
-
     public String getNom_image() {
         return nom_image;
+    }
+
+    public String getNom_association() {
+        return nom_association;
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public int getId_association() {
+        return id_association;
+    }
+
+    public int getId_categorie() {
+        return id_categorie;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setNbr_participants(int nbr_participants) {
+        this.nbr_participants = nbr_participants;
+    }
+
+    public void setDate_debut(Date date_debut) {
+        this.date_debut = date_debut;
+    }
+
+    public void setDate_fin(Date date_fin) {
+        this.date_fin = date_fin;
+    }
+
+    public void setEtat(Boolean etat) {
+        this.etat = etat;
     }
 
     public void setNom_image(String nom_image) {
         this.nom_image = nom_image;
     }
 
+    public void setNom_association(String nom_association) {
+        this.nom_association = nom_association;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
+    public void setId_association(int id_association) {
+        this.id_association = id_association;
+    }
+
+    public void setId_categorie(int id_categorie) {
+        this.id_categorie = id_categorie;
+    }
+
+   
+
+  
     @Override
     public int hashCode() {
         int hash = 7;

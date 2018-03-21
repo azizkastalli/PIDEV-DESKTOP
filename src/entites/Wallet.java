@@ -15,6 +15,8 @@ public class Wallet {
     private String devise;
     private double somme;
 
+    public Wallet(){}
+    
     public Wallet(int id_user) {
         this.id_user = id_user;
     }

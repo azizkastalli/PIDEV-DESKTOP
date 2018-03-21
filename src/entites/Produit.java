@@ -24,6 +24,8 @@ public class Produit {
    private double vote;
    private String label;
 
+    public Produit(){}
+   
     public Produit(String caracteristiques, String description, String etat, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
         this.caracteristiques = caracteristiques;
         this.description = description;
@@ -38,6 +40,24 @@ public class Produit {
         this.vote = vote;
         this.label = label;
     }
+
+    public Produit(String caracteristiques, String description, String etat, int id, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
+        this.caracteristiques = caracteristiques;
+        this.description = description;
+        this.etat = etat;
+        this.id = id;
+        this.id_categorie = id_categorie;
+        this.id_propietaire = id_propietaire;
+        this.nom_image = nom_image;
+        this.poid = poid;
+        this.prix_ancien = prix_ancien;
+        this.prix_nouv = prix_nouv;
+        this.quantite = quantite;
+        this.vote = vote;
+        this.label = label;
+    }
+    
+    
 
     public String getCaracteristiques() {
         return caracteristiques;
