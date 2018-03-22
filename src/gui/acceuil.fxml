@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -70,8 +71,6 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#837f7f" size="2em" />
-            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#837f7f" layoutX="724.0" layoutY="44.0" size="2em" />
             <Label text="10£" textFill="#4f86dd">
                <font>
                   <Font name="System Bold" size="22.0" />
