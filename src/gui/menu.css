@@ -3,7 +3,16 @@
  */
 
 .menu-item:hover{
- -fx-background-color: #1E90FF;
+  -fx-background-color: #0000CD;
   -fx-text-fill: #ffffff;
 }
 
+
+.menu:hover{
+  -fx-background-color: #0000CD;
+  -fx-text-fill: #ffffff;
+}
+
+.bgmenu{
+    -fx-background-image: url("C:/Users/azizkastalli/Documents/NetBeansProjects/PIDEV/src/gui");
+}
