@@ -10,26 +10,67 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" style="-fx-background-color: #9A4595;" stylesheets="@acceuil.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AcceuilController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@acceuil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AcceuilController">
    <children>
-      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" style="-fx-background-color: #990091;" styleClass="header">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets left="10.0" />
-               </HBox.margin>
-               <children>
-                  <Label text="Menu" textFill="WHITE">
-                     <font>
-                        <Font name="Roboto Condensed Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-         </children>
+      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0" />
          </effect>
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/Zanimauxlogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin></ImageView>
+            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="35.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="30.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="25.0" top="11.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+         </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="60.0" prefHeight="504.0" prefWidth="1024.0">
          <children>
@@ -37,23 +78,23 @@
                <children>
                   <Pane layoutY="168.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="490.0" styleClass="headerBtns">
                      <children>
-                        <Pane layoutX="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="240.0" styleClass="headerBtns">
+                        <Pane layoutX="250.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="240.0" styleClass="headerBtns">
                            <children>
-                              <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                              <Pane layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
                                  <children>
-                                    <ImageView fitHeight="197.0" fitWidth="231.0" layoutX="5.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="143.0" fitWidth="231.0" layoutX="5.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../utils/magasin.jpg" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="21.0" layoutY="136.0" text="Store en ligne" textFill="WHITE">
+                                    <Label layoutX="21.0" layoutY="130.0" text="Store en ligne" textFill="WHITE">
                                        <font>
                                           <Font name="Roboto Condensed" size="16.0" />
                                        </font>
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutY="191.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                              <Pane layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
                                  <children>
                                     <ImageView fitHeight="137.0" fitWidth="135.0" layoutX="75.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -69,7 +110,7 @@
                               </Pane>
                            </children>
                         </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="243.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
                            <children>
                               <ImageView fitHeight="327.0" fitWidth="231.0" layoutX="2.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -85,9 +126,9 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="490.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="490.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
                      <children>
-                        <ImageView fitHeight="162.0" fitWidth="171.0" layoutX="317.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="156.0" fitWidth="166.0" layoutX="317.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../utils/about-img1.jpg" />
                            </image>
@@ -106,9 +147,9 @@
             </Pane>
             <Pane layoutX="210.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="500.0" styleClass="headerBtns">
                <children>
-                  <Pane layoutY="342.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="490.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                  <Pane layoutX="-7.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="497.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
                      <children>
-                        <ImageView fitHeight="162.0" fitWidth="152.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="145.0" fitWidth="138.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../utils/pet-contact-img.png" />
                            </image>
@@ -120,9 +161,9 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="490.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                  <Pane layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="497.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
                      <children>
-                        <ImageView fitHeight="336.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="336.0" fitWidth="324.0" layoutX="29.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../utils/instagram-img-03.jpg" />
                            </image>
