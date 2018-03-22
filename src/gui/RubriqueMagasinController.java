@@ -7,30 +7,14 @@ package gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author azizkastalli
  */
-public class SDEncheresController implements Initializable {
-
-    @FXML
-    private TableView<?> tv;
-    @FXML
-    private TableColumn<?, ?> tvimage;
-    @FXML
-    private TableColumn<?, ?> tvlabel;
-    @FXML
-    private TableColumn<?, ?> tvmise;
-    @FXML
-    private TableColumn<?, ?> tvdate;
-    @FXML
-    private TableColumn<?, ?> tvaction;
+public class RubriqueMagasinController implements Initializable {
 
     /**
      * Initializes the controller class.
