@@ -4,11 +4,11 @@
 .header{
     -fx-background-color: #323754;
 }
-.headerBtns{
-    -fx-background-color: transparent;
+#headerBtns{
+    -fx-background-color: #323754;
+
 }
-.headerBtns:hover{
-    -fx-background-color: transparent;
+#headerBtns:hover{
     -fx-border-color: #9A4595;
     -fx-border-width: 2px;
     -fx-border-style: solid;
@@ -32,6 +32,6 @@
 
 .menu_item:hover{
     -fx-font-weight:bold;
-    -fx-font-size:16;
-    -fx-text-color: red;
+    -fx-text-fill: white;
+    -fx-background-color: #4f86dd;
 }

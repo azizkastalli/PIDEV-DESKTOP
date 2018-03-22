@@ -24,7 +24,7 @@
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin></ImageView>
-            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#837f7f">
+            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#4f86dd">
                <font>
                   <Font size="22.0" />
                </font>
@@ -74,13 +74,13 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="60.0" prefHeight="504.0" prefWidth="1024.0">
          <children>
-            <Pane layoutX="10.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="500.0" styleClass="headerBtns">
+            <Pane layoutX="10.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="500.0">
                <children>
-                  <Pane layoutY="168.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="490.0" styleClass="headerBtns">
+                  <Pane layoutY="168.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="490.0">
                      <children>
-                        <Pane layoutX="250.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="240.0" styleClass="headerBtns">
+                        <Pane layoutX="250.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="240.0">
                            <children>
-                              <Pane layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                              <Pane id="headerBtns" layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="240.0" stylesheets="@acceuil.css">
                                  <children>
                                     <ImageView fitHeight="143.0" fitWidth="231.0" layoutX="5.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -94,7 +94,7 @@
                                     </Label>
                                  </children>
                               </Pane>
-                              <Pane layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="240.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                              <Pane id="headerBtns" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="240.0">
                                  <children>
                                     <ImageView fitHeight="137.0" fitWidth="135.0" layoutX="75.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -110,7 +110,7 @@
                               </Pane>
                            </children>
                         </Pane>
-                        <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="243.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                        <Pane id="headerBtns" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="243.0" stylesheets="@acceuil.css">
                            <children>
                               <ImageView fitHeight="327.0" fitWidth="231.0" layoutX="2.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -126,7 +126,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="490.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                  <Pane id="headerBtns" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="490.0" stylesheets="@acceuil.css">
                      <children>
                         <ImageView fitHeight="156.0" fitWidth="166.0" layoutX="317.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -145,9 +145,9 @@
                   <Insets left="5.0" />
                </HBox.margin>
             </Pane>
-            <Pane layoutX="210.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="500.0" styleClass="headerBtns">
+            <Pane layoutX="210.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="500.0">
                <children>
-                  <Pane layoutX="-7.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="497.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                  <Pane id="headerBtns" layoutX="-7.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="497.0" stylesheets="@acceuil.css">
                      <children>
                         <ImageView fitHeight="145.0" fitWidth="138.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -161,7 +161,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <Pane layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="497.0" style="-fx-background-color: #00BFF2;" styleClass="headerBtns">
+                  <Pane id="headerBtns" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="497.0" stylesheets="@acceuil.css">
                      <children>
                         <ImageView fitHeight="336.0" fitWidth="324.0" layoutX="29.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                            <image>
