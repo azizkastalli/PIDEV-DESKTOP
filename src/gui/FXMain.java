@@ -29,9 +29,9 @@ public class FXMain extends Application {
        
                Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("SDEncheres.fxml"));
+            root = FXMLLoader.load(getClass().getResource("HomeAdmin.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
         
         Scene scene = new Scene(root);    
