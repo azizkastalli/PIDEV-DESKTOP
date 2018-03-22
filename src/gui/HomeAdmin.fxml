@@ -186,7 +186,7 @@
                      <children>
                         <ImageView fitHeight="174.0" fitWidth="375.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col2-img-04.jpg" />
+                              <Image url="@../utils/gallery-col2-img-04.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -195,7 +195,7 @@
                      <children>
                         <ImageView fitHeight="174.0" fitWidth="194.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col3-img-09.jpg" />
+                              <Image url="@../utils/gallery-col3-img-09.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -204,7 +204,7 @@
                      <children>
                         <ImageView fitHeight="174.0" fitWidth="197.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col4-img-05.jpg" />
+                              <Image url="@../utils/gallery-col4-img-05.jpg" />
                            </image>
                            <HBox.margin>
                               <Insets />
@@ -216,24 +216,24 @@
                      <children>
                         <ImageView fitHeight="247.0" fitWidth="375.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col3-img-12.jpg" />
+                              <Image url="@../utils/gallery-col3-img-12.jpg" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                   <ImageView fitHeight="118.0" fitWidth="197.0" layoutX="429.0" layoutY="233.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../pidev/gallery-col4-img-02.jpg" />
+                        <Image url="@../utils/gallery-col4-img-02.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="122.0" fitWidth="197.0" layoutX="653.0" layoutY="232.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../pidev/gallery-col2-img-05.jpg" />
+                        <Image url="@../utils/gallery-col2-img-05.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="100.0" fitWidth="425.0" layoutX="422.0" layoutY="378.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../pidev/magasin.jpg" />
+                        <Image url="@../utils/magasin_1.jpg" />
                      </image>
                   </ImageView>
                </children>
