@@ -3,20 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package gui.controller;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -26,19 +21,33 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-       
-               Parent root = null;
+      
+        Parent root = null;
+        /*
         try {
-            root = FXMLLoader.load(getClass().getResource("SDEncheres.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
         } catch (IOException ex) {
-            Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
+           
         }
+          
+                         Parent root = null;*/
         
+        try {
+            root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
+        } catch (IOException ex) {
+            
+        }
+    
         Scene scene = new Scene(root);    
-        primaryStage.setTitle("ajout enchere");
+                 primaryStage.initStyle(StageStyle.UNDECORATED);
+
+        primaryStage.setTitle("test");
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
+     
     }
+        
 
     /**
      * @param args the command line arguments

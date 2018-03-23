@@ -14,6 +14,14 @@ public class Favoris {
    private int id_client;
    private int id_produit;
 
+    public Favoris(){}
+
+    public Favoris(int id, int id_client, int id_produit) {
+        this.id = id;
+        this.id_client = id_client;
+        this.id_produit = id_produit;
+    }
+    
     public Favoris(int id_client, int id_produit) {
         this.id_client = id_client;
         this.id_produit = id_produit;

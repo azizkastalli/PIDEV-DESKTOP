@@ -15,6 +15,8 @@ public class Session {
   private int id;
   private String id_gagnant;
 
+    public Session(){}
+  
     public Session(int id, String etat,double derniere_mise, String id_gagnant) {
         this.id=id;
         this.derniere_mise = derniere_mise;

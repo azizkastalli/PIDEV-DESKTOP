@@ -3,34 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
  * @author azizkastalli
  */
-public class SDEncheresController implements Initializable {
+public class RubriqueVeterinaireController implements Initializable {
 
     @FXML
-    private TableView<?> tv;
+    private VBox parent;
     @FXML
-    private TableColumn<?, ?> tvimage;
+    private Label acceuil;
     @FXML
-    private TableColumn<?, ?> tvlabel;
+    private Label services;
     @FXML
-    private TableColumn<?, ?> tvmise;
+    private Label produits;
     @FXML
-    private TableColumn<?, ?> tvdate;
+    private Label veterinaires;
     @FXML
-    private TableColumn<?, ?> tvaction;
+    private Label evenements;
 
     /**
      * Initializes the controller class.
@@ -39,5 +40,13 @@ public class SDEncheresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void Menu(MouseEvent event) {
+        
+        MenuController menu = new MenuController();
+        menu.GestionMenu(event);
+              
+    }
     
 }

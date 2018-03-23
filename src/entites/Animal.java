@@ -14,6 +14,14 @@ public class Animal {
    int id;
    String sexe;
 
+    public Animal(){}
+
+    public Animal(int age, int id, String sexe) {
+        this.age = age;
+        this.id = id;
+        this.sexe = sexe;
+    }
+   
     public Animal(int age, String sexe) {
         this.age = age;
         this.sexe = sexe;

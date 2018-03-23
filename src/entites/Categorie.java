@@ -14,6 +14,14 @@ public class Categorie {
     private String nom;
     private String type;
 
+    public Categorie(){}
+    
+    public Categorie(int id, String nom, String type) {
+        this.id = id;
+        this.nom = nom;
+        this.type = type;
+    }
+    
     public Categorie(String nom, String type) {
         this.nom = nom;
         this.type = type;
