@@ -23,19 +23,11 @@ import javafx.stage.Stage;
  *
  * @author iheb bf
  */
-
-
-public class HomeAdminController implements Initializable {
+public class ServiceAdminController implements Initializable {
 
     @FXML
     private HBox ev;
 
-    public HomeAdminController() {
-    }
-
-   
-
-    
     /**
      * Initializes the controller class.
      */
@@ -43,8 +35,7 @@ public class HomeAdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
+  @FXML
     private void ClickStore(MouseEvent event) {
         
        try {
@@ -64,7 +55,6 @@ public class HomeAdminController implements Initializable {
         
     }
     }
-
 
     @FXML
     private void ClickEvenement(MouseEvent event) {
@@ -168,6 +158,4 @@ public class HomeAdminController implements Initializable {
     }
 
    
-    
-    
 }

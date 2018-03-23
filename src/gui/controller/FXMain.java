@@ -21,8 +21,16 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+      
+        Parent root = null;
+        /*
+        try {
+            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+        } catch (IOException ex) {
+           
+        }
           
-                         Parent root = null;
+                         Parent root = null;*/
         
         try {
             root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
@@ -31,6 +39,8 @@ public class FXMain extends Application {
         }
     
         Scene scene = new Scene(root);    
+                 primaryStage.initStyle(StageStyle.UNDECORATED);
+
         primaryStage.setTitle("test");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);

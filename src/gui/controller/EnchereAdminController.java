@@ -15,7 +15,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -23,19 +22,8 @@ import javafx.stage.Stage;
  *
  * @author iheb bf
  */
+public class EnchereAdminController implements Initializable {
 
-
-public class HomeAdminController implements Initializable {
-
-    @FXML
-    private HBox ev;
-
-    public HomeAdminController() {
-    }
-
-   
-
-    
     /**
      * Initializes the controller class.
      */
@@ -43,8 +31,8 @@ public class HomeAdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-    @FXML
+    
+      @FXML
     private void ClickStore(MouseEvent event) {
         
        try {
@@ -65,7 +53,6 @@ public class HomeAdminController implements Initializable {
     }
     }
 
-
     @FXML
     private void ClickEvenement(MouseEvent event) {
         
@@ -75,7 +62,7 @@ public class HomeAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+               // app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -95,7 +82,7 @@ public class HomeAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -115,7 +102,7 @@ public class HomeAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+             //   app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -135,7 +122,7 @@ public class HomeAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -155,7 +142,7 @@ public class HomeAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -168,6 +155,5 @@ public class HomeAdminController implements Initializable {
     }
 
    
-    
     
 }
