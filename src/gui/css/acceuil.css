@@ -4,39 +4,32 @@
 .header{
     -fx-background-color: #323754;
 }
-#headerBtns{
-    -fx-background-color: black;
+#headerBtns:hover{
     -fx-opacity: 0.75;
 }
-#headerBtns:hover{
+#headerBtns{
     -fx-opacity: 1;
 }
 
-#main-menu-label:hover{
-        -fx-font-size:25;
-        -fx-font-weight:bold;
-        -fx-text-fill: white;
-        -fx-background-color: #4f86dd;
 
-}
 
 #main-menu-label{
         -fx-font-size:25;
         -fx-font-weight:bold;
-        -fx-text-fill: #15478c;
+        -fx-text-fill: white;
 }
 
 
 .menu_bar{
     -fx-background-color: white;
-    -fx-background-image:url("../utils/assets/menu.png");
-   -fx-background-position: center center;
+    -fx-background-image:url("/utils/assets/menu.png");
+    -fx-background-position: center center;
 }
 
 .main
 {
         -fx-background-color: #4169E1;
-        -fx-background-image:url("../utils/assets/menu2.png");
+        -fx-background-image:url("/utils/assets/menu2.png");
 }
 
 .menu_item{

@@ -36,17 +36,14 @@ public class AcceuilController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    @FXML
     private void minimize(ActionEvent event) {
         ((Node) event.getSource()).getScene().getWindow().hide();
     }
 
-    @FXML
     private void close(ActionEvent event) {
         System.exit(0);
     }
 
-    @FXML
     private void open_mails(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("/com/views/MailsUi.fxml"));
         parent.getChildren().removeAll();
