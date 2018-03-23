@@ -42,12 +42,12 @@ public class HomeAdminController implements Initializable {
     private void ClickStore(MouseEvent event) {
         
        try {
-              Parent home_page_parent = FXMLLoader.load(getClass().getResource("RubriqueMagasin.fxml"));
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/RubriqueMagasin.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             

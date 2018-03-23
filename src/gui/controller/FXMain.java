@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -22,12 +23,14 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
                  Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/RubriqueMagasin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
         } catch (IOException ex) {
            
         }
         
         Scene scene = new Scene(root);    
+                 primaryStage.initStyle(StageStyle.UNDECORATED);
+
         primaryStage.setTitle("test");
         primaryStage.setScene(scene);
         primaryStage.show();
