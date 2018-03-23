@@ -49,5 +49,11 @@ public class AcceuilController implements Initializable {
         parent.getChildren().removeAll();
         parent.getChildren().setAll(fxml);        
     }
+
+    private void RubriqueMagasin(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("/gui/RubriqueMagasin.fxml"));
+        parent.getChildren().removeAll();
+        parent.getChildren().setAll(fxml);        
+    }
     
 }

@@ -6,11 +6,14 @@
 package gui.controller;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -20,18 +23,22 @@ public class FXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-                 Parent root = null;
+          
+                         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/RubriqueMagasin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         } catch (IOException ex) {
            
         }
         
         Scene scene = new Scene(root);    
         primaryStage.setTitle("test");
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
+     
     }
+        
 
     /**
      * @param args the command line arguments

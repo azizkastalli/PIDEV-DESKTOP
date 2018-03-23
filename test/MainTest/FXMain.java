@@ -23,7 +23,7 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
                  Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/Acceuil.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
         } catch (IOException ex) {
            
         }
@@ -32,6 +32,7 @@ public class FXMain extends Application {
         primaryStage.setTitle("test");
         primaryStage.setScene(scene);
         primaryStage.show();
+     
     }
 
     /**
