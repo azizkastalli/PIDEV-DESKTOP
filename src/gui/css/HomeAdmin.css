@@ -16,3 +16,32 @@ and open the template in the editor.
     
     -fx-background-color: #202332;
 }
+
+#store:hover{
+     -fx-background-color: #202332;
+}
+
+#main-menu-label{
+        -fx-font-size:25;
+        -fx-font-weight:bold;
+        -fx-text-fill: white;
+}
+
+
+
+
+#headerBtns{
+    -fx-opacity: 1;
+}
+#headerBtns:hover{
+    -fx-opacity: 0.5;
+         
+
+}
+
+.parent{
+    -fx-background-color: #323754;
+}
+.header{
+    -fx-background-color: #323754;
+}
