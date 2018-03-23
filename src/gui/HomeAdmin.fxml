@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minHeight="-Infinity" prefHeight="574.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.HomeAdminController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" prefHeight="574.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.HomeAdminController">
    
    <children>
       <VBox prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
@@ -45,7 +45,7 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickStore" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@HomeAdmin.css">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickStore" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -67,7 +67,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </HBox>
-            <HBox fx:id="ev" alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEvenement" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@HomeAdmin.css">
+            <HBox fx:id="ev" alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEvenement" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -86,7 +86,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEncheres" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@HomeAdmin.css">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEncheres" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -105,7 +105,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickServices" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@HomeAdmin.css">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickServices" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -124,7 +124,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickVeterinaire" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@HomeAdmin.css">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickVeterinaire" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -143,7 +143,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickProduit" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@HomeAdmin.css">
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickProduit" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
                <padding>
                   <Insets left="10.0" />
                </padding>
@@ -166,14 +166,14 @@
       </VBox>
       <VBox layoutX="333.0" layoutY="1.0" prefHeight="574.0" prefWidth="869.0">
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="869.0" style="-fx-background-color: #fff;">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="869.0" style="-fx-background-color: #fff;">
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" color="#4ca9c3" height="29.06" radius="9.265" spread="0.07" width="10.0" />
                </effect>
                <children>
-                  <ImageView fitHeight="75.0" fitWidth="235.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="68.0" fitWidth="90.0" layoutX="3.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../wamp/www/pidev4.0/web/images/cp-logo.png" />
+                        <Image url="@../utils/assets/Zanimauxlogo.png" />
                      </image>
                   </ImageView>
                   <FontAwesomeIconView glyphName="BELL" glyphStyle="-fx-fill:#7c8184" layoutX="808.0" layoutY="46.0" size="1.5em" />
@@ -186,7 +186,7 @@
                      <children>
                         <ImageView fitHeight="174.0" fitWidth="375.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col2-img-04.jpg" />
+                              <Image url="@../utils/assets/gallery-col2-img-04.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -195,7 +195,7 @@
                      <children>
                         <ImageView fitHeight="174.0" fitWidth="194.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col3-img-09.jpg" />
+                              <Image url="@../utils/assets/gallery-col3-img-11.jpg" />
                            </image>
                         </ImageView>
                      </children>
@@ -204,7 +204,7 @@
                      <children>
                         <ImageView fitHeight="174.0" fitWidth="197.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col4-img-05.jpg" />
+                              <Image url="@../utils/assets/gallery-col4-img-05.jpg" />
                            </image>
                            <HBox.margin>
                               <Insets />
@@ -216,24 +216,24 @@
                      <children>
                         <ImageView fitHeight="247.0" fitWidth="375.0" pickOnBounds="true">
                            <image>
-                              <Image url="@../pidev/gallery-col3-img-12.jpg" />
+                              <Image url="@../utils/assets/gallery-col3-img-12.jpg" />
                            </image>
                         </ImageView>
                      </children>
                   </HBox>
                   <ImageView fitHeight="118.0" fitWidth="197.0" layoutX="429.0" layoutY="233.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../pidev/gallery-col4-img-02.jpg" />
+                        <Image url="@../utils/assets/gallery-col4-img-02.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="122.0" fitWidth="197.0" layoutX="653.0" layoutY="232.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../pidev/gallery-col2-img-05.jpg" />
+                        <Image url="@../utils/assets/gallery-col2-img-05.jpg" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="100.0" fitWidth="425.0" layoutX="422.0" layoutY="378.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../pidev/magasin.jpg" />
+                        <Image url="@../utils/assets/magasin_1.jpg" />
                      </image>
                   </ImageView>
                </children>

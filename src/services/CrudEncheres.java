@@ -5,7 +5,7 @@
  */
 package services;
 
-import config.Dbconnection;
+import utils.Dbconnection;
 import entites.Encheres;
 import java.sql.Connection;
 import java.sql.Date;

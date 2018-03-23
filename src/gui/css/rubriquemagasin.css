@@ -17,14 +17,14 @@
 
 .menu_bar{
     -fx-background-color: #4169E1;
-    -fx-background-image:url("../utils/menu.png");
+    -fx-background-image:url("../utils/assets/menu.png");
    -fx-background-position: center center;
 }
 
 .main
 {
         -fx-background-color: white;
-        -fx-background-image:url("../utils/menu2.png");
+        -fx-background-image:url("../utils/assets/menu2.png");
 }
 
 .menu_item{

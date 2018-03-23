@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@acceuil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AcceuilController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@acceuil.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AcceuilController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -71,8 +71,6 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#837f7f" size="2em" />
-            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#837f7f" layoutX="724.0" layoutY="44.0" size="2em" />
             <Label text="10£" textFill="#4f86dd">
                <font>
                   <Font name="System Bold" size="22.0" />
