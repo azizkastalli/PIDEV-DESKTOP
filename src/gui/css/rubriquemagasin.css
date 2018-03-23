@@ -1,30 +1,14 @@
-.parent{
-    -fx-background-color: #323754;
-}
-.header{
-    -fx-background-color: #323754;
-}
-#headerBtns{
-    -fx-background-color: #323754;
-
-}
-#headerBtns:hover{
-    -fx-border-color: #9A4595;
-    -fx-border-width: 2px;
-    -fx-border-style: solid;
-}
 
 
 .menu_bar{
     -fx-background-color: #4169E1;
-    -fx-background-image:url("../utils/assets/menu.png");
-   -fx-background-position: center center;
+    -fx-background-image:url("/utils/assets/menu.png");
 }
 
 .main
 {
         -fx-background-color: white;
-        -fx-background-image:url("../utils/assets/menu2.png");
+        -fx-background-image:url("/utils/assets/menu2.png");
 }
 
 .menu_item{

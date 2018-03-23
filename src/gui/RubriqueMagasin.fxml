@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@rubriquemagasin.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AcceuilController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriquemagasin.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AcceuilController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -18,7 +19,7 @@
          <children>
             <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../utils/Zanimauxlogo.png" />
+                  <Image url="@../utils/assets/Zanimauxlogo.png" />
                </image>
                <HBox.margin>
                   <Insets left="25.0" />
@@ -69,7 +70,7 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
-            <Label text="10£" textFill="#4f86dd">
+            <Label text="10£" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -77,20 +78,24 @@
                   <Insets left="100.0" />
                </HBox.margin>
             </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
                <HBox.margin>
-                  <Insets left="20.0" />
+                  <Insets left="12.0" />
                </HBox.margin>
-               <image>
-                  <Image url="@../utils/panier.png" />
-               </image></ImageView>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
             <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../utils/profile.png" />
-               </image></ImageView>
+                  <Image url="@../utils/assets/profile.png" />
+               </image>
+            </ImageView>
          </children>
       </HBox>
    </children>

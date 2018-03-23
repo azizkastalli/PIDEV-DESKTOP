@@ -23,7 +23,6 @@
 .menu_bar{
     -fx-background-color: white;
     -fx-background-image:url("/utils/assets/menu.png");
-    -fx-background-position: center center;
 }
 
 .main
