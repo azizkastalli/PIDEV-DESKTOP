@@ -7,10 +7,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriquemagasin.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AcceuilController">
+
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriqueservices.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RubriqueServicesController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -23,8 +25,9 @@
                </image>
                <HBox.margin>
                   <Insets left="25.0" />
-               </HBox.margin></ImageView>
-            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -35,7 +38,7 @@
                   <Insets bottom="11.0" left="30.0" top="11.0" />
                </padding>
             </Label>
-            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+            <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -46,7 +49,7 @@
                   <Insets />
                </HBox.margin>
             </Label>
-            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+            <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -54,7 +57,7 @@
                   <Insets bottom="11.0" left="23.0" top="11.0" />
                </padding>
             </Label>
-            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
                <font>
                   <Font size="22.0" />
                </font>
@@ -62,7 +65,7 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
-            <Label prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+            <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
                <font>
                   <Font size="22.0" />
                </font>
@@ -96,6 +99,46 @@
                   <Image url="@../utils/assets/profile.png" />
                </image>
             </ImageView>
+         </children>
+      </HBox>
+      <HBox prefHeight="529.0" prefWidth="1025.0">
+         <children>
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <children>
+                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
+                     <font>
+                        <Font size="59.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="121.0" layoutY="277.0" text="AFFICHE RUBRIQUES SERVICES : DRESSAGE / RECLAMATIONS ...">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <VBox prefHeight="524.0" prefWidth="240.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label style="-fx-background-color: blue;" text="Label">
+                     <font>
+                        <Font size="62.0" />
+                     </font>
+                  </Label>
+                  <Label style="-fx-background-color: blue;" text="Label">
+                     <font>
+                        <Font size="62.0" />
+                     </font>
+                  </Label>
+                  <Label style="-fx-background-color: blue;" text="Label">
+                     <font>
+                        <Font size="62.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>

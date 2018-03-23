@@ -11,12 +11,16 @@ import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -32,6 +36,42 @@ public class AcceuilController implements Initializable {
      */
     @FXML
     private VBox parent;
+    
+    @FXML
+    private Label acceuil;
+    @FXML
+    private Label services;
+    @FXML
+    private Label produits;
+    @FXML
+    private Label veterinaires;
+    @FXML
+    private Label evenements;
+    @FXML
+    private ImageView vet;
+    @FXML
+    private Label vete;
+    @FXML
+    private ImageView pan;
+    @FXML
+    private Label pani;
+    @FXML
+    private ImageView enc;
+    @FXML
+    private Label ench;
+    @FXML
+    private ImageView sto;
+    @FXML
+    private Label stor;
+    @FXML
+    private ImageView ser;
+    @FXML
+    private Label serv;
+    @FXML
+    private ImageView eve;
+    @FXML
+    private Label even;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -47,13 +87,19 @@ public class AcceuilController implements Initializable {
     private void open_mails(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("/com/views/MailsUi.fxml"));
         parent.getChildren().removeAll();
-        parent.getChildren().setAll(fxml);        
+        parent.getChildren().setAll(fxml);   
     }
 
     private void RubriqueMagasin(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("/gui/RubriqueMagasin.fxml"));
-        parent.getChildren().removeAll();
-        parent.getChildren().setAll(fxml);        
+
+    }
+
+    @FXML
+    private void Menu(MouseEvent event) {
+       
+        MenuController menu = new MenuController();
+        menu.GestionMenu(event);
+              
     }
     
 }
