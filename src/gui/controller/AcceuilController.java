@@ -71,6 +71,8 @@ public class AcceuilController implements Initializable {
     private ImageView eve;
     @FXML
     private Label even;
+    @FXML
+    private Label espace;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

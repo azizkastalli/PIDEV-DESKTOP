@@ -23,21 +23,21 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
       
         Parent root = null;
-        /*
-        try {
+        
+     /*   try {
             root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
         } catch (IOException ex) {
-           
-        }
           
-                         Parent root = null;*/
+        }*/
+   
         
         try {
             root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         } catch (IOException ex) {
             
         }
-    
+  
+
         Scene scene = new Scene(root);    
                  primaryStage.initStyle(StageStyle.UNDECORATED);
 
