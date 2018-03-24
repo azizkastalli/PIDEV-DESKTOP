@@ -8,6 +8,7 @@ package gui.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +25,9 @@ import javafx.stage.Stage;
  * @author iheb bf
  */
 public class EnchereAdminController implements Initializable {
+
+    @FXML
+    private HBox ev;
 
     /**
      * Initializes the controller class.
@@ -154,6 +159,24 @@ public class EnchereAdminController implements Initializable {
     }
     }
 
-   
+    @FXML
+    private void HomeClick(ActionEvent event) {
+              try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               // app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
     
 }
