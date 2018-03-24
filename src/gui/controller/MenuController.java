@@ -50,6 +50,9 @@ public class MenuController {
             case "vete":
                 destination="RubriqueVeterinaire.fxml";
                 break;
+            case "espace":
+                destination="EspaceMagasin.fxml";
+                break;
             case "enc":
             case "ench":
                 destination="Encheres.fxml";
