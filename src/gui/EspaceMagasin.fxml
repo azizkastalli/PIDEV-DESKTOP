@@ -72,12 +72,20 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
+            <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
             <Label text="10£" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
                <HBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="20.0" />
                </HBox.margin>
             </Label>
             <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
@@ -106,8 +114,77 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView fx:id="addstoreicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="addenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="gererproduiticon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="gererenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+               </children>
             </VBox>
-            <Pane prefHeight="524.0" prefWidth="959.0" />
+            <Pane prefHeight="524.0" prefWidth="959.0">
+               <children>
+                  <Label layoutX="58.0" layoutY="51.0" prefHeight="122.0" prefWidth="509.0" text="ESPACE MAGASIN" textFill="WHITE">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="627.0" layoutY="51.0">
+                     <children>
+                        <ImageView fx:id="addstore" fitHeight="225.0" fitWidth="300.0" onMouseClicked="#MenuEspace" pickOnBounds="true">
+                           <image>
+                              <Image url="@../utils/assets/event.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label text="ajouter au store" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="627.0" layoutY="313.0">
+                     <children>
+                        <ImageView fx:id="addenchers" fitHeight="150.0" fitWidth="300.0" onMouseClicked="#MenuEspace" pickOnBounds="true">
+                           <image>
+                              <Image url="@../utils/assets/event.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label text="Deplacer vers encheres" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="27.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="323.0" layoutY="314.0">
+                     <children>
+                        <ImageView fx:id="gererenchers" fitHeight="150.0" fitWidth="300.0" onMouseClicked="#MenuEspace" pickOnBounds="true">
+                           <image>
+                              <Image url="@../utils/assets/event.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label text="Gerer Enchers" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="19.0" layoutY="314.0">
+                     <children>
+                        <ImageView fx:id="gererproduit" fitHeight="150.0" fitWidth="300.0" onMouseClicked="#MenuEspace" pickOnBounds="true">
+                           <image>
+                              <Image url="@../utils/assets/event.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label text="Gerer Produits" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="34.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children></Pane>
          </children>
       </HBox>
    </children>

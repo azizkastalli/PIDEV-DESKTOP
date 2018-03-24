@@ -23,7 +23,7 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
                  Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/RubriqueMagasin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/EspaceMagasin.fxml"));
         } catch (IOException ex) {
            
         }

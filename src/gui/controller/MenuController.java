@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -98,12 +99,68 @@ public class MenuController {
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                       
-                app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
        
         }
        
-          }
+          }  public void GestionMenuEspace(MouseEvent event)
+    {
+        String dest=""; 
+        String destination=""; 
+        String type = event.getSource().getClass().getName();
+        
+        if(type.equals("javafx.scene.image.ImageView"))
+        {
+          ImageView ev = (ImageView) event.getSource();
+          dest=ev.getId();
+        }
+        else if(type.equals("de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView"))
+        {
+            FontAwesomeIconView ev = (FontAwesomeIconView) event.getSource();
+            dest=ev.getId();
+        }
+       
+        switch (dest) {
+            case "addstore":
+            case "addstoreicon":
+                destination="AjouterStore.fxml";
+                break;
+            case "addenchers":
+            case "addenchersicon":
+                destination="AjouterEnchers.fxml";
+                break;
+            case "gererenchers":
+            case "gererenchersicon":
+                destination="GererEnchers.fxml";
+                break;
+            case "gererproduit":
+            case "gererproduiticon":
+                destination="GererProduit.fxml";
+                break;
+            default:
+                break;
+        }
+     
+        if(!"".equals(destination))
+        {
+ 
+         Parent home_page_parent = null;
+            try {
+                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      
+        app_stage.setScene(home_page_scene);
+        app_stage.show();  
+       
+        }
+    }
+    
+    
     
 }

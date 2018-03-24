@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriqueservices.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RubriqueServicesController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/gererenchers.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.GererEnchersController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -74,10 +74,10 @@
             </Label>
             <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="22.0" />
                </font>
                <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
             <Label text="10£" textFill="WHITE">
@@ -108,44 +108,20 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0">
+      <HBox prefHeight="529.0" prefWidth="1025.0" styleClass="main">
          <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
-               <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
-                     <font>
-                        <Font size="59.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="121.0" layoutY="277.0" text="AFFICHE RUBRIQUES SERVICES : DRESSAGE / RECLAMATIONS ...">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <VBox prefHeight="524.0" prefWidth="240.0">
+            <VBox prefHeight="524.0" prefWidth="66.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
+                  <FontAwesomeIconView fx:id="addstoreicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="addenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="gererproduiticon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="gererenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
                </children>
             </VBox>
+            <Pane prefHeight="524.0" prefWidth="959.0" />
          </children>
       </HBox>
    </children>

@@ -11,7 +11,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -20,7 +19,7 @@ import javafx.scene.layout.VBox;
  *
  * @author HP
  */
-public class EspaceMagasinController implements Initializable {
+public class GererProduitController implements Initializable {
 
     @FXML
     private VBox parent;
@@ -43,15 +42,7 @@ public class EspaceMagasinController implements Initializable {
     @FXML
     private FontAwesomeIconView gererenchersicon;
     @FXML
-    private ImageView addstore;
-    @FXML
-    private ImageView gererenchers;
-    @FXML
-    private ImageView gererproduit;
-    @FXML
     private Label espace;
-    @FXML
-    private ImageView addenchers;
 
     /**
      * Initializes the controller class.
@@ -72,7 +63,5 @@ public class EspaceMagasinController implements Initializable {
            MenuController menu = new MenuController();
         menu.GestionMenuEspace(event);
     }
-    
-
     
 }
