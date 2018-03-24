@@ -7,7 +7,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -115,13 +114,27 @@
                   <Insets />
                </opaqueInsets>
                <children>
-                  <FontAwesomeIconView fx:id="addstoreicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="addenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="gererproduiticon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="gererenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
+                  <FontAwesomeIconView fx:id="addstoreicon" glyphName="PLUS" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin></FontAwesomeIconView>
+                  <FontAwesomeIconView fx:id="addenchersicon" glyphName="PLUS" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin></FontAwesomeIconView>
+                  <FontAwesomeIconView fx:id="gererproduiticon" glyphName="EDIT" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin></FontAwesomeIconView>
+                  <FontAwesomeIconView fx:id="gererenchersicon" glyphName="EDIT" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
+                     <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                     </VBox.margin></FontAwesomeIconView>
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
-            <Pane prefHeight="524.0" prefWidth="959.0" />
          </children>
       </HBox>
    </children>
