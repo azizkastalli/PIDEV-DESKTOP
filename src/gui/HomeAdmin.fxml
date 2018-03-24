@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,13 +36,16 @@
                </VBox.margin>
                <children>
                   <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
-                  <TextField prefHeight="25.0" prefWidth="290.0" promptText="Search" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                  <TextField accessibleRole="TEXT_FIELD" cacheShape="false" mouseTransparent="true" prefHeight="25.0" prefWidth="290.0" promptText="Search" style="-fx-background-color: transparent; -fx-text-inner-color: #7c8184;" HBox.hgrow="ALWAYS">
                      <font>
-                        <Font name="Calibri Light" size="14.0" />
+                        <Font name="Arial Unicode MS" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
+                     <effect>
+                        <Glow />
+                     </effect>
                   </TextField>
                </children>
             </HBox>
