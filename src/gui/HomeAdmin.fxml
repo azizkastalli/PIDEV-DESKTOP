@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" prefHeight="574.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.HomeAdminController">
+   
+   <children>
+      <VBox prefHeight="575.0" prefWidth="293.0" style="-fx-background-color: #333645;">
+         <children>
+            <Label prefHeight="73.0" prefWidth="332.0" style="-fx-background-color: #00A2d3;" text="                  Admin Panel" textFill="WHITE">
+               <font>
+                  <Font name="Ebrima" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <TextField prefHeight="25.0" prefWidth="290.0" promptText="Search" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickStore" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Store" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="ev" alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEvenement" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Evenements" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEncheres" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="USERS" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Encheres" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickServices" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#7C8184" size="2em" text="" />
+                  <Label text="Gestion Services" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickVeterinaire" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="USER_MD" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Vétérinaires" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickProduit" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="TH" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Produits" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="312.0" layoutY="-2.0" prefHeight="579.0" prefWidth="858.0">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="893.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#4ca9c3" height="29.06" radius="9.265" spread="0.07" width="10.0" />
+               </effect>
+               <children>
+                  <ImageView fitHeight="68.0" fitWidth="90.0" layoutX="3.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/Zanimauxlogo.png" />
+                     </image>
+                  </ImageView>
+                  <FontAwesomeIconView glyphName="BELL" glyphStyle="-fx-fill:#7c8184" layoutX="808.0" layoutY="46.0" size="1.5em" />
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#7c8184" layoutX="839.0" layoutY="46.0" size="1.5em" />
+               </children>
+            </Pane>
+            <HBox alignment="CENTER_LEFT" prefHeight="464.0" prefWidth="973.0" style="-fx-background-color: #202332;">
+               <children>
+                  <Pane layoutX="10.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="500.0">
+                     <children>
+                        <Pane layoutY="168.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="490.0">
+                           <children>
+                              <Pane layoutX="250.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="240.0">
+                                 <children>
+                                    <Pane id="headerBtns" layoutY="-3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="240.0">
+                                       <children>
+                                          <ImageView fitHeight="172.0" fitWidth="240.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../utils/assets/vet.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label id="main-menu-label" layoutY="129.0" prefHeight="43.0" prefWidth="240.0" text="veterinaire" textFill="WHITE">
+                                             <font>
+                                                <Font name="Roboto Condensed" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="30.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                    <Pane id="headerBtns" layoutY="177.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="240.0">
+                                       <children>
+                                          <ImageView fitHeight="141.0" fitWidth="243.0" layoutX="-9.0" layoutY="2.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../utils/assets/panier.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <Label id="main-menu-label" layoutX="-7.0" layoutY="102.0" prefHeight="40.0" prefWidth="240.0" text="Panier" textFill="WHITE">
+                                             <font>
+                                                <Font name="Roboto Condensed" size="16.0" />
+                                             </font>
+                                             <padding>
+                                                <Insets left="30.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane id="headerBtns" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="243.0">
+                                 <children>
+                                    <ImageView fitHeight="326.0" fitWidth="229.0" layoutX="7.0" layoutY="-2.0" pickOnBounds="true">
+                                       <image>
+                                          <Image url="@../utils/assets/encehres.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Label id="main-menu-label" layoutY="251.0" prefHeight="74.0" prefWidth="243.0" text="Encheres" textFill="WHITE">
+                                       <font>
+                                          <Font name="Roboto Condensed" size="16.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="30.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                        <Pane id="headerBtns" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="490.0">
+                           <children>
+                              <ImageView fitHeight="147.0" fitWidth="477.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../utils/assets/store.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label id="main-menu-label" layoutY="120.0" prefHeight="40.0" prefWidth="490.0" text="store en ligne" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Condensed" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane layoutX="210.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="366.0" style="-fx-background-color: #202332;">
+                     <children>
+                        <Pane id="headerBtns" layoutX="-7.0" layoutY="348.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="156.0" prefWidth="361.0">
+                           <children>
+                              <ImageView fitHeight="141.0" fitWidth="374.0" pickOnBounds="true" smooth="false">
+                                 <image>
+                                    <Image url="@../utils/assets/service.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label id="main-menu-label" layoutY="101.0" prefHeight="40.0" prefWidth="497.0" text="Services" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Condensed" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane id="headerBtns" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="374.0">
+                           <children>
+                              <ImageView fitHeight="326.0" fitWidth="374.0" layoutY="12.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../utils/assets/event.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label id="main-menu-label" layoutX="-14.0" layoutY="269.0" prefHeight="85.0" prefWidth="497.0" stylesheets="@css/acceuil.css" text="Evenements" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Condensed" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="30.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
