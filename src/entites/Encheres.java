@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package entites;
-import java.sql.Date;
+
+import java.sql.Timestamp;
+
 /**
  *
  * @author azizkastalli
@@ -14,7 +16,7 @@ public class Encheres {
     private double seuil_mise;
     private String id_proprietaire;
     private String id_cible;
-    private Date   date_debut;
+    private Timestamp   date_debut;
    
     public Encheres(){}
     
@@ -23,13 +25,13 @@ public class Encheres {
         }
 
     
-    public Encheres(int id_encheres,double seuil_mise, Date date_debut) {
+    public Encheres(int id_encheres,double seuil_mise, Timestamp date_debut) {
         this.id_encheres=id_encheres;
         this.seuil_mise = seuil_mise;
         this.date_debut = date_debut;
     }
     
-    public Encheres(int id_encheres,double seuil_mise, String id_proprietaire, String id_cible, Date date_debut) {
+    public Encheres(int id_encheres,double seuil_mise, String id_proprietaire, String id_cible, Timestamp date_debut) {
         this.id_encheres=id_encheres;
         this.seuil_mise = seuil_mise;
         this.id_proprietaire = id_proprietaire;
@@ -57,7 +59,7 @@ public class Encheres {
         return id_cible;
     }
 
-    public Date getDate_debut() {
+    public Timestamp getDate_debut() {
         return date_debut;
     }
 
@@ -73,8 +75,8 @@ public class Encheres {
         this.id_cible = id_cible;
     }
 
-    public void setDate_debut(Date date_debut) {
+    public void setDate_debut(Timestamp date_debut) {
         this.date_debut = date_debut;
     }
- 
+
 }

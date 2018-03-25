@@ -3,6 +3,8 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -121,7 +123,17 @@
                   <FontAwesomeIconView fx:id="gererenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
                </children>
             </VBox>
-            <Pane prefHeight="524.0" prefWidth="959.0" />
+            <Pane prefHeight="524.0" prefWidth="959.0">
+               <children>
+                  <TableView fx:id="table" editable="true" layoutX="68.0" layoutY="37.0" prefHeight="447.0" prefWidth="810.0">
+                     <columns>
+                        <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+                        <TableColumn fx:id="idcible" onEditCommit="#update" prefWidth="89.0" text="id cible" />
+                        <TableColumn fx:id="idprop" prefWidth="88.0" text="id prop" />
+                        <TableColumn fx:id="seuil" prefWidth="125.0" text="seuil" />
+                        <TableColumn fx:id="date" prefWidth="182.0" text="date" />
+                     </columns></TableView>
+               </children></Pane>
          </children>
       </HBox>
    </children>
