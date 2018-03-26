@@ -24,11 +24,11 @@ public class FXMain extends Application {
       
         Parent root = null;
         
-/*        try {
+  /*    
+        try {
             root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
-        } catch (IOException ex) {
-          
-        }
+        } 
+        catch (IOException ex) {}
   */ 
 
         try {
@@ -39,7 +39,7 @@ public class FXMain extends Application {
   
 
         Scene scene = new Scene(root);    
-                 primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
 
         primaryStage.setTitle("test");
         primaryStage.initStyle(StageStyle.UNDECORATED);
