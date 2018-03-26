@@ -21,7 +21,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -37,7 +36,8 @@ import services.CrudEncheres;
  * @author HP
  */
 public class GererEnchersController implements Initializable {
-
+    
+    private CrudEncheres encheres =new CrudEncheres();
     @FXML
     private VBox parent;
     @FXML
@@ -67,11 +67,14 @@ public class GererEnchersController implements Initializable {
     @FXML
     private TableColumn<Encheres, Integer> id;
     @FXML
-    private TableColumn<Encheres, String> idcible;
+    private TableColumn<Encheres, Integer> idcible;
     @FXML
-    private TableColumn<Encheres, String> idprop;
+    private TableColumn<Encheres, Integer> idprop;
     @FXML
     private TableColumn<Encheres, Timestamp> date;
+    @FXML
+    private TableColumn<Encheres,String> delete;
+  
 
 
     /**
@@ -93,16 +96,17 @@ public class GererEnchersController implements Initializable {
         
         seuil.setCellValueFactory(new PropertyValueFactory<Encheres,Double>("seuil_mise"));
         id.setCellValueFactory(new PropertyValueFactory<Encheres,Integer>("id_encheres"));
-        idprop.setCellValueFactory(new PropertyValueFactory<Encheres,String>("id_proprietaire"));
-        idcible.setCellValueFactory(new PropertyValueFactory<Encheres,String>("id_cible"));
+        idprop.setCellValueFactory(new PropertyValueFactory<Encheres,Integer>("id_proprietaire"));
+        idcible.setCellValueFactory(new PropertyValueFactory<Encheres,Integer>("id_cible"));
         date.setCellValueFactory(new PropertyValueFactory<Encheres,Timestamp>("date_debut"));
+        delete.setCellValueFactory(new PropertyValueFactory<Encheres,String>("checkbox"));
         
          table.setEditable(true);
         
         id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
        // seuil.setCellFactory(TextFieldTableCell.forTableColumn());
-        idprop.setCellFactory(TextFieldTableCell.forTableColumn());
-        idcible.setCellFactory(TextFieldTableCell.forTableColumn());
+        idprop.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        idcible.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
         
      //   date.setCellFactory
     }    
@@ -120,8 +124,7 @@ public class GererEnchersController implements Initializable {
     }
 
     @FXML
-    private void update(TableColumn.CellEditEvent<Encheres, String> event) {
-                CrudEncheres encheres =new CrudEncheres();
+    private void update(TableColumn.CellEditEvent<Encheres, Integer> event) {
                 Encheres E = new Encheres();
                 E=event.getRowValue();
                 E.setId_cible(event.getNewValue());
@@ -132,4 +135,25 @@ public class GererEnchersController implements Initializable {
             Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void delete(MouseEvent event) {
+               ObservableList<Encheres> data = table.getItems();
+               ObservableList<Encheres> oblist = FXCollections.observableArrayList();
+               
+               for(Encheres E : data)
+               {
+                  if(E.getCheckbox().isSelected())
+                  {
+                      try {
+                          encheres.Delete(E);
+                          oblist.add(E);
+                      } catch (SQLException ex) {
+                          Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+                  }
+               }
+             data.removeAll(oblist);
+    }
+
 }
