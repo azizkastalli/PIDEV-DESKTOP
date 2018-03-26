@@ -6,7 +6,6 @@
 package entites;
 
 import java.sql.Date;
-import java.sql.Time;
 
 
 
@@ -20,26 +19,23 @@ public class Commentaire {
   private int id;
   private int id_cible;
   private int id_client;
-  private Time temps;
   private String texte;
     
             
     public Commentaire(){}
 
-    public Commentaire(Date date, int id, int id_cible, int id_client, Time temps, String texte) {
+    public Commentaire(Date date, int id, int id_cible, int id_client, String texte) {
         this.date = date;
         this.id = id;
         this.id_cible = id_cible;
         this.id_client = id_client;
-        this.temps = temps;
         this.texte = texte;
     }
 
-    public Commentaire(Date date, int id_cible, int id_client, Time temps, String texte) {
+    public Commentaire(Date date, int id_cible, int id_client, String texte) {
         this.date = date;
         this.id_cible = id_cible;
         this.id_client = id_client;
-        this.temps = temps;
         this.texte = texte;
     }
 
@@ -59,9 +55,6 @@ public class Commentaire {
         return id_client;
     }
 
-    public Time getTemps() {
-        return temps;
-    }
 
     public String getTexte() {
         return texte;
@@ -83,9 +76,7 @@ public class Commentaire {
         this.id_client = id_client;
     }
 
-    public void setTemps(Time temps) {
-        this.temps = temps;
-    }
+    
 
     public void setTexte(String texte) {
         this.texte = texte;
