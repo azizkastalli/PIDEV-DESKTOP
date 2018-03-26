@@ -78,14 +78,14 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
            
 
             ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
+            while (rs.next()) 
                
                 {
             AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getBoolean(2),rs.getDate(3),rs.getString(4));   
             listAnimal.add(A);
            }
 
-          }
+          
             return listAnimal;
     }
 
