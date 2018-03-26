@@ -46,7 +46,7 @@ public class CrudProduit implements ICrud<Produit> {
       
       pSmt.executeUpdate();
             
-        System.out.println(obj.getPoid());
+       
             
             
     }
