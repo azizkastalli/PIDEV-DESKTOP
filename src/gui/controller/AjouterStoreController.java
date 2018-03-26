@@ -60,17 +60,9 @@ public class AjouterStoreController implements Initializable {
     @FXML
     private TextField description;
     @FXML
-    private TextField etat;
-    @FXML
     private TextField categorie;
     @FXML
-    private TextField proprietaire;
-    @FXML
-    private TextField vote;
-    @FXML
     private TextField quantite;
-    @FXML
-    private TextField prixnouv;
     @FXML
     private TextField prixanc;
     @FXML
@@ -107,22 +99,19 @@ public class AjouterStoreController implements Initializable {
         PR.setLabel(nomproduit.getText());
         PR.setCaracteristiques(caracteristique.getText());
         PR.setDescription(description.getText());
-        PR.setEtat(etat.getText());
+        PR.setEtat("en attente");
         int idcat= Integer.parseInt(categorie.getText());
         PR.setId_categorie(idcat);
-        int idprop = Integer.parseInt(proprietaire.getText()) ;
-        PR.setId_propietaire(idprop);
+        PR.setId_propietaire(0);
         PR.setNom_image(image.getText());
         double poi=Double.parseDouble(poid.getText());
         PR.setPoid(poi);
         double prian=Double.parseDouble(prixanc.getText());
-        double prinouv=Double.parseDouble(prixnouv.getText());
         PR.setPrix_ancien(prian);
-        PR.setPrix_nouv(prinouv);
+        PR.setPrix_nouv(0);
         int quant= Integer.parseInt(quantite.getText());
         PR.setQuantite(quant);
-        double vot=Double.parseDouble(vote.getText());
-        PR.setVote(vot);
+        PR.setVote(0);
         
         
         
@@ -130,7 +119,8 @@ public class AjouterStoreController implements Initializable {
          try {
             CP.Create(PR);
              System.out.println("produit ajouté");
-        } catch (SQLException ex) {
+        } 
+         catch (SQLException ex) {
         }
         
           
