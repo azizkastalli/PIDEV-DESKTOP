@@ -10,7 +10,7 @@ import java.sql.Date;
 
 /**
  *
- * @author iheb bf
+ * @author user
  */
 public class Evenement {
     
