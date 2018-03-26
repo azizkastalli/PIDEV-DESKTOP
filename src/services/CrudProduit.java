@@ -31,7 +31,7 @@ public class CrudProduit implements ICrud<Produit> {
                     + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pSmt = cnx.prepareStatement(requete);
             
-            pSmt.setString(1,obj.getCaracteristiques());
+      pSmt.setString(1,obj.getCaracteristiques());
       pSmt.setString(2,obj.getDescription());
       pSmt.setDouble(3,obj.getPoid());
       pSmt.setDouble(4,obj.getVote());
@@ -46,6 +46,7 @@ public class CrudProduit implements ICrud<Produit> {
       
       pSmt.executeUpdate();
             
+        System.out.println(obj.getPoid());
             
             
     }
