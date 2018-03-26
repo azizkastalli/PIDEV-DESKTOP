@@ -10,6 +10,7 @@ import com.jfoenix.controls.JFXTimePicker;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entites.Encheres;
 import entites.Produit;
+import entites.Session;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -36,6 +37,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import services.CrudEncheres;
+import services.CrudSession;
 
 /**
  * FXML Controller class
@@ -146,6 +148,9 @@ public class AjouterEnchersController implements Initializable {
     @FXML
     private void AjoutFinalStep(MouseEvent event) {
       CrudEncheres CE = new CrudEncheres();
+      CrudSession CS = new CrudSession();
+      Session S = new Session();
+      
       E.setSeuil_mise(Double.parseDouble(tfmise.getText()));
 
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -161,15 +166,23 @@ public class AjouterEnchersController implements Initializable {
             parsedDate = dateFormat.parse(dateEncheres);
             Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
             E.setDate_debut(timestamp);    
-        
+           
             CE.Create(E);
+           
+            E.setId_encheres(0);
+            E=CE.Select(E);
+            
+            S.setId(E.getId_encheres());
+            S.setEtat("en attente");
+            S.setId_gagnant("");
+            S.setDerniere_mise(0);
+      
+            CS.Create(S);
             
         } catch (ParseException | SQLException ex) {
             Logger.getLogger(AjouterEnchersController.class.getName()).log(Level.SEVERE, null, ex);
         }
          
-      
-  
     }
     
 }

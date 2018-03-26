@@ -62,18 +62,29 @@ public class CrudEncheres implements ICrud<Encheres> {
 
     @Override
     public Encheres Select(Encheres obj) throws SQLException {
-       
-        String requete=" SELECT * FROM encheres WHERE id_encheres=?";
         
+        String item="";
+          
+        if(obj.getId_encheres()==0)
+           item="id_cible";              
+        else
+           item="id_encheres";              
+               
+        String requete=" SELECT * FROM encheres WHERE "+item+"=?";
         PreparedStatement pSmt = cnx.prepareStatement(requete);
-        pSmt.setInt(1,obj.getId_encheres());
-        ResultSet rs = pSmt.executeQuery();
+        
+          if(obj.getId_encheres()==0)
+                  pSmt.setInt(1,obj.getId_cible());              
+        else
+                  pSmt.setInt(1,obj.getId_encheres());
+
+          ResultSet rs = pSmt.executeQuery();
             rs.next();
             obj.setId_encheres(rs.getInt(1)); 
-            obj.setSeuil_mise(rs.getDouble(2)); 
+            obj.setSeuil_mise(rs.getDouble(5)); 
             obj.setId_proprietaire(rs.getInt(3)); 
-            obj.setId_cible(rs.getInt(4)); 
-            obj.setDate_debut(rs.getTimestamp(5)); 
+            obj.setId_cible(rs.getInt(2)); 
+            obj.setDate_debut(rs.getTimestamp(4)); 
                             
                        
        return obj;                 
