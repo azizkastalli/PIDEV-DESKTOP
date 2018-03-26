@@ -20,11 +20,11 @@
      <children>
       <VBox prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
          <children>
-            <Label prefHeight="75.0" prefWidth="345.0" style="-fx-background-color: #00A2d3;" text="                  Admin Panel" textFill="WHITE">
+              <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="75.0" prefWidth="341.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
                <font>
-                  <Font name="Ebrima" size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
-            </Label>
+            </Button>
             <HBox alignment="CENTER_LEFT">
                <padding>
                   <Insets left="10.0" />

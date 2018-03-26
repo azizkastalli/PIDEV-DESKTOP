@@ -8,6 +8,7 @@ package gui.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -65,7 +66,7 @@ public class ServiceAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -85,7 +86,7 @@ public class ServiceAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -105,7 +106,7 @@ public class ServiceAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -125,7 +126,7 @@ public class ServiceAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -145,7 +146,7 @@ public class ServiceAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -157,5 +158,23 @@ public class ServiceAdminController implements Initializable {
     }
     }
 
-   
+       @FXML
+    private void HomeClick(ActionEvent event) {
+              try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
 }
