@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriqueevenements.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RubriqueEvenementsController">
+   <children>
+      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0" />
+         </effect>
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/Zanimauxlogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="35.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="30.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="25.0" top="11.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label text="10£" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../utils/assets/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox prefHeight="529.0" prefWidth="1025.0">
+         <children>
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <children>
+                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
+                     <font>
+                        <Font size="59.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="129.0" layoutY="262.0" text="ON AFFICHE ICI LES RUBRIQUES DES EVENEMENTS">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <VBox prefHeight="524.0" prefWidth="240.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label style="-fx-background-color: blue;" text="Label">
+                     <font>
+                        <Font size="62.0" />
+                     </font>
+                  </Label>
+                  <Label style="-fx-background-color: blue;" text="Label">
+                     <font>
+                        <Font size="62.0" />
+                     </font>
+                  </Label>
+                  <Label style="-fx-background-color: blue;" text="Label">
+                     <font>
+                        <Font size="62.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

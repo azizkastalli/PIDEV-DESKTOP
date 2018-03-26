@@ -5,7 +5,7 @@
  */
 package services;
 
-import config.Dbconnection;
+import utils.Dbconnection;
 import entites.Wallet;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
