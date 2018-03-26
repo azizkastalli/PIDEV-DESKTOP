@@ -2,11 +2,14 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -135,6 +138,65 @@
                   <Insets />
                </HBox.margin>
             </VBox>
+            <Pane>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <Label layoutY="4.0" text="nom produit" textFill="#ebe7e7" />
+                  <Label layoutY="81.0" text="caracteristique" textFill="#ddd8d8" />
+                  <Label layoutY="164.0" text="description" textFill="#d0cece" />
+                  <Label layoutX="2.0" layoutY="358.0" text="proprietaire" textFill="#d7d4d4" />
+                  <Label layoutX="2.0" layoutY="295.0" text="categorie" textFill="#dad6d6" />
+                  <Label layoutX="2.0" layoutY="233.0" text="etat" textFill="#d7d3d3" />
+               </children>
+               <HBox.margin>
+                  <Insets left="50.0" top="100.0" />
+               </HBox.margin>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="nomproduit" layoutX="7.0" layoutY="98.0" />
+                  <TextField fx:id="caracteristique" layoutX="7.0" layoutY="179.0" />
+                  <TextField fx:id="description" layoutX="7.0" layoutY="262.0" />
+                  <TextField fx:id="etat" layoutX="7.0" layoutY="329.0" />
+                  <TextField fx:id="categorie" layoutX="7.0" layoutY="395.0" />
+                  <TextField fx:id="proprietaire" layoutX="7.0" layoutY="454.0" />
+                  <Label layoutX="-12.0" layoutY="12.0" text="Ajout Produit" textFill="#ebebea">
+                     <font>
+                        <Font name="System Bold Italic" size="35.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="73.0" layoutY="97.0" text="nom image" textFill="#d3d0d0" />
+                  <Label layoutX="73.0" layoutY="182.0" text="poid" textFill="#cdc9c9" />
+                  <Label layoutX="73.0" layoutY="262.0" text="prix ancien" textFill="#ddd9d9" />
+                  <Label layoutX="73.0" layoutY="331.0" text="prix nouveaux" textFill="#dadada" />
+                  <Label layoutX="73.0" layoutY="400.0" text="quantite" textFill="#d7d4d4" />
+                  <Label layoutX="73.0" layoutY="461.0" text="vote" textFill="#d7d4d4" />
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="vote" layoutX="7.0" layoutY="455.0" />
+                  <TextField fx:id="quantite" layoutX="7.0" layoutY="395.0" />
+                  <TextField fx:id="prixnouv" layoutX="7.0" layoutY="323.0" />
+                  <TextField fx:id="prixanc" layoutX="7.0" layoutY="247.0" />
+                  <TextField fx:id="poid" layoutX="7.0" layoutY="175.0" />
+                  <TextField fx:id="image" layoutX="7.0" layoutY="89.0" />
+               </children>
+            </Pane>
+            <Button fx:id="ajoutproduit" mnemonicParsing="false" onAction="#ajoutproduit" text="Ajouter">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="100.0" top="200.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
    </children>
