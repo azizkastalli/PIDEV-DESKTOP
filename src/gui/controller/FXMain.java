@@ -23,16 +23,18 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
       
         Parent root = null;
-        
-     /*   try {
-            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
-        } catch (IOException ex) {
-          
-        }*/
-   
-        
+      /*  
         try {
             root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
+        } catch (IOException ex) {
+          
+
+        }*/
+   
+
+        
+        try {
+            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
         } catch (IOException ex) {
             
         }
