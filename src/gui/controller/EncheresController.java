@@ -5,7 +5,6 @@
  */
 package gui.controller;
 
-import entites.Encheres;
 import entites.Produit;
 import java.net.URL;
 import java.sql.SQLException;
@@ -23,12 +22,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
-import javafx.scene.input.SwipeEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import services.CrudEncheres;
 
 /**
  * FXML Controller class
@@ -56,8 +52,11 @@ public class EncheresController implements Initializable {
     private ScrollPane anchorGridPane;
     private final GridPane GP = new GridPane();
     ServiceEncheres SE = new ServiceEncheres();
-
-
+    private int nbr=9;
+    private int j=0;
+    private int i=0;    
+    private int scroll=0;    
+    
     /**
      * Initializes the controller class.
      */
@@ -66,9 +65,7 @@ public class EncheresController implements Initializable {
     
         //init
         ArrayList <Produit>liste = new ArrayList<Produit>();
-        int j=0;
-        int i=0;    
-    
+        
          //setting up the GridPane
         GP.setPadding(new Insets(10,10,10,10));
         GP.setHgap(5);
@@ -114,15 +111,52 @@ public class EncheresController implements Initializable {
         menu.GestionMenu(event);   
     }
 
-
     @FXML
     private void ChargerPage(ScrollEvent event) {
+                 //init
+        ArrayList <Produit>liste = new ArrayList<Produit>();
+  
         
         if(event.getTextDeltaY()<0)
         {
-          // add 6 other items in the GridPane here !!!
+        try {
+            liste =  SE.Select6(nbr);
+        } catch (SQLException ex) {
+            Logger.getLogger(EncheresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //put DATA
+        for(Produit Prd : liste)
+        {   
+            
+            ImageView IV= new ImageView();
+            Image I = new Image("/utils/assets/aaa.jpg");
+            Pane P = new Pane();
+            
+            IV.setImage(I);
+            IV.setFitWidth(246);
+            IV.setFitHeight(277);
+            
+            P.getChildren().add(IV);            
+            GP.add(P,j,i);            
+
+            j++;
+            if(j>2)
+            {i++;
+            j=0;}
+           
+           }     
+        
+      nbr=GP.getChildren().size();
+
         }
 
+     
     }
+
+
+
+   
+        
     
 }

@@ -29,7 +29,27 @@ public class ServiceEncheres {
     public ArrayList<Produit> Select9() throws SQLException
     {
       ArrayList<Produit> liste = new ArrayList<Produit>();
-        String requete=" SELECT * FROM Produit LIMIT 9 ";
+        String requete=" SELECT * FROM Produit LIMIT 9  ";
+
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        ResultSet rs = pSmt.executeQuery();
+        
+           while(rs.next())
+           {
+            Produit P =new  Produit(rs.getString(5),rs.getString(7),rs.getString(6),rs.getInt(1),
+                            rs.getInt(2),rs.getInt(3),rs.getString(12),rs.getDouble(8),
+                            rs.getDouble(11),rs.getDouble(10),rs.getInt(4),rs.getDouble(9),rs.getString(13));   
+           
+            liste.add(P);
+           }
+
+     return liste;
+    }
+    
+    public ArrayList<Produit> Select6(int nbr) throws SQLException
+    {
+      ArrayList<Produit> liste = new ArrayList<Produit>();
+        String requete=" SELECT * FROM Produit LIMIT 6 OFFSET "+nbr;
 
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
