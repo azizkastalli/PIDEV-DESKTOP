@@ -27,13 +27,12 @@ public class Journal {
         this.mise = mise;
     }
 
-    public Journal(Time date_mise, int id, String id_client, String id_session, double mise) {
+    public Journal(Time date_mise, String id_client, double mise) {
         this.date_mise = date_mise;
-        this.id = id;
         this.id_client = id_client;
-        this.id_session = id_session;
         this.mise = mise;
     }
+
     
     public Time getDate_mise() {
         return date_mise;

@@ -5,6 +5,8 @@
  */
 package entites;
 
+import javafx.scene.control.CheckBox;
+
 /**
  *
  * @author azizkastalli
@@ -14,6 +16,7 @@ public class Session {
   private String etat;
   private int id;
   private String id_gagnant;
+  private CheckBox checkbox = new CheckBox();
 
     public Session(){}
   
@@ -62,5 +65,12 @@ public class Session {
         this.id = id;
     }
    
+       public void setCheckbox(CheckBox checkbox) {
+        this.checkbox = checkbox;
+    }
+
+    public CheckBox getCheckbox() {
+        return checkbox;
+    }
    
 }

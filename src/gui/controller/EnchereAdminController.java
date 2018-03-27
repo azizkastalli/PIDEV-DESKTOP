@@ -5,13 +5,16 @@
  */
 package gui.controller;
 
-import entites.Produit;
+import entites.Journal;
 import entites.Session;
+import java.sql.Time;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,13 +24,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import services.CrudEncheres;
+import services.ServiceJournal;
 import services.CrudSession;
 
 /**
@@ -49,7 +55,17 @@ public class EnchereAdminController implements Initializable {
     private TableColumn<Session, String> etat;
     @FXML
     private TableView<Session> table;
+    
+    private final TableView<Journal> tableH = new TableView<>();
+    @FXML
+    private Pane tablePane;
+    @FXML
+    private TableColumn<Session, CheckBox> action;
+    @FXML
+    private Button delete;
 
+     ServiceJournal SJ = new ServiceJournal();
+     CrudSession CS = new CrudSession();
     /**
      * Initializes the controller class.
      */
@@ -68,6 +84,7 @@ public class EnchereAdminController implements Initializable {
         mise.setCellValueFactory(new PropertyValueFactory<Session,Double>("derniere_mise"));
         gagnant.setCellValueFactory(new PropertyValueFactory<Session,String>("id_gagnant"));
         etat.setCellValueFactory(new PropertyValueFactory<Session,String>("etat"));
+        action.setCellValueFactory(new PropertyValueFactory<Session,CheckBox>("checkbox"));
         
     }    
     
@@ -216,9 +233,56 @@ public class EnchereAdminController implements Initializable {
     @FXML
     private void HistoriqueSession(MouseEvent event)
     {
-        
-         Session S = table.getSelectionModel().getSelectedItem();        
+        ArrayList <Journal>liste = new ArrayList<Journal>();
+        Session S = table.getSelectionModel().getSelectedItem();        
          
+        try {
+           liste = (ArrayList) SJ.SelectJournal(S);
+        } catch (SQLException ex) {
+            Logger.getLogger(EnchereAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ObservableList observableList = FXCollections.observableArrayList(liste);
+        tableH.setItems(observableList);        
+
+        TableColumn client = new TableColumn("nom client");
+        TableColumn miseclient = new TableColumn("mise");
+        TableColumn heureclient = new TableColumn("heure de mise");
+       
+        client.setCellValueFactory(new PropertyValueFactory<Journal,String>("id_client"));
+        miseclient.setCellValueFactory(new PropertyValueFactory<Journal,Double>("mise"));
+        heureclient.setCellValueFactory(new PropertyValueFactory<Journal,Time>("date_mise"));
+        
+        
+        tablePane.getChildren().remove(table);
+        tableH.getColumns().addAll(client,miseclient,heureclient);
+        tablePane.getChildren().add(tableH);
+   //     tableH.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+        
+        
+    }
+
+    @FXML
+    private void DeleteSessions(MouseEvent event) {
+        
+            ObservableList<Session> data = table.getItems();
+               ObservableList<Session> oblist = FXCollections.observableArrayList();
+               
+               for(Session S : data)
+               {
+                  if(S.getCheckbox().isSelected())
+                  {
+                      try {
+                          CS.Delete(S); 
+                          SJ.DeleteJournal(S);
+                          oblist.add(S);
+                      } catch (SQLException ex) {
+                          Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+                  }
+               }
+             data.removeAll(oblist);
+        
     }
     
 }
