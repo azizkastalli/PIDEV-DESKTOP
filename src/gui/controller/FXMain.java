@@ -32,7 +32,7 @@ public class FXMain extends Application {
           
         
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/Animalperdu.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         } catch (IOException ex) {
             
         }

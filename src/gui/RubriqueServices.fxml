@@ -7,6 +7,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -89,24 +90,43 @@
                   <Insets left="12.0" />
                </HBox.margin>
             </FontAwesomeIconView>
-            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+            <Pane>
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/profile.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <Pane>
+         <children>
+            <ImageView fx:id="anp" fitHeight="150.0" fitWidth="172.0" layoutX="428.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../utils/assets/profile.png" />
+                  <Image url="@../utils/assets/téléchargement%20(1).jpg" />
                </image>
             </ImageView>
+            <Label fx:id="animp" layoutX="439.0" layoutY="75.0" onMouseClicked="#Menu" prefHeight="35.0" prefWidth="162.0" text="Animal perdu" textFill="#0a0202">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
-      </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0">
+      </Pane>
+      <Pane>
          <children>
-            <VBox prefHeight="524.0" prefWidth="240.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </VBox>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="409.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
          </children>
-      </HBox>
+      </Pane>
+      <Pane>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="411.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
    </children>
 </VBox>

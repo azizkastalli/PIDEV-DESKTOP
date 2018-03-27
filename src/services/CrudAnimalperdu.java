@@ -28,7 +28,7 @@ public class CrudAnimalperdu implements ICrud<AnimalPerdu>{
 
     @Override
     public void Create(AnimalPerdu obj) throws SQLException {
-String query ="INSERT INTO animalperdu(id_animal,lieu_disparition,date_disparition,etat) VALUES (?,?,?,?)";
+String query ="INSERT INTO animalperdu(id_animal,date_disparition,lieu_disparition,etat) VALUES (?,?,?,?)";
       PreparedStatement pSmt  = cnx.prepareStatement(query);
       pSmt.setInt(1,obj.getId_animal());
       pSmt.setDate(2, obj.getDate_disparition());
