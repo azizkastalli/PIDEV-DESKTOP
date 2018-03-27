@@ -33,8 +33,9 @@ String query ="INSERT INTO animalperdu(id_animal,lieu_disparition,date_dispariti
       pSmt.setInt(1,obj.getId_animal());
       pSmt.setDate(2, obj.getDate_disparition());
       pSmt.setString(3, obj.getLieu_dispairition());
-      pSmt.setBoolean(4, obj.isEtat());
-      pSmt.executeUpdate();    }
+      pSmt.setBoolean(4, obj.getEtat());
+      pSmt.executeUpdate();    
+    }
 
     @Override
     public void Update(AnimalPerdu obj) throws SQLException {
@@ -43,7 +44,7 @@ String requete = "UPDATE animalperdu SET id_anial=?,lieu_disparition=?,date_disp
             pst.setInt(1,obj.getId_animal());
             pst.setString(2,obj.getLieu_dispairition() );
             pst.setDate(3, obj.getDate_disparition());
-            pst.setBoolean(4, obj.isEtat());
+            pst.setBoolean(4, obj.getEtat());
             pst.setInt(5, obj.getId());
            
             pst.executeUpdate();    }

@@ -80,7 +80,7 @@ public class AnimalPerdu {
         this.id_animal = id_animal;
     }
 
-    public boolean isEtat() {
+    public boolean getEtat() {
         return etat;
     }
 
