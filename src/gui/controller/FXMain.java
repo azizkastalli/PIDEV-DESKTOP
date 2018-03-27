@@ -24,7 +24,6 @@ public class FXMain extends Application {
       
         Parent root = null;
         
-      
         try {
             root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         } 
