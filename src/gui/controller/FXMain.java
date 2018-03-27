@@ -24,15 +24,15 @@ public class FXMain extends Application {
       
         Parent root = null;
         
-        try {
+        /*try {
             root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
         } catch (IOException ex) {
            
-        }
+        }*/
           
         
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/Animalperdu.fxml"));
         } catch (IOException ex) {
             
         }
