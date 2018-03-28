@@ -34,6 +34,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import services.CrudEncheres;
@@ -69,19 +70,15 @@ public class AjouterEnchersController implements Initializable {
     @FXML
     private Label espace;
     @FXML
-    private TableColumn<Produit, String> image;
+    private TableColumn<Produit, ImageView> image;
     @FXML
     private TableColumn<Produit, String> label;
     @FXML
-    private TableColumn<Produit, Integer> categorie;
-    @FXML
     private TableColumn<Produit, Double> prix;
     @FXML
+    private TableColumn<Produit, Integer> qte;
+    @FXML
     private TableView<Produit> table;
-    @FXML
-    private TableColumn<Produit, Integer> id;
-    @FXML
-    private TableColumn<Produit, Integer> prop;
     @FXML
     private TextField tfmise;
     @FXML
@@ -107,13 +104,12 @@ public class AjouterEnchersController implements Initializable {
         ObservableList observableList = FXCollections.observableArrayList(arrayList);
         table.setItems(observableList);
         
-        image.setCellValueFactory(new PropertyValueFactory<Produit,String>("nom_image"));
+        image.setCellValueFactory(new PropertyValueFactory<Produit,ImageView>("image"));
         label.setCellValueFactory(new PropertyValueFactory<Produit,String>("label"));
-        categorie.setCellValueFactory(new PropertyValueFactory<Produit,Integer>("id_categorie"));
         prix.setCellValueFactory(new PropertyValueFactory<Produit,Double>("prix_nouv"));
-        id.setCellValueFactory(new PropertyValueFactory<Produit,Integer>("id"));
-        prop.setCellValueFactory(new PropertyValueFactory<Produit,Integer>("id_propietaire"));
-
+        qte.setCellValueFactory(new PropertyValueFactory<Produit,Integer>("quantite"));
+                
+                
         tfmise.setDisable(true);
         date.setDisable(true);
         heure.setDisable(true);
@@ -138,7 +134,6 @@ public class AjouterEnchersController implements Initializable {
         
         Produit p = table.getSelectionModel().getSelectedItem();
         E.setId_cible(p.getId());
-        E.setId_proprietaire(p.getId_propietaire());
         tfmise.setDisable(false);
         date.setDisable(false);
         heure.setDisable(false);

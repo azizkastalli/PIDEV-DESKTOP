@@ -126,16 +126,16 @@
             </VBox>
             <Pane prefHeight="524.0" prefWidth="959.0">
                <children>
-                  <TableView fx:id="table" editable="true" layoutX="67.0" layoutY="27.0" prefHeight="373.0" prefWidth="810.0">
+                  <TableView fx:id="table" editable="true" layoutX="43.0" layoutY="27.0" prefHeight="373.0" prefWidth="868.0">
                      <columns>
-                        <TableColumn fx:id="id" prefWidth="75.0" text="id" />
-                        <TableColumn fx:id="idcible" onEditCommit="#update" prefWidth="89.0" text="id cible" />
-                        <TableColumn fx:id="idprop" prefWidth="88.0" text="id prop" />
-                        <TableColumn fx:id="seuil" prefWidth="125.0" text="seuil" />
-                        <TableColumn fx:id="date" prefWidth="182.0" text="date" />
-                        <TableColumn fx:id="delete" prefWidth="182.0" text="Delete" />
+                        <TableColumn fx:id="delete" prefWidth="52.0" text="Select" />
+                        <TableColumn fx:id="image" prefWidth="205.0" text="image" />
+                        <TableColumn fx:id="label" prefWidth="136.0" text="label" />
+                        <TableColumn fx:id="categorie" prefWidth="160.0" text="categorie" />
+                        <TableColumn fx:id="seuil" onEditCommit="#UpdateMise" prefWidth="117.0" text="seuil mise" />
+                        <TableColumn fx:id="date" prefWidth="163.0" text="date" />
                      </columns></TableView>
-                  <Button layoutX="744.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#delete" prefHeight="61.0" prefWidth="133.0" text="DELETE" />
+                  <Button layoutX="744.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#delete" prefHeight="61.0" prefWidth="166.0" text="DELETE" />
                </children></Pane>
          </children>
       </HBox>

@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -23,8 +24,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.util.StringConverter;
+import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import services.CrudEncheres;
 
@@ -63,17 +67,17 @@ public class GererEnchersController implements Initializable {
     @FXML
     private TableColumn<Encheres, Double> seuil;
     @FXML
-    private TableColumn<Encheres, Integer> id;
-    @FXML
-    private TableColumn<Encheres, Integer> idcible;
-    @FXML
-    private TableColumn<Encheres, Integer> idprop;
-    @FXML
     private TableColumn<Encheres, Timestamp> date;
     @FXML
     private TableColumn<Encheres,String> delete;
+    @FXML
+    private TableColumn<Encheres, ImageView> image;
+    @FXML
+    private TableColumn<Encheres, String> label;
+    @FXML
+    private TableColumn<Encheres, String> categorie;
   
-
+    
 
     /**
      * Initializes the controller class.
@@ -81,32 +85,30 @@ public class GererEnchersController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         CrudEncheres encheres =new CrudEncheres();
+        Encheres E = new Encheres();
+                
         ArrayList arrayList=null;
         try {
              arrayList = (ArrayList) encheres.SelectAll();
         } catch (SQLException ex) {
             Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
         }
-      //  System.out.println(arrayList.get(0).toString());
-
-       ObservableList observableList = FXCollections.observableArrayList(arrayList);
+              
+        ObservableList observableList = FXCollections.observableArrayList(arrayList);
         table.setItems(observableList);
         
         seuil.setCellValueFactory(new PropertyValueFactory<Encheres,Double>("seuil_mise"));
-        id.setCellValueFactory(new PropertyValueFactory<Encheres,Integer>("id_encheres"));
-        idprop.setCellValueFactory(new PropertyValueFactory<Encheres,Integer>("id_proprietaire"));
-        idcible.setCellValueFactory(new PropertyValueFactory<Encheres,Integer>("id_cible"));
         date.setCellValueFactory(new PropertyValueFactory<Encheres,Timestamp>("date_debut"));
         delete.setCellValueFactory(new PropertyValueFactory<Encheres,String>("checkbox"));
+        image.setCellValueFactory(new PropertyValueFactory<Encheres,ImageView>("IV"));
+        label.setCellValueFactory(new PropertyValueFactory<Encheres,String>("label"));
+        categorie.setCellValueFactory(new PropertyValueFactory<Encheres,String>("categorie"));
+
+        table.setEditable(true);
         
-         table.setEditable(true);
-        
-        id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-       // seuil.setCellFactory(TextFieldTableCell.forTableColumn());
-        idprop.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        idcible.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
-        
-     //   date.setCellFactory
+        // id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+         seuil.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
+      //   date.setCellFactory
     }    
 
     @FXML
@@ -121,18 +123,6 @@ public class GererEnchersController implements Initializable {
         menu.GestionMenuEspace(event);
     }
 
-    @FXML
-    private void update(TableColumn.CellEditEvent<Encheres, Integer> event) {
-                Encheres E = new Encheres();
-                E=event.getRowValue();
-                E.setId_cible(event.getNewValue());
-                System.out.println("prop : "+E.getId_proprietaire()+"id : "+E.getId_encheres()+"cible : "+E.getId_cible());
-        try {
-            encheres.Update(E);
-        } catch (SQLException ex) {
-            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
     @FXML
     private void delete(MouseEvent event) {
@@ -153,5 +143,20 @@ public class GererEnchersController implements Initializable {
                }
              data.removeAll(oblist);
     }
+    
+    @FXML
+    private void UpdateMise(TableColumn.CellEditEvent<Encheres, Double> event) {
+           Encheres E = new Encheres();
+                E=event.getRowValue();
+                E.setSeuil_mise(event.getNewValue());
+               
+        try {
+            encheres.Update(E);
+        } catch (SQLException ex) {
+            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+  
 
 }

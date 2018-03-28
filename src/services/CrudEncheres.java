@@ -29,35 +29,52 @@ public class CrudEncheres implements ICrud<Encheres> {
     
     @Override
     public void Create(Encheres obj) throws SQLException {
-          String requete = "INSERT INTO Encheres (id_cible,id_proprietaire,date_debut,seuil_mise,id_encheres) "
+        
+        String requete = "INSERT INTO Encheres (id_cible,id_proprietaire,date_debut,seuil_mise,id_encheres) "
                     + "VALUES(?,?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setInt(1,obj.getId_cible());
-            pst.setInt(2,obj.getId_proprietaire());
+            
+            //à modifer apres avoir creer le module user et inserer directement par code l'id du user
+            pst.setInt(2,1);
+            
             pst.setTimestamp(3,obj.getDate_debut());
             pst.setDouble(4,obj.getSeuil_mise());            
             pst.setDouble(5,obj.getId_encheres());            
             
             pst.executeUpdate();
+            
+            //apres l'ajout modifier l'etat du produit "en encheres" pour qu'il ne s'affiche plus au store 
     }
 
     @Override
     public void Update(Encheres obj) throws SQLException {
              
-        String requete = "UPDATE Encheres SET date_debut=?,seuil_mise=?,id_proprietaire=?,id_cible=? "
+         
+        if(obj.getSeuil_mise()==0)
+        {
+        String requete = "UPDATE Encheres SET date_debut=?"
                     + "where id_encheres=?";
         
         PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setTimestamp(1,obj.getDate_debut());
-            pst.setDouble(2,obj.getSeuil_mise());
-            pst.setInt(3,obj.getId_proprietaire());
-            pst.setInt(4,obj.getId_cible());
-            pst.setInt(5,obj.getId_encheres());
-            
+            pst.setInt(2,obj.getId_encheres());
             pst.executeUpdate();
+        }        
+        else
+        {
+        String requete = "UPDATE Encheres SET seuil_mise=? "
+                    + "where id_encheres=?";
+        
+            PreparedStatement pst = cnx.prepareStatement(requete);
+            pst.setDouble(1,obj.getSeuil_mise());        
+            pst.setInt(2,obj.getId_encheres());
+            pst.executeUpdate();
+        }
+        
     }
 
     @Override
@@ -66,11 +83,16 @@ public class CrudEncheres implements ICrud<Encheres> {
         String item="";
           
         if(obj.getId_encheres()==0)
-           item="id_cible";              
+           item="e.id_cible";              
         else
-           item="id_encheres";              
+           item="e.id_encheres";              
                
-        String requete=" SELECT * FROM encheres WHERE "+item+"=?";
+        String requete=" SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,"
+                + "u.username,c.nom,p.description,p.caracteristiques "
+                + "From encheres e, categorie c , produit p , utilisateur u "
+                + "WHERE (e.id_cible=p.id) and (u.id=p.id_propietaire) and (c.id=p.id_categorie)"
+                + " and "+item+"=?";
+        
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         
           if(obj.getId_encheres()==0)
@@ -80,10 +102,15 @@ public class CrudEncheres implements ICrud<Encheres> {
 
           ResultSet rs = pSmt.executeQuery();
             rs.next();
-            obj.setId_encheres(rs.getInt(1)); 
-            obj.setSeuil_mise(rs.getDouble(5)); 
-            obj.setId_proprietaire(rs.getInt(3)); 
-            obj.setId_cible(rs.getInt(2)); 
+            obj.setCaracteristiques(rs.getString(10)); 
+            obj.setDescription(rs.getString(9)); 
+            obj.setCategorie(rs.getString(8)); 
+            obj.setNom_proprietaire(rs.getString(7)); 
+            obj.setNom_image(rs.getString(6)); 
+            obj.setPoid(rs.getDouble(5)); 
+            obj.setLabel(rs.getString(1)); 
+            obj.setId_encheres(rs.getInt(2)); 
+            obj.setSeuil_mise(rs.getDouble(3)); 
             obj.setDate_debut(rs.getTimestamp(4)); 
                             
                        
@@ -93,14 +120,20 @@ public class CrudEncheres implements ICrud<Encheres> {
     @Override
     public List<Encheres> SelectAll() throws SQLException {
         List<Encheres> liste = new ArrayList<Encheres>();
-        String requete=" SELECT * FROM encheres ";
-
+        
+         String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques "
+                      + "From produit p "
+                      + "JOIN encheres e on p.id=e.id_cible "
+                      + "JOIN categorie c on p.id_categorie=c.id "
+                      + "JOIN utilisateur u on p.id_propietaire=u.id";
+        
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
         
            while(rs.next())
            {
-            Encheres E =new Encheres(rs.getInt(1),rs.getDouble(5),rs.getInt(2),rs.getInt(3),rs.getTimestamp(4));   
+            Encheres E =new Encheres(rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
+            rs.getString(6),rs.getDouble(5),rs.getString(1),rs.getInt(2),rs.getDouble(3),rs.getTimestamp(4));            
             liste.add(E);
            }
        
@@ -114,11 +147,13 @@ public class CrudEncheres implements ICrud<Encheres> {
          pSmt.setInt(1,obj.getId_encheres());
          pSmt.executeUpdate();
 
+         //effacer le produit dans la table produit car le seul qui reste dans l'enchere vient d'etre effacé
     }
     
     public List<Produit> SelectAllProduit() throws SQLException {
         List<Produit> liste = new ArrayList<Produit>();
-        String requete=" SELECT * FROM produit ";
+     //change it
+        String requete=" SELECT * FROM produit where quantite=1";
 
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();

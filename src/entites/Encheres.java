@@ -5,81 +5,147 @@
  */
 package entites;
 
+import com.jfoenix.controls.JFXDatePicker;
 import javafx.scene.control.CheckBox;
 import java.sql.Timestamp;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
  * @author azizkastalli
  */
-public class Encheres {
-    private int    id_encheres;
-    private double seuil_mise;
-    private int id_proprietaire;
-    private int id_cible;
-    private Timestamp   date_debut;
-    private CheckBox checkbox;
-   
-    public Encheres(){
-            this.checkbox = new CheckBox();    
-}
-    
-    public Encheres(int id_encheres) {
-        this.id_encheres=id_encheres;
-        this.checkbox = new CheckBox();    
-    }
+public class Encheres { 
+   private String caracteristiques;
+   private String description;
+   private String categorie;
+   private String nom_proprietaire;
+   private String nom_image;
+   private double poid;
+   private String label;
+   private int    id_encheres;
+   private int    id_cible;
+   private double seuil_mise;
+   private Timestamp   date_debut;
+   private CheckBox checkbox;
+   private ImageView IV;
+   private JFXDatePicker date_debutFX;
 
-    
-    public Encheres(int id_encheres,double seuil_mise, Timestamp date_debut) {
-        this.id_encheres=id_encheres;
-        this.seuil_mise = seuil_mise;
-        this.date_debut = date_debut;
-        this.checkbox = new CheckBox();
-    }
-    
-    public Encheres(int id_encheres,double seuil_mise, int id_proprietaire, int id_cible, Timestamp date_debut) {
-        this.id_encheres=id_encheres;
-        this.seuil_mise = seuil_mise;
-        this.id_proprietaire = id_proprietaire;
-        this.id_cible = id_cible;
-        this.date_debut = date_debut;
-        this.checkbox = new CheckBox();
-    }
-
-    public void setId_encheres(int id_encheres) {
+   //constructeur vide
+    public Encheres() {}
+ 
+    //constructeur pour afficher les encheres
+    public Encheres(String caracteristiques, String description, String categorie, String nom_proprietaire, String nom_image, double poid, String label, int id_encheres, double seuil_mise, Timestamp date_debut) {
+        this.caracteristiques = caracteristiques;
+        this.description = description;
+        this.categorie = categorie;
+        this.nom_proprietaire = nom_proprietaire;
+        this.poid = poid;
+        this.label = label;
+        this.nom_image=nom_image;
         this.id_encheres = id_encheres;
+        this.seuil_mise = seuil_mise;
+        this.date_debut = date_debut;
+        this.checkbox = new CheckBox();
+        this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
+     /*   this.date_debutFX= new  JFXDatePicker();
+        this.date_debutFX.setValue(date_debut);*/
+    }
+
+    //constructeur pour ajouter et modifier les encheres
+    public Encheres(int id_encheres, int id_cible, double seuil_mise, Timestamp date_debut) {
+        this.id_encheres = id_encheres;
+        this.id_cible = id_cible;
+        this.seuil_mise = seuil_mise;
+        this.date_debut = date_debut;
+    }
+
+    public String getCaracteristiques() {
+        return caracteristiques;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public String getNom_proprietaire() {
+        return nom_proprietaire;
+    }
+
+    public String getNom_image() {
+        return nom_image;
+    }
+
+    public double getPoid() {
+        return poid;
+    }
+
+    public String getLabel() {
+        return label;
     }
 
     public int getId_encheres() {
         return id_encheres;
     }
 
-    public double getSeuil_mise() {
-        return seuil_mise;
-    }
-
-    public int getId_proprietaire() {
-        return id_proprietaire;
-    }
-
     public int getId_cible() {
         return id_cible;
+    }
+
+    public double getSeuil_mise() {
+        return seuil_mise;
     }
 
     public Timestamp getDate_debut() {
         return date_debut;
     }
 
-    public void setSeuil_mise(double seuil_mise) {
-        this.seuil_mise = seuil_mise;
+    public CheckBox getCheckbox() {
+        return checkbox;
     }
 
-    public void setId_proprietaire(int id_proprietaire) {
-        this.id_proprietaire = id_proprietaire;
+    public void setCaracteristiques(String caracteristiques) {
+        this.caracteristiques = caracteristiques;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
+    public void setNom_proprietaire(String nom_proprietaire) {
+        this.nom_proprietaire = nom_proprietaire;
+    }
+
+    public void setNom_image(String nom_image) {
+        this.nom_image = nom_image;
+    }
+
+    public void setPoid(double poid) {
+        this.poid = poid;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public void setId_encheres(int id_encheres) {
+        this.id_encheres = id_encheres;
     }
 
     public void setId_cible(int id_cible) {
         this.id_cible = id_cible;
+    }
+
+    public void setSeuil_mise(double seuil_mise) {
+        this.seuil_mise = seuil_mise;
     }
 
     public void setDate_debut(Timestamp date_debut) {
@@ -90,8 +156,13 @@ public class Encheres {
         this.checkbox = checkbox;
     }
 
-    public CheckBox getCheckbox() {
-        return checkbox;
+    public ImageView getIV() {
+        return IV;
     }
+
+    public void setIV(ImageView IV) {
+        this.IV = IV;
+    }
+  
 
 }

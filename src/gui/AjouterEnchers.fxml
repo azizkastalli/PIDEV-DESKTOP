@@ -131,12 +131,11 @@
                <children>
                   <TableView fx:id="table" layoutX="322.0" layoutY="30.0" onMouseClicked="#AjoutStep1" prefHeight="213.0" prefWidth="601.0">
                     <columns>
-                      <TableColumn fx:id="image" prefWidth="152.00003051757812" text="image" />
-                      <TableColumn fx:id="label" prefWidth="97.99996948242188" text="label" />
-                        <TableColumn fx:id="categorie" prefWidth="100.66668701171875" text="categorie" />
-                        <TableColumn fx:id="prix" prefWidth="102.6666259765625" text="prix" />
-                        <TableColumn fx:id="id" prefWidth="75.3333740234375" text="id" />
-                        <TableColumn fx:id="prop" prefWidth="76.0" text="prop" />
+                      <TableColumn fx:id="image" prefWidth="167.0" text="image" />
+                      <TableColumn fx:id="label" prefWidth="133.0" text="label" />
+                        <TableColumn fx:id="categorie" prefWidth="120.0" text="categorie" />
+                        <TableColumn fx:id="prix" prefWidth="93.0" text="prix" />
+                        <TableColumn fx:id="qte" prefWidth="87.0" text="quantite" />
                     </columns>
                   </TableView>
                   <TextField fx:id="tfmise" layoutX="322.0" layoutY="272.0" prefHeight="37.0" prefWidth="601.0" />

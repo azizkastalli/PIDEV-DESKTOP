@@ -31,7 +31,10 @@ public class ServiceJournal {
     public List<Journal> SelectJournal(Session S) throws SQLException
     {
          List<Journal> liste = new ArrayList<Journal>();
-        String requete=" SELECT * FROM Journal WHERE id_session= ? ";
+        String requete=" SELECT j.id,j.date_mise,j.mise,u.username "
+                     + "FROM Journal j "
+                     + "JOIN utilisateur u on u.id=j.id_client "
+                     + "WHERE j.id_session= ? ";
 
         PreparedStatement pst = cnx.prepareStatement(requete);
         pst.setInt(1,S.getId());
@@ -39,7 +42,7 @@ public class ServiceJournal {
         
            while(rs.next())
            {
-            Journal J =new  Journal(rs.getTime(5),rs.getString(3),rs.getDouble(4));   
+            Journal J =new Journal(rs.getInt(1),rs.getTime(2),rs.getDouble(3),rs.getString(4));   
             liste.add(J);
            }
 

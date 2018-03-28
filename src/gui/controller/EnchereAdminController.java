@@ -29,6 +29,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -46,17 +47,20 @@ public class EnchereAdminController implements Initializable {
     @FXML
     private HBox ev;
     @FXML
-    private TableColumn<Session, Integer> id;
-    @FXML
     private TableColumn<Session, Double> mise;
     @FXML
     private TableColumn<Session, String> gagnant;
     @FXML
     private TableColumn<Session, String> etat;
     @FXML
+    private TableColumn<Session, ImageView> image;
+    @FXML
+    private TableColumn<Session, String> label;
+    @FXML
     private TableView<Session> table;
     
     private final TableView<Journal> tableH = new TableView<>();
+    
     @FXML
     private Pane tablePane;
     @FXML
@@ -66,26 +70,32 @@ public class EnchereAdminController implements Initializable {
 
      ServiceJournal SJ = new ServiceJournal();
      CrudSession CS = new CrudSession();
+ 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          CrudSession session =new CrudSession();
+        
+        CrudSession session =new CrudSession();
         ArrayList arrayList=null;
+   
         try {
-             arrayList = (ArrayList) session.SelectAll();
-        } catch (SQLException ex) {}
+            arrayList = (ArrayList) session.SelectAll();
+        } catch (SQLException ex) {
+            Logger.getLogger(EnchereAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         ObservableList observableList = FXCollections.observableArrayList(arrayList);
         table.setItems(observableList);
         
-        id.setCellValueFactory(new PropertyValueFactory<Session,Integer>("id"));
         mise.setCellValueFactory(new PropertyValueFactory<Session,Double>("derniere_mise"));
-        gagnant.setCellValueFactory(new PropertyValueFactory<Session,String>("id_gagnant"));
+        gagnant.setCellValueFactory(new PropertyValueFactory<Session,String>("gagnant"));
+        image.setCellValueFactory(new PropertyValueFactory<Session,ImageView>("image"));
+        label.setCellValueFactory(new PropertyValueFactory<Session,String>("NomProduit"));
         etat.setCellValueFactory(new PropertyValueFactory<Session,String>("etat"));
         action.setCellValueFactory(new PropertyValueFactory<Session,CheckBox>("checkbox"));
-        
+      
     }    
     
       @FXML
@@ -100,8 +110,6 @@ public class EnchereAdminController implements Initializable {
                 //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
-            
-        
             
         } catch (IOException ex) {
            
@@ -249,7 +257,7 @@ public class EnchereAdminController implements Initializable {
         TableColumn miseclient = new TableColumn("mise");
         TableColumn heureclient = new TableColumn("heure de mise");
        
-        client.setCellValueFactory(new PropertyValueFactory<Journal,String>("id_client"));
+        client.setCellValueFactory(new PropertyValueFactory<Journal,String>("nom_client"));
         miseclient.setCellValueFactory(new PropertyValueFactory<Journal,Double>("mise"));
         heureclient.setCellValueFactory(new PropertyValueFactory<Journal,Time>("date_mise"));
         

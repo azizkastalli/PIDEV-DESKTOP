@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import entites.Encheres;
 import entites.Produit;
 import java.net.URL;
 import java.sql.SQLException;
@@ -65,7 +66,7 @@ public class EncheresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     
         //init
-        ArrayList <Produit>liste = new ArrayList<Produit>();
+        ArrayList <Encheres>liste = new ArrayList<Encheres>();
         
          //setting up the GridPane
         GP.setPadding(new Insets(10,10,10,10));
@@ -80,18 +81,40 @@ public class EncheresController implements Initializable {
         }
         
         //put DATA
-        for(Produit Prd : liste)
+        for(Encheres E : liste)
         {   
-            
+            //image set
             ImageView IV= new ImageView();
-            Image I = new Image("/utils/assets/aaa.jpg");
-            Pane P = new Pane();
-            
+            Image I = new Image("/utils/assets/"+E.getNom_image());
             IV.setImage(I);
-            IV.setFitWidth(246);
-            IV.setFitHeight(277);
+            IV.setFitWidth(230);
+            IV.setFitHeight(177);
             
-            P.getChildren().add(IV);            
+            //pane set
+            Pane P = new Pane();
+            P.setPrefWidth(246);
+            P.setPrefHeight(277);
+            P.setStyle("-fx-background-color: #4f86dd");
+            //label set 
+            Label L= new Label(E.getLabel());
+              L.setLayoutY(185);
+              L.setStyle("-fx-font-size:20");
+              //L.setStyle("-fx-font-weight:bold");
+              //L.setStyle("-fx-text-fill: black");
+              L.setPrefHeight(40);
+              L.setPrefWidth(246);
+              
+            //label set in place of count down
+            Label L1= new Label("countdown");
+              L1.setLayoutY(230);
+              L1.setStyle("-fx-font-size:20");
+              //L.setStyle("-fx-font-weight:bold");
+              //L.setStyle("-fx-text-fill: black");
+              L1.setPrefHeight(40);
+              L1.setPrefWidth(246);
+            
+                    
+            P.getChildren().addAll(IV,L,L1);            
             GP.add(P,j,i);            
 
             j++;
@@ -143,7 +166,7 @@ public class EncheresController implements Initializable {
    
  private void AddDataOnScroll(ScrollEvent event)   
  {
-     ArrayList <Produit>liste = new ArrayList<Produit>();
+     ArrayList <Encheres>liste = new ArrayList<Encheres>();
   
         
         if(event.getTextDeltaY()<0)
@@ -155,18 +178,40 @@ public class EncheresController implements Initializable {
         }
         
         //put DATA in GridPane
-        for(Produit Prd : liste)
+        for(Encheres E : liste)
         {   
-            
+             //image set
             ImageView IV= new ImageView();
-            Image I = new Image("/utils/assets/aaa.jpg");
-            Pane P = new Pane();
-            
+            Image I = new Image("/utils/assets/"+E.getNom_image());
             IV.setImage(I);
-            IV.setFitWidth(246);
-            IV.setFitHeight(277);
+            IV.setFitWidth(230);
+            IV.setFitHeight(177);
             
-            P.getChildren().add(IV);            
+            //pane set
+            Pane P = new Pane();
+            P.setPrefWidth(246);
+            P.setPrefHeight(277);
+            P.setStyle("-fx-background-color: #4f86dd");
+            //label set 
+            Label L= new Label(E.getLabel());
+              L.setLayoutY(185);
+              L.setStyle("-fx-font-size:20");
+              //L.setStyle("-fx-font-weight:bold");
+              //L.setStyle("-fx-text-fill: black");
+              L.setPrefHeight(40);
+              L.setPrefWidth(246);
+              
+            //label set in place of count down
+            Label L1= new Label("countdown");
+              L1.setLayoutY(230);
+              L1.setStyle("-fx-font-size:20");
+              //L.setStyle("-fx-font-weight:bold");
+              //L.setStyle("-fx-text-fill: black");
+              L1.setPrefHeight(40);
+              L1.setPrefWidth(246);
+            
+                    
+            P.getChildren().addAll(IV,L,L1);            
             GP.add(P,j,i);            
 
             j++;

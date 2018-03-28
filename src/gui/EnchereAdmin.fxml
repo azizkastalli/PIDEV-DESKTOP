@@ -188,10 +188,11 @@
                   <TableView fx:id="table" layoutX="74.0" layoutY="26.0" onMouseClicked="#HistoriqueSession" prefHeight="370.0" prefWidth="723.0">
                     <columns>
                         <TableColumn fx:id="action" prefWidth="67.0" text="action" />
-                      <TableColumn fx:id="id" prefWidth="146.0" text="id" />
-                      <TableColumn fx:id="mise" prefWidth="169.0" text="derniere_mise" />
-                        <TableColumn fx:id="gagnant" prefWidth="196.0" text="id_gagnant" />
-                        <TableColumn fx:id="etat" prefWidth="144.0" text="etat" />
+                        <TableColumn fx:id="image" prefWidth="165.0" text="image" />
+                        <TableColumn fx:id="label" prefWidth="136.0" text="label" />
+                      <TableColumn fx:id="mise" prefWidth="126.0" text="derniere_mise" />
+                        <TableColumn fx:id="gagnant" prefWidth="129.0" text="gagnant" />
+                        <TableColumn fx:id="etat" prefWidth="97.0" text="etat" />
                     </columns>
                   </TableView>
                   <Button fx:id="delete" layoutX="642.0" layoutY="427.0" mnemonicParsing="false" onMouseClicked="#DeleteSessions" prefHeight="38.0" prefWidth="158.0" text="Delete Session" />
