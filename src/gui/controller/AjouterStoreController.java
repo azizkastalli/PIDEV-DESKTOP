@@ -7,6 +7,7 @@ package gui.controller;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entites.Produit;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javax.swing.JFileChooser;
 import services.CrudProduit;
 
 /**
@@ -71,6 +73,8 @@ public class AjouterStoreController implements Initializable {
     private TextField image;
     @FXML
     private Button ajoutproduit;
+    @FXML
+    private Button choose;
 
     /**
      * Initializes the controller class.
@@ -124,6 +128,17 @@ public class AjouterStoreController implements Initializable {
         }
         
           
+    }
+
+    @FXML
+    private void Choose(ActionEvent event) {
+        
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        String img = f.getAbsolutePath();
+        image.setText(img); 
+        
     }
     
     
