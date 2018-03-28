@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -101,6 +102,30 @@ public class EncheresController implements Initializable {
            }
         
           anchorGridPane.setContent(GP);
+         
+       //on scroll end add some data
+      
+              anchorGridPane.setOnScroll(e -> {
+
+                scroll ++;
+
+                Thread th = new Thread(() -> {
+                    try {
+                        Thread.sleep(1000);
+                        Platform.runLater(() -> {
+                            if(scroll == 1) 
+                             AddDataOnScroll(e);
+                                scroll--;
+                        });
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                });
+                th.setDaemon(true);
+                th.start();
+            });
+
+          
           
         }
         
@@ -111,10 +136,14 @@ public class EncheresController implements Initializable {
         menu.GestionMenu(event);   
     }
 
-    @FXML
-    private void ChargerPage(ScrollEvent event) {
-                 //init
-        ArrayList <Produit>liste = new ArrayList<Produit>();
+
+
+
+
+   
+ private void AddDataOnScroll(ScrollEvent event)   
+ {
+     ArrayList <Produit>liste = new ArrayList<Produit>();
   
         
         if(event.getTextDeltaY()<0)
@@ -125,7 +154,7 @@ public class EncheresController implements Initializable {
             Logger.getLogger(EncheresController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        //put DATA
+        //put DATA in GridPane
         for(Produit Prd : liste)
         {   
             
@@ -146,17 +175,10 @@ public class EncheresController implements Initializable {
             j=0;}
            
            }     
-        
       nbr=GP.getChildren().size();
-
+      
         }
 
-     
-    }
-
-
-
-   
-        
+ }
     
 }

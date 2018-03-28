@@ -110,7 +110,7 @@
       </HBox>
       <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <ScrollPane fx:id="anchorGridPane" onScroll="#ChargerPage" prefHeight="524.0" prefWidth="788.0" />
+            <ScrollPane fx:id="anchorGridPane" prefHeight="524.0" prefWidth="788.0" />
             <VBox prefHeight="524.0" prefWidth="240.0">
                <opaqueInsets>
                   <Insets />
