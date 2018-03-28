@@ -17,17 +17,17 @@ public class AnimalPerdu {
     private int id_animal;
     private boolean etat;
     private Date date_disparition;
-    private String lieu_dispairition; 
+    private String lieu_disparition; 
 
     
         public AnimalPerdu() {}
 
-        public AnimalPerdu(int id, int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
+        public AnimalPerdu(int id, int id_animal, boolean etat, Date date_disparition, String lieu_disparition) {
         this.id = id;
         this.id_animal = id_animal;
         this.etat = etat;
         this.date_disparition = date_disparition;
-        this.lieu_dispairition = lieu_dispairition;
+        this.lieu_disparition = lieu_disparition;
     }
     
 
@@ -37,7 +37,7 @@ public class AnimalPerdu {
         this.id_animal = id_animal;
         this.etat = etat;
         this.date_disparition = date_disparition;
-        this.lieu_dispairition = lieu_dispairition;
+        this.lieu_disparition = lieu_dispairition;
     }
 
     public int getId() {
@@ -46,7 +46,7 @@ public class AnimalPerdu {
 
     @Override
     public String toString() {
-        return "AnimalPerdu{" + "id=" + id + ", id_animal=" + id_animal + ", etat=" + etat + ", date_disparition=" + date_disparition + ", lieu_dispairition=" + lieu_dispairition + '}';
+        return "AnimalPerdu{" + "id=" + id + ", id_animal=" + id_animal + ", etat=" + etat + ", date_disparition=" + date_disparition + ", lieu_disparition=" + lieu_disparition + '}';
     }
 
     @Override
@@ -80,7 +80,7 @@ public class AnimalPerdu {
         this.id_animal = id_animal;
     }
 
-    public boolean getEtat() {
+    public boolean isEtat() {
         return etat;
     }
 
@@ -97,11 +97,11 @@ public class AnimalPerdu {
     }
 
     public String getLieu_dispairition() {
-        return lieu_dispairition;
+        return lieu_disparition;
     }
 
     public void setLieu_dispairition(String lieu_dispairition) {
-        this.lieu_dispairition = lieu_dispairition;
+        this.lieu_disparition = lieu_dispairition;
     }
 
 }
