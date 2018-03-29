@@ -12,6 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Pagination;
 import utils.Dbconnection;
 
 /**
@@ -23,6 +26,10 @@ public class CrudProduit implements ICrud<Produit> {
      
     public CrudProduit() {
         cnx = Dbconnection.getInstance().getConnection();
+    }
+
+    public CrudProduit(Pagination layout) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -103,21 +110,40 @@ public class CrudProduit implements ICrud<Produit> {
     }
 
     @Override
-    public List<Produit> SelectAll() throws SQLException {
-        
+    public List<Produit> SelectAll()  {
         List<Produit> liste = new ArrayList<>();
-        String requete=" SELECT * FROM produit ";
-        
-        PreparedStatement pSmt = cnx.prepareStatement(requete);
-        ResultSet rs = pSmt.executeQuery();
-        
-           while(rs.next())
-           {
-            Produit P =new Produit(rs.getString(1), rs.getString(2), rs.getString(3),rs.getInt(4),rs.getInt(5),rs.getString(6),rs.getDouble(7), rs.getDouble(8),rs.getDouble(9),rs.getInt(10), rs.getDouble(11),rs.getString(12));   
-            liste.add(P);
-           }
-           
-     return liste;
+        try {
+            
+            String requete=" SELECT * FROM produit ";
+            
+            PreparedStatement pSmt = cnx.prepareStatement(requete);
+            ResultSet rs = pSmt.executeQuery();
+            
+            while(rs.next())
+            {
+                String caracteristiques = rs.getString("caracteristiques");
+                String description = rs.getString("description");
+                String etat = rs.getString("etat");
+                Integer id_categorie = rs.getInt("id_categorie");
+                Integer id_propietaire = rs.getInt("id_propietaire");
+                String nom_image = rs.getString("nom_image");
+                Double poid = rs.getDouble("poid");
+                Double prix_ancien = rs.getDouble("prix_ancien");
+                Double prix_nouv = rs.getDouble("prix_nouv");
+                Integer quantite = rs.getInt("quantite");
+                Double vote= rs.getDouble("vote");
+                String label = rs.getString("label");
+                
+                
+                Produit P =new Produit(caracteristiques,description,etat,id_categorie,id_propietaire,nom_image,poid,prix_ancien,prix_nouv,quantite,vote,label);
+                liste.add(P);
+            }
+            
+            return liste;
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
     }
 
     @Override

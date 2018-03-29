@@ -56,6 +56,8 @@ public class Produit {
         this.vote = vote;
         this.label = label;
     }
+
+   
     
     
 

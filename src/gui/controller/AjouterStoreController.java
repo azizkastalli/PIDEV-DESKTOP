@@ -102,6 +102,7 @@ public class AjouterStoreController implements Initializable {
         Produit PR = new Produit();
         PR.setLabel(nomproduit.getText());
         PR.setCaracteristiques(caracteristique.getText());
+        System.out.println();
         PR.setDescription(description.getText());
         PR.setEtat("en attente");
         int idcat= Integer.parseInt(categorie.getText());

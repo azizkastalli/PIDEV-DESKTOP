@@ -155,7 +155,6 @@
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <TextField fx:id="nomproduit" layoutX="7.0" layoutY="98.0" />
-                  <TextField fx:id="caracteristique" layoutX="7.0" layoutY="179.0" />
                   <TextField fx:id="description" layoutX="7.0" layoutY="262.0" />
                   <TextField fx:id="categorie" layoutX="7.0" layoutY="349.0" />
                   <Label layoutX="-12.0" layoutY="12.0" text="Ajout Produit" textFill="#ebebea">
@@ -163,13 +162,14 @@
                         <Font name="System Bold Italic" size="35.0" />
                      </font>
                   </Label>
+                  <TextField fx:id="caracteristique" layoutX="9.0" layoutY="171.0" />
                </children>
             </Pane>
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Label layoutX="73.0" layoutY="97.0" text="nom image" textFill="#d3d0d0" />
                   <Label layoutX="73.0" layoutY="182.0" text="poid" textFill="#cdc9c9" />
-                  <Label layoutX="73.0" layoutY="262.0" text="prix ancien" textFill="#ddd9d9" />
+                  <Label layoutX="73.0" layoutY="262.0" text="prix " textFill="#ddd9d9" />
                   <Label layoutX="72.0" layoutY="356.0" text="quantite" textFill="#d7d4d4" />
                </children>
             </Pane>
@@ -179,6 +179,7 @@
                   <TextField fx:id="prixanc" layoutX="7.0" layoutY="247.0" />
                   <TextField fx:id="poid" layoutX="7.0" layoutY="175.0" />
                   <TextField fx:id="image" layoutX="7.0" layoutY="89.0" />
+                  <Button fx:id="choose" layoutX="112.0" layoutY="89.0" mnemonicParsing="false" onAction="#Choose" text="Choose .." />
                </children>
             </Pane>
             <Button fx:id="ajoutproduit" mnemonicParsing="false" onAction="#ajoutproduit" text="Ajouter">
