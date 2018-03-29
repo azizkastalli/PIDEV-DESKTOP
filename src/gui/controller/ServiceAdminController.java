@@ -235,11 +235,13 @@ public class ServiceAdminController implements Initializable {
             p=(AnimalPerdu) myTool.SelectAll().get(i);
             data.add(p);
         }
+
         //System.out.println(data);
         ida.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
         datee.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
         lieuu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));
         etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
+
         //tableA.setItems(null);
         tableA.setItems(data);
         
@@ -313,7 +315,7 @@ public class ServiceAdminController implements Initializable {
             }
     }
 
-    @FXML
+          @FXML
     private void Referto(ActionEvent event) throws IOException {
         
              Stage stage=new Stage();
@@ -326,7 +328,6 @@ public class ServiceAdminController implements Initializable {
         
     }
 
-        
     }
 
    
