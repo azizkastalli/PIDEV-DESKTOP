@@ -104,28 +104,44 @@
             </Pane>
          </children>
       </HBox>
-      <Pane>
+      <Pane prefHeight="177.0" prefWidth="1025.0" styleClass="background">
          <children>
-            <ImageView fx:id="anp" fitHeight="150.0" fitWidth="172.0" layoutX="428.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="anp" fitHeight="174.0" fitWidth="171.0" layoutX="432.0" layoutY="1.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../utils/assets/téléchargement%20(1).jpg" />
                </image>
             </ImageView>
-            <Label fx:id="animp" layoutX="439.0" layoutY="75.0" onMouseClicked="#Menu" prefHeight="35.0" prefWidth="162.0" text="Animal perdu" textFill="#0a0202">
+            <Label fx:id="animp" layoutX="440.0" layoutY="131.0" onMouseClicked="#Menu" prefHeight="35.0" prefWidth="162.0" text="Animal perdu">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane>
+      <Pane prefHeight="203.0" prefWidth="1025.0" styleClass="background" stylesheets="@css/rubriqueservices.css">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="409.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="ans" fitHeight="150.0" fitWidth="233.0" layoutX="446.0" layoutY="10.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/gallery-col3-img-11.jpg" />
+               </image></ImageView>
+            <Label fx:id="anisdf" layoutX="450.0" layoutY="163.0" onMouseClicked="#Menu" prefHeight="27.0" prefWidth="150.0" text="Animal SDF" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
-      <Pane>
+      <Pane prefHeight="175.0" prefWidth="1025.0" styleClass="background" stylesheets="@css/rubriqueservices.css">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="411.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="rdvs" fitHeight="150.0" fitWidth="200.0" layoutX="418.0" layoutY="2.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/images.png" />
+               </image></ImageView>
+            <Label fx:id="rdv" layoutX="447.0" layoutY="119.0" onMouseClicked="#Menu" text="Rendez-vous">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

@@ -6,6 +6,7 @@
 package entites;
 
 import java.sql.Date;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -18,11 +19,16 @@ public class AnimalPerdu {
     private boolean etat;
     private Date date_disparition;
     private String lieu_disparition; 
+  
+
+   
+    
+    
 
     
         public AnimalPerdu() {}
 
-        public AnimalPerdu(int id, int id_animal, boolean etat, Date date_disparition, String lieu_disparition) {
+        public AnimalPerdu(int id, int id_animal,  Date date_disparition, String lieu_disparition,boolean etat) {
         this.id = id;
         this.id_animal = id_animal;
         this.etat = etat;
@@ -32,12 +38,14 @@ public class AnimalPerdu {
     
 
 
-        public AnimalPerdu( int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
+        public AnimalPerdu( int id_animal,  Date date_disparition, String lieu_disparition, boolean etat) {
         
         this.id_animal = id_animal;
-        this.etat = etat;
         this.date_disparition = date_disparition;
-        this.lieu_disparition = lieu_dispairition;
+        this.lieu_disparition = lieu_disparition;
+        this.etat = etat;
+        
+        
     }
 
     public int getId() {
@@ -96,12 +104,14 @@ public class AnimalPerdu {
         this.date_disparition = date_disparition;
     }
 
-    public String getLieu_dispairition() {
+    public String getLieu_disparition() {
         return lieu_disparition;
     }
 
-    public void setLieu_dispairition(String lieu_dispairition) {
-        this.lieu_disparition = lieu_dispairition;
+    public void setLieu_dispairition(String lieu_disparition) {
+        this.lieu_disparition = lieu_disparition;
     }
+
+   
 
 }

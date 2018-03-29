@@ -32,19 +32,19 @@ String query ="INSERT INTO animalperdu(id_animal,date_disparition,lieu_dispariti
       PreparedStatement pSmt  = cnx.prepareStatement(query);
       pSmt.setInt(1,obj.getId_animal());
       pSmt.setDate(2, obj.getDate_disparition());
-      pSmt.setString(3, obj.getLieu_dispairition());
-      pSmt.setBoolean(4, obj.getEtat());
+      pSmt.setString(3, obj.getLieu_disparition());
+      pSmt.setBoolean(4, obj.isEtat());
       pSmt.executeUpdate();    
     }
 
     @Override
     public void Update(AnimalPerdu obj) throws SQLException {
-String requete = "UPDATE animalperdu SET id_anial=?,lieu_disparition=?,date_disparition=?,etat=?  WHERE id=? ";
+String requete = "UPDATE animalperdu SET id_animal=?,lieu_disparition=?,date_disparition=?,etat=?  WHERE id=? ";
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1,obj.getId_animal());
-            pst.setString(2,obj.getLieu_dispairition() );
+            pst.setString(2,obj.getLieu_disparition() );
             pst.setDate(3, obj.getDate_disparition());
-            pst.setBoolean(4, obj.getEtat());
+            pst.setBoolean(4, obj.isEtat());
             pst.setInt(5, obj.getId());
            
             pst.executeUpdate();    }
@@ -68,6 +68,7 @@ String requete = "UPDATE animalperdu SET id_anial=?,lieu_disparition=?,date_disp
 
             
     }
+    
 
     @Override
     public List SelectAll() throws SQLException {
@@ -82,7 +83,7 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
             while (rs.next()) 
                
                 {
-            AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getBoolean(2),rs.getDate(3),rs.getString(4));   
+            AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getString(4),rs.getBoolean(5));   
             listAnimal.add(A);
            }
 
@@ -92,7 +93,7 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
 
     @Override
     public void Delete(AnimalPerdu obj) throws SQLException {
-PreparedStatement pSmt = cnx.prepareStatement("delete from animalperdu where id=? " );
+ PreparedStatement pSmt = cnx.prepareStatement("delete from animalperdu where id=? " );
          pSmt.setInt(1,obj.getId());
          pSmt.executeUpdate();
     }

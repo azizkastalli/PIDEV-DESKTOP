@@ -5,54 +5,54 @@
  */
 package gui.controller;
 
-import entites.AnimalPerdu;
-import java.io.IOException;
+import entites.AnimalSdf;
+import java.io.FileInputStream;
 import java.net.URL;
-import java.time.LocalDate;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javax.swing.JOptionPane;
-import services.CrudAnimalperdu;
+import services.CrudAnimalsdf;
 
 /**
  * FXML Controller class
  *
  * @author user
  */
-public class AnimalperduController implements Initializable {
-    
-    static AnimalPerdu p = new AnimalPerdu();
+public class AnimalsdfController implements Initializable {
 
     @FXML
-    private TextField ida;
+    private TextField idc;
     @FXML
-    private DatePicker date;
+    private TextField idca;
+    @FXML
+    private TextField sexe;
+    @FXML
+    private TextField img;
     @FXML
     private TextField lieu;
     @FXML
-    private TextField etat;
+    private Pane menubar;
     @FXML
-    private Button ajouter;
+    private Label acceuil1;
     @FXML
-    private Label acceuil;
+    private Label services1;
     @FXML
-    private Label services;
+    private Label produits1;
     @FXML
-    private Label produits;
+    private Label veterinaires1;
     @FXML
-    private Label veterinaires;
+    private DatePicker date;
+   
 
     /**
      * Initializes the controller class.
@@ -62,22 +62,22 @@ public class AnimalperduController implements Initializable {
         // TODO
     }    
 
-  
     @FXML
     private void ajout(ActionEvent event) throws SQLException {
-        CrudAnimalperdu myTool = new CrudAnimalperdu();
-        AnimalPerdu p = new AnimalPerdu();
-        int id = Integer.parseInt(ida.getText());
-        p.setId_animal(id);
+        CrudAnimalsdf myTool = new CrudAnimalsdf();
+        AnimalSdf p = new AnimalSdf();
+        int id = Integer.parseInt(idca.getText());
+        p.setId_categorie(id);
+        p.setSexe(sexe.getText());
+        p.setNom_image(img.getText());
         LocalDate date1 = this.date.getValue();
         Date date2 = Date.valueOf(date1);
-        p.setDate_disparition(date2);
-        p.setLieu_dispairition(lieu.getText());
-       boolean etatt = Boolean.getBoolean(etat.getText());
-        p.setEtat(etatt);
+        p.setDate_trouvaille(date2);
+        p.setLieu_trouvaille(lieu.getText());
+        int id2 = Integer.parseInt(idc.getText());
+        p.setId_client(id2);
         myTool.Create(p);
-        JOptionPane.showMessageDialog(null, "reclamation ajouté");
-        
+        JOptionPane.showMessageDialog(null, "declamation ajouté");
         
     }
 
@@ -85,8 +85,4 @@ public class AnimalperduController implements Initializable {
     private void Menu(MouseEvent event) {
     }
     
-    }
-
-    
-    
-
+}

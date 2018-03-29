@@ -53,20 +53,25 @@ public class ServiceAdminController implements Initializable {
     private HBox ev;
     @FXML
     private TableView<AnimalPerdu> tableA;
-    @FXML
-    private TableColumn<AnimalPerdu, Integer> ada;
-    @FXML
-    private TableColumn<AnimalPerdu, Date> date;
-    @FXML
-    private TableColumn<AnimalPerdu, String> lieu;
-    @FXML
-    private TableColumn<AnimalPerdu, Boolean> etat;
+    //private TableColumn<AnimalPerdu, Integer> ada;
+    //@FXML
+    //private TableColumn<AnimalPerdu, Date> date;
+    //private TableColumn<AnimalPerdu, String> lieu;
+    //private TableColumn<AnimalPerdu, Boolean> etat;
     
     
     private ObservableList <AnimalPerdu> data;
    // private Dbconnection dc;
     @FXML
     private Button button;
+    @FXML
+    private TableColumn<AnimalPerdu, Integer> ida;
+    @FXML
+    private TableColumn<AnimalPerdu, Date> datee;
+    @FXML
+    private TableColumn<AnimalPerdu, String> lieuu;
+    @FXML
+    private TableColumn<AnimalPerdu, Boolean> etatt;
     
 
     /**
@@ -230,10 +235,11 @@ public class ServiceAdminController implements Initializable {
             p=(AnimalPerdu) myTool.SelectAll().get(i);
             data.add(p);
         }
-        ada.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
-        lieu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));
-        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        //System.out.println(data);
+        ida.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
+        datee.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
+        lieuu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));
+        etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
         //tableA.setItems(null);
         tableA.setItems(data);
         
@@ -305,6 +311,19 @@ public class ServiceAdminController implements Initializable {
             {
                  JOptionPane.showMessageDialog(null,"Veuillez selectionner une reclamation");
             }
+    }
+
+    @FXML
+    private void Referto(ActionEvent event) throws IOException {
+        
+             Stage stage=new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/AnimalsdfAdmin.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); 
+            
+        
+        
     }
 
         

@@ -29,6 +29,15 @@ import javafx.stage.Stage;
  */
 public class RubriqueServicesController implements Initializable {
 
+    @FXML
+    private ImageView anp;
+    @FXML
+    private Label animp;
+    @FXML
+    private Label anisdf;
+    @FXML
+    private Label rdv;
+
      public RubriqueServicesController(){}
     @FXML
     private VBox parent;
@@ -77,6 +86,16 @@ public class RubriqueServicesController implements Initializable {
             
                 destination="Animalperdu.fxml";
                 break;
+            case "ans":
+            case "anisdf":
+            
+                destination="Animalsdf.fxml";
+                break;
+            case "rdv":
+            case "rdvs":
+            
+                destination="Rdv_dresseur.fxml";
+                break;
          }
          if(destination!="")
         {
@@ -100,5 +119,7 @@ public class RubriqueServicesController implements Initializable {
         menu.GestionMenu(event);
               
     }
+
+    
     
 }
