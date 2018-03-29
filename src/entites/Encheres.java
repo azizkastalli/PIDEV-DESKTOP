@@ -6,6 +6,7 @@
 package entites;
 
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
 import javafx.scene.control.CheckBox;
 import java.sql.Timestamp;
 import javafx.scene.image.Image;
@@ -30,7 +31,8 @@ public class Encheres {
    private CheckBox checkbox;
    private ImageView IV;
    private JFXDatePicker date_debutFX;
-
+   private JFXTimePicker heureFX;
+  
    //constructeur vide
     public Encheres() {}
  
@@ -48,8 +50,9 @@ public class Encheres {
         this.date_debut = date_debut;
         this.checkbox = new CheckBox();
         this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
-     /*   this.date_debutFX= new  JFXDatePicker();
-        this.date_debutFX.setValue(date_debut);*/
+        this.date_debutFX= new  JFXDatePicker(date_debut.toLocalDateTime().toLocalDate());
+        this.heureFX = new JFXTimePicker(date_debut.toLocalDateTime().toLocalTime());
+        
     }
 
     //constructeur pour ajouter et modifier les encheres
@@ -162,6 +165,22 @@ public class Encheres {
 
     public void setIV(ImageView IV) {
         this.IV = IV;
+    }
+
+    public JFXDatePicker getDate_debutFX() {
+        return date_debutFX;
+    }
+
+    public JFXTimePicker getHeureFX() {
+        return heureFX;
+    }
+
+    public void setDate_debutFX(JFXDatePicker date_debutFX) {
+        this.date_debutFX = date_debutFX;
+    }
+
+    public void setHeureFX(JFXTimePicker heureFX) {
+        this.heureFX = heureFX;
     }
   
 

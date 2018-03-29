@@ -5,6 +5,8 @@
  */
 package gui.controller;
 
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entites.Encheres;
 import java.net.URL;
@@ -67,7 +69,7 @@ public class GererEnchersController implements Initializable {
     @FXML
     private TableColumn<Encheres, Double> seuil;
     @FXML
-    private TableColumn<Encheres, Timestamp> date;
+    private TableColumn<Encheres, JFXDatePicker> date;
     @FXML
     private TableColumn<Encheres,String> delete;
     @FXML
@@ -76,6 +78,8 @@ public class GererEnchersController implements Initializable {
     private TableColumn<Encheres, String> label;
     @FXML
     private TableColumn<Encheres, String> categorie;
+    @FXML
+    private TableColumn<Encheres, JFXTimePicker> heure;
   
     
 
@@ -98,7 +102,8 @@ public class GererEnchersController implements Initializable {
         table.setItems(observableList);
         
         seuil.setCellValueFactory(new PropertyValueFactory<Encheres,Double>("seuil_mise"));
-        date.setCellValueFactory(new PropertyValueFactory<Encheres,Timestamp>("date_debut"));
+        date.setCellValueFactory(new PropertyValueFactory<Encheres,JFXDatePicker>("date_debutFX"));
+        heure.setCellValueFactory(new PropertyValueFactory<Encheres,JFXTimePicker>("heureFX"));
         delete.setCellValueFactory(new PropertyValueFactory<Encheres,String>("checkbox"));
         image.setCellValueFactory(new PropertyValueFactory<Encheres,ImageView>("IV"));
         label.setCellValueFactory(new PropertyValueFactory<Encheres,String>("label"));
@@ -106,9 +111,12 @@ public class GererEnchersController implements Initializable {
 
         table.setEditable(true);
         
-        // id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
          seuil.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-      //   date.setCellFactory
+   //     date.setCellFactory();
+   //    heure.setCellFactory();
+        date.setOnEditCommit((event) -> {
+             UpdateDate(event);
+        });
     }    
 
     @FXML
@@ -144,19 +152,59 @@ public class GererEnchersController implements Initializable {
              data.removeAll(oblist);
     }
     
+    
     @FXML
     private void UpdateMise(TableColumn.CellEditEvent<Encheres, Double> event) {
-           Encheres E = new Encheres();
+        
+        Encheres E = new Encheres();
                 E=event.getRowValue();
                 E.setSeuil_mise(event.getNewValue());
-               
-        try {
+
+            try {
             encheres.Update(E);
         } catch (SQLException ex) {
             Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
-  
+
+    
+    private void UpdateDate(TableColumn.CellEditEvent<Encheres, JFXDatePicker> event) {
+
+        Encheres E = new Encheres();
+        E=event.getRowValue();
+        E.setSeuil_mise(0);           
+        Timestamp ts= E.getDate_debut();
+        ts.setDate(E.getDate_debutFX().getValue().getDayOfMonth());
+        ts.setMonth(E.getDate_debutFX().getValue().getMonthValue());
+        ts.setYear(E.getDate_debutFX().getValue().getYear());
+        E.setDate_debut(ts);
+        try {
+            encheres.Update(E);
+        } catch (SQLException ex) {
+            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+
+    @FXML
+    private void UpdateTime(TableColumn.CellEditEvent<Encheres, JFXTimePicker> event) {
+
+        Encheres E = new Encheres();
+        E=event.getRowValue();
+        E.setSeuil_mise(0);           
+        Timestamp ts= E.getDate_debut();
+        ts.setHours(E.getHeureFX().getValue().getHour());
+        ts.setMinutes(E.getHeureFX().getValue().getMinute());
+        E.setDate_debut(ts);
+        try {
+            encheres.Update(E);
+        } catch (SQLException ex) {
+            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+ 
 
 }

@@ -147,18 +147,18 @@ public class AjouterEnchersController implements Initializable {
       Session S = new Session();
       
       E.setSeuil_mise(Double.parseDouble(tfmise.getText()));
-
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+      
       String dateEncheres = date.getValue().format(formatter);
-      
-      String time=dateEncheres+" "+heure.getValue()+":00";
-
-      
-      
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    Date parsedDate;
+      LocalTime LT = heure.getValue();
+             
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+      Date parsedDate;
         try {
             parsedDate = dateFormat.parse(dateEncheres);
+            parsedDate.setMinutes(LT.getMinute());
+            parsedDate.setHours(LT.getHour());
+            
             Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
             E.setDate_debut(timestamp);    
            

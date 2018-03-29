@@ -89,9 +89,11 @@ public class CrudEncheres implements ICrud<Encheres> {
                
         String requete=" SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,"
                 + "u.username,c.nom,p.description,p.caracteristiques "
-                + "From encheres e, categorie c , produit p , utilisateur u "
-                + "WHERE (e.id_cible=p.id) and (u.id=p.id_propietaire) and (c.id=p.id_categorie)"
-                + " and "+item+"=?";
+                + "From produit p "
+                + "JOIN encheres e on p.id=e.id_cible "
+                + "JOIN categorie c on p.id_categorie=c.id "
+                + "JOIN utilisateur u on p.id_propietaire=u.id "
+                + "WHERE "+item+"=?";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         
@@ -99,7 +101,9 @@ public class CrudEncheres implements ICrud<Encheres> {
                   pSmt.setInt(1,obj.getId_cible());              
         else
                   pSmt.setInt(1,obj.getId_encheres());
-
+          
+          System.out.println("id in crud : "+obj.getId_encheres());
+          
           ResultSet rs = pSmt.executeQuery();
             rs.next();
             obj.setCaracteristiques(rs.getString(10)); 
