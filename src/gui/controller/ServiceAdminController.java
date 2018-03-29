@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 import entites.AnimalPerdu;
 import java.io.IOException;
 import java.net.URL;
@@ -12,6 +13,9 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,13 +26,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import services.CrudAnimalperdu;
 import utils.Dbconnection;
 
@@ -38,6 +46,8 @@ import utils.Dbconnection;
  * @author iheb bf
  */
 public class ServiceAdminController implements Initializable {
+    
+    public static AnimalPerdu P= new AnimalPerdu();
 
     @FXML
     private HBox ev;
@@ -52,17 +62,19 @@ public class ServiceAdminController implements Initializable {
     @FXML
     private TableColumn<AnimalPerdu, Boolean> etat;
     
+    
     private ObservableList <AnimalPerdu> data;
-    private Dbconnection dc;
+   // private Dbconnection dc;
     @FXML
     private Button button;
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        dc=new Dbconnection();
+        //dc=new Dbconnection();
         // TODO
     }    
   @FXML
@@ -218,29 +230,87 @@ public class ServiceAdminController implements Initializable {
             p=(AnimalPerdu) myTool.SelectAll().get(i);
             data.add(p);
         }
-        /*ResultSet rs = conn.createStatement().executeQuery("select * from animalperdu");
-        int i=0;
-       
-        while (rs.next())
-        {
-            
-            data.add(new AnimalPerdu(rs.getInt(1),rs.getBoolean(2),rs.getDate(3),rs.getString(4)));
-            
-        }*/
-        
         ada.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
-        
         date.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
         lieu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));
         etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
-     
-        
-        tableA.setItems(null);
+        //tableA.setItems(null);
         tableA.setItems(data);
+        
+    }
+
+    AnimalPerdu A = new AnimalPerdu();
+        CrudAnimalperdu myTool = new CrudAnimalperdu();
+    @FXML
+    private void Delete(ActionEvent event) throws IOException, SQLException {
+        
+        
+                 if (tableA.getSelectionModel().getSelectedItem()!=null)
+                 {
+                      //id.setText(String.valueOf(p.getId()));
+           Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation suppression");
+        alert.setHeaderText("Look, a Confirmation Dialog");
+        alert.setContentText("Are you ok with this?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){ 
+            ((Node)event.getSource()).getScene().getWindow().hide();
+            A=tableA.getItems().get(tableA.getSelectionModel().getSelectedIndex());
+            System.out.println(A.getId());
+            
+                myTool.Delete(A);
+               
+            
+            
+            Alert alert1 = new Alert(AlertType.INFORMATION);
+        alert1.setTitle("I have a great message for you!");
+        alert1.setHeaderText(null);
+        alert1.setContentText("Suppression Réussite réussite !");
+        alert1.showAndWait();
+            
+           Stage stage=new Stage();
+      Parent root = FXMLLoader.load(getClass().getResource("/gui/ServiceAdmin.fxml"));
+  
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }else{
+             ((Node)event.getSource()).getScene().getWindow().hide();
+        }
+            }
+            else 
+            {
+                 JOptionPane.showMessageDialog(null,"Veuillez selectionner une reclamation");
+            }
+                 }
+
+    @FXML
+    private void Modif(ActionEvent event) throws IOException {
+       
+       
+        
+         if (tableA.getSelectionModel().getSelectedItem()!=null)
+            {
+            ((Node)event.getSource()).getScene().getWindow().hide();
+            P=tableA.getItems().get(tableA.getSelectionModel().getSelectedIndex());
+            //id.setText(String.valueOf(p.getId()));
+            Stage stage=new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/ModifierANP.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); 
+            }
+            else 
+            {
+                 JOptionPane.showMessageDialog(null,"Veuillez selectionner une reclamation");
+            }
+    }
+
         
     }
 
    
 
     
-}
+
