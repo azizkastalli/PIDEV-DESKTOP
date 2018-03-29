@@ -94,7 +94,7 @@ public class RubriqueServicesController implements Initializable {
             case "rdv":
             case "rdvs":
             
-                destination="Rdv_dresseur.fxml";
+                destination="RdvDresseur.fxml";
                 break;
          }
          if(destination!="")

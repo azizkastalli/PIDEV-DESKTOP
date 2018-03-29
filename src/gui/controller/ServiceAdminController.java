@@ -236,7 +236,7 @@ public class ServiceAdminController implements Initializable {
             data.add(p);
         }
 
-        //System.out.println(data);
+        
         ida.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
         datee.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
         lieuu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));

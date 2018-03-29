@@ -43,15 +43,16 @@ public class CrudRdv_dresseur implements ICrud <Rdv_Dresseur>{
 
     @Override
     public void Update(Rdv_Dresseur obj) throws SQLException {
-        String requete = "UPDATE rdv_dresseur SET id_client=?,coordonnees=?,id_animal=? date_rdv=?,duree_seance=?,etat=?,id_dresseur=? WHERE id=? ";
+        String requete = "UPDATE rdv_dresseur SET id_client=?,coordonnees=?,idAnimal=?,date_rdv=?,duree_seance=?,etat=?,id_dresseur=? WHERE id=? ";
       PreparedStatement pst = cnx.prepareStatement(requete);
        pst.setString(1,obj.getId_client());
-     pst.setString(2, obj.getCoordonnees());
+      pst.setString(2, obj.getCoordonnees());
       pst.setInt(3, obj.getId_animal());
-     pst.setDate(4, obj.getDate_rdv());
+      pst.setDate(4, obj.getDate_rdv());
       pst.setTime(5, obj.getDuree_seance());
       pst.setBoolean(6, obj.isEtat());
       pst.setString(7, obj.getId_dresseur());
+      pst.setInt(8, obj.getId());
        pst.executeUpdate();
 
 
@@ -95,7 +96,7 @@ String requete = "SELECT * FROM rdv_dresseur";
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
               
-                Rdv_Dresseur R=new Rdv_Dresseur(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getDate(4), rs.getTime(5), rs.getBoolean(6), rs.getString(7));
+                Rdv_Dresseur R=new Rdv_Dresseur(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getTime(6), rs.getBoolean(7), rs.getString(8));
                 listRdv.add(R);
 
             }

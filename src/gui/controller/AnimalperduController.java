@@ -59,7 +59,7 @@ public class AnimalperduController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        etat.setEditable(false);
     }    
 
   
@@ -73,8 +73,8 @@ public class AnimalperduController implements Initializable {
         Date date2 = Date.valueOf(date1);
         p.setDate_disparition(date2);
         p.setLieu_dispairition(lieu.getText());
-       boolean etatt = Boolean.getBoolean(etat.getText());
-        p.setEtat(etatt);
+       //boolean etatt = Boolean.getBoolean(etat.getText());
+        //p.setEtat(etatt);
         myTool.Create(p);
         JOptionPane.showMessageDialog(null, "reclamation ajouté");
         

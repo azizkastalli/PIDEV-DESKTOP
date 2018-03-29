@@ -2,6 +2,10 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
 
+   .menu_bar{
+    -fx-background-color: aquamarine;
+}
+.backgroundcolor {
+    -fx-background-color: aqua;
 }
