@@ -37,7 +37,7 @@ public class StoreController implements Initializable {
 
    
     CrudProduit ps = new CrudProduit();
-    Pagination page = new Pagination(round((ps.SelectAll().size() / 5) + 1));
+    Pagination page = new Pagination(round((ps.filtreEtat().size() / 5) + 1));
     
     @FXML
     private VBox parent;
@@ -117,24 +117,26 @@ public class StoreController implements Initializable {
         PageAnchor.setLeftAnchor(page, 10.0);
         PageAnchor.setRightAnchor(page, 10.0);
         PageAnchor.getChildren().add(page);
-
+            
         pageNumber.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+ 
+ 
                 if (Integer.parseInt(newValue) == 0) {
-                    AfficherPrroduits(ps.SelectAll(), 0);
+                    AfficherPrroduits(ps.filtreEtat(), 0);
                 }
                 if (Integer.parseInt(newValue) == 1) {
-                    AfficherPrroduits(ps.SelectAll(), 6);
+                    AfficherPrroduits(ps.filtreEtat(), 6);
                 }
                 if (Integer.parseInt(newValue) == 2) {
-                    AfficherPrroduits(ps.SelectAll(), 12);
+                    AfficherPrroduits(ps.filtreEtat(), 12);
                 }
                 if (Integer.parseInt(newValue) == 3) {
-                    AfficherPrroduits(ps.SelectAll(), 18);
+                    AfficherPrroduits(ps.filtreEtat(), 18);
                 }
-                if (Integer.parseInt(newValue) == 2) {
-                    AfficherPrroduits(ps.SelectAll(), 24);
+                if (Integer.parseInt(newValue) == 4) {
+                    AfficherPrroduits(ps.filtreEtat(), 24);
                 }
 
             }
@@ -233,8 +235,8 @@ public class StoreController implements Initializable {
                 System.out.println(ex.getMessage());
         }
 
-    }
-    } 
+    }}
+    
         
       
      
