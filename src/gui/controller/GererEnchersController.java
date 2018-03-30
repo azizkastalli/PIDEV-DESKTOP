@@ -10,12 +10,18 @@ import com.jfoenix.controls.JFXTimePicker;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entites.Encheres;
 import java.net.URL;
+import java.util.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventType;
@@ -29,6 +35,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
 import javafx.util.converter.IntegerStringConverter;
@@ -112,11 +119,10 @@ public class GererEnchersController implements Initializable {
         table.setEditable(true);
         
          seuil.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
-   //     date.setCellFactory();
-   //    heure.setCellFactory();
-        date.setOnEditCommit((event) -> {
-             UpdateDate(event);
-        });
+  
+                 
+                 
+   
     }    
 
     @FXML
@@ -154,7 +160,7 @@ public class GererEnchersController implements Initializable {
     
     
     @FXML
-    private void UpdateMise(TableColumn.CellEditEvent<Encheres, Double> event) {
+   private void UpdateMise(TableColumn.CellEditEvent<Encheres, Double> event) {
         
         Encheres E = new Encheres();
                 E=event.getRowValue();
@@ -167,13 +173,11 @@ public class GererEnchersController implements Initializable {
         }
     }
     
-
-
-    
+/*
+    @FXML
     private void UpdateDate(TableColumn.CellEditEvent<Encheres, JFXDatePicker> event) {
 
-        Encheres E = new Encheres();
-        E=event.getRowValue();
+        Encheres E = event.getRowValue();
         E.setSeuil_mise(0);           
         Timestamp ts= E.getDate_debut();
         ts.setDate(E.getDate_debutFX().getValue().getDayOfMonth());
@@ -191,8 +195,7 @@ public class GererEnchersController implements Initializable {
     @FXML
     private void UpdateTime(TableColumn.CellEditEvent<Encheres, JFXTimePicker> event) {
 
-        Encheres E = new Encheres();
-        E=event.getRowValue();
+        Encheres E = event.getRowValue();
         E.setSeuil_mise(0);           
         Timestamp ts= E.getDate_debut();
         ts.setHours(E.getHeureFX().getValue().getHour());
@@ -205,6 +208,36 @@ public class GererEnchersController implements Initializable {
         }
     
     }
- 
 
+
+*/
+
+
+    @FXML
+    private void Update(MouseEvent event) {
+      CrudEncheres CE = new CrudEncheres();
+      Encheres E = table.getSelectionModel().getSelectedItem(); 
+      E.setSeuil_mise(0);                
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+      String dateEncheres = date.getCellData(E).getValue().format(formatter);
+      LocalTime LT = heure.getCellData(E).getValue();
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+      Date parsedDate = null;    
+        try {
+            parsedDate = dateFormat.parse(dateEncheres);
+        } catch (ParseException ex) {
+            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            parsedDate.setMinutes(LT.getMinute());
+            parsedDate.setHours(LT.getHour());  
+            Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
+            E.setDate_debut(timestamp);    
+               
+        try {
+            CE.Update(E);
+        } catch (SQLException ex) {
+            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
+
+    }

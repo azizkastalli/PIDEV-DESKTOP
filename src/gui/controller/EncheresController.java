@@ -7,6 +7,7 @@ package gui.controller;
 
 import entites.Encheres;
 import entites.Produit;
+import eu.hansolo.tilesfx.Tile;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
@@ -31,7 +33,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -65,8 +71,21 @@ public class EncheresController implements Initializable {
     private int nbr=9;
     private int j=0;
     private int i=0;    
-    private int scroll=0;    
-    
+    private int scroll=0;   
+    private Tile           days;
+    private Tile           hours;
+    private Tile           minutes;
+    private Tile           seconds;
+    private Tile           flipDays;
+    private Tile           flipHours;
+    private Tile           flipMinutes;
+    private Tile           flipSeconds;
+    private Label          daysLabel;
+    private Label          hoursLabel;
+    private Label          minutesLabel;
+    private Label          secondsLabel;
+    private AnimationTimer timer;
+
     /**
      * Initializes the controller class.
      */
@@ -98,6 +117,7 @@ public class EncheresController implements Initializable {
             IV.setImage(I);
             IV.setFitWidth(230);
             IV.setFitHeight(177);
+            IV.setLayoutX(6);;
             
             //pane set
             Pane P = new Pane();
@@ -108,23 +128,23 @@ public class EncheresController implements Initializable {
             //label set 
             Label L= new Label(E.getLabel());
               L.setLayoutY(185);
+              L.setLayoutX(50);
               L.setStyle("-fx-font-size:20");
               //L.setStyle("-fx-font-weight:bold");
               //L.setStyle("-fx-text-fill: black");
-              L.setPrefHeight(40);
+              L.setPrefHeight(25);
               L.setPrefWidth(246);
               
-            //label set in place of count down
-            Label L1= new Label("countdown");
-              L1.setLayoutY(230);
-              L1.setStyle("-fx-font-size:20");
-              //L.setStyle("-fx-font-weight:bold");
-              //L.setStyle("-fx-text-fill: black");
-              L1.setPrefHeight(40);
-              L1.setPrefWidth(246);
+            //blasset l count fl gui ------------------------------------------------------
             
+           CountDownController countdown = new CountDownController();
+           countdown.init();
+           VBox vb = countdown.setgui();
+           vb.setLayoutY(215);
+           vb.setLayoutX(0);;
+             //toufa lblassa lénnaaaa       
                    
-            P.getChildren().addAll(IV,L,L1);            
+            P.getChildren().addAll(IV,L,vb);            
             ListePane.add(P);
             GP.add(P,j,i);            
 
