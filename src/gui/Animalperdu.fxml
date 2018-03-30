@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AnimalperduController">
+   <children>
+      <Pane styleClass="background" stylesheets="@css/animalperdu.css">
+         <children>
+            <Label layoutX="113.0" layoutY="95.0" text="id_animal" />
+            <Label layoutX="113.0" layoutY="138.0" text="date_disparition" />
+            <Label layoutX="113.0" layoutY="179.0" text="lieu_disparition" />
+            <Label layoutX="113.0" layoutY="222.0" text="etat" />
+            <TextField fx:id="ida" layoutX="302.0" layoutY="91.0" />
+            <TextField fx:id="lieu" layoutX="302.0" layoutY="175.0" />
+            <TextField fx:id="etat" layoutX="302.0" layoutY="218.0" />
+            <Button fx:id="ajouter" layoutX="349.0" layoutY="342.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
+            <Pane>
+               <children>
+                  <HBox layoutY="5.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/animalperdu.css">
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../utils/assets/Zanimauxlogo.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#756c6b">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="11.0" left="30.0" top="11.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="11.0" left="25.0" top="11.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="11.0" left="23.0" top="11.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="54.0" prefWidth="129.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="11.0" left="8.0" top="11.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets right="2.0" top="-5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label onMouseClicked="#Menu" prefHeight="54.0" prefWidth="111.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="11.0" left="8.0" top="11.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets top="-5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="10£">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                        <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="FF0000" size="2em">
+                           <HBox.margin>
+                              <Insets left="20.0" top="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIconView>
+                        <FontAwesomeIconView glyphName="GEAR" glyphStyle="ff0000" size="2em">
+                           <HBox.margin>
+                              <Insets left="20.0" top="8.0" />
+                           </HBox.margin>
+                        </FontAwesomeIconView>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <DatePicker fx:id="date" layoutX="295.0" layoutY="134.0" />
+         </children>
+      </Pane>
+   </children>
+</HBox>

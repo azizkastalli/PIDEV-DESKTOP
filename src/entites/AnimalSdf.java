@@ -40,7 +40,16 @@ public class AnimalSdf {
         this.lieu_trouvaille = lieu_trouvaille;
         this.id_client = id_client;
         this.id_categorie= id_categorie;
+       
     }    
+
+    public int getId_categorie() {
+        return id_categorie;
+    }
+
+    public void setId_categorie(int id_categorie) {
+        this.id_categorie = id_categorie;
+    }
 
     public int getId() {
         return id;

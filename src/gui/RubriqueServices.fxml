@@ -98,55 +98,59 @@
                   <Insets left="12.0" />
                </HBox.margin>
             </FontAwesomeIconView>
-            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+            <Pane>
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
-               <image>
-                  <Image url="@../utils/assets/profile.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0">
-         <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
                <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
-                     <font>
-                        <Font size="59.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="121.0" layoutY="277.0" text="AFFICHE RUBRIQUES SERVICES : DRESSAGE / RECLAMATIONS ...">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
+                  <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/profile.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <VBox prefHeight="524.0" prefWidth="240.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <children>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
          </children>
       </HBox>
+      <Pane prefHeight="177.0" prefWidth="1025.0" styleClass="background">
+         <children>
+            <ImageView fx:id="anp" fitHeight="174.0" fitWidth="171.0" layoutX="432.0" layoutY="1.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/téléchargement%20(1).jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="animp" layoutX="440.0" layoutY="131.0" onMouseClicked="#Menu" prefHeight="35.0" prefWidth="162.0" text="Animal perdu">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="203.0" prefWidth="1025.0" styleClass="background" stylesheets="@css/rubriqueservices.css">
+         <children>
+            <ImageView fx:id="ans" fitHeight="150.0" fitWidth="233.0" layoutX="446.0" layoutY="10.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/gallery-col3-img-11.jpg" />
+               </image></ImageView>
+            <Label fx:id="anisdf" layoutX="450.0" layoutY="163.0" onMouseClicked="#Menu" prefHeight="27.0" prefWidth="150.0" text="Animal SDF" textAlignment="JUSTIFY">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="175.0" prefWidth="1025.0" styleClass="background" stylesheets="@css/rubriqueservices.css">
+         <children>
+            <ImageView fx:id="rdvs" fitHeight="150.0" fitWidth="200.0" layoutX="418.0" layoutY="2.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/images.png" />
+               </image></ImageView>
+            <Label fx:id="rdv" layoutX="447.0" layoutY="119.0" onMouseClicked="#Menu" text="Rendez-vous">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </VBox>
