@@ -22,3 +22,13 @@
     -fx-text-fill: #4f86dd;
     -fx-background-color: white;
 }
+.sidebarpan:hover{
+    -fx-font-weight:bold;
+    -fx-text-fill: #4f86dd;
+    -fx-background-color:#e0e0e0;
+}
+.sidebarpan{
+    -fx-font-weight:bold;
+    -fx-text-fill: #4f86dd;
+    -fx-background-color:#c0c0c0;
+}
