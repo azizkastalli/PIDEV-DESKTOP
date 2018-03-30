@@ -61,23 +61,12 @@ public class CrudProduit implements ICrud<Produit> {
     @Override
     public void Update(Produit obj) throws SQLException {
             
-        String requete = "update produit set caracteristiques=? ,description=?,poid=?,vote=?,prix_nouv=?,prix_ancien=?,id_propietaire=?,id_categorie=?,etat=?,nom_image=?,quantite=?,label=?" 
-                + "where id=? ";  
+        String requete = "update produit set etat=? "
+                + "where label=? ";  
        PreparedStatement pSmt = cnx.prepareStatement(requete);
        
-       pSmt.setString(1,obj.getCaracteristiques());
-      pSmt.setString(2,obj.getDescription());
-      pSmt.setDouble(3,obj.getPoid());
-      pSmt.setDouble(4,obj.getVote());
-      pSmt.setDouble(5,obj.getPrix_nouv());
-      pSmt.setDouble(6,obj.getPrix_ancien());
-      pSmt.setInt(7,obj.getId_propietaire());
-      pSmt.setInt(8,obj.getId_categorie());
-      pSmt.setString(9,obj.getEtat());
-      pSmt.setString(10,obj.getNom_image());
-      pSmt.setInt(11,obj.getQuantite());
-      pSmt.setString(12,obj.getLabel());
-      pSmt.setInt(13,obj.getId());
+      pSmt.setString(1,obj.getEtat());
+      pSmt.setString(2,obj.getLabel());
         
         pSmt.executeUpdate(); 
 
@@ -154,5 +143,43 @@ public class CrudProduit implements ICrud<Produit> {
          pSmt.executeUpdate();
 
     }
+ 
+        public List<Produit> filtreEtat()  {
+        List<Produit> liste = new ArrayList<>();
+        try {
+            
+            String requete=" SELECT * FROM produit where etat='confirmer' ";
+            
+            PreparedStatement pSmt = cnx.prepareStatement(requete);
+            ResultSet rs = pSmt.executeQuery();
+            
+            while(rs.next())
+            {
+                String caracteristiques = rs.getString("caracteristiques");
+                String description = rs.getString("description");
+                String etat = rs.getString("etat");
+                Integer id_categorie = rs.getInt("id_categorie");
+                Integer id_propietaire = rs.getInt("id_propietaire");
+                String nom_image = rs.getString("nom_image");
+                Double poid = rs.getDouble("poid");
+                Double prix_ancien = rs.getDouble("prix_ancien");
+                Double prix_nouv = rs.getDouble("prix_nouv");
+                Integer quantite = rs.getInt("quantite");
+                Double vote= rs.getDouble("vote");
+                String label = rs.getString("label");
+                
+                
+                
+                Produit P =new Produit(caracteristiques,description,etat,id_categorie,id_propietaire,nom_image,poid,prix_ancien,prix_nouv,quantite,vote,label);
+                liste.add(P);
+            }
+            
+            return liste;
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
     
+     
 }

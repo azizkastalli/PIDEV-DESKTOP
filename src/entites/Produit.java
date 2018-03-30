@@ -57,6 +57,11 @@ public class Produit {
         this.label = label;
     }
 
+    public Produit(String etat, String label) {
+        this.etat = etat;
+        this.label=label;
+    }
+
    
     
     
