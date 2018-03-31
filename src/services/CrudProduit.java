@@ -180,6 +180,5 @@ public class CrudProduit implements ICrud<Produit> {
         }
         return liste;
     }
-    
-     
+       
 }

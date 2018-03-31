@@ -8,13 +8,17 @@ package gui.controller;
 import entites.Produit;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import static java.lang.Math.round;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
@@ -27,6 +31,12 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 import services.CrudProduit;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -96,7 +106,31 @@ public class StoreController implements Initializable {
     private Label label7;
     @FXML
     private Label label11;
-  
+    private Hyperlink link;
+    @FXML
+    private Pane pane1;
+    @FXML
+    private Pane pane4;
+    @FXML
+    private Pane pane2;
+    @FXML
+    private Pane pane5;
+    @FXML
+    private Pane pane3;
+    @FXML
+    private Pane pane6;
+    @FXML
+    private Button button1;
+    @FXML
+    private Button button2;
+    @FXML
+    private Button button3;
+    @FXML
+    private Button button4;
+    @FXML
+    private Button button5;
+    @FXML
+    private Button button6;
     
   
      
@@ -112,12 +146,18 @@ public class StoreController implements Initializable {
             }
         
     });
-        PageAnchor.setTopAnchor(page, 50.0);
-        PageAnchor.setBottomAnchor(page, 10.0);
-        PageAnchor.setLeftAnchor(page, 10.0);
-        PageAnchor.setRightAnchor(page, 10.0);
-        PageAnchor.getChildren().add(page);
-            
+        
+     page.setTranslateX(-260);
+     page.setTranslateY(215);
+        pane1.getChildren().add(page);
+        pane2.getChildren().add(page);
+        pane3.getChildren().add(page);
+        pane4.getChildren().add(page);
+        pane5.getChildren().add(page);
+        pane6.getChildren().add(page);
+        
+        
+        
         pageNumber.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -125,18 +165,24 @@ public class StoreController implements Initializable {
  
                 if (Integer.parseInt(newValue) == 0) {
                     AfficherPrroduits(ps.filtreEtat(), 0);
+               
+                    
                 }
                 if (Integer.parseInt(newValue) == 1) {
                     AfficherPrroduits(ps.filtreEtat(), 6);
+                    
                 }
                 if (Integer.parseInt(newValue) == 2) {
                     AfficherPrroduits(ps.filtreEtat(), 12);
+                     
                 }
                 if (Integer.parseInt(newValue) == 3) {
                     AfficherPrroduits(ps.filtreEtat(), 18);
+ 
                 }
                 if (Integer.parseInt(newValue) == 4) {
                     AfficherPrroduits(ps.filtreEtat(), 24);
+ 
                 }
 
             }
@@ -163,14 +209,15 @@ public class StoreController implements Initializable {
                 Image img1 = new Image(new FileInputStream(myList.get(CurrentPage).getNom_image()), 520, 300, false, false);
                 String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
                 
-                image1.setImage(img1);
+                image1.setImage(img1);  
                 label1.setText(myList.get(CurrentPage).getLabel());
-                
                 label7.setText(prix);
+                button1.setVisible(true);
             } else {
                 image1.setImage(null);
                 label1.setText("");
                 label7.setText("");
+                button1.setVisible(false);
             }
             if (myList.size() > CurrentPage + 1) {
                 Image img2 = new Image(new FileInputStream(myList.get(CurrentPage + 1).getNom_image()), 520, 300, false, false);
@@ -178,10 +225,12 @@ public class StoreController implements Initializable {
                 image2.setImage(img2);
                 label2.setText(myList.get(CurrentPage + 1).getLabel());
                 label8.setText(prix);
+                button2.setVisible(true);
             } else {
                 image2.setImage(null);
                 label2.setText("");
                 label8.setText("");
+                button2.setVisible(false);
             }
 
             if (myList.size() > CurrentPage + 2) {
@@ -190,10 +239,12 @@ public class StoreController implements Initializable {
                 image3.setImage(img3);
                 label3.setText(myList.get(CurrentPage + 2).getLabel());
                 label9.setText(prix);
+                button3.setVisible(true);
             } else {
                 label3.setText("");
                 image3.setImage(null);
                 label9.setText("");
+                button3.setVisible(false);
             }
             if (myList.size() > CurrentPage + 3) {
                 Image img4 = new Image(new FileInputStream(myList.get(CurrentPage + 3).getNom_image()), 520, 300, false, false);
@@ -201,10 +252,12 @@ public class StoreController implements Initializable {
                 image4.setImage(img4);
                 label4.setText(myList.get(CurrentPage + 3).getLabel());
                 label10.setText(prix);
+                button4.setVisible(true);
             } else {
                 image4.setImage(null);
                 label4.setText("");
                 label10.setText("");
+                button4.setVisible(false);
             }
 
             if (myList.size() > CurrentPage + 4) {
@@ -213,10 +266,12 @@ public class StoreController implements Initializable {
                 image5.setImage(img5);
                 label5.setText(myList.get(CurrentPage + 4).getLabel());
                 label11.setText(prix);
+                button5.setVisible(true);
             } else {
                 image5.setImage(null);
                 label5.setText("");
                 label11.setText("");
+                button5.setVisible(false);
             }
 
             if (myList.size() > CurrentPage + 5) {
@@ -225,17 +280,26 @@ public class StoreController implements Initializable {
                 image6.setImage(img6);
                 label6.setText(myList.get(CurrentPage + 5).getLabel());
                 label12.setText(prix);
+                button6.setVisible(true);
             } else {
                 image6.setImage(null);
                 label6.setText("");
                 label12.setText("");
+                button6.setVisible(false);
             }
 
         } catch (FileNotFoundException ex) {
                 System.out.println(ex.getMessage());
         }
 
-    }}
+    }
+
+    @FXML
+    private void detail(MouseEvent event) {
+        System.out.println("ok");
+    }
+
+}
     
         
       
