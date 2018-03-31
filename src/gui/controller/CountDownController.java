@@ -10,6 +10,12 @@ import eu.hansolo.tilesfx.Tile.SkinType;
 import eu.hansolo.tilesfx.TileBuilder;
 import eu.hansolo.tilesfx.fonts.Fonts;
 import eu.hansolo.tilesfx.tools.Helper;
+import java.util.Date;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Period;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -27,10 +33,6 @@ public class CountDownController  {
     private static final int            SECONDS_PER_DAY    = 86_400;
     private static final int            SECONDS_PER_HOUR   = 3600;
     private static final int            SECONDS_PER_MINUTE = 60;
-    private Tile           days;
-    private Tile           hours;
-    private Tile           minutes;
-    private Tile           seconds;
     private Tile           flipDays;
     private Tile           flipHours;
     private Tile           flipMinutes;
@@ -49,7 +51,7 @@ public class CountDownController  {
 
     public CountDownController() {}
 
-     public void init() {
+     public void init(Timestamp date_debut) {
 
         flipDays     = createFlipTile("0", Helper.TIME_59_TO_00);
         flipHours    = createFlipTile("0", Helper.TIME_24_TO_0);
@@ -60,8 +62,26 @@ public class CountDownController  {
         hoursLabel   = createLabel("HOURS");
         minutesLabel = createLabel("MINUTES");
         secondsLabel = createLabel("SECONDS");
+    
+        //current date
+         Date date = new Date();
+         Timestamp ts = new Timestamp(date.getTime());
+            
+                        long diff = date_debut.getTime() - ts.getTime();
+			long diffSeconds = diff / 1000 % 60;
+			long diffMinutes = diff / (60 * 1000) % 60;
+			long diffHours = diff / (60 * 60 * 1000) % 24;
+			long diffDays = diff / (24 * 60 * 60 * 1000);
 
-        duration = Duration.hours(25);
+			System.out.print(diffDays + " days, ");
+			System.out.print(diffHours + " hours, ");
+			System.out.print(diffMinutes + " minutes, ");
+			System.out.print(diffSeconds + " seconds.");
+       
+        double  heure_converted = diffHours+ (diffDays*24) + (diffMinutes/60) + (diffSeconds/3600) ;       
+        			System.out.println("hours converted : "+heure_converted);
+
+        duration = Duration.hours(heure_converted);
 
         lastTimerCall = System.nanoTime();
         timer = new AnimationTimer() {
@@ -71,15 +91,15 @@ public class CountDownController  {
                     duration = duration.subtract(Duration.seconds(1));
 
                     int remainingSeconds = (int) duration.toSeconds();
-                    int d = remainingSeconds / SECONDS_PER_DAY;
+                    int d = Math.abs(remainingSeconds / SECONDS_PER_DAY);
                     int h = (remainingSeconds % SECONDS_PER_DAY) / SECONDS_PER_HOUR;
                     int m = ((remainingSeconds % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
                     int s = (((remainingSeconds % SECONDS_PER_DAY) % SECONDS_PER_HOUR) % SECONDS_PER_MINUTE);
 
                     if (d == 0 && h == 0 && m == 0 && s == 0) { timer.stop(); }
 
-                    flipDays.setFlipText(Integer.toString(d));
-                    flipHours.setFlipText(Integer.toString(h));
+                    flipDays.setFlipText(String.format("%02d", d));
+                    flipHours.setFlipText(String.format("%02d", h));
                     flipMinutes.setFlipText(String.format("%02d", m));
                     flipSeconds.setFlipText(String.format("%02d", s));
 
@@ -113,7 +133,7 @@ public class CountDownController  {
     private Tile createFlipTile(final String TEXT, final String... CHARACTERS) {
         return TileBuilder.create().skinType(SkinType.FLIP)
                           .prefSize(20, 20)
-                          .flipTimeInMS(10)
+                          .flipTimeInMS(350)
                           .flipText(TEXT)
                           .characters(CHARACTERS)
                           .build();

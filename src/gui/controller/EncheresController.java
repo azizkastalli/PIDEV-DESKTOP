@@ -11,9 +11,13 @@ import eu.hansolo.tilesfx.Tile;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.LocalDateTime;
 import services.ServiceEncheres;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.AnimationTimer;
@@ -41,6 +45,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -85,7 +90,7 @@ public class EncheresController implements Initializable {
     private Label          minutesLabel;
     private Label          secondsLabel;
     private AnimationTimer timer;
-
+   
     /**
      * Initializes the controller class.
      */
@@ -134,15 +139,12 @@ public class EncheresController implements Initializable {
               //L.setStyle("-fx-text-fill: black");
               L.setPrefHeight(25);
               L.setPrefWidth(246);
-              
-            //blasset l count fl gui ------------------------------------------------------
-            
+                          
            CountDownController countdown = new CountDownController();
-           countdown.init();
+           countdown.init(E.getDate_debut());
            VBox vb = countdown.setgui();
            vb.setLayoutY(215);
-           vb.setLayoutX(0);;
-             //toufa lblassa lénnaaaa       
+           vb.setLayoutX(0);
                    
             P.getChildren().addAll(IV,L,vb);            
             ListePane.add(P);
