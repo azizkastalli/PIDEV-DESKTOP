@@ -13,10 +13,11 @@ import static java.lang.Math.round;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -45,7 +46,7 @@ import javafx.stage.Stage;
  */
 public class StoreController implements Initializable {
 
-   
+   public static Produit P = new Produit();
     CrudProduit ps = new CrudProduit();
     Pagination page = new Pagination(round((ps.filtreEtat().size() / 5) + 1));
     
@@ -294,9 +295,70 @@ public class StoreController implements Initializable {
 
     }
 
+  
     @FXML
-    private void detail(MouseEvent event) {
-        System.out.println("ok");
+    private void detail5(ActionEvent event) {
+        int i =page.getCurrentPageIndex()*6+4;
+        P=ps.SelectAll().get(i);
+         this.GoToDetail(event);
+    }
+
+    @FXML
+    private void detail6(ActionEvent event) {
+        int i =page.getCurrentPageIndex()*6+5;
+        P=ps.SelectAll().get(i);
+         this.GoToDetail(event);
+    }
+
+    @FXML
+    private void detail1(ActionEvent event) {
+    
+           int i =page.getCurrentPageIndex()*6;
+        P=ps.SelectAll().get(i);
+         this.GoToDetail(event);
+    }
+
+    @FXML
+    private void detail3(ActionEvent event) {
+        int i =page.getCurrentPageIndex()*6+2;
+        P=ps.SelectAll().get(i);
+         this.GoToDetail(event);
+        
+    }
+
+    @FXML
+    private void detail2(ActionEvent event) {
+        int i =page.getCurrentPageIndex()*6+1;
+        P=ps.SelectAll().get(i);
+         this.GoToDetail(event);
+        
+    }
+
+    @FXML
+    private void detail4(ActionEvent event) {
+        int i =page.getCurrentPageIndex()*6+3;
+        P=ps.SelectAll().get(i);
+         this.GoToDetail(event);
+        
+    }
+    
+    public void GoToDetail(ActionEvent event)
+    {
+     try {
+           int i =page.getCurrentPageIndex()*6;
+        P=ps.SelectAll().get(i);
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/RubriqueProduits.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
 }

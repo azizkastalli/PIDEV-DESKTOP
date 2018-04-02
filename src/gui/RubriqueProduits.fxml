@@ -6,10 +6,13 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriqueproduits.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RubriqueProduitsController">
    <children>
@@ -108,45 +111,41 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0">
+      <AnchorPane prefHeight="525.0" prefWidth="1025.0">
          <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
-               <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
-                     <font>
-                        <Font size="59.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="146.0" layoutY="274.0" text="RUBRIQUE : ENCHERES/STORE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <VBox prefHeight="524.0" prefWidth="240.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <children>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
+            <ImageView fx:id="imageprod" fitHeight="345.0" fitWidth="301.0" layoutX="105.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="nomprod" alignment="CENTER" layoutX="87.0" layoutY="14.0" prefHeight="73.0" prefWidth="853.0" text="label" textAlignment="CENTER" underline="true">
+               <textFill>
+                  <LinearGradient cycleMethod="REPEAT" endX="0.8398058252427184" endY="0.7815533980582524" startX="0.6601941747572816" startY="0.5533980582524272">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#1189eb" offset="0.0392156862745098" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <Label fx:id="caracteristique" alignment="CENTER" layoutX="513.0" layoutY="278.0" prefHeight="21.0" prefWidth="361.0" text="label" textFill="#708cf2">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="prix" alignment="CENTER" layoutX="513.0" layoutY="354.0" prefHeight="21.0" prefWidth="361.0" text="label" textFill="#708cf2">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Label fx:id="quantite" alignment="CENTER" layoutX="513.0" layoutY="427.0" prefHeight="21.0" prefWidth="361.0" text="label" textFill="#708cf2">
+               <font>
+                  <Font size="25.0" />
+               </font></Label>
+            <Text fx:id="description" fill="#708cf2" layoutX="513.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="360.9999931345228">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
          </children>
-      </HBox>
+      </AnchorPane>
    </children>
 </VBox>
