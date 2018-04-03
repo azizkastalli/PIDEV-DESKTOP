@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import entites.Vote;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -15,11 +16,16 @@ import javafx.scene.layout.VBox;
 import static gui.controller.StoreController.P;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import org.controlsfx.control.Rating;
+import services.CrudVote;
 
 /**
  * FXML Controller class
@@ -55,13 +61,34 @@ public class RubriqueProduitsController implements Initializable {
     private Label prix;
     @FXML
     private Label quantite;
-
+    @FXML
+    private Label msg;
+    @FXML
+    private Rating rating;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        CrudVote V = new CrudVote();
+        Vote Vo = new Vote();
         try {
+            rating.ratingProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+                System.out.println(t1);
+                System.out.println(P.getLabel());
+                Vo.setId_produit(P.getLabel());
+                Vo.setVote(t1);
+                try {
+                    V.Create(Vo);
+                } catch (SQLException ex) {
+                    Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+              msg.setText("Rating : "+ t1.toString()); }     
+        });
             Image img = new Image(new FileInputStream(P.getNom_image()),301,345,false,false);
             imageprod.setImage(img);
             nomprod.setText("Produit: " +P.getLabel());
