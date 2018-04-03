@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.Dbconnection;
 
 /**
@@ -49,11 +52,7 @@ public class CrudVote implements ICrud<Vote>{
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         pSmt.setString(1,obj.getId_produit());
-        ResultSet rs = pSmt.executeQuery();
-            rs.next();
-   
-             
-                            
+        ResultSet rs = pSmt.executeQuery();                 
                        
        return obj;  
         
@@ -72,5 +71,6 @@ public class CrudVote implements ICrud<Vote>{
     public void Create(int id, Number t1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+   
+   
 }
