@@ -26,15 +26,15 @@ public class CrudCommande implements ICrud<Commande> {
     
     @Override
     public void Create(Commande obj) throws SQLException {
-          String requete = "INSERT INTO Commande (id,etat,id_client,prix_tot) "
-                    + "VALUES(?,?,?,?,?)";
+          String requete = "INSERT INTO Commande (etat,id_client,prix_tot) "
+                    + "VALUES(?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
-            pst.setInt(1,obj.getId());
-            pst.setInt(2,obj.getEtat());
-            pst.setInt(3,obj.getId_client());
-            pst.setDouble(4,obj.getPrix_tot());                        
+            
+            pst.setInt(1,obj.getEtat());
+            pst.setInt(2,obj.getId_client());
+            pst.setDouble(3,obj.getPrix_tot());                        
             
             pst.executeUpdate();
     }
