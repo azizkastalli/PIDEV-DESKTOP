@@ -77,6 +77,7 @@ public class RubriqueProduitsController implements Initializable {
             rating.ratingProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
+               
                 System.out.println(t1);
                 System.out.println(P.getLabel());
                 Vo.setId_produit(P.getLabel());
@@ -96,6 +97,7 @@ public class RubriqueProduitsController implements Initializable {
             caracteristique.setText("caracteristiques: "+P.getCaracteristiques());
             prix.setText(String.valueOf(P.getPrix_nouv()) + " DT");
             quantite.setText(String.valueOf(P.getQuantite()) +" Piece");
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
         }

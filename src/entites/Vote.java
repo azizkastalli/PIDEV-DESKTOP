@@ -17,6 +17,10 @@ public class Vote {
     public Vote() {
     }
 
+    public Vote(float vote) {
+       this.vote = vote;
+    }
+
     public int getId() {
         return id;
     }
