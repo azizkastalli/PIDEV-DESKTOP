@@ -6,10 +6,12 @@
 package services;
 
 import entites.Vote;
+import static java.lang.Math.round;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -77,6 +79,8 @@ public class CrudVote implements ICrud<Vote>{
    public Float Somme(String id_produit)  {
         List<Float> liste = new ArrayList<>();
         float s=0;
+        DecimalFormat df = new DecimalFormat();
+        
         try {
             
             String requete=" SELECT * FROM rating where id_produit=?";
@@ -97,11 +101,14 @@ public class CrudVote implements ICrud<Vote>{
                 for (int i = 0; i < liste.size(); i++) {
                  s=liste.get(i)+s;   
                 }
-               s=s/liste.size();
+               s=((float) ((int) ((s/liste.size())*100))) / 100;
+              
+            
                                  
         } catch (SQLException ex) {
             Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
         }
+         
         return s;
     }
 }

@@ -7,6 +7,7 @@ package gui.controller;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entites.Produit;
+import static gui.controller.StoreController.P;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -98,11 +99,11 @@ public class AjouterStoreController implements Initializable {
 
     @FXML
     private void ajoutproduit(ActionEvent event) throws IOException {
+        
         CrudProduit CP = new CrudProduit();
         Produit PR = new Produit();
         PR.setLabel(nomproduit.getText());
         PR.setCaracteristiques(caracteristique.getText());
-        System.out.println();
         PR.setDescription(description.getText());
         PR.setEtat("en attente");
         int idcat= Integer.parseInt(categorie.getText());
