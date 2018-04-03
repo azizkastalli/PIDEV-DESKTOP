@@ -345,8 +345,7 @@ public class StoreController implements Initializable {
     public void GoToDetail(ActionEvent event)
     {
      try {
-           int i =page.getCurrentPageIndex()*6;
-        P=ps.SelectAll().get(i);
+           
               Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/RubriqueProduits.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

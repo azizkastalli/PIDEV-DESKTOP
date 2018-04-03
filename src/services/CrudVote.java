@@ -52,8 +52,10 @@ public class CrudVote implements ICrud<Vote>{
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         pSmt.setString(1,obj.getId_produit());
-        ResultSet rs = pSmt.executeQuery();                 
-                       
+        ResultSet rs = pSmt.executeQuery();
+        float vote = rs.getFloat("vote");
+                Vote v =new Vote(vote);
+                
        return obj;  
         
     }
@@ -72,5 +74,34 @@ public class CrudVote implements ICrud<Vote>{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
-   
+   public Float Somme(String id_produit)  {
+        List<Float> liste = new ArrayList<>();
+        float s=0;
+        try {
+            
+            String requete=" SELECT * FROM rating where id_produit=?";
+            
+            PreparedStatement pSmt = cnx.prepareStatement(requete);
+            pSmt.setString(1, id_produit);
+            ResultSet rs = pSmt.executeQuery();
+            
+            while(rs.next())
+            {
+                float vote = rs.getFloat("vote");
+              
+                Vote v = new Vote(vote);
+                
+                
+                liste.add((Float) v.getVote());
+            } 
+                for (int i = 0; i < liste.size(); i++) {
+                 s=liste.get(i)+s;   
+                }
+               s=s/liste.size();
+                                 
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
 }

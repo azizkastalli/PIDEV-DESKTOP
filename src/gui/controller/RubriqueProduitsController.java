@@ -65,21 +65,26 @@ public class RubriqueProduitsController implements Initializable {
     private Label msg;
     @FXML
     private Rating rating;
+    @FXML
+    private Label vote;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         CrudVote V = new CrudVote();
         Vote Vo = new Vote();
+        String some=Float.toString(V.Somme(P.getLabel()));
+        vote.setText("Rating :"+some);
+        
+        System.out.println(V.Somme(P.getLabel()));
         try {
             rating.ratingProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
-               
-                System.out.println(t1);
-                System.out.println(P.getLabel());
+                
                 Vo.setId_produit(P.getLabel());
                 Vo.setVote(t1);
                 try {
@@ -88,7 +93,7 @@ public class RubriqueProduitsController implements Initializable {
                     Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
-              msg.setText("Rating : "+ t1.toString()); }     
+               }     
         });
             Image img = new Image(new FileInputStream(P.getNom_image()),301,345,false,false);
             imageprod.setImage(img);
