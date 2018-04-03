@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.Dbconnection;
 
 /**
@@ -74,20 +76,59 @@ public class CrudCategorie implements ICrud<Categorie> {
     }
 
     @Override
-    public List<Categorie> SelectAll() throws SQLException {
-         List<Categorie> liste = new ArrayList<>();
-        String requete=" SELECT * FROM Categorie ";
+    public List<Categorie> SelectAll()  {
+           List<Categorie> liste = new ArrayList<>();
+         try {
+          
+             String requete=" SELECT * FROM Categorie ";
+             
+             PreparedStatement pSmt = cnx.prepareStatement(requete);
+             ResultSet rs = pSmt.executeQuery();
+             
+             while(rs.next())
+             {
+                 Categorie Cat=new Categorie(rs.getInt(1),rs.getString(2),rs.getString(3));
+                 liste.add(Cat);
+                 
+             }
+             
+             
+         } catch (SQLException ex) {
+            
+         }
+         return liste;
+    }
+    
+    
+    public List<String> ExtractNom() throws SQLException {
+         List<String> liste = new ArrayList<>();
+        String requete=" SELECT nom FROM Categorie ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
         
            while(rs.next())
            {
-           Categorie Cat=new Categorie(rs.getInt(1),rs.getString(2),rs.getString(3));
-           liste.add(Cat);
+         
+           liste.add(rs.getString("nom"));
            }
            
      return liste;
+    }
+
+      public Integer ExtractId(String nom) throws SQLException {
+        
+        String requete=" SELECT id FROM Categorie where nom=? ";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+       
+        pSmt.setString(1,nom);
+        ResultSet rs = pSmt.executeQuery();
+rs.next();
+       int id= rs.getInt("id");
+        
+          
+     return id;
     }
 
     @Override

@@ -68,24 +68,19 @@ public class AfficherCategorieAdminController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         CrudCategorie CC=new CrudCategorie();
-       
-        try {
-            ArrayList  arrayList= (ArrayList) CC.SelectAll();
-                    ObservableList observableList = FXCollections.observableArrayList(arrayList);
-  listeCategorie.setItems(observableList);
-  id.setCellValueFactory(new PropertyValueFactory<>("id"));
-  nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-  type.setCellValueFactory(new PropertyValueFactory<>("type"));
-  
-    listeCategorie.setEditable(true);
+        ArrayList<Categorie> arrayList=(ArrayList<Categorie>) CC.SelectAll();
+        ObservableList observableList = FXCollections.observableArrayList(arrayList);
+        listeCategorie.setItems(observableList);
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        listeCategorie.setEditable(true);
         nom.setCellFactory(TextFieldTableCell.forTableColumn());
         type.setCellFactory(TextFieldTableCell.forTableColumn());
         
+     
+    
         
-        
-        
-       } catch (SQLException ex) {
-        }
        
        
        

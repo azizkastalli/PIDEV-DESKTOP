@@ -9,45 +9,40 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import static gui.controller.EventClientController.E;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author azizkastalli
+ * @author iheb bf
  */
-public class RubriqueEvenementsController implements Initializable {
-
-    @FXML
-    private VBox parent;
-    @FXML
-    private Label acceuil;
-    @FXML
-    private Label services;
-    @FXML
-    private Label produits;
-    @FXML
-    private Label veterinaires;
-    @FXML
-    private Label evenements;
+public class EspaceEvenementController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(E.toString());
+      
+       
     }    
-
-    @FXML
+     @FXML
     private void Menu(MouseEvent event) {
-        
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
-              
+    }
+
+    @FXML
+    private void MenuEspace(MouseEvent event) {
+           MenuController menu = new MenuController();
+        menu.GestionMenuEspace(event);
     }
     
 }

@@ -25,7 +25,7 @@ public class FXMain extends Application {
         Parent root = null;
         
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/ModifSuppEvent.fxml"));
         } catch (IOException ex) {
           
 

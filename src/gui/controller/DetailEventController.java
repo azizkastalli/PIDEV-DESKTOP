@@ -5,21 +5,28 @@
  */
 package gui.controller;
 
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import static gui.controller.EventClientController.E;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
  *
- * @author azizkastalli
+ * @author iheb bf
  */
-public class RubriqueEvenementsController implements Initializable {
+public class DetailEventController implements Initializable {
 
     @FXML
     private VBox parent;
@@ -33,21 +40,38 @@ public class RubriqueEvenementsController implements Initializable {
     private Label veterinaires;
     @FXML
     private Label evenements;
+    @FXML
+    private Label espace;
+    @FXML
+    private ImageView image1;
+    @FXML
+    private Label titre;
+    @FXML
+    private Text tfDescription;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(E.toString());
+        
+        try {
+            Image img6 = new Image(new FileInputStream( E.getNom_image()),393,394, false, false);
+            
+            image1.setImage(img6);
+            tfDescription.setText("Description : "+E.getDescription());
+            
+            titre.setText(E.getNom());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(DetailEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
-    @FXML
+       @FXML
     private void Menu(MouseEvent event) {
-        
+    
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
               
     }
-    
 }
