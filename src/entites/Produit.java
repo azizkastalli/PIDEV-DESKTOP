@@ -5,6 +5,9 @@
  */
 package entites;
 
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author azizkastalli
@@ -23,6 +26,7 @@ public class Produit {
    private int quantite;
    private double vote;
    private String label;
+   private ImageView image;
 
     public Produit(){}
    
@@ -39,6 +43,7 @@ public class Produit {
         this.quantite = quantite;
         this.vote = vote;
         this.label = label;
+        this.image = new ImageView(new Image("/utils/assets/"+nom_image));
     }
 
     public Produit(String caracteristiques, String description, String etat, int id, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
@@ -55,6 +60,7 @@ public class Produit {
         this.quantite = quantite;
         this.vote = vote;
         this.label = label;
+        this.image = new ImageView(new Image("/utils/assets/"+nom_image));
     }
     
     
@@ -157,6 +163,14 @@ public class Produit {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
     }
     
     

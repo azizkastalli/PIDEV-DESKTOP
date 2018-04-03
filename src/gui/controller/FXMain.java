@@ -6,6 +6,8 @@
 package gui.controller;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,21 +26,27 @@ public class FXMain extends Application {
       
         Parent root = null;
         
+        
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/ModifSuppEvent.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
         } catch (IOException ex) {
-          
-
+            Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
+   /*
+        try {
+            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+        } catch (IOException ex) {
+            Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    */
         Scene scene = new Scene(root);    
-                 primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
 
         primaryStage.setTitle("test");
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
-     
     }
         
 

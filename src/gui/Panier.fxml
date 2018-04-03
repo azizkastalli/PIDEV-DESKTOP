@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -112,38 +113,43 @@
          <children>
             <Pane prefHeight="524.0" prefWidth="788.0">
                <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
+                  <ImageView fitHeight="171.0" fitWidth="164.0" layoutX="122.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/gallery-col4-img-05.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="54.0" layoutY="14.0" prefHeight="58.0" prefWidth="180.0" text="panier">
                      <font>
-                        <Font size="59.0" />
+                        <Font size="37.0" />
                      </font>
                   </Label>
-                  <Label layoutX="211.0" layoutY="289.0" text="dans cette page on affiche le panier">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
+                  <Button layoutX="470.0" layoutY="355.0" mnemonicParsing="false" text="passer commande" />
                </children>
             </Pane>
-            <VBox prefHeight="524.0" prefWidth="240.0">
+            <VBox prefHeight="524.0" prefWidth="240.0" styleClass="sidebarpan">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <Label style="-fx-background-color: blue;" text="Label">
+                  <Label prefHeight="58.0" prefWidth="246.0" text="detail du panier" textFill="#4c75b2">
                      <font>
-                        <Font size="62.0" />
+                        <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
+                  <Pane>
+                     <children>
+                        <Label layoutX="140.0" prefHeight="58.0" prefWidth="106.0" text="2" textFill="#4c75b2">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="58.0" prefWidth="130.0" text="nbr d'articles :" textFill="#4c75b2">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
                </children>
             </VBox>
          </children>

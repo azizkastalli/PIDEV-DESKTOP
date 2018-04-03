@@ -3,15 +3,16 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/encheres.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EncheresController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/detailencheres.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.DetailEncheresController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -56,7 +57,7 @@
                   <Insets bottom="11.0" left="23.0" top="11.0" />
                </padding>
             </Label>
-            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+            <Label fx:id="veterinaire" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
                <font>
                   <Font size="22.0" />
                </font>
@@ -74,10 +75,10 @@
             </Label>
             <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
                <font>
-                  <Font size="22.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
                <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
                </padding>
             </Label>
             <Label text="10£" textFill="WHITE">
@@ -110,7 +111,34 @@
       </HBox>
       <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <ScrollPane fx:id="anchorGridPane" prefHeight="524.0" prefWidth="788.0" />
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <children>
+                  <Pane layoutX="37.0" layoutY="27.0" prefHeight="462.0" prefWidth="358.0">
+                     <children>
+                        <ImageView fx:id="image" fitHeight="338.0" fitWidth="356.0" layoutX="2.0" layoutY="9.0" pickOnBounds="true" />
+                        <ToggleButton fx:id="btparticipation" layoutY="378.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="357.0" text="Participer" />
+                     </children>
+                  </Pane>
+                  <VBox layoutX="425.0" layoutY="27.0" prefHeight="459.0" prefWidth="336.0">
+                     <children>
+                        <Label prefHeight="25.0" prefWidth="55.0" text="LABEL :" />
+                        <Label fx:id="label" prefHeight="20.0" prefWidth="335.0" />
+                        <Label prefHeight="25.0" prefWidth="143.0" text="DATE DEBUT :" />
+                        <Label fx:id="date" prefHeight="20.0" prefWidth="335.0" />
+                        <Label prefHeight="25.0" prefWidth="143.0" text="CATEGORIE :" />
+                        <Label fx:id="categorie" prefHeight="20.0" prefWidth="335.0" />
+                        <Label prefHeight="25.0" prefWidth="143.0" text="SEUIL MISE :" />
+                        <Label fx:id="mise" prefHeight="20.0" prefWidth="335.0" />
+                        <Label prefHeight="25.0" prefWidth="143.0" text="poid : " />
+                        <Label fx:id="poid" prefHeight="20.0" prefWidth="335.0" />
+                        <Label prefHeight="25.0" prefWidth="143.0" text="caracteristiques" />
+                        <Label fx:id="caracteristiques" prefHeight="60.0" prefWidth="335.0" />
+                        <Label prefHeight="25.0" prefWidth="143.0" text="DESCRIPTION :" />
+                        <Label fx:id="description" prefHeight="120.0" prefWidth="335.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
             <VBox prefHeight="524.0" prefWidth="240.0">
                <opaqueInsets>
                   <Insets />
