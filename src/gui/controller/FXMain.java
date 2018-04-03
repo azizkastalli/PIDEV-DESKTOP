@@ -28,7 +28,7 @@ public class FXMain extends Application {
         
         
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/ModifSuppEvent.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
         }
