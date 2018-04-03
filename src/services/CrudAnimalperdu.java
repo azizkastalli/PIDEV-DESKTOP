@@ -82,10 +82,21 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
             ResultSet rs = pst.executeQuery();
             while (rs.next()) 
                
-                {
-            AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getString(4),rs.getBoolean(5));   
+                {String etat;
+                    if (rs.getBoolean(5)==true)
+                    {
+                      etat="trouvé";
+                           AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getString(4),etat);   
             listAnimal.add(A);
-           }
+                    }
+               else {etat="perdue";
+                       AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getString(4),etat);   
+            listAnimal.add(A);
+                    
+                    }
+                    }
+         
+           
 
           
             return listAnimal;

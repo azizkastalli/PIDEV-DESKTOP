@@ -78,7 +78,10 @@ public class ModifierANPController implements Initializable {
         LocalDate date2 = date1.toLocalDate();
         date.setValue(date2);
         lieu.setText(ServiceAdminController.P.getLieu_disparition());
-        etat.setText(String.valueOf(ServiceAdminController.P.isEtat()));
+        etat.setText(ServiceAdminController.P.getEtat1());
+        ida.setEditable(false);
+        date.setEditable(false);
+        lieu.setEditable(false);
     }    
 
 
@@ -104,12 +107,12 @@ public class ModifierANPController implements Initializable {
             } 
                   else {
                       
-        int id = Integer.parseInt(ida.getText());
-        P.setId_animal(id);
-        LocalDate date1 = this.date.getValue();
-        Date date2 = Date.valueOf(date1);
-        P.setDate_disparition(date2);
-        P.setLieu_dispairition(lieu.getText());
+        //int id = Integer.parseInt(ida.getText());
+        //P.setId_animal(id);
+        //LocalDate date1 = this.date.getValue();
+        //Date date2 = Date.valueOf(date1);
+        //P.setDate_disparition(date2);
+        //P.setLieu_dispairition(lieu.getText());
        boolean etatt = Boolean.getBoolean(etat.getText());
         P.setEtat(etatt);
         myTool.Update(P);

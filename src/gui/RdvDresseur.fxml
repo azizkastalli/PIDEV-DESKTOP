@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="backgroundcolor" stylesheets="@/gui/css/rdvdresseur.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.RdvDresseurController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="backgroundcolor" stylesheets="@/gui/css/rdvdresseur.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RdvDresseurController">
    <children>
       <Label layoutX="147.0" layoutY="105.0" text="id_client" />
       <Label layoutX="147.0" layoutY="137.0" text="coordonnees" />
@@ -21,11 +21,11 @@
       <Label layoutX="147.0" layoutY="210.0" text="etat" />
       <Label layoutX="147.0" layoutY="243.0" text="date_trouvaille" />
       <Label layoutX="147.0" layoutY="281.0" text="id_dresseur" />
-      <TextField fx:id="idc" layoutX="365.0" layoutY="101.0" />
-      <TextField fx:id="coordonnees" layoutX="365.0" layoutY="133.0" />
-      <TextField fx:id="ida" layoutX="365.0" layoutY="171.0" />
-      <TextField fx:id="etat" layoutX="365.0" layoutY="206.0" />
-      <TextField fx:id="idd" layoutX="365.0" layoutY="277.0" />
+      <TextField fx:id="idc" layoutX="340.0" layoutY="101.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="coordonnees" layoutX="340.0" layoutY="133.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="ida" layoutX="340.0" layoutY="171.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="etat" layoutX="340.0" layoutY="206.0" prefHeight="25.0" prefWidth="174.0" text="Non Confirmé" />
+      <TextField fx:id="idd" layoutX="340.0" layoutY="277.0" prefHeight="25.0" prefWidth="174.0" />
       <Button layoutX="284.0" layoutY="359.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
       <Pane fx:id="menubar" layoutX="20.0" layoutY="20.0">
          <children>
@@ -104,6 +104,6 @@
             </HBox>
          </children>
       </Pane>
-      <DatePicker fx:id="date" layoutX="349.0" layoutY="239.0" />
+      <DatePicker fx:id="date" layoutX="339.0" layoutY="239.0" prefHeight="25.0" prefWidth="174.0" />
    </children>
 </AnchorPane>

@@ -19,6 +19,7 @@ public class AnimalPerdu {
     private boolean etat;
     private Date date_disparition;
     private String lieu_disparition; 
+    private String etat1;
   
 
    
@@ -35,6 +36,16 @@ public class AnimalPerdu {
         this.date_disparition = date_disparition;
         this.lieu_disparition = lieu_disparition;
     }
+
+    public AnimalPerdu(int id, int id_animal, Date date_disparition, String lieu_disparition, String etat1) {
+        this.id = id;
+        this.id_animal = id_animal;
+        this.date_disparition = date_disparition;
+        this.lieu_disparition = lieu_disparition;
+        this.etat1 = etat1;
+    }
+
+    
     
 
 
@@ -112,6 +123,13 @@ public class AnimalPerdu {
         this.lieu_disparition = lieu_disparition;
     }
 
-   
+    public String getEtat1() {
+        return etat1;
+    }
 
+    public void setEtat1(String etat1) {
+        this.etat1 = etat1;
+    }
+
+   
 }

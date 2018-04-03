@@ -71,7 +71,7 @@ public class ServiceAdminController implements Initializable {
     @FXML
     private TableColumn<AnimalPerdu, String> lieuu;
     @FXML
-    private TableColumn<AnimalPerdu, Boolean> etatt;
+    private TableColumn<AnimalPerdu, String> etatt;
     
 
     /**
@@ -240,10 +240,12 @@ public class ServiceAdminController implements Initializable {
         ida.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
         datee.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
         lieuu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));
-        etatt.setCellValueFactory(new PropertyValueFactory<>("etat"));
-
+        etatt.setCellValueFactory(new PropertyValueFactory<>("etat1"));
+                                                                              
+      
         //tableA.setItems(null);
         tableA.setItems(data);
+        
         
     }
 

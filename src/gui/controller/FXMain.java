@@ -32,7 +32,7 @@ public class FXMain extends Application {
           
         
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/ListeRdv.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/RubriqueServices.fxml"));
         } catch (IOException ex) {
             
         }
