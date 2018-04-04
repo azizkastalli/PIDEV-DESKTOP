@@ -9,6 +9,8 @@ import java.sql.Date;
 
 
 
+
+
 /**
  *
  * @author rayen
@@ -17,22 +19,20 @@ public class Commentaire {
 
   private Date date;
   private int id;
-  private int id_cible;
+  private String id_cible;
   private int id_client;
   private String texte;
     
             
     public Commentaire(){}
 
-    public Commentaire(Date date, int id, int id_cible, int id_client, String texte) {
+    public Commentaire(Date date, String texte) {
         this.date = date;
-        this.id = id;
-        this.id_cible = id_cible;
-        this.id_client = id_client;
         this.texte = texte;
     }
 
-    public Commentaire(Date date, int id_cible, int id_client, String texte) {
+
+    public Commentaire(Date date, String id_cible, int id_client, String texte) {
         this.date = date;
         this.id_cible = id_cible;
         this.id_client = id_client;
@@ -47,7 +47,7 @@ public class Commentaire {
         return id;
     }
 
-    public int getId_cible() {
+    public String getId_cible() {
         return id_cible;
     }
 
@@ -68,7 +68,7 @@ public class Commentaire {
         this.id = id;
     }
 
-    public void setId_cible(int id_cible) {
+    public void setId_cible(String id_cible) {
         this.id_cible = id_cible;
     }
 

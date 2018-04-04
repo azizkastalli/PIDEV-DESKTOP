@@ -16,14 +16,20 @@ import javafx.scene.layout.VBox;
 import static gui.controller.StoreController.P;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 import services.CrudVote;
 
@@ -114,6 +120,19 @@ public class RubriqueProduitsController implements Initializable {
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
               
+    }
+
+    @FXML
+    private void comment(ActionEvent event) {
+        Stage stage=new Stage();
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/Commentaire.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

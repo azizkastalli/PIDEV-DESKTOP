@@ -35,7 +35,7 @@ public class CrudCommentaire implements ICrud<Commentaire>{
             PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setDate(1,obj.getDate());
-            pst.setInt(2,obj.getId_cible());
+            pst.setString(2,obj.getId_cible());
             pst.setInt(3,obj.getId_client());
             pst.setString(4,obj.getTexte());            
                        
@@ -65,7 +65,7 @@ public class CrudCommentaire implements ICrud<Commentaire>{
         ResultSet rs = pSmt.executeQuery();
             rs.next();
             obj.setDate(rs.getDate(1)); 
-            obj.setId_cible(rs.getInt(2)); 
+            obj.setId_cible(rs.getString(2)); 
             obj.setId_client(rs.getInt(3)); 
             obj.setTexte(rs.getString(4)); 
              
@@ -84,7 +84,7 @@ public class CrudCommentaire implements ICrud<Commentaire>{
         
            while(rs.next())
            {
-            Commentaire C =new Commentaire(rs.getDate(1),rs.getInt(2),rs.getInt(3),rs.getString(4));   
+            Commentaire C =new Commentaire(rs.getDate(1),rs.getString(2),rs.getInt(3),rs.getString(4));   
             liste.add(C);
            }
            
