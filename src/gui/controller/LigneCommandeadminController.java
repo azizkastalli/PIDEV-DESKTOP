@@ -5,8 +5,8 @@
  */
 package gui.controller;
 
-import entites.Commande;
-import entites.Produit;
+
+import entites.Lignecommande;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,34 +27,30 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-import services.CrudCommande;
-import services.CrudProduit;
+import services.CrudLignecommande;
+import static gui.controller.StoreAdminController.C;
 
 /**
  * FXML Controller class
  *
  * @author iheb bf
  */
-public class StoreAdminController implements Initializable {
+public class LigneCommandeadminController implements Initializable {
  
-    public static Commande C = new Commande();
+  
     
     @FXML
     private HBox ev;
     @FXML
-    private TableView<Commande> tableA;
+    private TableView<Lignecommande> tableA;
     
-    private ObservableList <Commande> data;
+    private ObservableList <Lignecommande> data;
     @FXML
-    private Button modifier;
+    private TableColumn<Lignecommande, Integer> ref;
     @FXML
-    private TableColumn<Commande, Integer> ref;
+    private TableColumn<Lignecommande, Integer> prod;
     @FXML
-    private TableColumn<Commande, Integer> client;
-    @FXML
-    private TableColumn<Commande, Double> prixntot;
-    @FXML
-    private TableColumn<Commande, Integer> etat;
+    private TableColumn<Lignecommande, Integer> qte;
  
     /**
      * Initializes the controller class.
@@ -62,18 +58,17 @@ public class StoreAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
               //Connection conn=dc.getConnection();
-        CrudCommande myTool = new CrudCommande();
-        Commande p = new Commande();
+        CrudLignecommande myTool = new CrudLignecommande();
+        Lignecommande p = new Lignecommande();
         data= FXCollections.observableArrayList();
-        for(int i=0;i<myTool.SelectAll().size();i++)
+        for(int i=0;i<myTool.SelectAll(C.getId()).size();i++)
         {
-            p=(Commande) myTool.SelectAll().get(i);
+            p=(Lignecommande) myTool.SelectAll(C.getId()).get(i);
             data.add(p);
         }
         ref.setCellValueFactory(new PropertyValueFactory<>("id"));
-        client.setCellValueFactory(new PropertyValueFactory<>("id_client"));
-        prixntot.setCellValueFactory(new PropertyValueFactory<>("prix_tot"));
-        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        prod.setCellValueFactory(new PropertyValueFactory<>("id_produit"));
+        qte.setCellValueFactory(new PropertyValueFactory<>("qte"));
         tableA.setItems(data);
     }    
 
@@ -219,27 +214,5 @@ public class StoreAdminController implements Initializable {
     }
     }
 
-    @FXML
-    private void modifier(ActionEvent event) throws IOException {
-         if (tableA.getSelectionModel().getSelectedItem()!=null)
-            {
-            ((Node)event.getSource()).getScene().getWindow().hide();
-            C=tableA.getSelectionModel().getSelectedItem();
-            
-                System.out.println(C.getId());
-            //id.setText(String.valueOf(p.getId()));
-           
-            
-            Stage stage=new Stage();
-            Parent root = FXMLLoader.load(getClass().getResource("/gui/LigneCommandeadmin.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show(); 
-            }
-            else 
-            {
-                 JOptionPane.showMessageDialog(null,"Veuillez selectionner une commande");
-            }
-        
-    }
+    
 }

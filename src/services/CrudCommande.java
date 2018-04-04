@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.Dbconnection;
 /**
  *
@@ -27,7 +29,7 @@ public class CrudCommande implements ICrud<Commande> {
     @Override
     public void Create(Commande obj) throws SQLException {
           String requete = "INSERT INTO Commande (etat,id_client,prix_tot) "
-                    + "VALUES(?,?,?,?)";
+                    + "VALUES(?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
@@ -73,8 +75,9 @@ public class CrudCommande implements ICrud<Commande> {
     }
 
     @Override
-    public List<Commande> SelectAll() throws SQLException {
+    public List<Commande> SelectAll() {
         List<Commande> liste = new ArrayList<>();
+        try {
         String requete=" SELECT * FROM commande ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
@@ -82,11 +85,15 @@ public class CrudCommande implements ICrud<Commande> {
         
            while(rs.next())
            {
-            Commande C =new Commande(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getDouble(4));   
+            Commande C =new Commande(rs.getInt(2),rs.getInt(1),rs.getInt(3),rs.getDouble(4));   
             liste.add(C);
            }
            
-     return liste;
+     return liste;}
+        catch (SQLException ex) {
+            Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
     }
 
     @Override

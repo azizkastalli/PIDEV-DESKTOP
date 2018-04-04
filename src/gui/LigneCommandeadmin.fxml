@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StoreAdminController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LigneCommandeadminController">
   
      <children>
       <VBox prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
@@ -188,12 +188,10 @@
                   <TableView fx:id="tableA" prefHeight="500.0" prefWidth="677.0">
                     <columns>
                       <TableColumn fx:id="ref" prefWidth="119.0" text="ref" />
-                      <TableColumn fx:id="client" prefWidth="117.0" text="client" />
-                        <TableColumn fx:id="prixntot" prefWidth="116.0" text="prix totale" />
-                        <TableColumn fx:id="etat" prefWidth="100.0" text="etat" />
+                      <TableColumn fx:id="prod" prefWidth="117.0" text="produit" />
+                        <TableColumn fx:id="qte" prefWidth="116.0" text="quantite" />
                     </columns>
                   </TableView>
-                  <Button fx:id="modifier" layoutX="723.0" layoutY="186.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="110.0" text="voir contenu" />
                </children>
             </Pane>
          </children>
