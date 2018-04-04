@@ -1,0 +1,13 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+.label{
+    -fx-font-weight:bold;
+    -fx-font-size:14;
+        
+    -fx-text-fill: #4f86dd;
+}

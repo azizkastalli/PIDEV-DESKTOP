@@ -72,7 +72,7 @@ public class MenuController {
             case "evenements":
             case "even":
             case "eve":
-                destination="RubriqueEvenements.fxml";
+                destination="EventClient.fxml";
                 break;
             case "pan":
             case "pani":

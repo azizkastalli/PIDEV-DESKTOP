@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+   .menu_bar{
+    -fx-background-color: aquamarine;
+}
+.backgroundcolor {
+    -fx-background-color: aqua;
+}

@@ -16,13 +16,13 @@ import java.sql.SQLException;
  */
 public class Dbconnection {
      
-    private final String url = "jdbc:mysql://localhost:3306/zanimauxintegré";
+    private final String url = "jdbc:mysql://localhost:3306/zanimauxintegr__";
     private final String user = "root";
     private final String password = "";
     private Connection connection;
     private static Dbconnection data;
 
-    private Dbconnection() {
+    public Dbconnection() {
         try {
             connection = DriverManager.getConnection(url,user,password);
             System.out.println("Connexion établie!");

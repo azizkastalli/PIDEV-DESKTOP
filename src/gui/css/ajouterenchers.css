@@ -22,3 +22,7 @@
     -fx-text-fill: #4f86dd;
     -fx-background-color: white;
 }
+
+.menu_icon{
+    -fx-background-color: black;
+}

@@ -3,11 +3,11 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -110,20 +110,7 @@
       </HBox>
       <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
-               <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
-                     <font>
-                        <Font size="59.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="227.0" layoutY="282.0" text="dans cette page on affiche les encheres">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+            <ScrollPane fx:id="anchorGridPane" prefHeight="524.0" prefWidth="788.0" />
             <VBox prefHeight="524.0" prefWidth="240.0">
                <opaqueInsets>
                   <Insets />

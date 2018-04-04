@@ -184,7 +184,31 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <Button layoutX="125.0" layoutY="112.0" mnemonicParsing="false" prefHeight="151.0" prefWidth="275.0" text="evenement" />
+                  <ImageView id="categorie" fitHeight="394.0" fitWidth="293.0" layoutX="501.0" layoutY="75.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../utils/assets/gallery-col3-img-09.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="394.0" fitWidth="293.0" layoutX="43.0" layoutY="75.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../utils/assets/em.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label id="categorie" layoutX="54.0" layoutY="368.0" onMouseClicked="#ajouter" stylesheets="@css/evenementadmin.css" text="ajouter Catégorie" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label id="categorie" layoutX="56.0" layoutY="423.0" onMouseClicked="#afficher" stylesheets="@css/evenementadmin.css" text="Modifier Catégorie" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label id="categorie" layoutX="534.0" layoutY="409.0" stylesheets="@css/evenementadmin.css" text="Espace Evenement" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

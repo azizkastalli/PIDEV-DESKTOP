@@ -179,6 +179,50 @@ public class EvenementAdminController implements Initializable {
     }
         
     }
-
+    
+    @FXML
+    private void ajouter(MouseEvent event)
+    {
+         try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/AjouterCategorieAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               // app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
+         
+          @FXML
+    private void afficher(MouseEvent event)
+    {
+         try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/AfficherCategorieAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               // app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    
+    }
+    
+    }
    
-}
+
