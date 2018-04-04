@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import static gui.controller.EventClientController.E;
 
 /**
  * FXML Controller class
@@ -38,7 +39,7 @@ public class RubriqueEvenementsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        System.out.println(E.toString());
     }    
 
     @FXML

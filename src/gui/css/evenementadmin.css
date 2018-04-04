@@ -5,3 +5,7 @@
 .mainFxmlClass {
 
 }
+
+#categorie:hover{
+     -fx-background-color: #202332;
+}

@@ -6,6 +6,8 @@
 package entites;
 
 import java.sql.Date;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -23,13 +25,15 @@ public class Evenement {
    private Boolean etat;
    private String nom_image;
    private String nom_association;
-   private int prix;
+   private ImageView IV;
+
+
    private int id_association;
    private int id_categorie;
    
     public Evenement(){}
 
-    public Evenement(int id, String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image, String nom_association, int prix, int id_association, int id_categorie) {
+    public Evenement(int id, String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image, String nom_association, int id_association, int id_categorie) {
         this.id = id;
         this.nom = nom;
         this.description = description;
@@ -39,12 +43,12 @@ public class Evenement {
         this.etat = etat;
         this.nom_image = nom_image;
         this.nom_association = nom_association;
-        this.prix = prix;
+     
         this.id_association = id_association;
         this.id_categorie = id_categorie;
     }
 
-    public Evenement(String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image, String nom_association, int prix, int id_association, int id_categorie) {
+    public Evenement(String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image,int id_categorie) {
         this.nom = nom;
         this.description = description;
         this.nbr_participants = nbr_participants;
@@ -52,10 +56,23 @@ public class Evenement {
         this.date_fin = date_fin;
         this.etat = etat;
         this.nom_image = nom_image;
-        this.nom_association = nom_association;
-        this.prix = prix;
-        this.id_association = id_association;
-        this.id_categorie = id_categorie;
+     
+        this.id_categorie=id_categorie;
+        
+        this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
+        IV.setFitHeight(50);
+IV.setFitWidth(50);
+        
+       
+       
+    }
+    
+      public ImageView getIV() {
+        return IV;
+    }
+
+    public void setIV(ImageView IV) {
+        this.IV = IV;
     }
 
     public int getId() {
@@ -94,9 +111,7 @@ public class Evenement {
         return nom_association;
     }
 
-    public int getPrix() {
-        return prix;
-    }
+  
 
     public int getId_association() {
         return id_association;
@@ -142,9 +157,7 @@ public class Evenement {
         this.nom_association = nom_association;
     }
 
-    public void setPrix(int prix) {
-        this.prix = prix;
-    }
+   
 
     public void setId_association(int id_association) {
         this.id_association = id_association;
@@ -183,8 +196,9 @@ public class Evenement {
 
     @Override
     public String toString() {
-        return "Evenement{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", nbr_participants=" + nbr_participants + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", etat=" + etat + ", nom_image=" + nom_image + '}';
+        return "Evenement{" + "nom=" + nom + ", description=" + description + ", nbr_participants=" + nbr_participants + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", etat=" + etat + ", nom_image=" + nom_image + ", nom_association=" + nom_association + '}';
     }
+
   
 
    

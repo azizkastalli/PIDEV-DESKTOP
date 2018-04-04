@@ -72,12 +72,20 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
+            <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
             <Label text="10£" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
                <HBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="20.0" />
                </HBox.margin>
             </Label>
             <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
