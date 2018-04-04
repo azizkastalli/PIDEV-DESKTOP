@@ -12,15 +12,19 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -82,7 +86,7 @@ public class RdvDresseurController implements Initializable {
 //boolean etatt = Boolean.getBoolean(etat.getText());
         
         myTool.Create(r);
-        JOptionPane.showMessageDialog(null, "rendez vous ajouté");
+        JOptionPane.showMessageDialog(null, "rendez vous ajoutÃ©");
          Stage stage=new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/ListeRdv.fxml"));
             Scene scene = new Scene(root);
@@ -95,6 +99,51 @@ public class RdvDresseurController implements Initializable {
 
     @FXML
     private void Menu(MouseEvent event) {
+         String dest=""; 
+        String destination=""; 
+        String type = event.getSource().getClass().getName();
+        
+        if(type.equals("javafx.scene.control.Label"))
+          {
+          Label ev = (Label) event.getSource();
+          dest=ev.getId();
+          }
+         else if(type.equals("javafx.scene.image.ImageView"))
+         {
+         ImageView ev = (ImageView) event.getSource();
+         dest=ev.getId();
+         }
+        
+         switch (dest) {
+            case "services":
+            
+            
+                destination="RubriqueServices.fxml";
+                break;
+            
+                
+            
+         }
+         if(destination!="")
+        {
+ 
+        
+         Parent home_page_parent = null;
+            try {
+                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      
+                app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+       
+        }
+        MenuController menu = new MenuController();
+        menu.GestionMenu(event);
     }
     
 }

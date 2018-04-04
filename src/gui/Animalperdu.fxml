@@ -17,13 +17,13 @@
    <children>
       <Pane prefHeight="481.0" prefWidth="831.0" styleClass="background" stylesheets="@css/animalperdu.css">
          <children>
-            <Label layoutX="36.0" layoutY="95.0" text="id_animal" />
-            <Label layoutX="28.0" layoutY="138.0" text="date_disparition" />
-            <Label layoutX="21.0" layoutY="179.0" text="lieu_disparition" />
-            <Label layoutX="50.0" layoutY="222.0" text="etat" />
-            <TextField fx:id="ida" layoutX="134.0" layoutY="91.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField fx:id="lieu" layoutX="134.0" layoutY="175.0" onAction="#Showplace" prefHeight="25.0" prefWidth="174.0" />
-            <TextField fx:id="etat" layoutX="134.0" layoutY="218.0" prefHeight="25.0" prefWidth="174.0" text="perdue" />
+            <Label layoutX="36.0" layoutY="200.0" text="Id animal" />
+            <Label layoutX="19.0" layoutY="244.0" text="Date disparition" />
+            <Label layoutX="21.0" layoutY="287.0" text="Lieu disparition" />
+            <Label layoutX="51.0" layoutY="335.0" text="Etat" />
+            <TextField fx:id="ida" layoutX="134.0" layoutY="196.0" prefHeight="25.0" prefWidth="174.0" />
+            <TextField fx:id="lieu" layoutX="134.0" layoutY="283.0" onAction="#Showplace" prefHeight="25.0" prefWidth="174.0" />
+            <TextField fx:id="etat" layoutX="134.0" layoutY="331.0" prefHeight="25.0" prefWidth="174.0" text="perdue" />
             <Pane>
                <children>
                   <HBox layoutY="5.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/animalperdu.css">
@@ -101,9 +101,14 @@
                   </HBox>
                </children>
             </Pane>
-            <DatePicker fx:id="date" layoutX="134.0" layoutY="134.0" />
-            <Button fx:id="ajouter" layoutX="183.0" layoutY="327.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
+            <DatePicker fx:id="date" layoutX="134.0" layoutY="240.0" />
+            <Button fx:id="ajouter" layoutX="166.0" layoutY="403.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
             <GoogleMapView fx:id="mapView" layoutX="338.0" layoutY="76.0" prefHeight="352.0" prefWidth="448.0" />
+            <Label layoutX="26.0" layoutY="106.0" prefHeight="27.0" prefWidth="264.0" text="Declaration d'un animal perdu">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

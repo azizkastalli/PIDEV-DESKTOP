@@ -96,6 +96,8 @@ public class RubriqueServicesController implements Initializable {
             
                 destination="RdvDresseur.fxml";
                 break;
+                
+            
          }
          if(destination!="")
         {
