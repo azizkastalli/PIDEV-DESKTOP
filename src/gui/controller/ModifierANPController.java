@@ -6,7 +6,7 @@
 package gui.controller;
 
 import entites.AnimalPerdu;
-import gui.controller.SersviceAdminController;
+import gui.controller.ServiceAdminController;
 import static gui.controller.ServiceAdminController.P;
 import java.io.IOException;
 import java.net.URL;
