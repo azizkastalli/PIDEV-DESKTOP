@@ -60,7 +60,11 @@ public class CrudSession implements ICrud<Session>{
 
     @Override
     public Session Select(Session obj) throws SQLException {
-        String requete=" SELECT * FROM session WHERE id=?";
+        String requete=" SELECT s.id,s.etat,s.derniere_mise,u.username,p.label,p.nom_image "
+                       + "FROM session s "
+                       + "Join produit p on p.id=(SELECT id_cible FROM Encheres WHERE id_encheres= s.id) "
+                       + "Join utilisateur u on u.id=s.id_gagnant "
+                       + " WHERE s.id=?";
      
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         pSmt.setInt(1,obj.getId());
@@ -69,22 +73,28 @@ public class CrudSession implements ICrud<Session>{
             obj.setId(rs.getInt(1)); 
             obj.setEtat(rs.getString(2)); 
             obj.setDerniere_mise(rs.getDouble(3)); 
-            obj.setId_gagnant(rs.getString(4)); 
+            obj.setGagnant(rs.getString(4)); 
+            obj.setNomProduit(rs.getString(5)); 
+            obj.setImg(rs.getString(6)); 
                               
        return obj;               
     }
 
     @Override
     public List<Session> SelectAll() throws SQLException {
-    List<Session> liste = new ArrayList<>();
-        String requete=" SELECT * FROM session ";
-        
+    List<Session> liste = new ArrayList<Session>();
+
+            String requete=" SELECT s.id,s.etat,s.derniere_mise,u.username,p.label,p.nom_image "
+                       + "FROM session s "
+                       + "Join produit p on p.id=(SELECT id_cible FROM Encheres WHERE id_encheres= s.id) "
+                       + "Join utilisateur u on u.id=s.id_gagnant ";
+    
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
         
            while(rs.next())
            {
-            Session S =new Session(rs.getInt(1),rs.getString(2),rs.getDouble(3),rs.getString(4));   
+            Session S =new Session(rs.getInt(1),rs.getString(2),rs.getDouble(3),rs.getString(6),rs.getString(5),rs.getString(4));   
             liste.add(S);
            }
            

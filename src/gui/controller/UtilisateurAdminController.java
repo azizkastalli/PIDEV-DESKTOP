@@ -5,16 +5,11 @@
  */
 package gui.controller;
 
-import entites.Journal;
-import entites.Session;
-import java.sql.Time;
+import entites.Produit;
+import entites.User;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -25,80 +20,63 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import services.ServiceJournal;
-import services.CrudSession;
+import javax.swing.JOptionPane;
+import services.CrudProduit;
+import services.CrudUser;
 
 /**
  * FXML Controller class
  *
  * @author iheb bf
  */
-public class EnchereAdminController implements Initializable {
-
+public class UtilisateurAdminController implements Initializable {
+ 
+    public static User usr = new User();
+    
     @FXML
     private HBox ev;
     @FXML
-    private TableColumn<Session, Double> mise;
+    private TableView<User> tableA;
+    private TableColumn<Produit, String> nomproduit;
+    private TableColumn<Produit, String> caracteristique;
+    private TableColumn<Produit, Double> prixnouv;
+    private TableColumn<Produit, Double> prixanc;
+    private TableColumn<Produit, String> etat;
+    private TableColumn<Produit, String> description;
+    private ObservableList <User> data;
     @FXML
-    private TableColumn<Session, String> gagnant;
+    private TableColumn<User,Integer> iduser;
     @FXML
-    private TableColumn<Session, String> etat;
+    private TableColumn<User, String> username;
     @FXML
-    private TableColumn<Session, ImageView> image;
-    @FXML
-    private TableColumn<Session, String> label;
-    @FXML
-    private TableView<Session> table;
-    
-    private final TableView<Journal> tableH = new TableView<>();
-    
-    @FXML
-    private Pane tablePane;
-    @FXML
-    private TableColumn<Session, CheckBox> action;
-    @FXML
-    private Button delete;
-
-     ServiceJournal SJ = new ServiceJournal();
-     CrudSession CS = new CrudSession();
- 
+    private TableColumn<User, String> role;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        CrudSession session =new CrudSession();
-        ArrayList arrayList=null;
-   
-        try {
-            arrayList = (ArrayList) session.SelectAll();
-        } catch (SQLException ex) {
-            Logger.getLogger(EnchereAdminController.class.getName()).log(Level.SEVERE, null, ex);
+              //Connection conn=dc.getConnection();
+        CrudUser myTool = new CrudUser();
+        User u = new User();
+        data= FXCollections.observableArrayList();
+        for(int i=0;i<myTool.SelectAll().size();i++)
+        {
+            u=(User) myTool.SelectAll().get(i);
+            data.add(u);
         }
-        
-        ObservableList observableList = FXCollections.observableArrayList(arrayList);
-        table.setItems(observableList);
-        
-        mise.setCellValueFactory(new PropertyValueFactory<Session,Double>("derniere_mise"));
-        gagnant.setCellValueFactory(new PropertyValueFactory<Session,String>("gagnant"));
-        image.setCellValueFactory(new PropertyValueFactory<Session,ImageView>("image"));
-        label.setCellValueFactory(new PropertyValueFactory<Session,String>("NomProduit"));
-        etat.setCellValueFactory(new PropertyValueFactory<Session,String>("etat"));
-        action.setCellValueFactory(new PropertyValueFactory<Session,CheckBox>("checkbox"));
-      
+        iduser.setCellValueFactory(new PropertyValueFactory<>("id"));
+        username.setCellValueFactory(new PropertyValueFactory<>("username"));
+        role.setCellValueFactory(new PropertyValueFactory<>("roles"));
+        tableA.setItems(data);
     }    
-    
-      @FXML
+
+  @FXML
     private void ClickStore(MouseEvent event) {
         
        try {
@@ -110,6 +88,8 @@ public class EnchereAdminController implements Initializable {
                 //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
+            
+        
             
         } catch (IOException ex) {
            
@@ -146,7 +126,7 @@ public class EnchereAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                //app_stage.hide(); //optional
+            //    app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -166,7 +146,7 @@ public class EnchereAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-             //   app_stage.hide(); //optional
+            //    app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -186,7 +166,7 @@ public class EnchereAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-                //app_stage.hide(); //optional
+               // app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -217,7 +197,7 @@ public class EnchereAdminController implements Initializable {
         
     }
     }
-    
+
     @FXML
     private void HomeClick(ActionEvent event) {
               try {
@@ -226,7 +206,7 @@ public class EnchereAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-               // app_stage.hide(); //optional
+              //  app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -238,59 +218,5 @@ public class EnchereAdminController implements Initializable {
     }
     }
 
-    @FXML
-    private void HistoriqueSession(MouseEvent event)
-    {
-        ArrayList <Journal>liste = new ArrayList<Journal>();
-        Session S = table.getSelectionModel().getSelectedItem();        
-         
-        try {
-           liste = (ArrayList) SJ.SelectJournal(S);
-        } catch (SQLException ex) {
-            Logger.getLogger(EnchereAdminController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        ObservableList observableList = FXCollections.observableArrayList(liste);
-        tableH.setItems(observableList);        
-
-        TableColumn client = new TableColumn("nom client");
-        TableColumn miseclient = new TableColumn("mise");
-        TableColumn heureclient = new TableColumn("heure de mise");
-       
-        client.setCellValueFactory(new PropertyValueFactory<Journal,String>("nom_client"));
-        miseclient.setCellValueFactory(new PropertyValueFactory<Journal,Double>("mise"));
-        heureclient.setCellValueFactory(new PropertyValueFactory<Journal,Time>("date_mise"));
-        
-        
-        tablePane.getChildren().remove(table);
-        tableH.getColumns().addAll(client,miseclient,heureclient);
-        tablePane.getChildren().add(tableH);
-   //     tableH.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
-        
-        
-    }
-
-    @FXML
-    private void DeleteSessions(MouseEvent event) {
-        
-            ObservableList<Session> data = table.getItems();
-               ObservableList<Session> oblist = FXCollections.observableArrayList();
-               
-               for(Session S : data)
-               {
-                  if(S.getCheckbox().isSelected())
-                  {
-                      try {
-                          CS.Delete(S); 
-                          SJ.DeleteJournal(S);
-                          oblist.add(S);
-                      } catch (SQLException ex) {
-                          Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
-                      }
-                  }
-               }
-             data.removeAll(oblist);
-        
-    }
     
 }
