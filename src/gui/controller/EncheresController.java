@@ -77,19 +77,8 @@ public class EncheresController implements Initializable {
     private int j=0;
     private int i=0;    
     private int scroll=0;   
-    private Tile           days;
-    private Tile           hours;
-    private Tile           minutes;
-    private Tile           seconds;
-    private Tile           flipDays;
-    private Tile           flipHours;
-    private Tile           flipMinutes;
-    private Tile           flipSeconds;
-    private Label          daysLabel;
-    private Label          hoursLabel;
-    private Label          minutesLabel;
-    private Label          secondsLabel;
-    private AnimationTimer timer;
+    private ArrayList <Encheres>liste = new ArrayList<Encheres>();
+    private ArrayList<Pane> ListePane = new ArrayList<>();
    
     /**
      * Initializes the controller class.
@@ -97,9 +86,7 @@ public class EncheresController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
-        //init
-        ArrayList <Encheres>liste = new ArrayList<Encheres>();
-        ArrayList<Pane> ListePane = new ArrayList<>();
+      
 
          //setting up the GridPane
         GP.setPadding(new Insets(10,10,10,10));
@@ -122,7 +109,7 @@ public class EncheresController implements Initializable {
             IV.setImage(I);
             IV.setFitWidth(230);
             IV.setFitHeight(177);
-            IV.setLayoutX(6);;
+            IV.setLayoutX(6);
             
             //pane set
             Pane P = new Pane();
@@ -216,39 +203,39 @@ public class EncheresController implements Initializable {
         //put DATA in GridPane
         for(Encheres E : liste)
         {   
-             //image set
+                       //image set
             ImageView IV= new ImageView();
             Image I = new Image("/utils/assets/"+E.getNom_image());
             IV.setImage(I);
             IV.setFitWidth(230);
             IV.setFitHeight(177);
+            IV.setLayoutX(6);
             
             //pane set
             Pane P = new Pane();
+            P.setId(Integer.toString(E.getId_encheres()));
             P.setPrefWidth(246);
             P.setPrefHeight(277);
             P.setStyle("-fx-background-color: #4f86dd");
             //label set 
             Label L= new Label(E.getLabel());
               L.setLayoutY(185);
+              L.setLayoutX(50);
               L.setStyle("-fx-font-size:20");
               //L.setStyle("-fx-font-weight:bold");
               //L.setStyle("-fx-text-fill: black");
-              L.setPrefHeight(40);
+              L.setPrefHeight(25);
               L.setPrefWidth(246);
-              
-            //label set in place of count down
-            Label L1= new Label("countdown");
-              L1.setLayoutY(230);
-              L1.setStyle("-fx-font-size:20");
-              //L.setStyle("-fx-font-weight:bold");
-              //L.setStyle("-fx-text-fill: black");
-              L1.setPrefHeight(40);
-              L1.setPrefWidth(246);
-            
-                    
-            P.getChildren().addAll(IV,L,L1);            
-            GP.add(P,j,i);            
+                          
+           CountDownController countdown = new CountDownController();
+           countdown.init(E.getDate_debut());
+           VBox vb = countdown.setgui();
+           vb.setLayoutY(215);
+           vb.setLayoutX(0);
+                   
+            P.getChildren().addAll(IV,L,vb);            
+            ListePane.add(P);
+            GP.add(P,j,i);      
 
             j++;
             if(j>2)

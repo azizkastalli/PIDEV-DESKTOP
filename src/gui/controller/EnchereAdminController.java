@@ -95,7 +95,6 @@ public class EnchereAdminController implements Initializable {
         label.setCellValueFactory(new PropertyValueFactory<Session,String>("NomProduit"));
         etat.setCellValueFactory(new PropertyValueFactory<Session,String>("etat"));
         action.setCellValueFactory(new PropertyValueFactory<Session,CheckBox>("checkbox"));
-      
     }    
     
       @FXML
@@ -112,8 +111,7 @@ public class EnchereAdminController implements Initializable {
                 app_stage.show();  
             
         } catch (IOException ex) {
-           
-        
+                
     }
     }
 
@@ -265,6 +263,7 @@ public class EnchereAdminController implements Initializable {
         tablePane.getChildren().remove(table);
         tableH.getColumns().addAll(client,miseclient,heureclient);
         tablePane.getChildren().add(tableH);
+        
    //     tableH.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
         
         

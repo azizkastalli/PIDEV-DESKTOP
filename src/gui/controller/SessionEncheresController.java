@@ -7,7 +7,11 @@ package gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -16,6 +20,21 @@ import javafx.fxml.Initializable;
  */
 public class SessionEncheresController implements Initializable {
 
+    @FXML
+    private VBox parent;
+    @FXML
+    private Label acceuil;
+    @FXML
+    private Label services;
+    @FXML
+    private Label produits;
+    @FXML
+    private Label veterinaire;
+    @FXML
+    private Label evenements;
+    @FXML
+    private Label espace;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +42,11 @@ public class SessionEncheresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void Menu(MouseEvent event) {
+          MenuController menu = new MenuController();
+        menu.GestionMenu(event);   
+    }
     
 }

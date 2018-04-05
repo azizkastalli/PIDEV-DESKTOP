@@ -113,7 +113,17 @@ public class AjouterEnchersController implements Initializable {
         date.setDisable(true);
         heure.setDisable(true);
         Ajout.setDisable(true);
+        
+        /* E.setSeuil_mise(Double.parseDouble(tfmise.getText()));
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+      
+      String dateEncheres = date.getValue().format(formatter);
+      LocalTime LT = heure.getValue();
+             
+      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+      Date parsedDate;*/
 
+      
     }    
 
     @FXML
@@ -158,7 +168,7 @@ public class AjouterEnchersController implements Initializable {
             parsedDate.setMinutes(LT.getMinute());
             parsedDate.setHours(LT.getHour());
             
-            Timestamp timestamp = new java.sql.Timestamp(parsedDate.getTime());
+            Timestamp timestamp = new Timestamp(parsedDate.getTime());
             E.setDate_debut(timestamp);    
            
             CE.Create(E);

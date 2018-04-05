@@ -95,6 +95,7 @@ public class CrudSession implements ICrud<Session>{
            while(rs.next())
            {
             Session S =new Session(rs.getInt(1),rs.getString(2),rs.getDouble(3),rs.getString(6),rs.getString(5),rs.getString(4));   
+            System.out.println(S);
             liste.add(S);
            }
            

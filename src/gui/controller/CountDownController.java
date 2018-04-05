@@ -42,10 +42,6 @@ public class CountDownController  {
     private Label          minutesLabel;
     private Label          secondsLabel;
     private Duration       duration;
-    private int            d;
-    private int            h;
-    private int            m;
-    private int            s;
     private long           lastTimerCall;
     private AnimationTimer timer;
 
@@ -78,7 +74,7 @@ public class CountDownController  {
 			System.out.print(diffMinutes + " minutes, ");
 			System.out.print(diffSeconds + " seconds.");
        
-        double  heure_converted = diffHours+ (diffDays*24) + (diffMinutes/60) + (diffSeconds/3600) ;       
+        double  heure_converted =1+ diffHours+ (diffDays*24) + (diffMinutes/60) + (diffSeconds/3600) ;       
         			System.out.println("hours converted : "+heure_converted);
 
         duration = Duration.hours(heure_converted);
@@ -133,7 +129,7 @@ public class CountDownController  {
     private Tile createFlipTile(final String TEXT, final String... CHARACTERS) {
         return TileBuilder.create().skinType(SkinType.FLIP)
                           .prefSize(20, 20)
-                          .flipTimeInMS(350)
+                          .flipTimeInMS(10)
                           .flipText(TEXT)
                           .characters(CHARACTERS)
                           .build();
