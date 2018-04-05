@@ -147,7 +147,7 @@
                   <Font size="25.0" />
                </font>
             </Text>
-            <Rating fx:id="rating" layoutX="168.0" layoutY="463.0" prefHeight="32.0" prefWidth="197.0" />
+            <Rating fx:id="rating" layoutX="168.0" layoutY="463.0" prefHeight="32.0" prefWidth="197.0" visible="false" />
             <Label fx:id="msg" layoutX="360.0" layoutY="469.0" prefHeight="21.0" prefWidth="167.0" />
             <Label fx:id="vote" layoutX="186.0" layoutY="72.0" prefHeight="21.0" prefWidth="140.0" textAlignment="CENTER">
                <font>

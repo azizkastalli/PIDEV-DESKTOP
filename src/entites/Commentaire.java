@@ -20,7 +20,7 @@ public class Commentaire {
   private Date date;
   private int id;
   private String id_cible;
-  private int id_client;
+  private String id_client;
   private String texte;
     
             
@@ -32,7 +32,7 @@ public class Commentaire {
     }
 
 
-    public Commentaire(Date date, String id_cible, int id_client, String texte) {
+    public Commentaire(Date date, String id_cible, String id_client, String texte) {
         this.date = date;
         this.id_cible = id_cible;
         this.id_client = id_client;
@@ -53,7 +53,7 @@ public class Commentaire {
         return id_cible;
     }
 
-    public int getId_client() {
+    public String getId_client() {
         return id_client;
     }
 
@@ -74,7 +74,7 @@ public class Commentaire {
         this.id_cible = id_cible;
     }
 
-    public void setId_client(int id_client) {
+    public void setId_client(String id_client) {
         this.id_client = id_client;
     }
 

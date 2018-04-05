@@ -5,7 +5,7 @@
  */
 package gui.controller;
 
-
+import static gui.controller.LoginController.loggduser;
 import entites.Commentaire;
 import static gui.controller.StoreController.P;
 import java.net.URL;
@@ -79,7 +79,7 @@ public class CommentaireController implements Initializable {
     private ImageView imgprod;
     private ObservableList <Commentaire> data;
     @FXML
-    private TableColumn<Commentaire, Integer> user;
+    private TableColumn<Commentaire, String> user;
     @FXML
     private TableColumn<Commentaire, String> comment;
     @FXML
@@ -142,7 +142,7 @@ public class CommentaireController implements Initializable {
             c.setDate(date);
             c.setTexte(fild.getText());
             c.setId_cible(P.getLabel());
-            c.setId_client(1);
+            c.setId_client(loggduser.getUsername());
             System.out.println(c.getId_cible());
             System.out.println(c.getDate());
             System.out.println(c.getTexte());

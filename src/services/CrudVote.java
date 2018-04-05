@@ -31,13 +31,14 @@ public class CrudVote implements ICrud<Vote>{
 
     @Override
     public void Create(Vote obj) throws SQLException {
-        String requete = "INSERT INTO rating (id_produit,vote) "
-                    + "VALUES(?,?)";
+        String requete = "INSERT INTO rating (id_produit,vote,id_user) "
+                    + "VALUES(?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
           
             pst.setString(1,obj.getId_produit());
             pst.setDouble(2,(Double) obj.getVote());
+            pst.setInt(3, obj.getId_user());
                        
             
             pst.executeUpdate();
@@ -110,5 +111,31 @@ public class CrudVote implements ICrud<Vote>{
         }
          
         return s;
+    }
+      public boolean VerifyIfUser(int usr) {try {
+             PreparedStatement myStmt = cnx.prepareStatement("SELECT * from rating where id_user=?");
+            myStmt.setInt(1, usr);
+
+            ResultSet myRes = myStmt.executeQuery();
+            if (myRes.first()) {
+                return true;
+            }      
+        } catch (SQLException e) {
+
+        }
+return false;
+    }
+      public boolean VerifyIfprod(String usr) {try {
+             PreparedStatement myStmt = cnx.prepareStatement("SELECT * from rating where id_produit=?");
+            myStmt.setString(1, usr);
+
+            ResultSet myRes = myStmt.executeQuery();
+            if (myRes.first()) {
+                return true;
+            }      
+        } catch (SQLException e) {
+
+        }
+return false;
     }
 }
