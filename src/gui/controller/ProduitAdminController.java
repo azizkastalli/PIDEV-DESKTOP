@@ -61,7 +61,7 @@ public class ProduitAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-              //Connection conn=dc.getConnection();
+              
         CrudProduit myTool = new CrudProduit();
         Produit p = new Produit();
         data= FXCollections.observableArrayList();

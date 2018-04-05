@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import utils.Dbconnection;
 
 /**
@@ -75,20 +77,26 @@ public class CrudCommentaire implements ICrud<Commentaire>{
     }
 
     @Override
-    public List<Commentaire> SelectAll() throws SQLException {
+    public List<Commentaire> SelectAll() {
         List<Commentaire> liste = new ArrayList<>();
-        String requete=" SELECT * FROM encheres ";
-        
-        PreparedStatement pSmt = cnx.prepareStatement(requete);
-        ResultSet rs = pSmt.executeQuery();
-        
-           while(rs.next())
-           {
-            Commentaire C =new Commentaire(rs.getDate(1),rs.getString(2),rs.getInt(3),rs.getString(4));   
-            liste.add(C);
-           }
+        try {
+            
+            String requete=" SELECT * FROM commentaire";
+            
+            PreparedStatement pSmt = cnx.prepareStatement(requete);
+            ResultSet rs = pSmt.executeQuery();
+            
+            while(rs.next())
+            {
+                Commentaire C =new Commentaire(rs.getDate(5),rs.getString(2),rs.getInt(3),rs.getString(4));
+                liste.add(C);
+            }
+            
            
-     return liste;
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCommentaire.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return liste;
     }
 
     @Override
@@ -98,4 +106,26 @@ public class CrudCommentaire implements ICrud<Commentaire>{
          pSmt.executeUpdate();
     }
     
+    public List<Commentaire> Selectcom(String c) {
+        List<Commentaire> liste = new ArrayList<>();
+        try {
+            
+            String requete=" SELECT * FROM commentaire where id_cible=? ";
+            
+            PreparedStatement pSmt = cnx.prepareStatement(requete);
+            pSmt.setString(1,c);
+            ResultSet rs = pSmt.executeQuery();
+            
+            while(rs.next())
+            {
+                Commentaire C =new Commentaire(rs.getDate(5),rs.getString(2),rs.getInt(3),rs.getString(4));
+                liste.add(C);
+            }
+            
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudCommentaire.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return liste;
+    }
 }

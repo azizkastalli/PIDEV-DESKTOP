@@ -39,6 +39,8 @@ public class Commentaire {
         this.texte = texte;
     }
 
+    
+
     public Date getDate() {
         return date;
     }
