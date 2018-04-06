@@ -17,7 +17,7 @@ public class Produit {
    private String description;
    private String etat;
    private int id;
-   private int id_categorie;
+   private String id_categorie;
    private int id_propietaire;
    private String nom_image;
    private double poid;
@@ -30,7 +30,7 @@ public class Produit {
 
     public Produit(){}
    
-    public Produit(String caracteristiques, String description, String etat, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
+    public Produit(String caracteristiques, String description, String etat, String id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
         this.caracteristiques = caracteristiques;
         this.description = description;
         this.etat = etat;
@@ -46,7 +46,7 @@ public class Produit {
       //  this.image = new ImageView(new Image("/utils/assets/"+nom_image));
     }
 
-    public Produit(String caracteristiques, String description, String etat, int id, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
+    public Produit(String caracteristiques, String description, String etat, int id, String id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
         this.caracteristiques = caracteristiques;
         this.description = description;
         this.etat = etat;
@@ -88,7 +88,7 @@ public class Produit {
         return id;
     }
 
-    public int getId_categorie() {
+    public String getId_categorie() {
         return id_categorie;
     }
 
@@ -136,7 +136,7 @@ public class Produit {
         this.etat = etat;
     }
 
-    public void setId_categorie(int id_categorie) {
+    public void setId_categorie(String id_categorie) {
         this.id_categorie = id_categorie;
     }
 

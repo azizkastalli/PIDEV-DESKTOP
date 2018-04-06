@@ -45,7 +45,7 @@ public class CrudProduit implements ICrud<Produit> {
       pSmt.setDouble(5,obj.getPrix_nouv());
       pSmt.setDouble(6,obj.getPrix_ancien());
       pSmt.setInt(7,obj.getId_propietaire());
-      pSmt.setInt(8,obj.getId_categorie());
+      pSmt.setString(8,obj.getId_categorie());
       pSmt.setString(9,obj.getEtat());
       pSmt.setString(10,obj.getNom_image());
       pSmt.setInt(11,obj.getQuantite());
@@ -87,7 +87,7 @@ public class CrudProduit implements ICrud<Produit> {
             obj.setPrix_nouv(rs.getDouble(5));
             obj.setPrix_ancien(rs.getDouble(6)); 
             obj.setId_propietaire(rs.getInt(7)); 
-            obj.setId_categorie(rs.getInt(8)); 
+            obj.setId_categorie(rs.getString(8)); 
             obj.setEtat(rs.getString(9)); 
             obj.setNom_image(rs.getString(10)); 
             obj.setQuantite(rs.getInt(11)); 
@@ -113,7 +113,7 @@ public class CrudProduit implements ICrud<Produit> {
                 String caracteristiques = rs.getString("caracteristiques");
                 String description = rs.getString("description");
                 String etat = rs.getString("etat");
-                Integer id_categorie = rs.getInt("id_categorie");
+                String id_categorie = rs.getString("id_categorie");
                 Integer id_propietaire = rs.getInt("id_propietaire");
                 String nom_image = rs.getString("nom_image");
                 Double poid = rs.getDouble("poid");
@@ -158,7 +158,7 @@ public class CrudProduit implements ICrud<Produit> {
                 String caracteristiques = rs.getString("caracteristiques");
                 String description = rs.getString("description");
                 String etat = rs.getString("etat");
-                Integer id_categorie = rs.getInt("id_categorie");
+                String id_categorie = rs.getString("id_categorie");
                 Integer id_propietaire = rs.getInt("id_propietaire");
                 String nom_image = rs.getString("nom_image");
                 Double poid = rs.getDouble("poid");
