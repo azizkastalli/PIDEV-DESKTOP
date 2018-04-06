@@ -32,6 +32,12 @@ public class RegisterController implements Initializable {
     private PasswordField rpassword;
     @FXML
     private ComboBox<?> roleCombo;
+    @FXML
+    private TextField remail1;
+    @FXML
+    private TextField rname1;
+    @FXML
+    private TextField rlastname2;
 
     /**
      * Initializes the controller class.
@@ -48,11 +54,28 @@ public class RegisterController implements Initializable {
         User us = new User();
         us.setUsername(rusername.getText());
         us.setPassword(rpassword.getText());
+        us.setUsername_canonical(rusername.getText());
+        us.setEmail(remail1.getText());
+        us.setEmail_canonical(remail1.getText());
+        us.setEnabled(1);
+        us.setNom(rname1.getText());
+        us.setPrenom(rlastname2.getText());
+
         String role=(String) roleCombo.getValue();
         switch(role){
          case("Client"):us.setRoles("a:1:{i:0;s:11:\"ROLE_CLIENT\";}");
          break;
          case("Admin"):us.setRoles("a:1:{i:0;s:19:\"ROLE_ADMINISTRATEUR\";}");
+         break;
+         case("Association"):us.setRoles("a:1:{i:0;s:16:\"ROLE_ASSOCIATION\";}");
+         break;
+         case("Magasin"):us.setRoles("a:1:{i:0;s:12:\"ROLE_MAGASIN\";}");
+         break;
+         case("Livreur"):us.setRoles("a:1:{i:0;s:12:\"ROLE_LIVREUR\";}");
+         break;
+         case("Dresseur"):us.setRoles("a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}");
+         break;
+         case("Veterinaire"):us.setRoles("a:1:{i:0;s:16:\"ROLE_VETERINAIRE\";}");
          break;
         }
         

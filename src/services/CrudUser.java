@@ -91,14 +91,20 @@ return false;
     @Override
     public void Create(User  obj) throws SQLException {
           
-        String requete = "INSERT INTO Utilisateur (username,password,roles) "
-                    + "VALUES(?,?,?)";
+        String requete = "INSERT INTO Utilisateur (username,password,roles,email,email_canonical,enabled,nom,prenom,username_canonical) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setString(1,obj.getUsername());
             pst.setString(2,obj.getPassword());
-            pst.setString(3,obj.getRoles());                        
+            pst.setString(3,obj.getRoles());  
+            pst.setString(4,obj.getEmail());  
+            pst.setString(5,obj.getEmail_canonical());  
+            pst.setInt(6,obj.getEnabled());  
+            pst.setString(7,obj.getNom());  
+            pst.setString(8,obj.getPrenom());  
+            pst.setString(9,obj.getUsername_canonical());  
             
             pst.executeUpdate();
     }

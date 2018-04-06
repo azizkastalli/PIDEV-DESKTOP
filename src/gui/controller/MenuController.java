@@ -54,7 +54,7 @@ public class MenuController {
                 break;
             case "espace":
                 switch(loggduser.getRoles()){
-                    case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
+                    case"a:1:{i:0;s:12:\"ROLE_MAGASIN\";}":
                 destination="EspaceMagasin.fxml";
                 break;}
                 break;

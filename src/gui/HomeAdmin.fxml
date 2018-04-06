@@ -174,7 +174,7 @@
                   <Insets />
                </opaqueInsets>
                <children>
-                  <FontAwesomeIconView glyphName="TH" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#7C8184" size="2em" />
                   <Label text="Gestion Utilisateurs" textFill="#7c8184">
                      <font>
                         <Font name="Calibri Light" size="20.0" />
