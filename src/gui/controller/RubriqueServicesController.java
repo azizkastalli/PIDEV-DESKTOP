@@ -30,13 +30,19 @@ import javafx.stage.Stage;
 public class RubriqueServicesController implements Initializable {
 
     @FXML
-    private ImageView anp;
+    private Label anp;
     @FXML
-    private Label animp;
+    private ImageView animp;
     @FXML
     private Label anisdf;
     @FXML
-    private Label rdv;
+    private ImageView rdv;
+    @FXML
+    private Label espace;
+    @FXML
+    private ImageView ans;
+    @FXML
+    private Label rdvs;
 
      public RubriqueServicesController(){}
     @FXML
@@ -81,18 +87,23 @@ public class RubriqueServicesController implements Initializable {
          }
         
          switch (dest) {
-            case "animp":
             case "anp":
+            case "animp":
+            
             
                 destination="Animalperdu.fxml";
                 break;
-            case "ans":
+                
             case "anisdf":
+            case "ans":
+            
             
                 destination="Animalsdf.fxml";
                 break;
-            case "rdv":
+                
             case "rdvs":
+            case "rdv":
+           
             
                 destination="RdvDresseur.fxml";
                 break;
