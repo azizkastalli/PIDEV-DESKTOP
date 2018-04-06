@@ -85,7 +85,7 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
                 {String etat;
                     if (rs.getBoolean(5)==true)
                     {
-                      etat="trouvé";
+                      etat="trouvÃ©";
                            AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getString(4),etat);   
             listAnimal.add(A);
                     }
@@ -107,6 +107,22 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
  PreparedStatement pSmt = cnx.prepareStatement("delete from animalperdu where id=? " );
          pSmt.setInt(1,obj.getId());
          pSmt.executeUpdate();
+    }
+    
+    public List<Integer> ExtractId() throws SQLException {
+         List<Integer> liste = new ArrayList<>();
+        String requete=" SELECT id FROM animal";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        ResultSet rs = pSmt.executeQuery();
+        
+           while(rs.next())
+           {
+         
+           liste.add(rs.getInt("id"));
+           }
+           
+     return liste;
     }
 
   

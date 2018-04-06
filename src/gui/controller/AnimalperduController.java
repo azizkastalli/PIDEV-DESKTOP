@@ -16,6 +16,7 @@ import com.lynden.gmapsfx.javascript.object.MarkerOptions;
 import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
+import entites.Animal;
 import java.net.URL;
 import entites.AnimalPerdu;
 import java.io.IOException;
@@ -24,11 +25,14 @@ import java.time.LocalDate;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +42,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -67,7 +72,7 @@ public class AnimalperduController implements Initializable, MapComponentInitial
     
 
     @FXML
-    private TextField ida;
+    private ComboBox <Integer> ida;
     @FXML
     private DatePicker date;
     @FXML
@@ -94,11 +99,20 @@ public class AnimalperduController implements Initializable, MapComponentInitial
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
+        CrudAnimalperdu myTool = new CrudAnimalperdu();
                etat.setEditable(false);
         //mapView = new GoogleMapView();
                mapView.addMapInializedListener(this);
                address.bind(lieu.textProperty());
+               ArrayList  arrayList;
+        
+        try {
+            arrayList = (ArrayList) myTool.ExtractId();
+            ObservableList observableList = FXCollections.observableArrayList(arrayList);
+            ida.setItems(observableList);
+        // TODO
+        } catch (SQLException ex) {
+        }
 
         
     }    
@@ -108,7 +122,8 @@ public class AnimalperduController implements Initializable, MapComponentInitial
     private void ajout(ActionEvent event) throws SQLException {
         CrudAnimalperdu myTool = new CrudAnimalperdu();
         AnimalPerdu p = new AnimalPerdu();
-        int id = Integer.parseInt(ida.getText());
+        Animal a = new Animal();
+        int id= ida.getValue();
         p.setId_animal(id);
         LocalDate date1 = this.date.getValue();
         Date date2 = Date.valueOf(date1);
@@ -117,7 +132,7 @@ public class AnimalperduController implements Initializable, MapComponentInitial
        //boolean etatt = Boolean.getBoolean(etat.getText());
         //p.setEtat(etatt);
         myTool.Create(p);
-        JOptionPane.showMessageDialog(null, "reclamation ajoutÃ©");
+        JOptionPane.showMessageDialog(null, "reclamation ajoute");
         
         
     }

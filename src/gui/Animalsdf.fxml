@@ -5,6 +5,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -20,20 +21,18 @@
         <URL value="@/gui/css/animalsdf.css" />
     </stylesheets>
    <children>
-      <AnchorPane id="AnchorPane" layoutX="1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@css/animalsdf.css">
+      <AnchorPane id="AnchorPane" layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@css/animalsdf.css">
          <children>
-            <Label layoutX="45.0" layoutY="83.0" text="Id Client" />
-            <Label layoutX="35.0" layoutY="115.0" text="Id Categorie" />
-            <Label layoutX="55.0" layoutY="153.0" text="Sexe" />
-            <Label layoutX="37.0" layoutY="188.0" text="Nom Image" />
-            <Label layoutX="30.0" layoutY="221.0" text="Date Trouvaille" />
-            <Label layoutX="31.0" layoutY="254.0" text="Lieu Trouvaille" />
-            <TextField fx:id="idc" layoutX="163.0" layoutY="79.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField fx:id="idca" layoutX="164.0" layoutY="111.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField fx:id="sexe" layoutX="164.0" layoutY="149.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField fx:id="img" layoutX="164.0" layoutY="184.0" prefHeight="25.0" prefWidth="174.0" />
-            <TextField fx:id="lieu" layoutX="164.0" layoutY="250.0" onAction="#Showplace" prefHeight="25.0" prefWidth="174.0" />
-            <Button layoutX="223.0" layoutY="329.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
+            <Label layoutX="66.0" layoutY="83.0" text="id_client" />
+            <Label layoutX="56.0" layoutY="115.0" text="id_categorie" />
+            <Label layoutX="77.0" layoutY="153.0" text="sexe" />
+            <Label layoutX="58.0" layoutY="192.0" text="nom image" />
+            <Label layoutX="51.0" layoutY="233.0" text="dat _trouvaille" />
+            <Label layoutX="52.0" layoutY="271.0" text="lieu trouvaille" />
+            <TextField fx:id="idc" layoutX="163.0" layoutY="79.0" />
+            <TextField fx:id="img" layoutX="163.0" layoutY="197.0" />
+            <TextField fx:id="lieu" layoutX="163.0" layoutY="267.0" onAction="#ShowPlace" />
+            <Button layoutX="197.0" layoutY="340.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
             <Pane fx:id="menubar" layoutX="10.0" layoutY="10.0">
                <children>
                   <HBox layoutY="-1.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/animalsdf.css">
@@ -111,8 +110,10 @@
                   </HBox>
                </children>
             </Pane>
-            <DatePicker fx:id="date" layoutX="164.0" layoutY="217.0" />
-            <GoogleMapView fx:id="mapVIew" layoutX="360.0" layoutY="67.0" prefHeight="357.0" prefWidth="469.0" />
+            <DatePicker fx:id="date" layoutX="151.0" layoutY="229.0" />
+            <GoogleMapView fx:id="mapView" layoutX="364.0" layoutY="66.0" prefHeight="402.0" prefWidth="465.0" />
+            <ComboBox fx:id="idca" layoutX="163.0" layoutY="120.0" prefWidth="150.0" />
+            <ComboBox fx:id="sexe" layoutX="163.0" layoutY="158.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>

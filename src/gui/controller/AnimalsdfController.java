@@ -23,11 +23,14 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,6 +39,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -61,9 +65,9 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
     @FXML
     private TextField idc;
     @FXML
-    private TextField idca;
+    private ComboBox<?> idca;
     @FXML
-    private TextField sexe;
+    private ComboBox<String> sexe;
     @FXML
     private TextField img;
     @FXML
@@ -80,8 +84,14 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
     private Label veterinaires1;
     @FXML
     private DatePicker date;
+    
     @FXML
-    private GoogleMapView mapVIew;
+    private GoogleMapView mapView;
+   
+    
+    CrudAnimalsdf myTool = new CrudAnimalsdf();
+        
+       
    
 
     /**
@@ -89,17 +99,31 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         mapVIew.addMapInializedListener(this);
+        
+         mapView.addMapInializedListener(this);
                address.bind(lieu.textProperty());
+               ArrayList  arrayList;
+        
+        try {
+            arrayList = (ArrayList) myTool.ExtractNom();
+            ObservableList observableList = FXCollections.observableArrayList(arrayList);
+            idca.setItems(observableList);
+        // TODO
+        } catch (SQLException ex) {
+        }
+        sexe.getItems().addAll("male","femelle");
+        
     }    
 
     @FXML
     private void ajout(ActionEvent event) throws SQLException {
         CrudAnimalsdf myTool = new CrudAnimalsdf();
         AnimalSdf p = new AnimalSdf();
-        int id = Integer.parseInt(idca.getText());
+        String a=(String) idca.getValue();
+        int id= this.myTool.ExtractId(a);
+        //int id = Integer.parseInt(idca.getText());
         p.setId_categorie(id);
-        p.setSexe(sexe.getText());
+        p.setSexe(sexe.getValue());
         p.setNom_image(img.getText());
         LocalDate date1 = this.date.getValue();
         Date date2 = Date.valueOf(date1);
@@ -178,12 +202,12 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
                 
                 
 
-		Map = mapVIew.createMap(mapOptions);
+		Map = mapView.createMap(mapOptions);
     }
 
     @FXML
-    private void Showplace(ActionEvent event) {
-           geocodingService.geocode(address.get(), (GeocodingResult[] results, GeocoderStatus status) -> {
+    private void ShowPlace(ActionEvent event) {
+         geocodingService.geocode(address.get(), (GeocodingResult[] results, GeocoderStatus status) -> {
            
 			LatLong latLong = null;
 

@@ -109,4 +109,34 @@ PreparedStatement pSmt = cnx.prepareStatement("delete from animalsdf where id=? 
          pSmt.executeUpdate();
     }
     
+     public List<String> ExtractNom() throws SQLException {
+         List<String> liste = new ArrayList<>();
+        String requete=" SELECT nom FROM Categorie ";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        ResultSet rs = pSmt.executeQuery();
+        
+           while(rs.next())
+           {
+         
+           liste.add(rs.getString("nom"));
+           }
+           
+     return liste;
+    }
+     public Integer ExtractId(String nom) throws SQLException {
+        
+        String requete=" SELECT id FROM Categorie where nom=? ";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+       
+        pSmt.setString(1,nom);
+        ResultSet rs = pSmt.executeQuery();
+rs.next();
+       int id= rs.getInt("id");
+        
+          
+     return id;
+    }
+    
 }
