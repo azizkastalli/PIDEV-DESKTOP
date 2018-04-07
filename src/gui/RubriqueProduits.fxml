@@ -154,7 +154,7 @@
                </font>
             </Label>
             <Button layoutX="513.0" layoutY="480.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="176.0" text="Commenter ce produit" />
-            <Button fx:id="favoris" layoutX="703.0" layoutY="480.0" mnemonicParsing="false" onAction="#favoriseprod" prefHeight="31.0" prefWidth="176.0" />
+            <Button fx:id="favoris" layoutX="703.0" layoutY="480.0" mnemonicParsing="false" onAction="#favoriseprod" prefHeight="31.0" prefWidth="176.0" text="Non Favoris" />
          </children>
       </AnchorPane>
    </children>

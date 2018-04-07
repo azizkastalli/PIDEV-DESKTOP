@@ -33,7 +33,7 @@ public class CrudFavoris implements ICrud<Favoris>{
             PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setInt(1,obj.getId_client());
-            pst.setInt(2,obj.getId_produit());
+            pst.setString(2,obj.getId_produit());
                         
                        
             
@@ -53,7 +53,7 @@ public class CrudFavoris implements ICrud<Favoris>{
              
             
             obj.setId_client(rs.getInt(1)); 
-            obj.setId_produit(rs.getInt(2)); 
+            obj.setId_produit(rs.getString(2)); 
              
                             
                        
@@ -70,7 +70,7 @@ public class CrudFavoris implements ICrud<Favoris>{
         
            while(rs.next())
            {
-            Favoris F =new Favoris(rs.getInt(1),rs.getInt(2));   
+            Favoris F =new Favoris(rs.getInt(1),rs.getString(2));   
             liste.add(F);
            }
            
@@ -79,8 +79,9 @@ public class CrudFavoris implements ICrud<Favoris>{
 
     @Override
     public void Delete(Favoris obj) throws SQLException {
-        PreparedStatement pSmt = cnx.prepareStatement("delete from favoris where id=? " );
-         pSmt.setInt(1,obj.getId());
+        PreparedStatement pSmt = cnx.prepareStatement("delete from favoris where id_client=? and id_produit=? " );
+         pSmt.setInt(1,obj.getId_client());
+         pSmt.setString(2,obj.getId_produit());
          pSmt.executeUpdate();
     }
 
@@ -88,5 +89,19 @@ public class CrudFavoris implements ICrud<Favoris>{
     public void Update(Favoris obj) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     public boolean VerifyIfprod(int id,String nom) {
+          try {
+             PreparedStatement myStmt = cnx.prepareStatement("SELECT * FROM favoris where id_client=? and id_produit=?");
+            myStmt.setInt(1, id);
+             myStmt.setString(2, nom);
+
+            ResultSet myRes = myStmt.executeQuery();
+            if (myRes.first()) {
+                return true;
+            }      
+        } catch (SQLException e) {
+
+        }
+return false;
+    }
 }

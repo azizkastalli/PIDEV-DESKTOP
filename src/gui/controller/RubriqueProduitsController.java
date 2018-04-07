@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import entites.Favoris;
 import entites.Vote;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +35,7 @@ import org.controlsfx.control.Rating;
 import services.CrudVote;
 import static gui.controller.LoginController.loggduser;
 import javafx.scene.control.Button;
+import services.CrudFavoris;
 /**
  * FXML Controller class
  *
@@ -81,6 +83,18 @@ public class RubriqueProduitsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        CrudFavoris CV = new CrudFavoris();
+        if(CV.VerifyIfprod(loggduser.getId(), P.getLabel())==true)
+        {
+        favoris.setText("Favorisé");
+        favoris.setStyle("-fx-background-color: #00EC00");
+        }
+        else
+        {
+        favoris.setText("Non Favoris");
+        favoris.setStyle("-fx-background-color: #ff0800");
+        }
+        
         CrudVote V = new CrudVote();
         Vote Vo = new Vote();
         if(V.VerifyIfUser(loggduser.getId())==true && V.VerifyIfprod(P.getLabel())==true)
@@ -122,7 +136,6 @@ public class RubriqueProduitsController implements Initializable {
         String some=Float.toString(V.Somme(P.getLabel()));
         vote.setText("Rating :"+some);
         rating.setVisible(true);
-        System.out.println(V.Somme(P.getLabel()));
         try {
             rating.ratingProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -176,6 +189,34 @@ public class RubriqueProduitsController implements Initializable {
 
     @FXML
     private void favoriseprod(ActionEvent event) {
+        CrudFavoris CV= new CrudFavoris();
+        
+        if(favoris.getText().equals("Non Favoris"))
+        {   
+            try {
+            int id= loggduser.getId();
+            String nom = P.getLabel();
+            Favoris F = new Favoris(id,nom);
+            CV.Create(F);
+            favoris.setText("Favorisé");
+            favoris.setStyle("-fx-background-color: #00EC00");
+            } catch (SQLException ex) {
+                Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else
+        {
+            try {
+                int id= loggduser.getId();
+                String nom = P.getLabel();
+                Favoris F = new Favoris(id,nom);
+                CV.Delete(F);
+                favoris.setText("Non Favoris");
+                favoris.setStyle("-fx-background-color: #ff0800");
+            } catch (SQLException ex) {
+                Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
 }
