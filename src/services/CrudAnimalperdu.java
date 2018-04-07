@@ -85,7 +85,7 @@ List<AnimalPerdu> listAnimal = new ArrayList<>();
                 {String etat;
                     if (rs.getBoolean(5)==true)
                     {
-                      etat="trouvÃ©";
+                      etat="trouve";
                            AnimalPerdu A =new AnimalPerdu(rs.getInt(1),rs.getInt(2),rs.getDate(3),rs.getString(4),etat);   
             listAnimal.add(A);
                     }

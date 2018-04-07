@@ -29,6 +29,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -49,9 +50,7 @@ public class ModifierANPController implements Initializable {
     @FXML
     private TextField lieu;
     @FXML
-    private TextField etat;
-    @FXML
-    private Button modifier;
+    private ComboBox<String> etat;
     @FXML
     private Label acceuil;
     @FXML
@@ -64,6 +63,8 @@ public class ModifierANPController implements Initializable {
     private DatePicker date;
     
         CrudAnimalperdu myTool = new CrudAnimalperdu();
+    @FXML
+    private Button ajouter;
        
     /**
      * Initializes the controller class.
@@ -78,7 +79,8 @@ public class ModifierANPController implements Initializable {
         LocalDate date2 = date1.toLocalDate();
         date.setValue(date2);
         lieu.setText(ServiceAdminController.P.getLieu_disparition());
-        etat.setText(ServiceAdminController.P.getEtat1());
+        etat.getItems().addAll("perdue","trouve");
+        etat.setValue(((ServiceAdminController.P.getEtat1())));
         ida.setEditable(false);
         date.setEditable(false);
         lieu.setEditable(false);
@@ -107,19 +109,25 @@ public class ModifierANPController implements Initializable {
             } 
                   else {
                       
-        //int id = Integer.parseInt(ida.getText());
-        //P.setId_animal(id);
-        //LocalDate date1 = this.date.getValue();
-        //Date date2 = Date.valueOf(date1);
-        //P.setDate_disparition(date2);
-        //P.setLieu_dispairition(lieu.getText());
-       boolean etatt = Boolean.getBoolean(etat.getText());
-        P.setEtat(etatt);
+     
+       //boolean etatt = Boolean.getBoolean(etat.getValue());
+       String etatt= etat.getValue();
+       switch (etatt)
+       {
+           case "perdue": 
+               P.setEtat(false);
+               break ;
+           case "trouve":
+               P.setEtat(true);
+               break;
+       }
+       
+                 
         myTool.Update(P);
         Alert alert1 = new Alert(AlertType.INFORMATION);
            alert1.setTitle("I have a great message for you!");
            alert1.setHeaderText(null);
-           alert1.setContentText("Modification réussite !");
+           alert1.setContentText("Modification rÃ©ussite !");
            alert1.showAndWait();
       Parent root = FXMLLoader.load(getClass().getResource("/gui/ServiceAdmin.fxml"));
             Scene scene = new Scene(root);
