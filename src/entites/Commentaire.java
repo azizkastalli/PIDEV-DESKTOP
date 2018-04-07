@@ -30,6 +30,18 @@ public class Commentaire {
         this.texte = texte;
     }
 
+    public Commentaire(int id, String texte) {
+        this.id = id;
+        this.texte = texte;
+    }
+
+    public Commentaire(int id, String id_cible, String id_client, String texte) {
+        this.id = id;
+        this.id_cible = id_cible;
+        this.id_client = id_client;
+        this.texte = texte;
+    }
+
     
     
     public Commentaire(Date date, String texte) {
@@ -51,7 +63,13 @@ public class Commentaire {
         this.texte = texte;
     }
 
-    
+      public Commentaire(int id,Date date, String id_cible, String id_client, String texte) {
+        this.date = date;
+        this.id=id;
+        this.id_cible = id_cible;
+        this.id_client = id_client;
+        this.texte = texte;
+    }
 
     public Date getDate() {
         return date;

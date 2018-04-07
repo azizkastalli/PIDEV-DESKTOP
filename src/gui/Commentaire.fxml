@@ -120,8 +120,8 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font></Text>
             <TextField fx:id="fild" layoutX="70.0" layoutY="463.0" onAction="#ajout" prefHeight="31.0" prefWidth="607.0" />
-            <Button fx:id="comm" layoutX="766.0" layoutY="463.0" mnemonicParsing="false" onAction="#ajout" prefHeight="31.0" prefWidth="216.0" text="Commenter" />
-            <ImageView fx:id="imgprod" fitHeight="312.0" fitWidth="249.0" layoutX="733.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="comm" layoutX="758.0" layoutY="396.0" mnemonicParsing="false" onAction="#Suppcomm" prefHeight="31.0" prefWidth="216.0" text="Supprimer Commentaire" />
+            <ImageView fx:id="imgprod" fitHeight="312.0" fitWidth="249.0" layoutX="733.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
             <TableView fx:id="tableC" layoutX="70.0" layoutY="64.0" prefHeight="363.0" prefWidth="607.0">
               <columns>
                 <TableColumn fx:id="user" prefWidth="75.0" text="User" />

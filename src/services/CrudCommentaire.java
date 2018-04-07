@@ -47,16 +47,15 @@ public class CrudCommentaire implements ICrud<Commentaire>{
 
     @Override
     public void Update(Commentaire obj) throws SQLException {
-         String requete = "UPDATE commentaire SET texte=? where id_client=? and id_cible=?";
+         String requete = "UPDATE commentaire SET texte=? where  id=?";
         
         PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setString(1,obj.getTexte());
-            pst.setString(2, obj.getId_client());
-            pst.setString(3, obj.getId_cible());
-            
+            pst.setInt(2, obj.getId());
             pst.executeUpdate();
     }
+  
 
     @Override
     public Commentaire Select(Commentaire obj) throws SQLException {
@@ -119,7 +118,7 @@ public class CrudCommentaire implements ICrud<Commentaire>{
             
             while(rs.next())
             {
-                Commentaire C =new Commentaire(rs.getDate(5),rs.getString(2),rs.getString(3),rs.getString(4));
+                Commentaire C =new Commentaire(rs.getInt(1),rs.getDate(5),rs.getString(2),rs.getString(3),rs.getString(4));
                 liste.add(C);
             }
             
@@ -130,5 +129,7 @@ public class CrudCommentaire implements ICrud<Commentaire>{
          return liste;
     }
   
+       
+    
 
 }

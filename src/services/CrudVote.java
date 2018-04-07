@@ -125,7 +125,8 @@ public class CrudVote implements ICrud<Vote>{
         }
 return false;
     }
-      public boolean VerifyIfprod(String usr) {try {
+      public boolean VerifyIfprod(String usr) {
+          try {
              PreparedStatement myStmt = cnx.prepareStatement("SELECT * from rating where id_produit=?");
             myStmt.setString(1, usr);
 

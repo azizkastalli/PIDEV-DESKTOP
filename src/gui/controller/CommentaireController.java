@@ -88,6 +88,7 @@ public class CommentaireController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
           tableC.setEditable(true);
          comment.setCellFactory(TextFieldTableCell.forTableColumn());
          
@@ -181,28 +182,26 @@ public class CommentaireController implements Initializable {
     private void Editcomm(CellEditEvent edittedCell) throws SQLException
     {
     CrudCommentaire CC=new CrudCommentaire();
-            
              if(loggduser.getUsername().equals(tableC.getSelectionModel().getSelectedItem().getId_client())){
-           
-                
-                    Commentaire personSelected =  tableC.getSelectionModel().getSelectedItem();
-                    
-                     personSelected.setTexte(edittedCell.getNewValue().toString());
-                     String nom=tableC.getSelectionModel().getSelectedItem().getId_client();   
-                     String prod=tableC.getSelectionModel().getSelectedItem().getId_cible();   
-        
-                       Commentaire c=new Commentaire(prod,nom,personSelected.getTexte());
-                       CC.Update(c);
-        
-        
+            int i=tableC.getSelectionModel().getSelectedIndex();
+               String nom=tableC.getSelectionModel().getSelectedItem().getId_cible();
+           int id= CC.Selectcom(nom).get(i).getId();
+                    Commentaire personSelected =  tableC.getSelectionModel().getSelectedItem(); 
+                     personSelected.setTexte(edittedCell.getNewValue().toString());   
+                       Commentaire L=new Commentaire(id,personSelected.getTexte());
+                       CC.Update(L);
                         new Alert(Alert.AlertType.INFORMATION, "Commentaire modifié").show();
                 
         }
                  else
                  {
-                     
                   new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas modifier cela!!").show();
                  }
+    }
+
+    @FXML
+    private void Suppcomm(ActionEvent event) {
+        
     }
    
 
