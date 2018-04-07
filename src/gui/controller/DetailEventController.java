@@ -69,7 +69,7 @@ public class DetailEventController implements Initializable {
             tfDescription.setText("Description : "+E.getDescription());
             nbre.setText("Nombre participants restant est :"+E.getNbr_participants());
             dateD.setText("Date Debut :"+E.getDate_debut());
-            dateF.setText("Date Fin :"+E.getDate_fin());
+            dateF.setText("Date Fin : "+E.getDate_fin());
             
             titre.setText(E.getNom());
         } catch (FileNotFoundException ex) {
