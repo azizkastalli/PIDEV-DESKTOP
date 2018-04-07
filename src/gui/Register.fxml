@@ -71,6 +71,7 @@
           <String fx:value="Livreur" />
           <String fx:value="Veterinaire" />
           <String fx:value="Dresseur" />
+            <String fx:value="Admin" />
             </FXCollections>
              </items>
             </ComboBox>

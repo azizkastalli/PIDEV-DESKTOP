@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -75,6 +76,8 @@ public class AcceuilController implements Initializable {
     private Label even;
     @FXML
     private Label espace;
+    @FXML
+    private FontAwesomeIconView profil;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -145,6 +148,39 @@ public class AcceuilController implements Initializable {
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
               
+    }
+
+    @FXML
+    private void profileclick(MouseEvent event) {
+        String dest="";
+        String destination="";
+        String type=event.getSource().getClass().getName();
+         if(type.equals("de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView")){
+         FontAwesomeIconView ev = (FontAwesomeIconView) event.getSource();
+            dest=ev.getId();
+         
+         }
+         switch(dest)
+         {case"profil":destination="myprofile.fxml";
+             System.out.println("hay");
+          break;         }
+     if(destination!="")
+        {
+ 
+        
+         Parent home_page_parent = null;
+            try {
+                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+       
+        }   
     }
     
 }
