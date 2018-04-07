@@ -133,13 +133,13 @@
                   <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="164.0" size="2em" />
                   <Label fx:id="dateD" layoutX="50.0" layoutY="143.0" prefHeight="26.0" prefWidth="419.0" textFill="#44608d">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="System Bold Italic" size="17.0" />
                      </font>
                   </Label>
                   <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="207.0" size="2em" />
                   <Label fx:id="dateF" layoutX="55.0" layoutY="186.0" prefHeight="26.0" prefWidth="409.0" textFill="#44608d">
                      <font>
-                        <Font size="17.0" />
+                        <Font name="System Bold Italic" size="17.0" />
                      </font>
                   </Label>
                </children>
