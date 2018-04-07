@@ -148,9 +148,6 @@ public class CommentaireController implements Initializable {
             c.setTexte(fild.getText());
             c.setId_cible(P.getLabel());
             c.setId_client(loggduser.getUsername());
-            System.out.println(c.getId_cible());
-            System.out.println(c.getDate());
-            System.out.println(c.getTexte());
             CC.Create(c);
             
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
@@ -191,6 +188,7 @@ public class CommentaireController implements Initializable {
                        Commentaire L=new Commentaire(id,personSelected.getTexte());
                        CC.Update(L);
                         new Alert(Alert.AlertType.INFORMATION, "Commentaire modifié").show();
+                        
                 
         }
                  else
@@ -200,7 +198,37 @@ public class CommentaireController implements Initializable {
     }
 
     @FXML
-    private void Suppcomm(ActionEvent event) {
+    private void Suppcomm(ActionEvent event) throws IOException {
+        try {
+            if(loggduser.getUsername().equals(tableC.getSelectionModel().getSelectedItem().getId_client())){
+            CrudCommentaire CC=new CrudCommentaire();
+            int i=tableC.getSelectionModel().getSelectedIndex();
+            String nom=tableC.getSelectionModel().getSelectedItem().getId_cible();
+            String text=tableC.getSelectionModel().getSelectedItem().getTexte();
+            String item=tableC.getSelectionModel().getSelectedItem().getId_client();
+            Date datt =tableC.getSelectionModel().getSelectedItem().getDate();
+            int id= CC.Selectcom(nom).get(i).getId();
+            Commentaire L=new Commentaire(id,datt,nom,item,text);
+            CC.Delete(L);
+            new Alert(Alert.AlertType.INFORMATION, "Commentaire Supprimé").show();
+            Parent home_page_parent;
+                
+                    home_page_parent = FXMLLoader.load(getClass().getResource("/gui/Commentaire.fxml"));
+                    Scene home_page_scene = new Scene(home_page_parent);
+                     Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show(); 
+            }
+            else
+            {
+            new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas supprimer cela!!").show();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
    

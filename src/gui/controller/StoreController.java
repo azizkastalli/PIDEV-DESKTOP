@@ -299,14 +299,14 @@ public class StoreController implements Initializable {
     @FXML
     private void detail5(ActionEvent event) {
         int i =page.getCurrentPageIndex()*6+4;
-        P=ps.SelectAll().get(i);
+        P=ps.filtreEtat().get(i);
          this.GoToDetail(event);
     }
 
     @FXML
     private void detail6(ActionEvent event) {
         int i =page.getCurrentPageIndex()*6+5;
-        P=ps.SelectAll().get(i);
+        P=ps.filtreEtat().get(i);
          this.GoToDetail(event);
     }
 
@@ -314,14 +314,14 @@ public class StoreController implements Initializable {
     private void detail1(ActionEvent event) {
     
            int i =page.getCurrentPageIndex()*6;
-        P=ps.SelectAll().get(i);
+        P=ps.filtreEtat().get(i);
          this.GoToDetail(event);
     }
 
     @FXML
     private void detail3(ActionEvent event) {
         int i =page.getCurrentPageIndex()*6+2;
-        P=ps.SelectAll().get(i);
+        P=ps.filtreEtat().get(i);
          this.GoToDetail(event);
         
     }
@@ -329,7 +329,7 @@ public class StoreController implements Initializable {
     @FXML
     private void detail2(ActionEvent event) {
         int i =page.getCurrentPageIndex()*6+1;
-        P=ps.SelectAll().get(i);
+        P=ps.filtreEtat().get(i);
          this.GoToDetail(event);
         
     }
@@ -337,7 +337,7 @@ public class StoreController implements Initializable {
     @FXML
     private void detail4(ActionEvent event) {
         int i =page.getCurrentPageIndex()*6+3;
-        P=ps.SelectAll().get(i);
+        P=ps.filtreEtat().get(i);
          this.GoToDetail(event);
         
     }

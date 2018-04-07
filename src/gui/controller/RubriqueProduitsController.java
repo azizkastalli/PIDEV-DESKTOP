@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 import services.CrudVote;
 import static gui.controller.LoginController.loggduser;
+import javafx.scene.control.Button;
 /**
  * FXML Controller class
  *
@@ -68,11 +69,11 @@ public class RubriqueProduitsController implements Initializable {
     @FXML
     private Label quantite;
     @FXML
-    private Label msg;
-    @FXML
     private Rating rating;
     @FXML
     private Label vote;
+    @FXML
+    private Button favoris;
     
     /**
      * Initializes the controller class.
@@ -171,6 +172,10 @@ public class RubriqueProduitsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void favoriseprod(ActionEvent event) {
     }
     
 }

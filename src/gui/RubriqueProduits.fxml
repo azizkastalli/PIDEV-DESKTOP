@@ -148,13 +148,13 @@
                </font>
             </Text>
             <Rating fx:id="rating" layoutX="168.0" layoutY="463.0" prefHeight="32.0" prefWidth="197.0" visible="false" />
-            <Label fx:id="msg" layoutX="360.0" layoutY="469.0" prefHeight="21.0" prefWidth="167.0" />
             <Label fx:id="vote" layoutX="186.0" layoutY="72.0" prefHeight="21.0" prefWidth="140.0" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="547.0" layoutY="464.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="406.0" text="Commenter ce produit" />
+            <Button layoutX="513.0" layoutY="480.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="176.0" text="Commenter ce produit" />
+            <Button fx:id="favoris" layoutX="703.0" layoutY="480.0" mnemonicParsing="false" onAction="#favoriseprod" prefHeight="31.0" prefWidth="176.0" />
          </children>
       </AnchorPane>
    </children>
