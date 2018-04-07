@@ -26,8 +26,20 @@ public class Commentaire {
             
     public Commentaire(){}
 
+    public Commentaire(String texte) {
+        this.texte = texte;
+    }
+
+    
+    
     public Commentaire(Date date, String texte) {
         this.date = date;
+        this.texte = texte;
+    }
+
+    public Commentaire(String id_cible, String id_client, String texte) {
+        this.id_cible = id_cible;
+        this.id_client = id_client;
         this.texte = texte;
     }
 

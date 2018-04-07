@@ -154,7 +154,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="599.0" layoutY="464.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="406.0" text="Commenter ce produit" />
+            <Button layoutX="547.0" layoutY="464.0" mnemonicParsing="false" onAction="#comment" prefHeight="31.0" prefWidth="406.0" text="Commenter ce produit" />
          </children>
       </AnchorPane>
    </children>

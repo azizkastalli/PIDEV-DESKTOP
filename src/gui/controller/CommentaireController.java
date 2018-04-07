@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -23,31 +22,28 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.sql.Connection;
+import java.io.IOException;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import services.CrudCommentaire;
-import utils.Dbconnection;
 /**
  * FXML Controller class
  *
@@ -92,6 +88,9 @@ public class CommentaireController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+          tableC.setEditable(true);
+         comment.setCellFactory(TextFieldTableCell.forTableColumn());
+         
                 CrudCommentaire myTool = new CrudCommentaire();
         Commentaire c = new Commentaire();
         data= FXCollections.observableArrayList();
@@ -105,6 +104,7 @@ public class CommentaireController implements Initializable {
         dat.setCellValueFactory(new PropertyValueFactory<>("date"));
         tableC.setItems(data); 
         try {
+            
                
                 Image img = new Image(new FileInputStream(P.getNom_image()),301,345,false,false);
                 imgprod.setImage(img);
@@ -130,10 +130,14 @@ public class CommentaireController implements Initializable {
             if(fild.getText().equals(""))
             {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Ecrit ton commentaire");
+                alert.setTitle("I have a great message for you!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ecrit ton Commentaire SVP!!");
+            alert.showAndWait();
             }
             else
             {
+                try {
             CrudCommentaire CC = new CrudCommentaire();
             Commentaire c = new Commentaire();
             Calendar calendar = Calendar.getInstance();
@@ -148,11 +152,60 @@ public class CommentaireController implements Initializable {
             System.out.println(c.getTexte());
             CC.Create(c);
             
-            System.out.println("commentaire ajouté");
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("I have a great message for you!");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Commentaire Ajouté!");
+            alert1.showAndWait();
+           Parent home_page_parent;
+                
+                    home_page_parent = FXMLLoader.load(getClass().getResource("/gui/Commentaire.fxml"));
+                    Scene home_page_scene = new Scene(home_page_parent);
+                     Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show(); 
+                } catch (IOException ex) {
+                    Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
             }
             } catch (SQLException ex) {
             Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @FXML
+    private void Editcomm(CellEditEvent edittedCell) throws SQLException
+    {
+    CrudCommentaire CC=new CrudCommentaire();
+            
+             if(loggduser.getUsername().equals(tableC.getSelectionModel().getSelectedItem().getId_client())){
+           
+                
+                    Commentaire personSelected =  tableC.getSelectionModel().getSelectedItem();
+                    
+                     personSelected.setTexte(edittedCell.getNewValue().toString());
+                     String nom=tableC.getSelectionModel().getSelectedItem().getId_client();   
+                     String prod=tableC.getSelectionModel().getSelectedItem().getId_cible();   
+        
+                       Commentaire c=new Commentaire(prod,nom,personSelected.getTexte());
+                       CC.Update(c);
+        
+        
+                        new Alert(Alert.AlertType.INFORMATION, "Commentaire modifié").show();
+                
+        }
+                 else
+                 {
+                     
+                  new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas modifier cela!!").show();
+                 }
+    }
+   
+
 }
+    
+
