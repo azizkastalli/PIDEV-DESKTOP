@@ -3,9 +3,8 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -16,9 +15,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.StoreAdminController">
-  
-     <children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifProdController">
+   <children>
       <VBox prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
          <children>
             <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="75.0" prefWidth="341.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
@@ -185,15 +183,13 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <TableView fx:id="tableA" prefHeight="500.0" prefWidth="677.0">
-                    <columns>
-                      <TableColumn fx:id="ref" prefWidth="119.0" text="ref" />
-                      <TableColumn fx:id="client" prefWidth="117.0" text="client" />
-                        <TableColumn fx:id="prixntot" prefWidth="116.0" text="prix totale" />
-                        <TableColumn fx:id="etat" prefWidth="100.0" text="etat" />
-                    </columns>
-                  </TableView>
-                  <Button fx:id="modifier" layoutX="723.0" layoutY="186.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="110.0" text="voir contenu" />
+                  <ComboBox fx:id="combobox" layoutX="411.0" layoutY="181.0" prefHeight="31.0" prefWidth="216.0" />
+                  <Label layoutX="233.0" layoutY="181.0" prefHeight="21.0" prefWidth="82.0" text="Etat  :">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="modifier" layoutX="328.0" layoutY="289.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="182.0" text="Modifier" />
                </children>
             </Pane>
          </children>

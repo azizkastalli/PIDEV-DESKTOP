@@ -2,20 +2,23 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/store.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.DetailEventController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/commentaire.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.CommentaireController">
    <children>
-      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
+      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar" stylesheets="@css/acceuil.css">
          <effect>
             <DropShadow height="10.0" radius="4.5" width="10.0" />
          </effect>
@@ -28,9 +31,9 @@
                   <Insets left="25.0" />
                </HBox.margin>
             </ImageView>
-            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
+            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#4f86dd">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="22.0" />
                </font>
                <HBox.margin>
                   <Insets left="35.0" />
@@ -82,7 +85,7 @@
                   <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
-            <Label text="10£" textFill="WHITE">
+            <Label text="10£" textFill="#4f86dd">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -90,12 +93,12 @@
                   <Insets left="20.0" />
                </HBox.margin>
             </Label>
-            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
+            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#4f86dd" size="2em">
                <HBox.margin>
-                  <Insets left="12.0" />
+                  <Insets left="10.0" />
                </HBox.margin>
             </FontAwesomeIconView>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
+            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#4f86dd" layoutX="944.0" layoutY="44.0" size="2em">
                <HBox.margin>
                   <Insets left="12.0" />
                </HBox.margin>
@@ -110,45 +113,22 @@
             </ImageView>
          </children>
       </HBox>
-      <AnchorPane prefHeight="528.0" prefWidth="1025.0">
+      <AnchorPane prefHeight="526.0" prefWidth="1025.0">
          <children>
-            <Pane layoutX="513.0" layoutY="23.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
-               <children>
-                  <Text fx:id="tfDescription" fill="#44608d" layoutX="50.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="425.0000060029706">
-                     <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font></Text>
-                  <Label fx:id="titre" layoutX="14.0" layoutY="22.0" prefHeight="54.0" prefWidth="335.0" textFill="#77777a" underline="true">
-                     <font>
-                        <Font name="Bell MT Bold" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="nbre" layoutX="50.0" layoutY="94.0" prefHeight="26.0" prefWidth="386.0" textFill="#44608d">
-                     <font>
-                        <Font name="System Bold Italic" size="17.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#44608d" layoutX="14.0" layoutY="115.0" size="2em" />
-                  <FontAwesomeIconView glyphName="COMMENTING" glyphStyle="-fx-fill:#44608d" layoutX="11.0" layoutY="252.0" size="2em" />
-                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="164.0" size="2em" />
-                  <Label fx:id="dateD" layoutX="50.0" layoutY="143.0" prefHeight="26.0" prefWidth="419.0" textFill="#44608d">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="207.0" size="2em" />
-                  <Label fx:id="dateF" layoutX="55.0" layoutY="186.0" prefHeight="26.0" prefWidth="409.0" textFill="#44608d">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane layoutX="14.0" layoutY="25.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
-               <children>
-                  <ImageView fx:id="image1" fitHeight="437.0" fitWidth="458.0" layoutX="26.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </Pane>
+            <Text fx:id="nomprod" layoutX="195.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="356.6708984375">
+               <font>
+                  <Font name="System Bold Italic" size="25.0" />
+               </font></Text>
+            <TextField fx:id="fild" layoutX="70.0" layoutY="463.0" onAction="#ajout" prefHeight="31.0" prefWidth="607.0" />
+            <Button fx:id="comm" layoutX="758.0" layoutY="396.0" mnemonicParsing="false" onAction="#Suppcomm" prefHeight="31.0" prefWidth="216.0" text="Supprimer Commentaire" />
+            <ImageView fx:id="imgprod" fitHeight="312.0" fitWidth="249.0" layoutX="733.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+            <TableView fx:id="tableC" layoutX="70.0" layoutY="64.0" prefHeight="363.0" prefWidth="607.0">
+              <columns>
+                <TableColumn fx:id="user" prefWidth="75.0" text="User" />
+                <TableColumn fx:id="comment" onEditCommit="#Editcomm" prefWidth="423.0" text="Commentaire" />
+                  <TableColumn fx:id="dat" prefWidth="108.0" text="Date" />
+              </columns>
+            </TableView>
          </children>
       </AnchorPane>
    </children>

@@ -93,7 +93,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </FontAwesomeIconView>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#4f86dd" layoutX="944.0" layoutY="44.0" size="2em">
+            <FontAwesomeIconView fx:id="profil" glyphName="GEAR" glyphStyle="-fx-fill:#4f86dd" layoutX="944.0" layoutY="44.0" onMouseClicked="#profileclick" size="2em">
                <HBox.margin>
                   <Insets left="12.0" />
                </HBox.margin>

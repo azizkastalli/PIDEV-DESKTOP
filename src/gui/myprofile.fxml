@@ -2,18 +2,17 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/store.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.DetailEventController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/myprofile.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MyprofileController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -76,10 +75,10 @@
             </Label>
             <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
                <font>
-                  <Font size="22.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
                <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
                </padding>
             </Label>
             <Label text="10£" textFill="WHITE">
@@ -110,46 +109,50 @@
             </ImageView>
          </children>
       </HBox>
-      <AnchorPane prefHeight="528.0" prefWidth="1025.0">
+      <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <Pane layoutX="513.0" layoutY="23.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
+            <VBox prefHeight="524.0" prefWidth="240.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <children>
-                  <Text fx:id="tfDescription" fill="#44608d" layoutX="50.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="425.0000060029706">
+                  <ImageView fx:id="image" fitHeight="218.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/profile.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nameln" prefHeight="77.0" prefWidth="242.0">
                      <font>
-                        <Font name="Berlin Sans FB" size="18.0" />
-                     </font></Text>
-                  <Label fx:id="titre" layoutX="14.0" layoutY="22.0" prefHeight="54.0" prefWidth="335.0" textFill="#77777a" underline="true">
-                     <font>
-                        <Font name="Bell MT Bold" size="45.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="nbre" layoutX="50.0" layoutY="94.0" prefHeight="26.0" prefWidth="386.0" textFill="#44608d">
-                     <font>
-                        <Font name="System Bold Italic" size="17.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#44608d" layoutX="14.0" layoutY="115.0" size="2em" />
-                  <FontAwesomeIconView glyphName="COMMENTING" glyphStyle="-fx-fill:#44608d" layoutX="11.0" layoutY="252.0" size="2em" />
-                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="164.0" size="2em" />
-                  <Label fx:id="dateD" layoutX="50.0" layoutY="143.0" prefHeight="26.0" prefWidth="419.0" textFill="#44608d">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
-                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="207.0" size="2em" />
-                  <Label fx:id="dateF" layoutX="55.0" layoutY="186.0" prefHeight="26.0" prefWidth="409.0" textFill="#44608d">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
+                        <Font name="System Bold" size="30.0" />
+                     </font></Label>
                </children>
-            </Pane>
-            <Pane layoutX="14.0" layoutY="25.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
+            </VBox>
+            <Pane prefHeight="524.0" prefWidth="788.0">
                <children>
-                  <ImageView fx:id="image1" fitHeight="437.0" fitWidth="458.0" layoutX="26.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="58.0" layoutY="38.0" prefHeight="36.0" prefWidth="54.0" text="E-mail">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="profilemail" layoutX="160.0" layoutY="38.0" prefHeight="36.0" prefWidth="408.0" text="ON AFFICHE ICI LE MAIL">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="58.0" layoutY="115.0" prefHeight="36.0" prefWidth="94.0" text="Username">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="profilusername" layoutX="170.0" layoutY="115.0" prefHeight="36.0" prefWidth="408.0" text="ON AFFICHE ICI LE Username">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="219.0" layoutY="253.0" mnemonicParsing="false" onAction="#modifierpass" prefHeight="36.0" prefWidth="258.0" text="changer mot de passe" />
                </children>
             </Pane>
          </children>
-      </AnchorPane>
+      </HBox>
    </children>
 </VBox>
