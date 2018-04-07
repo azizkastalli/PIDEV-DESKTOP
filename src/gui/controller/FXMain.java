@@ -47,6 +47,7 @@ public class FXMain extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(scene);
         primaryStage.show();
+
     }
         
 

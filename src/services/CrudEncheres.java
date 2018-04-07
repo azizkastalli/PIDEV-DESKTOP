@@ -30,8 +30,8 @@ public class CrudEncheres implements ICrud<Encheres> {
     @Override
     public void Create(Encheres obj) throws SQLException {
         
-        String requete = "INSERT INTO Encheres (id_cible,id_proprietaire,date_debut,seuil_mise,id_encheres) "
-                    + "VALUES(?,?,?,?,?)";
+        String requete = "INSERT INTO Encheres (id_cible,id_proprietaire,date_debut,seuil_mise) "
+                    + "VALUES(?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
@@ -41,12 +41,16 @@ public class CrudEncheres implements ICrud<Encheres> {
             pst.setInt(2,1);
             
             pst.setTimestamp(3,obj.getDate_debut());
-            pst.setDouble(4,obj.getSeuil_mise());            
-            pst.setDouble(5,obj.getId_encheres());            
+            pst.setDouble(4,obj.getSeuil_mise());                        
             
             pst.executeUpdate();
             
-            //apres l'ajout modifier l'etat du produit "en encheres" pour qu'il ne s'affiche plus au store 
+            
+            String requete2 = "UPDATE Produit SET etat=encheres where id=?";
+            PreparedStatement pst2 = cnx.prepareStatement(requete);
+            pst2.setInt(1,obj.getId_cible());
+            pst2.executeUpdate();
+             
     }
 
     @Override
@@ -93,7 +97,8 @@ public class CrudEncheres implements ICrud<Encheres> {
                 + "JOIN encheres e on p.id=e.id_cible "
                 + "JOIN categorie c on p.id_categorie=c.id "
                 + "JOIN utilisateur u on p.id_propietaire=u.id "
-                + "WHERE "+item+"=?";
+                + "WHERE "+item+"=? "
+                + "and e.date_debut> NOW() ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         
@@ -129,7 +134,8 @@ public class CrudEncheres implements ICrud<Encheres> {
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
                       + "JOIN categorie c on p.id_categorie=c.id "
-                      + "JOIN utilisateur u on p.id_propietaire=u.id";
+                      + "JOIN utilisateur u on p.id_propietaire=u.id "
+                      + "Where  e.date_debut> NOW() ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
@@ -150,8 +156,12 @@ public class CrudEncheres implements ICrud<Encheres> {
         PreparedStatement pSmt = cnx.prepareStatement("delete from Encheres where id_encheres=? " );
          pSmt.setInt(1,obj.getId_encheres());
          pSmt.executeUpdate();
+         
+        PreparedStatement pSmt2 = cnx.prepareStatement("delete from Produit where id=? " );
+         pSmt2.setInt(1,obj.getId_cible());
+         pSmt2.executeUpdate();
 
-         //effacer le produit dans la table produit car le seul qui reste dans l'enchere vient d'etre effacé
+         
     }
     
     public List<Produit> SelectAllProduit() throws SQLException {

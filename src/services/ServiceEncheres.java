@@ -32,8 +32,8 @@ public class ServiceEncheres {
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
                       + "JOIN categorie c on p.id_categorie=c.id "
-                      + "JOIN utilisateur u on p.id_propietaire=u.id"
-                      + " LIMIT 9 ";
+                      + "JOIN utilisateur u on p.id_propietaire=u.id "
+                      + "Where  e.date_debut> NOW() LIMIT 9 ";
        
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
@@ -56,8 +56,8 @@ public class ServiceEncheres {
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
                       + "JOIN categorie c on p.id_categorie=c.id "
-                      + "JOIN utilisateur u on p.id_propietaire=u.id"
-                      + " LIMIT 9 OFFSET "+nbr;
+                      + "JOIN utilisateur u on p.id_propietaire=u.id "
+                      + "Where  e.date_debut> NOW() LIMIT 9 OFFSET "+nbr;
       
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();

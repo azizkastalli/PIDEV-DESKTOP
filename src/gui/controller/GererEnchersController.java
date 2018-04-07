@@ -21,12 +21,11 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -35,11 +34,9 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
-import javafx.util.StringConverter;
 import javafx.util.converter.DoubleStringConverter;
-import javafx.util.converter.IntegerStringConverter;
 import services.CrudEncheres;
+
 
 /**
  * FXML Controller class
@@ -47,8 +44,7 @@ import services.CrudEncheres;
  * @author HP
  */
 public class GererEnchersController implements Initializable {
-    
-    private CrudEncheres encheres =new CrudEncheres();
+    CrudEncheres encheres =new CrudEncheres();
     @FXML
     private VBox parent;
     @FXML
@@ -95,7 +91,6 @@ public class GererEnchersController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        CrudEncheres encheres =new CrudEncheres();
         Encheres E = new Encheres();
                 
         ArrayList arrayList=null;
@@ -142,7 +137,7 @@ public class GererEnchersController implements Initializable {
     private void delete(MouseEvent event) {
                ObservableList<Encheres> data = table.getItems();
                ObservableList<Encheres> oblist = FXCollections.observableArrayList();
-               
+
                for(Encheres E : data)
                {
                   if(E.getCheckbox().isSelected())
@@ -150,6 +145,15 @@ public class GererEnchersController implements Initializable {
                       try {
                           encheres.Delete(E);
                           oblist.add(E);
+                          
+                           // alert pour notifier la suppression de l'enchere
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                               alert.setTitle("notification"); 
+                               alert.setHeaderText("Encheres supprimé avec succes");
+                               alert.setContentText("votre produit vient d'etres supprimé des encheres !");
+
+                               alert.showAndWait(); 
+                          
                       } catch (SQLException ex) {
                           Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
                       }
@@ -161,57 +165,23 @@ public class GererEnchersController implements Initializable {
     
     @FXML
    private void UpdateMise(TableColumn.CellEditEvent<Encheres, Double> event) {
-        
         Encheres E = new Encheres();
-                E=event.getRowValue();
-                E.setSeuil_mise(event.getNewValue());
+                 E=event.getRowValue();
+                 E.setSeuil_mise(event.getNewValue());
 
             try {
             encheres.Update(E);
+                  // alert pour notifier la modification de l'enchere
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("notification"); 
+                alert.setHeaderText("Encheres modifié avec succes");
+                alert.setContentText("vous avez modifier le seuil de mise de cette enchere avec succes !");
+
+                alert.showAndWait(); 
         } catch (SQLException ex) {
             Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-/*
-    @FXML
-    private void UpdateDate(TableColumn.CellEditEvent<Encheres, JFXDatePicker> event) {
-
-        Encheres E = event.getRowValue();
-        E.setSeuil_mise(0);           
-        Timestamp ts= E.getDate_debut();
-        ts.setDate(E.getDate_debutFX().getValue().getDayOfMonth());
-        ts.setMonth(E.getDate_debutFX().getValue().getMonthValue());
-        ts.setYear(E.getDate_debutFX().getValue().getYear());
-        E.setDate_debut(ts);
-        try {
-            encheres.Update(E);
-        } catch (SQLException ex) {
-            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-    }
-
-    @FXML
-    private void UpdateTime(TableColumn.CellEditEvent<Encheres, JFXTimePicker> event) {
-
-        Encheres E = event.getRowValue();
-        E.setSeuil_mise(0);           
-        Timestamp ts= E.getDate_debut();
-        ts.setHours(E.getHeureFX().getValue().getHour());
-        ts.setMinutes(E.getHeureFX().getValue().getMinute());
-        E.setDate_debut(ts);
-        try {
-            encheres.Update(E);
-        } catch (SQLException ex) {
-            Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-    }
-
-
-*/
-
 
     @FXML
     private void Update(MouseEvent event) {
@@ -235,6 +205,13 @@ public class GererEnchersController implements Initializable {
                
         try {
             CE.Update(E);
+                    // alert pour notifier la modification de l'enchere
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("notification"); 
+                alert.setHeaderText("Encheres modifié avec succes");
+                alert.setContentText("vous avez modifier la date de debut de cette enchere avec succes !");
+
+                alert.showAndWait(); 
         } catch (SQLException ex) {
             Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
         }

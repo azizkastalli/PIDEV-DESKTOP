@@ -24,6 +24,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
@@ -283,6 +284,13 @@ public class EnchereAdminController implements Initializable {
                           CS.Delete(S); 
                           SJ.DeleteJournal(S);
                           oblist.add(S);
+                          // alert pour notifier la suppression de l'historique
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                               alert.setTitle("notification"); 
+                               alert.setHeaderText("Session supprimé");
+                               alert.setContentText("Session encheres supprimé avec succes  !");
+
+                               alert.showAndWait(); 
                       } catch (SQLException ex) {
                           Logger.getLogger(GererEnchersController.class.getName()).log(Level.SEVERE, null, ex);
                       }
