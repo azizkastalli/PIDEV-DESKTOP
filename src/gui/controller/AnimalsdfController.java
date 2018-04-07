@@ -17,6 +17,8 @@ import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import entites.AnimalSdf;
+import static gui.controller.LoginController.loggduser;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -39,13 +41,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.CrudAnimalsdf;
@@ -90,6 +95,8 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
    
     
     CrudAnimalsdf myTool = new CrudAnimalsdf();
+    @FXML
+    private Button btn1;
         
        
    
@@ -112,6 +119,8 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         } catch (SQLException ex) {
         }
         sexe.getItems().addAll("male","femelle");
+        idc.setText(String.valueOf(loggduser.getId()));
+        idc.setEditable(false);
         
     }    
 
@@ -129,8 +138,7 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         Date date2 = Date.valueOf(date1);
         p.setDate_trouvaille(date2);
         p.setLieu_trouvaille(lieu.getText());
-        int id2 = Integer.parseInt(idc.getText());
-        p.setId_client(id2);
+        
         myTool.Create(p);
         JOptionPane.showMessageDialog(null, "declamation ajoutÃ©");
         
@@ -236,6 +244,19 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
                        
 
 		});
+    }
+
+    @FXML
+    private void Selectfile(ActionEvent event) {
+        FileChooser fc = new FileChooser();
+        File file = fc.showOpenDialog(null);
+        if (file != null)
+        {
+            img.setText(file.getAbsolutePath());
+            Image Image = new Image(file.toURI().toString(),100,150,true,true);
+                   
+                    
+        }
     }
     }
     

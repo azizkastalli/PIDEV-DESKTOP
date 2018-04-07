@@ -23,16 +23,16 @@
    <children>
       <AnchorPane id="AnchorPane" layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@css/animalsdf.css">
          <children>
-            <Label layoutX="66.0" layoutY="83.0" text="id_client" />
-            <Label layoutX="56.0" layoutY="115.0" text="id_categorie" />
-            <Label layoutX="77.0" layoutY="153.0" text="sexe" />
-            <Label layoutX="58.0" layoutY="192.0" text="nom image" />
-            <Label layoutX="51.0" layoutY="233.0" text="dat _trouvaille" />
-            <Label layoutX="52.0" layoutY="271.0" text="lieu trouvaille" />
-            <TextField fx:id="idc" layoutX="163.0" layoutY="79.0" />
-            <TextField fx:id="img" layoutX="163.0" layoutY="197.0" />
-            <TextField fx:id="lieu" layoutX="163.0" layoutY="267.0" onAction="#ShowPlace" />
-            <Button layoutX="197.0" layoutY="340.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
+            <Label layoutX="81.0" layoutY="161.0" text="id_client" />
+            <Label layoutX="69.0" layoutY="199.0" text="id_categorie" />
+            <Label layoutX="89.0" layoutY="242.0" text="sexe" />
+            <Label layoutX="25.0" layoutY="278.0" text="nom image" />
+            <Label layoutX="60.0" layoutY="312.0" text="dat _trouvaille" />
+            <Label layoutX="56.0" layoutY="351.0" text="lieu trouvaille" />
+            <TextField fx:id="idc" layoutX="169.0" layoutY="159.0" />
+            <TextField fx:id="img" layoutX="151.0" layoutY="273.0" prefHeight="25.0" prefWidth="112.0" />
+            <TextField fx:id="lieu" layoutX="154.0" layoutY="346.0" onAction="#ShowPlace" prefHeight="25.0" prefWidth="169.0" />
+            <Button layoutX="208.0" layoutY="404.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
             <Pane fx:id="menubar" layoutX="10.0" layoutY="10.0">
                <children>
                   <HBox layoutY="-1.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/animalsdf.css">
@@ -110,10 +110,16 @@
                   </HBox>
                </children>
             </Pane>
-            <DatePicker fx:id="date" layoutX="151.0" layoutY="229.0" />
+            <DatePicker fx:id="date" layoutX="154.0" layoutY="308.0" prefHeight="25.0" prefWidth="171.0" />
             <GoogleMapView fx:id="mapView" layoutX="364.0" layoutY="66.0" prefHeight="402.0" prefWidth="465.0" />
-            <ComboBox fx:id="idca" layoutX="163.0" layoutY="120.0" prefWidth="150.0" />
-            <ComboBox fx:id="sexe" layoutX="163.0" layoutY="158.0" prefWidth="150.0" />
+            <ComboBox fx:id="idca" layoutX="166.0" layoutY="195.0" prefWidth="150.0" />
+            <ComboBox fx:id="sexe" layoutX="164.0" layoutY="238.0" prefWidth="150.0" />
+            <Label layoutX="18.0" layoutY="90.0" prefHeight="40.0" prefWidth="327.0" text="Declaration d'un animal sans domicile">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="btn1" layoutX="266.0" layoutY="273.0" mnemonicParsing="false" onAction="#Selectfile" text="choose.." />
          </children>
       </AnchorPane>
    </children>

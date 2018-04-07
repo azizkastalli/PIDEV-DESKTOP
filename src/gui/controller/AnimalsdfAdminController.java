@@ -7,12 +7,17 @@ package gui.controller;
 
 
 import entites.AnimalSdf;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,8 +33,10 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.CrudAnimalsdf;
@@ -54,21 +61,39 @@ public class AnimalsdfAdminController implements Initializable {
     @FXML
     private TableColumn<AnimalSdf, String> lieu;
     @FXML
-    private Button button;
-    @FXML
     private TableColumn<AnimalSdf, String> sexe;
     @FXML
-    private TableColumn<AnimalSdf, String> img;
+    private TableColumn<AnimalSdf, ImageView> img;
     @FXML
     private TableColumn<AnimalSdf, Integer> idc;
     private ObservableList <AnimalSdf> data;
-
+    //private FileInputStream fis;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        CrudAnimalsdf myTool = new CrudAnimalsdf();
+        AnimalSdf p = new AnimalSdf();
+        data= FXCollections.observableArrayList();
+        try {
+            for(int i=0;i<myTool.SelectAll().size();i++)
+            {
+                p=(AnimalSdf) myTool.SelectAll().get(i);
+                data.add(p);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AnimalsdfAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        idca.setCellValueFactory(new PropertyValueFactory<>("id_categorie"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date_trouvaille"));
+        lieu.setCellValueFactory(new PropertyValueFactory<>("lieu_trouvaille"));
+        sexe.setCellValueFactory(new PropertyValueFactory<>("sexe"));
+        img.setCellValueFactory(new PropertyValueFactory<>("IV"));
+        idc.setCellValueFactory(new PropertyValueFactory<>("id_client"));
+        //tableA.setItems(null);
+        tableA.setItems(data);
     }    
 
     @FXML
@@ -99,9 +124,10 @@ public class AnimalsdfAdminController implements Initializable {
     private void ClickProduit(MouseEvent event) {
     }
 
-    @FXML
     private void Load(ActionEvent event) throws SQLException {
         
+       
+       
         CrudAnimalsdf myTool = new CrudAnimalsdf();
         AnimalSdf p = new AnimalSdf();
         data= FXCollections.observableArrayList();
@@ -114,7 +140,7 @@ public class AnimalsdfAdminController implements Initializable {
         date.setCellValueFactory(new PropertyValueFactory<>("date_trouvaille"));
         lieu.setCellValueFactory(new PropertyValueFactory<>("lieu_trouvaille"));
         sexe.setCellValueFactory(new PropertyValueFactory<>("sexe"));
-        img.setCellValueFactory(new PropertyValueFactory<>("nom_image"));
+        img.setCellValueFactory(new PropertyValueFactory<>("IV"));
         idc.setCellValueFactory(new PropertyValueFactory<>("id_client"));
         //tableA.setItems(null);
         tableA.setItems(data);
@@ -164,7 +190,7 @@ AnimalSdf A = new AnimalSdf();
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         alert1.setTitle("I have a great message for you!");
         alert1.setHeaderText(null);
-        alert1.setContentText("Suppression Réussite réussite !");
+        alert1.setContentText("Suppression RÃ©ussite rÃ©ussite !");
         alert1.showAndWait();
             
            Stage stage=new Stage();

@@ -14,22 +14,22 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.ModifierASDFController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifierASDFController">
     <stylesheets>
         <URL value="@/gui/css/modifierasdf.css" />
     </stylesheets>
    <children>
-      <Label layoutX="147.0" layoutY="105.0" text="id_client" />
-      <Label layoutX="147.0" layoutY="137.0" text="id_categorie" />
-      <Label layoutX="147.0" layoutY="175.0" text="sexe" />
-      <Label layoutX="147.0" layoutY="210.0" text="nom image" />
-      <Label layoutX="147.0" layoutY="243.0" text="dat _trouvaille" />
-      <Label layoutX="147.0" layoutY="281.0" text="lieu trouvaille" />
-      <TextField fx:id="idc" layoutX="365.0" layoutY="101.0" />
-      <TextField fx:id="idca" layoutX="365.0" layoutY="133.0" />
-      <TextField fx:id="sexe" layoutX="365.0" layoutY="171.0" />
-      <TextField fx:id="img" layoutX="365.0" layoutY="206.0" />
-      <TextField fx:id="lieu" layoutX="365.0" layoutY="277.0" />
+      <Label layoutX="147.0" layoutY="105.0" text="Id client" />
+      <Label layoutX="147.0" layoutY="137.0" text="Id categorie" />
+      <Label layoutX="147.0" layoutY="175.0" text="Sexe" />
+      <Label layoutX="147.0" layoutY="210.0" text="Nom image" />
+      <Label layoutX="147.0" layoutY="243.0" text="Date trouvaille" />
+      <Label layoutX="147.0" layoutY="281.0" text="Lieu Trouvaille" />
+      <TextField fx:id="idc" layoutX="340.0" layoutY="101.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="idca" layoutX="340.0" layoutY="133.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="sexe" layoutX="340.0" layoutY="171.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="img" layoutX="340.0" layoutY="206.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="lieu" layoutX="340.0" layoutY="277.0" prefHeight="25.0" prefWidth="174.0" />
       <Button layoutX="284.0" layoutY="359.0" mnemonicParsing="false" onAction="#Modif" text="Modifier" />
       <Pane fx:id="menubar" layoutX="20.0" layoutY="20.0">
          <children>
@@ -108,6 +108,6 @@
             </HBox>
          </children>
       </Pane>
-      <DatePicker fx:id="date" layoutX="349.0" layoutY="239.0" />
+      <DatePicker fx:id="date" layoutX="342.0" layoutY="239.0" />
    </children>
 </AnchorPane>

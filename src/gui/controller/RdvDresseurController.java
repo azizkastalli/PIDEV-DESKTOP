@@ -30,6 +30,12 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.CrudRdv_dresseur;
+import static gui.controller.LoginController.loggduser;
+import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
+import services.CrudAnimalperdu;
 
 /**
  * FXML Controller class
@@ -42,10 +48,7 @@ public class RdvDresseurController implements Initializable {
     @FXML
     private TextField idc;
     @FXML
-    private TextField coordonnees;
-    @FXML
-    private TextField ida;
-    @FXML
+    private ComboBox<Integer> ida;
     private TextField etat;
     @FXML
     private TextField idd;
@@ -68,25 +71,39 @@ public class RdvDresseurController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       etat.setEditable(false);  
+       CrudAnimalperdu myTool = new CrudAnimalperdu();
+       //etat.setEditable(false);  
+       idc.setText(String.valueOf(loggduser.getId()));
+       idd.setText(String.valueOf(ListeDresseurController.U.getId()));
+       idc.setEditable(false);
+       idd.setEditable(false);
+       ArrayList  arrayList;
+        
+        try {
+            arrayList = (ArrayList) myTool.ExtractId();
+            ObservableList observableList = FXCollections.observableArrayList(arrayList);
+            ida.setItems(observableList);
+        // TODO
+        } catch (SQLException ex) {
+        }
     }    
 
     @FXML
     private void ajout(ActionEvent event) throws SQLException, IOException {
         CrudRdv_dresseur myTool = new CrudRdv_dresseur();
         Rdv_Dresseur r = new Rdv_Dresseur();
-        int id = Integer.parseInt(ida.getText());
+         int id= ida.getValue();
         r.setId_animal(id);
         LocalDate date1 = this.date.getValue();
         Date date2 = Date.valueOf(date1);
         r.setDate_rdv(date2);
-        r.setCoordonnees(coordonnees.getText());
+        //r.setCoordonnees(coordonnees.getText());
         r.setId_client(idc.getText());
         r.setId_dresseur(idd.getText());
 //boolean etatt = Boolean.getBoolean(etat.getText());
         
         myTool.Create(r);
-        JOptionPane.showMessageDialog(null, "rendez vous ajoutÃ©");
+        JOptionPane.showMessageDialog(null, "rendez vous ajoute");
          Stage stage=new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/gui/ListeRdv.fxml"));
             Scene scene = new Scene(root);

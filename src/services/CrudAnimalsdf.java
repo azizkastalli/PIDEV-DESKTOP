@@ -6,6 +6,13 @@
 package services;
 
 import entites.AnimalSdf;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,6 +20,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.stage.FileChooser;
 import utils.Dbconnection;
 
 /**
@@ -39,6 +49,7 @@ String query ="INSERT INTO animalsdf(id_categorie,sexe,nom_image,date_trouvaille
       pst.setString(5, obj.getLieu_trouvaille());
       pst.setInt(6, obj.getId_client());
       
+        
       pst.executeUpdate();    }
 
     @Override
@@ -93,10 +104,9 @@ String requete = "SELECT * FROM animalsdf";
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
               
-                AnimalSdf A=new AnimalSdf(rs.getInt(1), rs.getString(3), rs.getDate(5), rs.getString(6), rs.getInt(7), rs.getString(4), rs.getInt(2));
-               
-                listAnimals.add(A);
-
+                 AnimalSdf A=new AnimalSdf(rs.getInt(1), rs.getString(4), rs.getDate(6), rs.getString(7), rs.getInt(3), rs.getString(5), rs.getInt(2));
+                 listAnimals.add(A);
+                
             }
         
 

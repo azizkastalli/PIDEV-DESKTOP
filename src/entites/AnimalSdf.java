@@ -6,6 +6,8 @@
 package entites;
 
 import java.sql.Date;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -19,6 +21,7 @@ public class AnimalSdf {
     private String lieu_trouvaille;
     private int id_client;
     private int id_categorie;
+    private ImageView IV;
     
         public AnimalSdf(){}
 
@@ -30,6 +33,9 @@ public class AnimalSdf {
         this.id_client = id_client;
         this.nom_image = nom_image;
         this.id_categorie=id_categorie;
+       this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
+        IV.setFitHeight(50);
+IV.setFitWidth(50);
     }
     
         public AnimalSdf(String sexe, String nom_image, Date date_trouvaille, String lieu_trouvaille, int id_client,int id_categorie) {
@@ -120,6 +126,14 @@ public class AnimalSdf {
     @Override
     public String toString() {
         return "AnimalSdf{"  + ", sexe=" + sexe + ", date_trouvaille=" + date_trouvaille + ", lieu_trouvaille=" + lieu_trouvaille + ", id_client=" + id_client + ", nom_image=" + nom_image + '}';
+    }
+
+    public ImageView getIV() {
+        return IV;
+    }
+
+    public void setIV(ImageView IV) {
+        this.IV = IV;
     }
     
   

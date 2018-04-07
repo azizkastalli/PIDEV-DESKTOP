@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.ModifierANPController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifierANPController">
     <stylesheets>
         <URL value="@/gui/css/modifieranp.css" />
     </stylesheets>
@@ -23,10 +23,10 @@
          <children>
             <Pane>
                <children>
-                  <Label layoutX="113.0" layoutY="95.0" text="id_animal" />
-                  <Label layoutX="113.0" layoutY="138.0" text="date_disparition" />
-                  <Label layoutX="113.0" layoutY="179.0" text="lieu_disparition" />
-                  <Label layoutX="113.0" layoutY="222.0" text="etat" />
+                  <Label layoutX="113.0" layoutY="95.0" text="Id Animal" />
+                  <Label layoutX="113.0" layoutY="138.0" text="Date Disparition" />
+                  <Label layoutX="113.0" layoutY="179.0" text="Lieu Disparition" />
+                  <Label layoutX="113.0" layoutY="222.0" text="Etat" />
                   <TextField fx:id="ida" layoutX="302.0" layoutY="91.0" />
                   <TextField fx:id="lieu" layoutX="302.0" layoutY="175.0" />
                   <TextField fx:id="etat" layoutX="302.0" layoutY="218.0" />

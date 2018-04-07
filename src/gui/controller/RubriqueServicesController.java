@@ -105,7 +105,7 @@ public class RubriqueServicesController implements Initializable {
             case "rdv":
            
             
-                destination="RdvDresseur.fxml";
+                destination="ListeDresseur.fxml";
                 break;
                 
             

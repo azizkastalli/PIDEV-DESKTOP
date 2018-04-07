@@ -17,6 +17,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -61,9 +63,6 @@ public class ServiceAdminController implements Initializable {
     
     
     private ObservableList <AnimalPerdu> data;
-   // private Dbconnection dc;
-    @FXML
-    private Button button;
     @FXML
     private TableColumn<AnimalPerdu, Integer> ida;
     @FXML
@@ -79,7 +78,28 @@ public class ServiceAdminController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //dc=new Dbconnection();
+       CrudAnimalperdu myTool = new CrudAnimalperdu();
+        AnimalPerdu p = new AnimalPerdu();
+        data= FXCollections.observableArrayList();
+        try {
+            for(int i=0;i<myTool.SelectAll().size();i++)
+            {
+                p=(AnimalPerdu) myTool.SelectAll().get(i);
+                data.add(p);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        ida.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
+        datee.setCellValueFactory(new PropertyValueFactory<>("date_disparition"));
+        lieuu.setCellValueFactory(new PropertyValueFactory<>("lieu_disparition"));
+        etatt.setCellValueFactory(new PropertyValueFactory<>("etat1"));
+                                                                              
+      
+        //tableA.setItems(null);
+        tableA.setItems(data);
         // TODO
     }    
   @FXML
@@ -224,7 +244,7 @@ public class ServiceAdminController implements Initializable {
     }
     }
 
-    @FXML
+ /*   @FXML
     private void Load(ActionEvent event) throws SQLException {
          //Connection conn=dc.getConnection();
         CrudAnimalperdu myTool = new CrudAnimalperdu();
@@ -247,7 +267,7 @@ public class ServiceAdminController implements Initializable {
         tableA.setItems(data);
         
         
-    }
+    }*/
 
     AnimalPerdu A = new AnimalPerdu();
         CrudAnimalperdu myTool = new CrudAnimalperdu();
@@ -276,7 +296,7 @@ public class ServiceAdminController implements Initializable {
             Alert alert1 = new Alert(AlertType.INFORMATION);
         alert1.setTitle("I have a great message for you!");
         alert1.setHeaderText(null);
-        alert1.setContentText("Suppression Réussite réussite !");
+        alert1.setContentText("Suppression RÃ©ussite rÃ©ussite !");
         alert1.showAndWait();
             
            Stage stage=new Stage();

@@ -193,7 +193,6 @@
                         <TableColumn fx:id="etatt" minWidth="8.66668701171875" prefWidth="132.0" text="etat" />
                     </columns>
                   </TableView>
-                  <Button fx:id="button" layoutX="84.0" layoutY="408.0" mnemonicParsing="false" onAction="#Load" text="Load Details" />
                   <Button layoutX="208.0" layoutY="408.0" mnemonicParsing="false" onAction="#Modif" prefHeight="30.0" prefWidth="83.0" text="Modifier" />
                   <Button layoutX="339.0" layoutY="407.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="83.0" text="Supprimer" />
                   <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" onAction="#Referto" text="AnimalSdf" />

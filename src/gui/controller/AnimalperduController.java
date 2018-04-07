@@ -77,7 +77,6 @@ public class AnimalperduController implements Initializable, MapComponentInitial
     private DatePicker date;
     @FXML
     private TextField lieu;
-    @FXML
     private TextField etat;
     @FXML
     private Button ajouter;
@@ -100,7 +99,7 @@ public class AnimalperduController implements Initializable, MapComponentInitial
     public void initialize(URL url, ResourceBundle rb) {
         
         CrudAnimalperdu myTool = new CrudAnimalperdu();
-               etat.setEditable(false);
+               //etat.setEditable(false);
         //mapView = new GoogleMapView();
                mapView.addMapInializedListener(this);
                address.bind(lieu.textProperty());
