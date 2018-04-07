@@ -4,6 +4,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EvenementAdminController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifEventAdminController">
   
      <children>
       <VBox prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
@@ -184,31 +186,18 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <ImageView id="categorie" fitHeight="394.0" fitWidth="293.0" layoutX="501.0" layoutY="75.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../utils/assets/gallery-col3-img-09.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="394.0" fitWidth="293.0" layoutX="43.0" layoutY="75.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../utils/assets/em.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label id="categorie" layoutX="54.0" layoutY="368.0" onMouseClicked="#ajouter" stylesheets="@css/evenementadmin.css" text="ajouter Catégorie" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label id="categorie" layoutX="56.0" layoutY="423.0" onMouseClicked="#afficher" stylesheets="@css/evenementadmin.css" text="Modifier Catégorie" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label id="categorie" layoutX="534.0" layoutY="409.0" onMouseClicked="#EspaceEvent" stylesheets="@css/evenementadmin.css" text="Espace Evenement" textFill="WHITE">
-                     <font>
-                        <Font name="Berlin Sans FB Demi Bold" size="25.0" />
-                     </font>
-                  </Label>
+                  <TableView fx:id="TV" editable="true" layoutX="12.0" layoutY="69.0" onMousePressed="#ClickRow" prefHeight="230.0" prefWidth="846.0">
+                     <columns>
+                        <TableColumn fx:id="NomC" prefWidth="91.0" text="Nom" />
+                        <TableColumn fx:id="DescC" minWidth="6.0" prefWidth="90.0" text="Description" />
+                        <TableColumn fx:id="nbrC" prefWidth="110.0" text="Nbr Participants" />
+                        <TableColumn fx:id="CatC" prefWidth="91.0" text="Catégorie" />
+                        <TableColumn fx:id="imageC" prefWidth="149.0" text="Image" />
+                        <TableColumn fx:id="etat" prefWidth="101.0" text="etat" />
+                        <TableColumn fx:id="DateDC" minWidth="0.0" prefWidth="105.0" text="Date Debut" />
+                        <TableColumn fx:id="DateFC" prefWidth="115.0" text="Date fin" />
+                     </columns>
+                  </TableView>
                </children>
             </Pane>
          </children>

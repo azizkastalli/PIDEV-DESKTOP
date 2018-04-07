@@ -236,16 +236,17 @@ public class AfficherCategorieAdminController implements Initializable {
     Categorie personSelected =  listeCategorie.getSelectionModel().getSelectedItem();
     
     personSelected.setNom(edittedCell.getNewValue().toString());
-        personSelected.setType(edittedCell.getNewValue().toString());
+       
     
         int id =  listeCategorie.getSelectionModel().getSelectedItem().getId();
        
                 String nom=listeCategorie.getSelectionModel().getSelectedItem().getNom();
+                 String type=listeCategorie.getSelectionModel().getSelectedItem().getType();
                 
-             //   System.out.println(id+type+nom);
+           
 
         
-        Categorie c=new Categorie(id, personSelected.getNom(),personSelected.getNom());
+        Categorie c=new Categorie(id, nom,type);
         
         
         CC.Update(c);
@@ -257,6 +258,36 @@ public class AfficherCategorieAdminController implements Initializable {
     
     
             }
+
+    @FXML
+    private void EditType(CellEditEvent edittedCell) throws SQLException {
+        
+           CrudCategorie CC=new CrudCategorie();
+            listeCategorie.setEditable(true);
+
+    Categorie personSelected =  listeCategorie.getSelectionModel().getSelectedItem();
+    
+    personSelected.setType(edittedCell.getNewValue().toString());
+       
+    
+        int id =  listeCategorie.getSelectionModel().getSelectedItem().getId();
+       
+                String nom=listeCategorie.getSelectionModel().getSelectedItem().getNom();
+                 String type=listeCategorie.getSelectionModel().getSelectedItem().getType();
+                
+             //   System.out.println(id+type+nom);
+
+        
+        Categorie c=new Categorie(id, nom,type);
+        
+        
+        CC.Update(c);
+        
+        
+                        new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
+
+        
+    }
     
     
    

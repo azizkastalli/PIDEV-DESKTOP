@@ -112,15 +112,41 @@
       </HBox>
       <AnchorPane prefHeight="528.0" prefWidth="1025.0">
          <children>
-            <ImageView fx:id="image1" fitHeight="394.0" fitWidth="393.0" layoutX="66.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
-            <Pane layoutX="483.0" layoutY="17.0" prefHeight="496.0" prefWidth="528.0" style="-fx-border-color: #000;">
+            <Pane layoutX="513.0" layoutY="23.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
                <children>
-                  <Text fx:id="tfDescription" layoutX="14.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="405.13671875" />
-                  <Label fx:id="titre" layoutX="14.0" layoutY="57.0" prefHeight="17.0" prefWidth="219.0" textFill="#776bfc" underline="true">
+                  <Text fx:id="tfDescription" layoutX="50.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="425.0000060029706">
                      <font>
-                        <Font name="Bell MT Bold" size="21.0" />
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font></Text>
+                  <Label fx:id="titre" layoutX="14.0" layoutY="22.0" prefHeight="54.0" prefWidth="335.0" textFill="#5780cd" underline="true">
+                     <font>
+                        <Font name="Bell MT Bold" size="45.0" />
                      </font>
                   </Label>
+                  <Label fx:id="nbre" layoutX="50.0" layoutY="94.0" prefHeight="26.0" prefWidth="386.0" textFill="#44608d">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#44608d" layoutX="14.0" layoutY="115.0" size="2em" />
+                  <FontAwesomeIconView glyphName="COMMENTING" glyphStyle="-fx-fill:#44608d" layoutX="11.0" layoutY="252.0" size="2em" />
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="164.0" size="2em" />
+                  <Label fx:id="dateD" layoutX="50.0" layoutY="143.0" prefHeight="26.0" prefWidth="419.0" textFill="#44608d">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="207.0" size="2em" />
+                  <Label fx:id="dateF" layoutX="55.0" layoutY="186.0" prefHeight="26.0" prefWidth="409.0" textFill="#44608d">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="25.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
+               <children>
+                  <ImageView fx:id="image1" fitHeight="437.0" fitWidth="458.0" layoutX="26.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </Pane>
          </children>

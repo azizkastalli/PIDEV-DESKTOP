@@ -48,6 +48,12 @@ public class DetailEventController implements Initializable {
     private Label titre;
     @FXML
     private Text tfDescription;
+    @FXML
+    private Label nbre;
+    @FXML
+    private Label dateD;
+    @FXML
+    private Label dateF;
 
     /**
      * Initializes the controller class.
@@ -56,10 +62,14 @@ public class DetailEventController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         try {
-            Image img6 = new Image(new FileInputStream( E.getNom_image()),393,394, false, false);
+             String a="C:\\Users\\iheb ben fraj\\Desktop\\piJava\\pidesktop1.0\\src\\utils\\assets\\";
+            Image img6 = new Image(new FileInputStream( a+E.getNom_image()),393,394, false, false);
             
             image1.setImage(img6);
             tfDescription.setText("Description : "+E.getDescription());
+            nbre.setText("Nombre participants restant est :"+E.getNbr_participants());
+            dateD.setText("Date Debut :"+E.getDate_debut());
+            dateF.setText("Date Fin :"+E.getDate_fin());
             
             titre.setText(E.getNom());
         } catch (FileNotFoundException ex) {

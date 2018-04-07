@@ -5,10 +5,14 @@
  */
 package entites;
 
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
 import java.sql.Date;
+import java.sql.Timestamp;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
+import javafx.scene.paint.Color;
 
 /**
  *
@@ -16,16 +20,19 @@ import javafx.scene.image.ImageView;
  */
 public class Evenement {
     
+  
    private int id;
    private String nom;
    private String description;
    private int nbr_participants;
-   private Date date_debut;
-   private Date date_fin;
+   private Timestamp date_debut;
+   private Timestamp date_fin;
    private Boolean etat;
    private String nom_image;
    private String nom_association;
    private ImageView IV;
+   
+   public Button butt;
 
 
    private int id_association;
@@ -33,8 +40,9 @@ public class Evenement {
    
     public Evenement(){}
 
-    public Evenement(int id, String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image, String nom_association, int id_association, int id_categorie) {
-        this.id = id;
+  
+
+    public Evenement(String nom, String description, int nbr_participants, Timestamp date_debut, Timestamp date_fin, Boolean etat, String nom_image,int id_categorie) {
         this.nom = nom;
         this.description = description;
         this.nbr_participants = nbr_participants;
@@ -42,13 +50,32 @@ public class Evenement {
         this.date_fin = date_fin;
         this.etat = etat;
         this.nom_image = nom_image;
-        this.nom_association = nom_association;
      
-        this.id_association = id_association;
-        this.id_categorie = id_categorie;
+        this.id_categorie=id_categorie;
+       
+        
+       
+       
+       
     }
-
-    public Evenement(String nom, String description, int nbr_participants, Date date_debut, Date date_fin, Boolean etat, String nom_image,int id_categorie) {
+     public Evenement(String nom, String description, int nbr_participants, Boolean etat, String nom_image,int id_categorie) {
+        this.nom = nom;
+        this.description = description;
+        this.nbr_participants = nbr_participants;
+        
+        this.etat = etat;
+        this.nom_image = nom_image;
+     
+        this.id_categorie=id_categorie;
+       
+        
+       
+       
+       
+    }
+    
+    
+      public Evenement(int id,String nom, String description, int nbr_participants, Timestamp date_debut, Timestamp date_fin, Boolean etat, String nom_image,int id_categorie) {
         this.nom = nom;
         this.description = description;
         this.nbr_participants = nbr_participants;
@@ -59,13 +86,26 @@ public class Evenement {
      
         this.id_categorie=id_categorie;
         
-        this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
+           IV = new ImageView(new Image("/utils/assets/"+nom_image));
         IV.setFitHeight(50);
 IV.setFitWidth(50);
-        
-       
-       
+      if(etat==true){
+       butt=new Button("autorise");
+      butt.setStyle("-fx-background-color: #00EC00");
+       butt.setTextFill(Color.WHITE);}
+      else  if(etat==false){
+                  butt =new Button("non autorise");
+      butt.setStyle("-fx-background-color: #ff0800");
+      
+    butt.setTextFill(Color.WHITE);
+      
+     }
+
+          
     }
+
+ 
+    
     
       public ImageView getIV() {
         return IV;
@@ -91,11 +131,11 @@ IV.setFitWidth(50);
         return nbr_participants;
     }
 
-    public Date getDate_debut() {
+    public Timestamp getDate_debut() {
         return date_debut;
     }
 
-    public Date getDate_fin() {
+    public Timestamp getDate_fin() {
         return date_fin;
     }
 
@@ -137,11 +177,11 @@ IV.setFitWidth(50);
         this.nbr_participants = nbr_participants;
     }
 
-    public void setDate_debut(Date date_debut) {
+    public void setDate_debut(Timestamp date_debut) {
         this.date_debut = date_debut;
     }
 
-    public void setDate_fin(Date date_fin) {
+    public void setDate_fin(Timestamp date_fin) {
         this.date_fin = date_fin;
     }
 
@@ -200,7 +240,34 @@ IV.setFitWidth(50);
     }
 
   
+   private JFXDatePicker date_debutFX;
+   private JFXTimePicker heureFX;
 
+    public JFXDatePicker getDate_debutFX() {
+        return date_debutFX;
+    }
+
+    public void setDate_debutFX(JFXDatePicker date_debutFX) {
+        this.date_debutFX = date_debutFX;
+    }
+
+    public JFXTimePicker getHeureFX() {
+        return heureFX;
+    }
+
+    public void setHeureFX(JFXTimePicker heureFX) {
+        this.heureFX = heureFX;
+    }
+
+    public Button getButt() {
+        return butt;
+    }
+
+    public void setButt(Button butt) {
+        this.butt = butt;
+    }
+
+    
    
 
 

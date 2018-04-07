@@ -55,7 +55,7 @@ public class EventClientController implements Initializable {
  
  CrudEvenement ps = new CrudEvenement();
  public  static  Evenement E=new Evenement();
-    Pagination page = new Pagination(round((ps.SelectAll().size() / 5) + 1));
+    Pagination page = new Pagination(round((ps.AfficherTT().size() / 5) + 1));
     
     @FXML
     private VBox parent;
@@ -131,7 +131,12 @@ public class EventClientController implements Initializable {
      
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+          button1.setVisible(false);
+            button2.setVisible(false);
+              button3.setVisible(false);
+                button4.setVisible(false);
+                  button5.setVisible(false);
+                    button6.setVisible(false);
         
         page.setPageFactory(new Callback<Integer, Node>() {
             @Override
@@ -159,20 +164,20 @@ public class EventClientController implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (Integer.parseInt(newValue) == 0) {
-                    AfficherEvent(ps.SelectAll(), 0);
+                    AfficherEvent(ps.AfficherTT(), 0);
                        
                 }
                 if (Integer.parseInt(newValue) == 1) {
-                    AfficherEvent(ps.SelectAll(), 6);
+                    AfficherEvent(ps.AfficherTT(), 6);
                 }
                 if (Integer.parseInt(newValue) == 2) {
-                    AfficherEvent(ps.SelectAll(), 12);
+                    AfficherEvent(ps.AfficherTT(), 12);
                 }
                 if (Integer.parseInt(newValue) == 3) {
-                    AfficherEvent(ps.SelectAll(), 18);
+                    AfficherEvent(ps.AfficherTT(), 18);
                 }
                 if (Integer.parseInt(newValue) == 4) {
-                    AfficherEvent(ps.SelectAll(), 24);
+                    AfficherEvent(ps.AfficherTT(), 24);
                 }
 
             }
@@ -191,12 +196,12 @@ public class EventClientController implements Initializable {
               
     }
     public void AfficherEvent(List<Evenement> myList, int CurrentPage)  {
-
+   String a="C:\\Users\\iheb ben fraj\\Desktop\\piJava\\pidesktop1.0\\src\\utils\\assets\\";
         try {
         
         if (myList.size() >= CurrentPage) {
-            
-                Image img1 = new Image(new FileInputStream(myList.get(CurrentPage).getNom_image()), 520, 300, false, false);
+         
+                Image img1 = new Image(new FileInputStream(a+myList.get(CurrentPage).getNom_image()), 520, 300, false, false);
                 System.out.println(myList.get(CurrentPage).getNom_image());
                
                 image1.setImage(img1);
@@ -209,7 +214,7 @@ public class EventClientController implements Initializable {
            
         }
         if (myList.size() > CurrentPage + 1) {
-            Image img2 = new Image(new FileInputStream(myList.get(CurrentPage + 1).getNom_image()), 520, 300, false, false);
+            Image img2 = new Image(new FileInputStream(a+myList.get(CurrentPage + 1).getNom_image()), 520, 300, false, false);
             
               image2.setImage(img2);
             label2.setText(myList.get(CurrentPage + 1).getNom());
@@ -220,7 +225,7 @@ public class EventClientController implements Initializable {
              button2.setVisible(false);
         }
         if (myList.size() > CurrentPage + 2) {
-            Image img3 = new Image(new FileInputStream( myList.get(CurrentPage + 2).getNom_image()), 520, 300, false, false);
+            Image img3 = new Image(new FileInputStream( a+myList.get(CurrentPage + 2).getNom_image()), 520, 300, false, false);
             
             image3.setImage(img3);
             label3.setText(myList.get(CurrentPage + 2).getNom());
@@ -233,7 +238,7 @@ public class EventClientController implements Initializable {
             
         }
         if (myList.size() > CurrentPage + 3) {
-              Image img4 = new Image(new FileInputStream(myList.get(CurrentPage + 3).getNom_image()), 520, 300, false, false);
+              Image img4 = new Image(new FileInputStream(a+myList.get(CurrentPage + 3).getNom_image()), 520, 300, false, false);
             
             image4.setImage(img4);
             label4.setText(myList.get(CurrentPage + 3).getNom());
@@ -244,7 +249,7 @@ public class EventClientController implements Initializable {
              button4.setVisible(false);
         }
         if (myList.size() > CurrentPage + 4) {
-              Image img5 = new Image(new FileInputStream(myList.get(CurrentPage + 4).getNom_image()), 520, 300, false, false);
+              Image img5 = new Image(new FileInputStream(a+myList.get(CurrentPage + 4).getNom_image()), 520, 300, false, false);
             
             image5.setImage(img5);
             label5.setText(myList.get(CurrentPage + 4).getNom());
@@ -257,7 +262,7 @@ public class EventClientController implements Initializable {
             
         }
         if (myList.size() > CurrentPage + 5) {
-              Image img6 = new Image(new FileInputStream( myList.get(CurrentPage + 5).getNom_image()), 520, 300, false, false);
+              Image img6 = new Image(new FileInputStream( a+myList.get(CurrentPage + 5).getNom_image()), 520, 300, false, false);
             
             image6.setImage(img6);
             label6.setText(myList.get(CurrentPage + 5).getNom());
@@ -281,7 +286,7 @@ public class EventClientController implements Initializable {
      int i =page.getCurrentPageIndex()*6;
          
      
-        E=ps.SelectAll().get(i);
+        E=ps.AfficherTT().get(i);
           this.goToDetail(event);
         
      
@@ -295,7 +300,7 @@ public class EventClientController implements Initializable {
      int i =page.getCurrentPageIndex()*6+1;
          
      
-        E=ps.SelectAll().get(i);
+        E=ps.AfficherTT().get(i);
         this.goToDetail(event);
         
     }
@@ -308,7 +313,7 @@ public class EventClientController implements Initializable {
      int i =page.getCurrentPageIndex()*6+2;
          
      
-        E=ps.SelectAll().get(i);
+        E=ps.AfficherTT().get(i);
             
            this.goToDetail(event);
         
@@ -322,7 +327,7 @@ public class EventClientController implements Initializable {
      int i =page.getCurrentPageIndex()*6+3;
          
      
-        E=ps.SelectAll().get(i);
+        E=ps.AfficherTT().get(i);
             
          this.goToDetail(event);
         
@@ -335,7 +340,7 @@ public class EventClientController implements Initializable {
      int i =page.getCurrentPageIndex()*6+4;
          
      
-        E=ps.SelectAll().get(i);
+        E=ps.AfficherTT().get(i);
             
         this.goToDetail(event);
     }
@@ -348,7 +353,7 @@ public class EventClientController implements Initializable {
      int i =page.getCurrentPageIndex()*6+5;
          
      
-        E=ps.SelectAll().get(i);
+        E=ps.AfficherTT().get(i);
             
     this.goToDetail(event);
            

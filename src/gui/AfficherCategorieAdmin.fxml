@@ -190,7 +190,7 @@
                     <columns>
                       <TableColumn fx:id="id" editable="false" prefWidth="111.0" text="id" />
                       <TableColumn fx:id="nom" onEditCommit="#EditNom" prefWidth="111.0" text="nom" />
-                        <TableColumn fx:id="type" onEditCommit="#EditNom" prefWidth="156.0" text="type" />
+                        <TableColumn fx:id="type" onEditCommit="#EditType" prefWidth="156.0" text="type" />
                     </columns>
                   </TableView>
 
