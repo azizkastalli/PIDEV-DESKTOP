@@ -70,7 +70,7 @@ public class MenuController {
             case "ser":
                 destination="RubriqueServices.fxml";
                 break;
-            case "produits":
+            case "produits":    
                 destination="RubriqueProduits.fxml";
                 break;
             case "evenements":
