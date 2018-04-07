@@ -32,8 +32,9 @@ public class CrudUser implements IUser<User>{
 }
     @Override
     public boolean VerifyUser(User usr) {try {
-            PreparedStatement myStmt = cnx.prepareStatement("SELECT * from utilisateur where username = ?");
+            PreparedStatement myStmt = cnx.prepareStatement("SELECT * from utilisateur where username = ? and password = ?");
             myStmt.setString(1, usr.getUsername());
+            myStmt.setString(2, usr.getPassword());
 
             ResultSet myRes = myStmt.executeQuery();
             if (myRes.first()) {
