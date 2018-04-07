@@ -88,6 +88,34 @@ return false;
         }
         return "";
 }
+    public String GetUsername(User usr)
+    {
+        try {
+            PreparedStatement myStmt = cnx.prepareStatement("select nom from utilisateur where username = ?");
+            myStmt.setString(1, usr.getUsername());
+            ResultSet myRes= myStmt.executeQuery();
+            while(myRes.next())
+            {
+                return myRes.getString("nom");
+            }
+                    } catch (SQLException ex) {
+        }
+        return "";
+}
+    public String GetUserprenom(User usr)
+    {
+        try {
+            PreparedStatement myStmt = cnx.prepareStatement("select prenom from utilisateur where username = ?");
+            myStmt.setString(1, usr.getUsername());
+            ResultSet myRes= myStmt.executeQuery();
+            while(myRes.next())
+            {
+                return myRes.getString("prenom");
+            }
+                    } catch (SQLException ex) {
+        }
+        return "";
+}
     @Override
     public void Create(User  obj) throws SQLException {
           
@@ -113,6 +141,18 @@ return false;
     public void Update(User  obj) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public void Updatepass(User  obj) throws SQLException {
+        String requete = "UPDATE utilisateur SET password=? "
+                    + "where username=?";
+        
+        PreparedStatement pst = cnx.prepareStatement(requete);
+           
+            pst.setString(1,obj.getPassword());
+            pst.setString(2,obj.getUsername());
+            
+            pst.executeUpdate();
+    }
+    
 
     @Override
     public User Select(User obj) throws SQLException {
@@ -163,6 +203,20 @@ return false;
     @Override
     public void Delete(User obj) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String GetUsermail(User usr) {
+        try {
+            PreparedStatement myStmt = cnx.prepareStatement("select email from utilisateur where username = ?");
+            myStmt.setString(1, usr.getUsername());
+            ResultSet myRes= myStmt.executeQuery();
+            while(myRes.next())
+            {
+                return myRes.getString("email");
+            }
+                    } catch (SQLException ex) {
+        }
+        return "";
     }
     
 }

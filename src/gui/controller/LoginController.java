@@ -73,10 +73,13 @@ public class LoginController implements Initializable {
         int UserID = us.GetUserId(usr);
         if (verify && !verifyAd) {
             try {
-                
+                loggduser.setPassword(tfpassword.getText());
                 loggduser.setUsername(usr.getUsername());
                 loggduser.setId(UserID);
                 loggduser.setRoles(us.GetUserRole(usr));
+                loggduser.setNom(us.GetUsername(usr));
+                loggduser.setPrenom(us.GetUserprenom(usr));
+                loggduser.setEmail(us.GetUsermail(usr));
                 JOptionPane.showMessageDialog(null, "client " + usr.getUsername() +"  id:"+loggduser.getId()+ "role: "+loggduser.getRoles()+"!");
               Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
