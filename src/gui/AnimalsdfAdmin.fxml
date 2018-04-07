@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.AnimalsdfAdminController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AnimalsdfAdminController">
     <stylesheets>
         <URL value="@/gui/css/animalsdfadmin.css" />
     </stylesheets>
@@ -198,7 +198,6 @@
                         <TableColumn fx:id="idc" prefWidth="88.33331298828125" text="id_client" />
                      </columns>
                   </TableView>
-                  <Button fx:id="button" layoutX="84.0" layoutY="408.0" mnemonicParsing="false" onAction="#Load" text="Load Details" />
                   <Button layoutX="208.0" layoutY="408.0" mnemonicParsing="false" onAction="#Modif" prefHeight="30.0" prefWidth="83.0" text="Modifier" />
                   <Button layoutX="339.0" layoutY="407.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="83.0" text="Supprimer" />
                   <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" onAction="#Referto" text="AnimalPerdu" />
