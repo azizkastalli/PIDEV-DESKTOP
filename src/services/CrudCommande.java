@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -95,6 +96,22 @@ public class CrudCommande implements ICrud<Commande> {
         }
         return liste;
     }
+    public Commande ConsulterListe_Commandes() throws SQLException {
+   
+        Commande cmd=new Commande();
+          String req= "select * from commande  ";
+          Statement ste = cnx.createStatement();
+          ResultSet s = ste.executeQuery(req);
+          while(s.next())
+          {  
+             
+              cmd.setId(s.getInt(1));
+              cmd.setId_client(s.getInt(2));
+              
+                
+          }
+        return cmd;
+}
 
     @Override
     public void Delete(Commande obj) throws SQLException {

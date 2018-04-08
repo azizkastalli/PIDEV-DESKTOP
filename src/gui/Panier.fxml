@@ -1,158 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/panier.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.PanierController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.PanierController">
    <children>
-      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
-         <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0" />
-         </effect>
-         <children>
-            <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../utils/assets/Zanimauxlogo.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="25.0" />
-               </HBox.margin>
-            </ImageView>
-            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="35.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="11.0" left="30.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="25.0" top="11.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="veterinaire" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label text="10£" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Label>
-            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
-               <HBox.margin>
-                  <Insets left="12.0" />
-               </HBox.margin>
-            </FontAwesomeIconView>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
-               <HBox.margin>
-                  <Insets left="12.0" />
-               </HBox.margin>
-            </FontAwesomeIconView>
-            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <image>
-                  <Image url="@../utils/assets/profile.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0">
-         <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
-               <children>
-                  <ImageView fitHeight="171.0" fitWidth="164.0" layoutX="122.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../utils/assets/gallery-col4-img-05.jpg" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="54.0" layoutY="14.0" prefHeight="58.0" prefWidth="180.0" text="panier">
-                     <font>
-                        <Font size="37.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="470.0" layoutY="355.0" mnemonicParsing="false" text="passer commande" />
-               </children>
-            </Pane>
-            <VBox prefHeight="524.0" prefWidth="240.0" styleClass="sidebarpan">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <children>
-                  <Label prefHeight="58.0" prefWidth="246.0" text="detail du panier" textFill="#4c75b2">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Pane>
-                     <children>
-                        <Label layoutX="140.0" prefHeight="58.0" prefWidth="106.0" text="2" textFill="#4c75b2">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="58.0" prefWidth="130.0" text="nbr d'articles :" textFill="#4c75b2">
-                           <font>
-                              <Font size="21.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </VBox>
-         </children>
-      </HBox>
+      <TableView fx:id="table" layoutX="66.0" layoutY="58.0" prefHeight="223.0" prefWidth="397.0">
+        <columns>
+          <TableColumn fx:id="nomprod" prefWidth="98.0" text="Nom Produit" />
+          <TableColumn fx:id="prix" prefWidth="91.0" text="Prix" />
+            <TableColumn fx:id="type" prefWidth="78.0" text="Type" />
+            <TableColumn fx:id="quantite" editable="true" prefWidth="128.0" text="Stock Disponible" />
+        </columns>
+      </TableView>
+      <Button fx:id="commander" layoutX="287.0" layoutY="296.0" mnemonicParsing="false" onAction="#commander" text="Commander" />
    </children>
-</VBox>
+</AnchorPane>

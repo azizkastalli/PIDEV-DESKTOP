@@ -160,6 +160,7 @@
             <Button fx:id="button3" layoutX="786.0" layoutY="187.0" mnemonicParsing="false" onAction="#detail3" text="detail" />
             <Button fx:id="button2" layoutX="477.0" layoutY="186.0" mnemonicParsing="false" onAction="#detail2" text="detail" />
             <Button fx:id="button4" layoutX="158.0" layoutY="422.0" mnemonicParsing="false" onAction="#detail4" text="detail" />
+            <Button fx:id="button31" layoutX="858.0" layoutY="187.0" mnemonicParsing="false" onAction="#AjoutPanier" text="ajout panier" />
          </children></AnchorPane>
    </children>
 </VBox>

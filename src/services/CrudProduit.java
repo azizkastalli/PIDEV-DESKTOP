@@ -167,10 +167,11 @@ public class CrudProduit implements ICrud<Produit> {
                 Integer quantite = rs.getInt("quantite");
                 Double vote= rs.getDouble("vote");
                 String label = rs.getString("label");
+                Integer id = rs.getInt("id");
                 
                 
                 
-                Produit P =new Produit(caracteristiques,description,etat,id_categorie,id_propietaire,nom_image,poid,prix_ancien,prix_nouv,quantite,vote,label);
+                Produit P =new Produit(caracteristiques,description,etat,id,id_categorie,id_propietaire,nom_image,poid,prix_ancien,prix_nouv,quantite,vote,label);
                 liste.add(P);
             }
             
@@ -180,5 +181,32 @@ public class CrudProduit implements ICrud<Produit> {
         }
         return liste;
     }
+        public Produit findById(int id) {
+		String req="SELECT * FROM Produit WHERE id='"+id+"'" ;
+        ResultSet rs;
+        Produit p=null;
+		try {
+			rs = cnx.createStatement().executeQuery(req);
+		
+       
+        while(rs.next()){
+           p=new Produit();
+            
+           p.setPrix_nouv(rs.getFloat("prix_nouv"));
+           p.setLabel(rs.getString("label"));
+            p.setQuantite(rs.getInt("quantite"));
+            p.setNom_image(rs.getString("nom_image"));           
+           p.setId_categorie(rs.getString("id_categorie"));
+           p.setEtat(rs.getString("etat"));
+
+        }
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        return p;
+    
+		
+}
        
 }
