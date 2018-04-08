@@ -65,20 +65,20 @@ public class ServiceJournal {
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
-            pst.setInt(1,obj.getDate_mise());
+      //      pst.setInt(1,obj.getDate_mise());
             
             //à modifer apres avoir creer le module user et inserer directement par code l'id du user
             pst.setInt(2,1);
             
-            pst.setTimestamp(3,obj.getDate_debut());
-            pst.setDouble(4,obj.getSeuil_mise());                        
+      //      pst.setTimestamp(3,obj.getDate_debut());
+      //      pst.setDouble(4,obj.getSeuil_mise());                        
             
             pst.executeUpdate();
             
             
             String requete2 = "UPDATE Produit SET etat=encheres where id=?";
             PreparedStatement pst2 = cnx.prepareStatement(requete);
-            pst2.setInt(1,obj.getId_cible());
+       //     pst2.setInt(1,obj.getId_cible());
             pst2.executeUpdate();
              
     }
