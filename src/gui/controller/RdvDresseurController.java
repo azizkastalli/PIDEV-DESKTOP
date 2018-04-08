@@ -132,7 +132,7 @@ public class RdvDresseurController implements Initializable {
          }
         
          switch (dest) {
-            case "services":
+            case "services1":
             
             
                 destination="RubriqueServices.fxml";

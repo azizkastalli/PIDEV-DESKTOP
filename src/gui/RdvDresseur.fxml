@@ -18,14 +18,14 @@
    <children>
       <Label layoutX="150.0" layoutY="138.0" text="Id Client" />
       <Label layoutX="147.0" layoutY="175.0" text="Id animal" />
-      <Label layoutX="143.0" layoutY="212.0" text="Date Trouvaille" />
+      <Label layoutX="143.0" layoutY="212.0" text="Date Rendez-vous" />
       <Label layoutX="148.0" layoutY="249.0" text="Id Dresseur" />
       <TextField fx:id="idc" layoutX="339.0" layoutY="134.0" prefHeight="25.0" prefWidth="174.0" />
       <TextField fx:id="idd" layoutX="339.0" layoutY="245.0" prefHeight="25.0" prefWidth="174.0" />
       <Button layoutX="284.0" layoutY="359.0" mnemonicParsing="false" onAction="#ajout" text="Ajouter" />
-      <Pane fx:id="menubar" layoutX="20.0" layoutY="20.0">
+      <Pane fx:id="menubar" layoutX="20.0" layoutY="20.0" prefHeight="49.0" prefWidth="828.0">
          <children>
-            <HBox layoutX="-1.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/rdvdresseur.css">
+            <HBox layoutX="-22.0" layoutY="-19.0" prefHeight="49.0" prefWidth="854.0" styleClass="menu_bar" stylesheets="@css/rdvdresseur.css">
                <children>
                   <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                      <image>

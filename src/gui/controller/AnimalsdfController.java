@@ -130,7 +130,6 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         AnimalSdf p = new AnimalSdf();
         String a=(String) idca.getValue();
         int id= this.myTool.ExtractId(a);
-        //int id = Integer.parseInt(idca.getText());
         p.setId_categorie(id);
         p.setSexe(sexe.getValue());
         p.setNom_image(img.getText());
@@ -162,7 +161,7 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
          }
         
          switch (dest) {
-            case "services":
+            case "services1":
             
             
                 destination="RubriqueServices.fxml";
@@ -252,7 +251,7 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         File file = fc.showOpenDialog(null);
         if (file != null)
         {
-            img.setText(file.getAbsolutePath());
+            img.setText(file.getName());
             Image Image = new Image(file.toURI().toString(),100,150,true,true);
                    
                     

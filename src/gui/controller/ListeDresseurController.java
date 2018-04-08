@@ -10,6 +10,8 @@ import static gui.controller.ServiceAdminController.P;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -93,6 +96,51 @@ public class ListeDresseurController implements Initializable {
 
     @FXML
     private void Menu(MouseEvent event) {
+        String dest=""; 
+        String destination=""; 
+        String type = event.getSource().getClass().getName();
+        
+        if(type.equals("javafx.scene.control.Label"))
+          {
+          Label ev = (Label) event.getSource();
+          dest=ev.getId();
+          }
+         else if(type.equals("javafx.scene.image.ImageView"))
+         {
+         ImageView ev = (ImageView) event.getSource();
+         dest=ev.getId();
+         }
+        
+         switch (dest) {
+            case "services1":
+            
+            
+                destination="RubriqueServices.fxml";
+                break;
+            
+                
+            
+         }
+         if(destination!="")
+        {
+ 
+        
+         Parent home_page_parent = null;
+            try {
+                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      
+                app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+       
+        }
+        MenuController menu = new MenuController();
+        menu.GestionMenu(event);
     }
 
     @FXML

@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +27,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -81,6 +84,51 @@ public class ModifierRDVController implements Initializable {
 
     @FXML
     private void Menu(MouseEvent event) {
+        String dest=""; 
+        String destination=""; 
+        String type = event.getSource().getClass().getName();
+        
+        if(type.equals("javafx.scene.control.Label"))
+          {
+          Label ev = (Label) event.getSource();
+          dest=ev.getId();
+          }
+         else if(type.equals("javafx.scene.image.ImageView"))
+         {
+         ImageView ev = (ImageView) event.getSource();
+         dest=ev.getId();
+         }
+        
+         switch (dest) {
+            case "services1":
+            
+            
+                destination="RubriqueServices.fxml";
+                break;
+            
+                
+            
+         }
+         if(destination!="")
+        {
+ 
+        
+         Parent home_page_parent = null;
+            try {
+                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      
+                app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+       
+        }
+        MenuController menu = new MenuController();
+        menu.GestionMenu(event);
     }
 
     @FXML
@@ -118,7 +166,7 @@ public class ModifierRDVController implements Initializable {
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
            alert1.setTitle("I have a great message for you!");
            alert1.setHeaderText(null);
-           alert1.setContentText("Modification réussite !");
+           alert1.setContentText("Modification rÃ©ussite !");
            alert1.showAndWait();
       Parent root = FXMLLoader.load(getClass().getResource("/gui/ListeRdv.fxml"));
             Scene scene = new Scene(root);

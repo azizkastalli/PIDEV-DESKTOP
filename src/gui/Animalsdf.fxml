@@ -23,12 +23,12 @@
    <children>
       <AnchorPane id="AnchorPane" layoutX="1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@css/animalsdf.css">
          <children>
-            <Label layoutX="81.0" layoutY="161.0" text="id_client" />
-            <Label layoutX="69.0" layoutY="199.0" text="id_categorie" />
-            <Label layoutX="89.0" layoutY="242.0" text="sexe" />
-            <Label layoutX="25.0" layoutY="278.0" text="nom image" />
-            <Label layoutX="60.0" layoutY="312.0" text="dat _trouvaille" />
-            <Label layoutX="56.0" layoutY="351.0" text="lieu trouvaille" />
+            <Label layoutX="81.0" layoutY="161.0" text="Id Client" />
+            <Label layoutX="69.0" layoutY="199.0" text="Id Categorie" />
+            <Label layoutX="89.0" layoutY="242.0" text="Sexe" />
+            <Label layoutX="68.0" layoutY="278.0" text="Nom Image" />
+            <Label layoutX="60.0" layoutY="312.0" text="Date Trouvaille" />
+            <Label layoutX="56.0" layoutY="351.0" text="Lieu Trouvaille" />
             <TextField fx:id="idc" layoutX="169.0" layoutY="159.0" />
             <TextField fx:id="img" layoutX="151.0" layoutY="273.0" prefHeight="25.0" prefWidth="112.0" />
             <TextField fx:id="lieu" layoutX="154.0" layoutY="346.0" onAction="#ShowPlace" prefHeight="25.0" prefWidth="169.0" />

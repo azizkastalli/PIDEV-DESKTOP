@@ -13,106 +13,189 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifierANPController">
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="994.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifierANPController">
     <stylesheets>
         <URL value="@/gui/css/modifieranp.css" />
     </stylesheets>
    <children>
       <HBox layoutX="10.0" layoutY="10.0">
          <children>
-            <Pane>
+            <Pane prefHeight="0.0" prefWidth="887.0">
                <children>
-                  <Label layoutX="113.0" layoutY="95.0" text="Id Animal" />
-                  <Label layoutX="113.0" layoutY="138.0" text="Date Disparition" />
-                  <Label layoutX="113.0" layoutY="179.0" text="Lieu Disparition" />
-                  <Label layoutX="113.0" layoutY="222.0" text="Etat" />
-                  <TextField fx:id="ida" layoutX="302.0" layoutY="91.0" prefHeight="25.0" prefWidth="174.0" />
-                  <TextField fx:id="lieu" layoutX="302.0" layoutY="175.0" prefHeight="25.0" prefWidth="174.0" />
-                  <Button fx:id="ajouter" layoutX="349.0" layoutY="342.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
-                  <Pane>
+                  <Label layoutX="508.0" layoutY="164.0" text="Id Animal" />
+                  <Label layoutX="490.0" layoutY="198.0" text="Date Disparition" />
+                  <Label layoutX="494.0" layoutY="249.0" text="Lieu Disparition" />
+                  <Label layoutX="525.0" layoutY="281.0" text="Etat" />
+                  <TextField fx:id="ida" layoutX="607.0" layoutY="160.0" prefHeight="25.0" prefWidth="136.0" />
+                  <TextField fx:id="lieu" layoutX="611.0" layoutY="241.0" onAction="#ShowPlace" prefHeight="25.0" prefWidth="131.0" />
+                  <Pane />
+                  <DatePicker fx:id="date" layoutX="609.0" layoutY="196.0" prefHeight="25.0" prefWidth="136.0" />
+                  <ComboBox fx:id="etat" layoutX="611.0" layoutY="279.0" prefHeight="25.0" prefWidth="133.0" />
+                  <Pane layoutX="321.0" layoutY="-8.0" prefHeight="56.0" prefWidth="566.0">
                      <children>
-                        <HBox layoutY="5.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/modifieranp.css">
-                           <children>
-                              <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../utils/assets/Zanimauxlogo.png" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#756c6b">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="11.0" left="30.0" top="11.0" />
-                                 </padding>
-                              </Label>
-                              <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="11.0" left="25.0" top="11.0" />
-                                 </padding>
-                              </Label>
-                              <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="11.0" left="23.0" top="11.0" />
-                                 </padding>
-                              </Label>
-                              <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="54.0" prefWidth="129.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="11.0" left="8.0" top="11.0" />
-                                 </padding>
-                                 <HBox.margin>
-                                    <Insets right="2.0" top="-5.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label onMouseClicked="#Menu" prefHeight="54.0" prefWidth="111.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
-                                 <font>
-                                    <Font size="18.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets bottom="11.0" left="8.0" top="11.0" />
-                                 </padding>
-                                 <HBox.margin>
-                                    <Insets top="-5.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <Label text="10£">
-                                 <font>
-                                    <Font name="System Bold" size="22.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="20.0" top="5.0" />
-                                 </HBox.margin>
-                              </Label>
-                              <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="FF0000" size="2em">
-                                 <HBox.margin>
-                                    <Insets left="20.0" top="8.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIconView>
-                              <FontAwesomeIconView glyphName="GEAR" glyphStyle="ff0000" size="2em">
-                                 <HBox.margin>
-                                    <Insets left="20.0" top="8.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIconView>
-                           </children>
-                        </HBox>
+                        <FontAwesomeIconView glyphName="BELL" glyphStyle="-fx-fill:#7c8184" size="1.5em" />
+                        <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#7c8184" size="1.5em" />
+                        <ImageView fitHeight="68.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../utils/assets/Zanimauxlogo.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
-                  <DatePicker fx:id="date" layoutX="302.0" layoutY="134.0" />
-                  <ComboBox fx:id="etat" layoutX="301.0" layoutY="218.0" prefHeight="25.0" prefWidth="174.0" />
                </children>
             </Pane>
          </children>
       </HBox>
+      <VBox prefHeight="542.0" prefWidth="332.0" style="-fx-background-color: #333645;">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="58.0" prefWidth="333.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <HBox alignment="CENTER_LEFT">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <TextField prefHeight="25.0" prefWidth="290.0" promptText="Search" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickStore" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Store" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="ev" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEvenement" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Evenements" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEncheres" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="USERS" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Encheres" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickServices" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#7C8184" size="2em" text="" />
+                  <Label text="Gestion Services" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickVeterinaire" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="USER_MD" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Vétérinaires" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickProduit" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="TH" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Produits" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="ajouter" layoutX="604.0" layoutY="377.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
+      <Label layoutX="424.0" layoutY="97.0" text="Modifier l'etat d'un animal perude">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

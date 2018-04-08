@@ -121,6 +121,7 @@ public class AcceuilController implements Initializable {
         
          switch (dest) {
             case "ser":
+            case "serv":
             
             
                 destination="RubriqueServices.fxml";

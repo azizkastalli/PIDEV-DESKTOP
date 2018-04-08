@@ -5,6 +5,17 @@
  */
 package gui.controller;
 
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
+import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.lynden.gmapsfx.javascript.object.MapOptions;
+import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
+import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
+import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
+import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
+import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import entites.AnimalPerdu;
 import gui.controller.ServiceAdminController;
 import static gui.controller.ServiceAdminController.P;
@@ -16,6 +27,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,6 +47,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import services.CrudAnimalperdu;
@@ -43,7 +57,7 @@ import services.CrudAnimalperdu;
  *
  * @author user
  */
-public class ModifierANPController implements Initializable {
+public class ModifierANPController implements Initializable, MapComponentInitializedListener{
 
     @FXML
     private TextField ida;
@@ -52,19 +66,18 @@ public class ModifierANPController implements Initializable {
     @FXML
     private ComboBox<String> etat;
     @FXML
-    private Label acceuil;
-    @FXML
-    private Label services;
-    @FXML
-    private Label produits;
-    @FXML
-    private Label veterinaires;
-    @FXML
     private DatePicker date;
     
         CrudAnimalperdu myTool = new CrudAnimalperdu();
     @FXML
     private Button ajouter;
+    private GoogleMapView mapView;
+      private GoogleMap Map;
+
+    private GeocodingService geocodingService;
+    private StringProperty address = new SimpleStringProperty();
+    @FXML
+    private HBox ev;
        
     /**
      * Initializes the controller class.
@@ -87,9 +100,6 @@ public class ModifierANPController implements Initializable {
     }    
 
 
-    @FXML
-    private void Menu(MouseEvent event) {
-    }
 
     @FXML
     private void modifier(ActionEvent event) throws SQLException, IOException {
@@ -145,6 +155,102 @@ public class ModifierANPController implements Initializable {
             
            }
         }
+
+    @Override
+    public void mapInitialized() {
+geocodingService = new GeocodingService();
+		MapOptions mapOptions = new MapOptions();
+
+		mapOptions.center(new LatLong(36.898944179565284, 10.18963326511232))
+				.mapType(MapTypeIdEnum.ROADMAP)
+				.overviewMapControl(false)
+				.panControl(false)
+				.rotateControl(false)
+				.scaleControl(false)
+				.streetViewControl(false)
+				.zoomControl(true)
+				.zoom(16);
+                
+                
+
+		Map = mapView.createMap(mapOptions);    }
+
+    @FXML
+    private void ShowPlace(ActionEvent event) {
+        geocodingService.geocode(address.get(), (GeocodingResult[] results, GeocoderStatus status) -> {
+           
+			LatLong latLong = null;
+
+			if (status == GeocoderStatus.ZERO_RESULTS) {
+				Alert alert = new Alert(Alert.AlertType.ERROR, "No matching address found");
+				alert.show();
+				return;
+			} else if (results.length > 1) {
+				Alert alert = new Alert(Alert.AlertType.WARNING, "Multiple results found, showing the first one.");
+				alert.show();
+				latLong = new LatLong(results[0].getGeometry().getLocation().getLatitude(), results[0].getGeometry().getLocation().getLongitude());
+			} else {
+				latLong = new LatLong(results[0].getGeometry().getLocation().getLatitude(), results[0].getGeometry().getLocation().getLongitude());
+			}
+
+			Map.setCenter(latLong);
+                         MarkerOptions markerOptions = new MarkerOptions();
+
+                         markerOptions.position( latLong )
+                .visible(Boolean.TRUE)
+                .title("My Marker");
+
+                         Marker marker = new Marker( markerOptions );
+
+                         Map.addMarker(marker);
+                       
+
+		});
+    }
+
+    @FXML
+    private void HomeClick(ActionEvent event) {
+    }
+
+    @FXML
+    private void ClickStore(MouseEvent event) {
+    }
+
+    @FXML
+    private void ClickEvenement(MouseEvent event) {
+    }
+
+    @FXML
+    private void ClickEncheres(MouseEvent event) {
+    }
+
+    @FXML
+    private void ClickServices(MouseEvent event) {
+        try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/ServiceAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
+
+    @FXML
+    private void ClickVeterinaire(MouseEvent event) {
+    }
+
+    @FXML
+    private void ClickProduit(MouseEvent event) {
+    }
     
     }
     
