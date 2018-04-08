@@ -12,10 +12,6 @@ import eu.hansolo.tilesfx.fonts.Fonts;
 import eu.hansolo.tilesfx.tools.Helper;
 import java.util.Date;
 import java.sql.Timestamp;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -26,6 +22,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
 
@@ -43,6 +40,8 @@ public class CountDownController  {
     private Label          secondsLabel;
     private Duration       duration;
     private long           lastTimerCall;
+    private Tile           minutes;
+    private Tile           seconds;
     private AnimationTimer timer;
 
     public CountDownController() {}
@@ -68,11 +67,6 @@ public class CountDownController  {
 			long diffMinutes = diff / (60 * 1000) % 60;
 			long diffHours = diff / (60 * 60 * 1000) % 24;
 			long diffDays = diff / (24 * 60 * 60 * 1000);
-
-			System.out.print(diffDays + " days, ");
-			System.out.print(diffHours + " hours, ");
-			System.out.print(diffMinutes + " minutes, ");
-			System.out.print(diffSeconds + " seconds.");
        
         double  heure_converted =1+ diffHours+ (diffDays*24) + (diffMinutes/60) + (diffSeconds/3600) ;       
         			System.out.println("hours converted : "+heure_converted);
@@ -104,6 +98,39 @@ public class CountDownController  {
             }
         };
     }
+     
+     public void initForSession() {
+      
+         minutes  = createTile("MINUTES", "0");
+         seconds  = createTile("SECONDS", "0");
+
+        minutesLabel = createLabel("MINUTES");
+        secondsLabel = createLabel("SECONDS");
+    
+        duration = Duration.hours(0.034);
+
+        lastTimerCall = System.nanoTime();
+        timer = new AnimationTimer() {
+            @Override public void handle(final long now) {
+                
+                if (now > lastTimerCall + 1_000_000_000l) {
+                    duration = duration.subtract(Duration.seconds(1));
+
+                    int remainingSeconds = (int) duration.toSeconds();
+                 
+                    int m = ((remainingSeconds % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
+                    int s = (((remainingSeconds % SECONDS_PER_DAY) % SECONDS_PER_HOUR) % SECONDS_PER_MINUTE);
+
+                    if (m == 0 && s == 0) { timer.stop(); }
+
+                    minutes.setDescription(String.format("%02d", m));
+                    seconds.setDescription(String.format("%02d", s));
+
+                    lastTimerCall = now;
+                }
+            }
+        };
+    }
 
      public VBox setgui() {
 
@@ -124,6 +151,26 @@ public class CountDownController  {
         
         return pane;
     }
+     
+     public VBox setguiForSession() {
+
+        HBox middle = new HBox(minutesLabel, secondsLabel);
+             middle.setPrefWidth(246);
+             middle.setPrefHeight(20);
+    
+        HBox lower = new HBox(12,minutes, seconds);
+             lower.setPrefWidth(246);
+             
+        VBox pane = new VBox(middle, lower);
+             pane.prefHeight(40);
+             pane.prefWidth(246);
+        
+        pane.setBackground(new Background(new BackgroundFill(Tile.BACKGROUND.brighter(), CornerRadii.EMPTY, Insets.EMPTY)));
+ 
+        timer.start();
+        
+        return pane;
+    }
 
      
     private Tile createFlipTile(final String TEXT, final String... CHARACTERS) {
@@ -132,6 +179,15 @@ public class CountDownController  {
                           .flipTimeInMS(10)
                           .flipText(TEXT)
                           .characters(CHARACTERS)
+                          .build();
+    }
+    
+     private Tile createTile(final String TITLE, final String TEXT) {
+        return TileBuilder.create().skinType(SkinType.CHARACTER)
+                          .prefSize(200, 200)
+                          .title(TITLE)
+                          .titleAlignment(TextAlignment.CENTER)
+                          .description(TEXT)
                           .build();
     }
     

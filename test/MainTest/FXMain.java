@@ -5,7 +5,6 @@
  */
 package MainTest;
 
-import gui.controller.*;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,21 +17,21 @@ import javafx.stage.Stage;
  * @author azizkastalli
  */
 public class FXMain extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-                 Parent root = null;
+        Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/SessionEncheres.fxml"));
         } catch (IOException ex) {
-           
+
         }
-        
-        Scene scene = new Scene(root);    
+
+        Scene scene = new Scene(root);
         primaryStage.setTitle("test");
         primaryStage.setScene(scene);
         primaryStage.show();
-     
+
     }
 
     /**
@@ -41,5 +40,5 @@ public class FXMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
