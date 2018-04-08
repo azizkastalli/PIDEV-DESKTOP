@@ -132,6 +132,8 @@ public class StoreController implements Initializable {
     private Button button5;
     @FXML
     private Button button6;
+    @FXML
+    private Button buttfav;
     
   
      
@@ -347,6 +349,24 @@ public class StoreController implements Initializable {
      try {
            
               Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/RubriqueProduits.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
+
+    @FXML
+    private void mesfavoris(ActionEvent event) {
+         try {
+           
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/Favoris.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(home_page_scene);

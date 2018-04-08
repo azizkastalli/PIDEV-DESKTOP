@@ -12,9 +12,11 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +27,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import javax.management.Notification;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import services.CrudProduit;
 
 /**
@@ -56,12 +61,15 @@ public class ProduitAdminController implements Initializable {
     private ObservableList <Produit> data;
     @FXML
     private Button modifier;
+    @FXML
+    private TableColumn<Produit, Integer> quantite;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-              
+       
+         
         CrudProduit myTool = new CrudProduit();
         Produit p = new Produit();
         data= FXCollections.observableArrayList();
@@ -69,6 +77,16 @@ public class ProduitAdminController implements Initializable {
         {
             p=(Produit) myTool.SelectAll().get(i);
             data.add(p);
+            if(p.getQuantite()<10  && p.getEtat().equals("confirmer")){
+         Notifications notification = Notifications.create()
+                .title("Notifiaction Quantité")
+                .text("Quantité "+p.getLabel()+" est inferieur a 10!!!")
+                .hideAfter(Duration.seconds(10))
+                .position(Pos.BOTTOM_RIGHT);   
+        
+        notification.showInformation();
+        }
+            
         }
         nomproduit.setCellValueFactory(new PropertyValueFactory<>("label"));
         caracteristique.setCellValueFactory(new PropertyValueFactory<>("caracteristiques"));
@@ -76,7 +94,9 @@ public class ProduitAdminController implements Initializable {
         prixanc.setCellValueFactory(new PropertyValueFactory<>("prix_ancien"));
         etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));
         tableA.setItems(data);
+        
     }    
 
   @FXML
@@ -244,4 +264,5 @@ public class ProduitAdminController implements Initializable {
             }
         
     }
+
 }

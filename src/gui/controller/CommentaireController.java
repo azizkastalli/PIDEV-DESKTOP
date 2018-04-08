@@ -176,7 +176,7 @@ public class CommentaireController implements Initializable {
     }
 
     @FXML
-    private void Editcomm(CellEditEvent edittedCell) throws SQLException
+    private void Editcomm(CellEditEvent edittedCell) throws SQLException, IOException
     {
     CrudCommentaire CC=new CrudCommentaire();
              if(loggduser.getUsername().equals(tableC.getSelectionModel().getSelectedItem().getId_client())){
@@ -192,9 +192,9 @@ public class CommentaireController implements Initializable {
                 
         }
                  else
-                 {
-                  new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas modifier cela!!").show();
-                 }
+             {
+                  new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas modifier cela!!").show();  
+              }
     }
 
     @FXML

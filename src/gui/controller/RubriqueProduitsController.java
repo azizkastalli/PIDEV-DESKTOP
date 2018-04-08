@@ -135,7 +135,7 @@ public class RubriqueProduitsController implements Initializable {
         else{
         String some=Float.toString(V.Somme(P.getLabel()));
         vote.setText("Rating :"+some);
-        rating.setVisible(true);
+        rating.setVisible(true); 
         try {
             rating.ratingProperty().addListener(new ChangeListener<Number>() {
             @Override
