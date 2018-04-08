@@ -42,8 +42,9 @@ public class Evenement {
 
   
 
-    public Evenement(String nom, String description, int nbr_participants, Timestamp date_debut, Timestamp date_fin, Boolean etat, String nom_image,int id_categorie) {
+    public Evenement(String nom, String description, int nbr_participants, Timestamp date_debut, Timestamp date_fin, Boolean etat, String nom_image,int id_categorie,int id_association) {
         this.nom = nom;
+        this.id_association=id_association;
         this.description = description;
         this.nbr_participants = nbr_participants;
         this.date_debut = date_debut;
@@ -76,7 +77,8 @@ public class Evenement {
     
     
       public Evenement(int id,String nom, String description, int nbr_participants, Timestamp date_debut, Timestamp date_fin, Boolean etat, String nom_image,int id_categorie) {
-        this.nom = nom;
+       this.id=id;
+          this.nom = nom;
         this.description = description;
         this.nbr_participants = nbr_participants;
         this.date_debut = date_debut;

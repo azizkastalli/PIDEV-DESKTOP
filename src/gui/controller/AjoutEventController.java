@@ -48,6 +48,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import rest.file.uploader.tn.FileUploader;
+import static gui.controller.LoginController.loggduser;
 
 /**
  * FXML Controller class
@@ -178,8 +179,8 @@ public class AjoutEventController implements Initializable {
      
         
         String image=nom_image.getText();
-       
-       Evenement E=new  Evenement(nom, Des, Nombre, DateDebut, DateFin,false, image,id_categorie);
+       int id_association=loggduser.getId();
+       Evenement E=new  Evenement(nom, Des, Nombre, DateDebut, DateFin,false, image,id_categorie,id_association);
         System.out.println(E.toString());
         try {
             CE.Create(E);

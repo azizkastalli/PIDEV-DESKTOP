@@ -40,6 +40,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import services.CrudCategorie;
 import services.CrudEvenement;
+import static gui.controller.LoginController.loggduser;
 
 /**
  * FXML Controller class
@@ -88,7 +89,8 @@ public  static Evenement E=new Evenement();
         
                
         CrudEvenement CE=new CrudEvenement();
-        ArrayList<Evenement> arrayList=(ArrayList<Evenement>) CE.SelectAll();
+        int id=loggduser.getId();
+        ArrayList<Evenement> arrayList=(ArrayList<Evenement>) CE.afficherSelonAssociation(id);
         
         ObservableList observableList = FXCollections.observableArrayList(arrayList);
         TV.setItems(observableList);

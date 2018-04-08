@@ -56,7 +56,7 @@ public class EventClientController implements Initializable {
  CrudEvenement ps = new CrudEvenement();
  public  static  Evenement E=new Evenement();
     Pagination page = new Pagination(round((ps.AfficherTT().size() / 5) + 1));
-    
+    public  static  int j=0;
     @FXML
     private VBox parent;
     @FXML
@@ -284,7 +284,7 @@ public class EventClientController implements Initializable {
         
        
      int i =page.getCurrentPageIndex()*6;
-         
+           j=  page.getCurrentPageIndex()*6;
      
         E=ps.AfficherTT().get(i);
           this.goToDetail(event);
@@ -298,7 +298,7 @@ public class EventClientController implements Initializable {
         
         
      int i =page.getCurrentPageIndex()*6+1;
-         
+         j=  page.getCurrentPageIndex()*6+1;
      
         E=ps.AfficherTT().get(i);
         this.goToDetail(event);
@@ -311,6 +311,7 @@ public class EventClientController implements Initializable {
         
       
      int i =page.getCurrentPageIndex()*6+2;
+       j=  page.getCurrentPageIndex()*6+2;
          
      
         E=ps.AfficherTT().get(i);
@@ -325,6 +326,7 @@ public class EventClientController implements Initializable {
         
        
      int i =page.getCurrentPageIndex()*6+3;
+       j=  page.getCurrentPageIndex()*6+3;
          
      
         E=ps.AfficherTT().get(i);
@@ -338,6 +340,7 @@ public class EventClientController implements Initializable {
          
         
      int i =page.getCurrentPageIndex()*6+4;
+       j=  page.getCurrentPageIndex()*6+4;
          
      
         E=ps.AfficherTT().get(i);
@@ -351,6 +354,7 @@ public class EventClientController implements Initializable {
         
     
      int i =page.getCurrentPageIndex()*6+5;
+       j=  page.getCurrentPageIndex()*6+5;
          
      
         E=ps.AfficherTT().get(i);

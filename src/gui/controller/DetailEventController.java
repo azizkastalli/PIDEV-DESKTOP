@@ -5,7 +5,9 @@
  */
 package gui.controller;
 
-import java.io.FileInputStream;
+
+import entites.Participation;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,7 +21,24 @@ import static gui.controller.EventClientController.E;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.scene.text.Text;
+
+import services.ServiceReservation;
+import static gui.controller.LoginController.loggduser;
+import java.sql.SQLException;
+import javafx.scene.control.Button;
+import services.CrudEvenement;
+import static gui.controller.EventClientController.j;
+
+import com.restfb.BinaryAttachment;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Parameter;
+import com.restfb.types.FacebookType;
+import java.io.File;
+import java.io.FileInputStream;
+
 
 /**
  * FXML Controller class
@@ -54,6 +73,10 @@ public class DetailEventController implements Initializable {
     private Label dateD;
     @FXML
     private Label dateF;
+    @FXML
+    private Button butt;
+    @FXML
+    private Button fbButt;
 
     /**
      * Initializes the controller class.
@@ -70,10 +93,22 @@ public class DetailEventController implements Initializable {
             nbre.setText("Nombre participants restant est :"+E.getNbr_participants());
             dateD.setText("Date Debut :"+E.getDate_debut());
             dateF.setText("Date Fin : "+E.getDate_fin());
-            
+            System.out.println(E.getId()+E.getNom());
             titre.setText(E.getNom());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DetailEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+           ServiceReservation SR=new ServiceReservation();
+        if(SR.VerifParticipation(E.getId(),loggduser.getId())==true)
+        {
+        butt.setText("annuler");
+        
+        }
+        else
+        {
+        butt.setText("reserver");
+       
         }
     }    
 
@@ -83,5 +118,55 @@ public class DetailEventController implements Initializable {
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
               
+    }
+
+    @FXML
+    private void ReservAnnule(ActionEvent event) {
+          ServiceReservation SR= new ServiceReservation();
+        
+        if(butt.getText().equals("reserver"))
+        {   
+            try {
+            int id= loggduser.getId();
+            int id_ev=E.getId();
+            Participation P = new Participation(id, id_ev);
+            
+            SR.Create(P);
+            butt.setText("annuler");
+                CrudEvenement E1=new CrudEvenement();
+                E1.decrementNbrParticipant(E.getId());
+             int  nb=E1.SelectAll().get(j).getNbr_participants();
+             nbre.setText("Nombre participants restant est :"+nb);
+            } catch (SQLException ex) {
+                Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else if(butt.getText().equals("annuler"))
+        {
+            try {
+                int id= loggduser.getId();
+            int id_ev=E.getId();
+            Participation P = new Participation(id, id_ev);
+            
+            SR.Delete(P);
+            butt.setText("reserver");
+               CrudEvenement E1=new CrudEvenement();
+                E1.incrementNbrParticipant(E.getId());
+               int  nb=E1.SelectAll().get(j).getNbr_participants();
+             nbre.setText("Nombre participants restant est :"+nb);
+            } catch (SQLException ex) {
+                Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    @FXML
+    private void FBClick(ActionEvent event) throws FileNotFoundException {
+          String accessToken="EAACEdEose0cBAGhqlqSr5mOvdDWcNFKljGEBBiwKWb52KSYJRZCrMnGnVmO4Xxlab4PFfnpVY94lxg79fy6Tizlt4MxBM9SNhMkSZBNZCJXKtZALO5WPEBgAUw3KJECiSR11QjVsUlHrFamvZBktvkSwQEDvks3yS7pkYi9ErqWTVDDM4ZBMiBCEeIjhlGISvyZAiRhj0xbGgZDZD";
+        FacebookClient fbClient=new DefaultFacebookClient(accessToken);
+        FileInputStream fis=new FileInputStream(new File("C:\\Users\\iheb ben fraj\\Desktop\\piJava\\pidesktop1.0\\src\\utils\\assets\\"+E.getNom_image()));    
+        FacebookType response =fbClient.publish("me/photos",FacebookType.class,BinaryAttachment.with(E.getNom_image(),fis), Parameter.with("message",E.getDescription()));
+        System.out.println("fb.com/"+response.getId());
+        
     }
 }
