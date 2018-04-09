@@ -135,7 +135,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="90.0" prefWidth="251.0" style="-fx-background-color: white;" text="mes livraisons" textFill="BLUE">
+                  <Label onMouseClicked="#Meslivraisons" prefHeight="90.0" prefWidth="251.0" style="-fx-background-color: white;" text="mes livraisons" textFill="BLUE">
                      <font>
                         <Font size="24.0" />
                      </font>

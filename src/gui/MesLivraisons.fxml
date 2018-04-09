@@ -3,6 +3,8 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/espacelivreur.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EspaceLivreurController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/meslivraisons.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MesLivraisonsController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -108,55 +110,38 @@
             </ImageView>
          </children>
       </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0" styleClass="main">
+      <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <VBox prefHeight="524.0" prefWidth="66.0">
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <Pane prefHeight="508.0" prefWidth="869.0">
+               <children>
+                  <TableView fx:id="tableA" prefHeight="500.0" prefWidth="677.0">
+                    <columns>
+                      <TableColumn fx:id="ref" prefWidth="119.0" text="ref" />
+                        <TableColumn fx:id="client" prefWidth="116.0" text="client" />
+                        <TableColumn fx:id="etat" prefWidth="100.0" text="etat" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            </Pane>
+            <VBox prefHeight="524.0" prefWidth="240.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <FontAwesomeIconView fx:id="addstoreicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="addenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="gererproduiticon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="gererenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-               </children>
-            </VBox>
-            <Pane prefHeight="524.0" prefWidth="959.0">
-               <children>
-                  <Label layoutX="58.0" layoutY="51.0" prefHeight="122.0" prefWidth="509.0" text="ESPACE LIVREUR" textFill="WHITE">
+                  <Label onMouseClicked="#terminerliv" prefHeight="90.0" prefWidth="240.0" style="-fx-background-color: blue;" text="terminer livraison" textFill="WHITE">
                      <font>
-                        <Font size="50.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="627.0" layoutY="51.0">
-                     <children>
-                        <ImageView fx:id="addstore" fitHeight="225.0" fitWidth="300.0" onMouseClicked="#Leslivraisons" pickOnBounds="true">
-                           <image>
-                              <Image url="@../utils/assets/event.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label text="consulter les livraisons" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="28.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="627.0" layoutY="313.0">
-                     <children>
-                        <ImageView fx:id="addenchers" fitHeight="150.0" fitWidth="300.0" onMouseClicked="#Meslivraisons" pickOnBounds="true">
-                           <image>
-                              <Image url="@../utils/assets/event.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label text="consulter mes livraions" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="27.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children></Pane>
+                  <Label onMouseClicked="#Leslivraisons" prefHeight="90.0" prefWidth="251.0" style="-fx-background-color: white;" text="les livraisons" textFill="BLUE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>

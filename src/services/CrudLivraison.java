@@ -53,7 +53,7 @@ public class CrudLivraison implements ICrud<Livraison> {
         PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setInt(1,obj.getEtat());
-            pst.setInt(3,obj.getId());
+            pst.setInt(2,obj.getId());
             
             pst.executeUpdate();
     }
@@ -88,7 +88,7 @@ public class CrudLivraison implements ICrud<Livraison> {
         
            while(rs.next())
            {
-            Livraison C =new Livraison(rs.getInt(5),rs.getInt(4),rs.getInt(2),rs.getInt(3));   
+            Livraison C =new Livraison(rs.getInt(5),rs.getInt(1),rs.getInt(4),rs.getInt(2),rs.getInt(3));   
             liste.add(C);
            }
            
