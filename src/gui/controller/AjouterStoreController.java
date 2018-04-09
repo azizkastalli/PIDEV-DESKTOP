@@ -109,7 +109,15 @@ public class AjouterStoreController implements Initializable {
     @FXML
     private void ajoutproduit(ActionEvent event) throws IOException {
         
-         
+          if(nomproduit.getText().isEmpty() && caracteristique.getText().isEmpty() && description.getText().isEmpty() && image.getText().isEmpty() && poid.getText().isEmpty() && prixanc.getText().isEmpty() && quantite.getText().isEmpty())
+             {
+             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+            alert1.setTitle("I have a great message for you!");
+            alert1.setHeaderText(null);
+            alert1.setContentText("Champs Vide !");
+            alert1.showAndWait();
+            
+             }
         
         
         CrudProduit CP = new CrudProduit();
@@ -134,7 +142,10 @@ public class AjouterStoreController implements Initializable {
         
         
          try {
-            CP.Create(PR);
+            
+             
+             
+                 CP.Create(PR);
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("I have a great message for you!");
             alert1.setHeaderText(null);
