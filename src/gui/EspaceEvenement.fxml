@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/espacemagasin.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EspaceEvenementController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/espaceevenement.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.EspaceEvenementController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -114,45 +114,27 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <children>
-                  <FontAwesomeIconView fx:id="addstoreicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="addenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="gererproduiticon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-                  <FontAwesomeIconView fx:id="gererenchersicon" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60" />
-               </children>
             </VBox>
             <Pane prefHeight="524.0" prefWidth="959.0">
                <children>
-                  <Label layoutX="58.0" layoutY="51.0" prefHeight="97.0" prefWidth="509.0" text="Espace Association" textFill="#5b5050">
+                  <Label layoutY="3.0" prefHeight="97.0" prefWidth="509.0" text="Espace Association :" underline="true">
                      <font>
-                        <Font size="50.0" />
+                        <Font name="Bell MT Bold" size="41.0" />
                      </font>
                   </Label>
-                  <Pane layoutX="627.0" layoutY="51.0">
-                     <children>
-                        <ImageView fx:id="ajoutEvent" fitHeight="225.0" fitWidth="300.0" onMouseClicked="#ajoutE" pickOnBounds="true">
-                           <image>
-                              <Image url="@../utils/assets/event.jpg" />
-                           </image>
-                        </ImageView>
-                        <Label text="ajouter event" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="34.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <ImageView fx:id="gestionEvent" fitHeight="225.0" fitWidth="300.0" layoutX="627.0" layoutY="285.0" onMouseClicked="#ModifEvent" pickOnBounds="true">
+                  <Pane layoutX="627.0" layoutY="51.0" />
+                  <ImageView fx:id="gestionEvent" fitHeight="225.0" fitWidth="300.0" layoutX="579.0" layoutY="202.0" onMouseClicked="#ModifEvent" pickOnBounds="true" styleClass="imageEvent">
                      <image>
-                        <Image url="@../utils/assets/event.jpg" />
+                        <Image url="@../utils/assets/add.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="632.0" layoutY="294.0" text="modif/supp event" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="27.0" />
-                     </font>
-                  </Label>
-               </children></Pane>
+                  <ImageView fx:id="ajoutEvent" fitHeight="225.0" fitWidth="300.0" layoutX="77.0" layoutY="202.0" onMouseClicked="#ajoutE" pickOnBounds="true" styleClass="imageEvent">
+                     <image>
+                        <Image url="@../utils/assets/update.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </HBox>
    </children>

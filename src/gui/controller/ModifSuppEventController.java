@@ -149,9 +149,9 @@ public  static Evenement E=new Evenement();
     @FXML
     private void SupprimerEvent(ActionEvent event) throws SQLException, IOException {
         
-       String i=TV.getSelectionModel().getSelectedItem().getNom(); 
+     int id=TV.getSelectionModel().getSelectedItem().getId(); 
        Evenement E1=new Evenement();
-       E1.setNom(i);
+       E1.setId(id);
        CrudEvenement CE=new CrudEvenement();
        
        CE.Delete(E1);

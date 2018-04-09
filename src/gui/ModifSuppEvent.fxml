@@ -113,7 +113,7 @@
       </HBox>
       <AnchorPane prefHeight="528.0" prefWidth="1025.0">
          <children>
-            <TableView fx:id="TV" editable="true" layoutX="56.0" layoutY="45.0" onMousePressed="#ClickRow" prefHeight="374.0" prefWidth="961.0">
+            <TableView fx:id="TV" editable="true" layoutX="56.0" layoutY="45.0" onMousePressed="#ClickRow" prefHeight="374.0" prefWidth="961.0" style="-fx-background-color: #00A2d3; -fx-border-color: #00A2d3;">
               <columns>
                 <TableColumn fx:id="NomC" prefWidth="91.0" text="Nom" />
                 <TableColumn fx:id="DescC" minWidth="6.0" prefWidth="150.0" text="Description" />

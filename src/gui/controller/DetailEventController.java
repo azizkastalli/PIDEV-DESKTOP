@@ -38,6 +38,10 @@ import com.restfb.Parameter;
 import com.restfb.types.FacebookType;
 import java.io.File;
 import java.io.FileInputStream;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -110,6 +114,9 @@ public class DetailEventController implements Initializable {
         butt.setText("reserver");
        
         }
+        
+        // your date
+
     }    
 
        @FXML
@@ -167,6 +174,8 @@ public class DetailEventController implements Initializable {
         FileInputStream fis=new FileInputStream(new File("C:\\Users\\iheb ben fraj\\Desktop\\piJava\\pidesktop1.0\\src\\utils\\assets\\"+E.getNom_image()));    
         FacebookType response =fbClient.publish("me/photos",FacebookType.class,BinaryAttachment.with(E.getNom_image(),fis), Parameter.with("message",E.getDescription()));
         System.out.println("fb.com/"+response.getId());
+        
+        
         
     }
 }

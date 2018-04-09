@@ -149,16 +149,22 @@ List<String> extension;
        
     
             Boolean etat=E.getEtat();
-       Evenement E1=new  Evenement(nom, Des, Nombre,false, image,id_categorie);
-        System.out.println(E.toString());
+     
         try {
-            CE.Update1(E1,E.getNom());
+              if(Nom.getText().isEmpty()||description.getText().isEmpty()||nom_image.getText().isEmpty()){
+                        new Alert(Alert.AlertType.ERROR, "attention champs vides").show();
+                        
+            }
+              else{   Evenement E1=new  Evenement(nom, Des, Nombre,false, image,id_categorie);
+        System.out.println(E.toString()); 
+                  CE.Update1(E1,E.getId());
+              new Alert(Alert.AlertType.INFORMATION, "Evenement Modifier").show();}
         } catch (SQLException ex) {
         }
         
       
        
-                new Alert(Alert.AlertType.INFORMATION, "Evenement Modifier").show();
+                
     }
 
     @FXML

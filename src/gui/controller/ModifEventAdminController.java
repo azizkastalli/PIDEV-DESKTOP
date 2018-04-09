@@ -92,34 +92,147 @@ public class ModifEventAdminController implements Initializable {
 
     }
 
-    @FXML
-    private void HomeClick(ActionEvent event) {
-    }
-
-    @FXML
+     @FXML
     private void ClickStore(MouseEvent event) {
+        
+       try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/StoreAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
     @FXML
     private void ClickEvenement(MouseEvent event) {
+        
+        try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/EvenementAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               // app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
     @FXML
     private void ClickEncheres(MouseEvent event) {
+        try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/EnchereAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
     @FXML
     private void ClickServices(MouseEvent event) {
+        try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/ServiceAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+             //   app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
     @FXML
     private void ClickVeterinaire(MouseEvent event) {
+        try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/VeterinaireAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
     @FXML
     private void ClickProduit(MouseEvent event) {
+        try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/ProduitAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+                //app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
     }
 
+    @FXML
+    private void HomeClick(ActionEvent event) {
+              try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/HomeAdmin.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               // app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
     @FXML
     private void ClickRow(MouseEvent event) {
         
@@ -174,6 +287,7 @@ public class ModifEventAdminController implements Initializable {
                   CrudEvenement CE = new CrudEvenement();
                     
                         CE.Update(E1);
+                        
                     } catch (SQLException ex) {
                     }
                   Parent home_page_parent;

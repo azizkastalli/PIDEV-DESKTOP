@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/gererenchers.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AjoutEventController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/ajoutevent.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AjoutEventController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -133,28 +133,49 @@
             </VBox>
             <Pane prefHeight="524.0" prefWidth="959.0">
                <children>
-                  <TextField fx:id="Nom" layoutX="175.0" layoutY="80.0" prefHeight="25.0" prefWidth="398.0" />
-                  <TextField fx:id="nom_image" layoutX="175.0" layoutY="303.0" prefHeight="25.0" prefWidth="226.0" />
-                  <TextField fx:id="description" layoutX="175.0" layoutY="134.0" prefHeight="25.0" prefWidth="398.0" />
-                  <DatePicker fx:id="date_debut" layoutX="175.0" layoutY="367.0" prefHeight="25.0" prefWidth="171.0" />
-                  <DatePicker fx:id="date_fin" layoutX="175.0" layoutY="421.0" prefHeight="25.0" prefWidth="171.0" />
-                  <Label layoutX="20.0" layoutY="84.0" stylesheets="@css/ajoutevent.css" text="Nom" />
-                  <Label layoutX="20.0" layoutY="138.0" stylesheets="@css/ajoutevent.css" text="Description" />
-                  <Label layoutX="20.0" layoutY="184.0" prefHeight="27.0" prefWidth="187.0" stylesheets="@css/ajoutevent.css" text="nombre participants" />
-                  <Label layoutX="20.0" layoutY="247.0" stylesheets="@css/ajoutevent.css" text="Categorie" />
-                  <Label layoutX="20.0" layoutY="307.0" stylesheets="@css/ajoutevent.css" text="nom_image" />
-                  <Label layoutX="20.0" layoutY="371.0" stylesheets="@css/ajoutevent.css" text="Date debut" />
-                  <Label layoutX="20.0" layoutY="425.0" stylesheets="@css/ajoutevent.css" text="Date fin" />
-                  <Button layoutX="299.0" layoutY="469.0" mnemonicParsing="false" onAction="#AjouterEvenement" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #00A2d3;" text="Ajouter" textFill="WHITE">
+                  <TextField fx:id="Nom" layoutX="241.0" layoutY="82.0" prefHeight="25.0" prefWidth="398.0" />
+                  <TextField fx:id="nom_image" layoutX="241.0" layoutY="303.0" prefHeight="25.0" prefWidth="226.0" />
+                  <TextField fx:id="description" layoutX="241.0" layoutY="136.0" prefHeight="25.0" prefWidth="398.0" />
+                  <DatePicker fx:id="date_debut" layoutX="241.0" layoutY="366.0" prefHeight="25.0" prefWidth="171.0" />
+                  <DatePicker fx:id="date_fin" layoutX="241.0" layoutY="420.0" prefHeight="25.0" prefWidth="171.0" />
+                  <Label layoutX="20.0" layoutY="84.0" prefHeight="21.0" prefWidth="171.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Nom *" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="138.0" prefWidth="199.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Description *" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="184.0" prefHeight="31.0" prefWidth="216.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="nombre participants *" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="242.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Categorie" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="18.0" layoutY="300.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="nom_image *" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="363.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Date debut *" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="417.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Date fin *" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Button layoutX="354.0" layoutY="466.0" mnemonicParsing="false" onAction="#AjouterEvenement" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #00A2d3;" text="Ajouter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Spinner fx:id="spin" layoutX="175.0" layoutY="185.0" prefHeight="25.0" prefWidth="398.0" />
-                  <ComboBox fx:id="catégorie" layoutX="175.0" layoutY="245.0" prefHeight="25.0" prefWidth="398.0" promptText="choisir Catégorie" />
-                  <JFXTimePicker fx:id="heure" defaultColor="#51e8ff" layoutX="402.0" layoutY="366.0" style="-fx-background-color: #fff;" />
-                  <JFXTimePicker fx:id="heure1" defaultColor="#51e8ff" layoutX="402.0" layoutY="420.0" style="-fx-background-color: #fff;" />
-                  <Button layoutX="402.0" layoutY="303.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="171.0" text="upload image" />
+                  <Spinner fx:id="spin" layoutX="241.0" layoutY="185.0" prefHeight="25.0" prefWidth="398.0" />
+                  <ComboBox fx:id="catégorie" layoutX="241.0" layoutY="245.0" prefHeight="25.0" prefWidth="398.0" promptText="choisir Catégorie" />
+                  <JFXTimePicker fx:id="heure" defaultColor="#51e8ff" layoutX="478.0" layoutY="366.0" style="-fx-background-color: #fff;" />
+                  <JFXTimePicker fx:id="heure1" defaultColor="#51e8ff" layoutX="478.0" layoutY="420.0" style="-fx-background-color: #fff;" />
+                  <Button layoutX="478.0" layoutY="303.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="171.0" text="upload image" />
                </children></Pane>
          </children>
       </HBox>

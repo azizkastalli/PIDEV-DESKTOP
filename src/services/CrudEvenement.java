@@ -59,20 +59,20 @@ public class CrudEvenement implements ICrud<Evenement> {
     @Override
     public void Update(Evenement obj) throws SQLException {
           String requete = "UPDATE Evenement SET etat=? "
-                    + "where nom=?";
+                    + "where id=?";
         
         PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setBoolean(1,obj.getEtat());
            
-            pst.setString(2,obj.getNom());
+            pst.setInt(2,obj.getId());
             
             pst.executeUpdate();
     }
 
-       public void Update1(Evenement obj,String nom) throws SQLException {
+       public void Update1(Evenement obj,int id) throws SQLException {
           String requete = "UPDATE Evenement SET nom=?,description=?,nbr_participants=?,id_categorie=?,nom_image=?,etat=? "
-                    + "where nom=?";
+                    + "where id=?";
         
         PreparedStatement pst = cnx.prepareStatement(requete);
            
@@ -86,7 +86,7 @@ public class CrudEvenement implements ICrud<Evenement> {
 
         
            
-              pst.setString(7,nom);
+              pst.setInt(7,id);
             pst.executeUpdate();
     }
        
@@ -207,8 +207,8 @@ public class CrudEvenement implements ICrud<Evenement> {
 
     @Override
     public void Delete(Evenement obj) throws SQLException {
-          PreparedStatement pSmt = cnx.prepareStatement("delete from evenement where nom=? " );
-         pSmt.setString(1,obj.getNom());
+          PreparedStatement pSmt = cnx.prepareStatement("delete from evenement where id=? " );
+         pSmt.setInt(1,obj.getId());
          pSmt.executeUpdate();
     }
     

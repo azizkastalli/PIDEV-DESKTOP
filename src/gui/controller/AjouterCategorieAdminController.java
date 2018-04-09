@@ -202,7 +202,11 @@ public class AjouterCategorieAdminController implements Initializable {
         C.setNom(nomCat.getText());
         C.setType(typeCat.getText());
         try {
+                          if(nomCat.getText().isEmpty()||typeCat.getText().isEmpty()){
+                            new Alert(Alert.AlertType.ERROR, "il reste des champs vides").show();}else{
+
             CC.Create(C);
+             new Alert(Alert.AlertType.INFORMATION, "sucess").show();               }
         } catch (SQLException ex) {
         }
         
