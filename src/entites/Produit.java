@@ -68,6 +68,25 @@ public class Produit {
         this.label=label;
     }
 
+    public Produit(String caracteristiques, String description, String etat, String id_categorie, Integer id_propietaire, String nom_image, Double poid, Double prix_ancien, Double prix_nouv, Integer quantite, Double vote) {
+        this.caracteristiques = caracteristiques;
+        this.description = description;
+        this.etat = etat;
+        this.id_categorie = id_categorie;
+        this.id_propietaire = id_propietaire;
+        this.nom_image = nom_image;
+        this.poid = poid;
+        this.prix_ancien = prix_ancien;
+        this.prix_nouv = prix_nouv;
+        this.quantite = quantite;
+        this.vote = vote;
+    }
+
+    @Override
+    public String toString() {
+        return "Produit{" + "caracteristiques=" + caracteristiques + ", description=" + description + ", etat=" + etat + ", id_categorie=" + id_categorie + ", id_propietaire=" + id_propietaire + ", nom_image=" + nom_image + ", poid=" + poid + ", prix_ancien=" + prix_ancien + ", prix_nouv=" + prix_nouv + ", quantite=" + quantite + ", vote=" + vote + ", label=" + label + '}';
+    }
+
    
     
     

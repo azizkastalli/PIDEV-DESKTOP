@@ -107,5 +107,25 @@ public class CrudFavoris implements ICrud<Favoris>{
 return false;
     }
      
+   public List<String> Verifyprod(int id)  {
+       List<String> liste = new ArrayList<>();
+         try {
+             
+             
+             PreparedStatement myStmt = cnx.prepareStatement("SELECT id_produit FROM favoris where id_client=? ");
+             myStmt.setInt(1, id);
+             ResultSet rs = myStmt.executeQuery();
+             while(rs.next())
+             {
+                 rs.getString("id_produit");
+                 liste.add( rs.getString("id_produit"));
+             }
+             
+             return liste;
+         } catch (SQLException ex) {
+             Logger.getLogger(CrudFavoris.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         return liste;
  
+    }
 }

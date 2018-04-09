@@ -3,6 +3,7 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriqueproduits.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.FavorisController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/favoris.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.FavorisController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -73,10 +74,10 @@
             </Label>
             <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="22.0" />
                </font>
                <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
             <Label text="10£" textFill="WHITE">
@@ -105,6 +106,11 @@
                   <Image url="@../utils/assets/profile.png" />
                </image>
             </ImageView>
+         </children>
+      </HBox>
+      <HBox prefHeight="529.0" prefWidth="1025.0">
+         <children>
+            <ScrollPane fx:id="anchorGridPane" prefHeight="524.0" prefWidth="1029.0" />
          </children>
       </HBox>
    </children>

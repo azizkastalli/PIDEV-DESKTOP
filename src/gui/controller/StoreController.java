@@ -214,7 +214,7 @@ public class StoreController implements Initializable {
                 
                 image1.setImage(img1);  
                 label1.setText(myList.get(CurrentPage).getLabel());
-                label7.setText(prix);
+                label7.setText(prix + " DT");
                 button1.setVisible(true);
             } else {
                 image1.setImage(null);
@@ -227,7 +227,7 @@ public class StoreController implements Initializable {
                String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
                 image2.setImage(img2);
                 label2.setText(myList.get(CurrentPage + 1).getLabel());
-                label8.setText(prix);
+                label8.setText(prix +" DT");
                 button2.setVisible(true);
             } else {
                 image2.setImage(null);
@@ -241,7 +241,7 @@ public class StoreController implements Initializable {
                 String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
                 image3.setImage(img3);
                 label3.setText(myList.get(CurrentPage + 2).getLabel());
-                label9.setText(prix);
+                label9.setText(prix +" DT");
                 button3.setVisible(true);
             } else {
                 label3.setText("");
@@ -254,7 +254,7 @@ public class StoreController implements Initializable {
                 String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
                 image4.setImage(img4);
                 label4.setText(myList.get(CurrentPage + 3).getLabel());
-                label10.setText(prix);
+                label10.setText(prix+" DT");
                 button4.setVisible(true);
             } else {
                 image4.setImage(null);
@@ -268,7 +268,7 @@ public class StoreController implements Initializable {
                 String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
                 image5.setImage(img5);
                 label5.setText(myList.get(CurrentPage + 4).getLabel());
-                label11.setText(prix);
+                label11.setText(prix+" DT");
                 button5.setVisible(true);
             } else {
                 image5.setImage(null);
@@ -282,7 +282,7 @@ public class StoreController implements Initializable {
                 String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
                 image6.setImage(img6);
                 label6.setText(myList.get(CurrentPage + 5).getLabel());
-                label12.setText(prix);
+                label12.setText(prix +" DT");
                 button6.setVisible(true);
             } else {
                 image6.setImage(null);
