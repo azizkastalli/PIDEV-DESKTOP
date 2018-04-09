@@ -29,7 +29,7 @@ public class CrudLignecommande implements ICrud<Lignecommande> {
     
     @Override
     public void Create(Lignecommande obj) throws SQLException {
-          String requete = "INSERT INTO lignecommande (id_client,id_commande,id_produit,quantite) "
+          String requete = "INSERT INTO lignecommande (id_client,id_commande,id_produit,qte) "
                     + "VALUES(?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
@@ -46,7 +46,7 @@ public class CrudLignecommande implements ICrud<Lignecommande> {
     @Override
     public void Update(Lignecommande obj) throws SQLException {
              
-        String requete = "UPDATE lignecommande SET quantite=? "
+        String requete = "UPDATE lignecommande SET qte=? "
                     + "where id=?";
         
         PreparedStatement pst = cnx.prepareStatement(requete);
@@ -92,8 +92,8 @@ public class CrudLignecommande implements ICrud<Lignecommande> {
            
      return liste;
     }
-    public List<Lignecommande> SelectAll(int C) {
-        List<Lignecommande> liste = new ArrayList<>();
+    public ArrayList<Lignecommande> SelectAll(int C) {
+        ArrayList<Lignecommande> liste = new ArrayList<>();
         try {
         String requete=" SELECT * FROM lignecommande where id_commande=? ";
         

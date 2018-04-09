@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import static java.lang.Math.round;
+import static gui.controller.QuantiteController.qt;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -364,18 +365,137 @@ public class StoreController implements Initializable {
     }
     }
     @FXML
-    private void AjoutPanier(ActionEvent event) throws IOException {
+    private void AjoutPanier3(ActionEvent event) throws IOException {
         
             int i =page.getCurrentPageIndex()*6+2;
             p = ps.filtreEtat().get(i); //produit
-            System.out.println("prod"+p.getId());
             ArrayList<Object> nb_pdt = new ArrayList<>();
             nb_pdt.add(0, p.getId());
             System.out.println(nb_pdt);
             nb_pdt.add(1, 1);
             System.out.println(nb_pdt);
             panier.add(nb_pdt);
-            System.out.println(panier.get(0));
+            System.out.println(panier);
+            Stage stage = new Stage();
+         FXMLLoader loader=new FXMLLoader(getClass().getResource("/gui/Quantite.fxml"));
+        Parent root=loader.load();
+        QuantiteController dpc=loader.getController();
+        
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            
+
+        
+        }
+    @FXML
+    private void AjoutPanier1(ActionEvent event) throws IOException {
+        
+            int i =page.getCurrentPageIndex()*6;
+            p = ps.filtreEtat().get(i); //produit
+            ArrayList<Object> nb_pdt = new ArrayList<>();
+            nb_pdt.add(0, p.getId());
+            System.out.println(nb_pdt);
+            nb_pdt.add(1, 1);
+            System.out.println(nb_pdt);
+            panier.add(nb_pdt);
+            System.out.println(panier);
+            Stage stage = new Stage();
+         FXMLLoader loader=new FXMLLoader(getClass().getResource("/gui/Quantite.fxml"));
+        Parent root=loader.load();
+        QuantiteController dpc=loader.getController();
+        
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            
+
+        
+        }
+    @FXML
+    private void AjoutPanier2(ActionEvent event) throws IOException {
+        
+            int i =page.getCurrentPageIndex()*6+1;
+            p = ps.filtreEtat().get(i); //produit
+            ArrayList<Object> nb_pdt = new ArrayList<>();
+            nb_pdt.add(0, p.getId());
+            System.out.println(nb_pdt);
+            nb_pdt.add(1, 1);
+            System.out.println(nb_pdt);
+            panier.add(nb_pdt);
+            System.out.println(panier);
+            Stage stage = new Stage();
+         FXMLLoader loader=new FXMLLoader(getClass().getResource("/gui/Quantite.fxml"));
+        Parent root=loader.load();
+        QuantiteController dpc=loader.getController();
+        
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            
+
+        
+        }
+    @FXML
+    private void AjoutPanier4(ActionEvent event) throws IOException {
+        
+            int i =page.getCurrentPageIndex()*6+3;
+            p = ps.filtreEtat().get(i); //produit
+            ArrayList<Object> nb_pdt = new ArrayList<>();
+            nb_pdt.add(0, p.getId());
+            System.out.println(nb_pdt);
+            nb_pdt.add(1, 1);
+            System.out.println(nb_pdt);
+            panier.add(nb_pdt);
+            System.out.println(panier);
+            Stage stage = new Stage();
+         FXMLLoader loader=new FXMLLoader(getClass().getResource("/gui/Quantite.fxml"));
+        Parent root=loader.load();
+        QuantiteController dpc=loader.getController();
+        
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            
+
+        
+        }
+    @FXML
+    private void AjoutPanier5(ActionEvent event) throws IOException {
+        
+            int i =page.getCurrentPageIndex()*6+4;
+            p = ps.filtreEtat().get(i); //produit
+            ArrayList<Object> nb_pdt = new ArrayList<>();
+            nb_pdt.add(0, p.getId());
+            System.out.println(nb_pdt);
+            nb_pdt.add(1, 1);
+            System.out.println(nb_pdt);
+            panier.add(nb_pdt);
+            System.out.println(panier);
+            Stage stage = new Stage();
+         FXMLLoader loader=new FXMLLoader(getClass().getResource("/gui/Quantite.fxml"));
+        Parent root=loader.load();
+        QuantiteController dpc=loader.getController();
+        
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+            
+
+        
+        }
+    @FXML
+    private void AjoutPanier6(ActionEvent event) throws IOException {
+        
+            int i =page.getCurrentPageIndex()*6+5;
+            p = ps.filtreEtat().get(i); //produit
+            ArrayList<Object> nb_pdt = new ArrayList<>();
+            nb_pdt.add(0, p.getId());
+            System.out.println(nb_pdt);
+            nb_pdt.add(1, 1);
+            System.out.println(nb_pdt);
+            panier.add(nb_pdt);
+            System.out.println(panier);
             Stage stage = new Stage();
          FXMLLoader loader=new FXMLLoader(getClass().getResource("/gui/Quantite.fxml"));
         Parent root=loader.load();

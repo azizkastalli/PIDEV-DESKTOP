@@ -1,14 +1,14 @@
 
 
 .menu_bar{
-    -fx-background-color: #4169E1;
-    -fx-background-image:url("/utils/assets/menu.png");
+     -fx-background-color: #FE7F16;
+         -fx-background-image:url("/utils/assets/menu.png");
 }
 
 .main
 {
         -fx-background-color: white;
-        -fx-background-image:url("/utils/assets/menu2.png");
+        -fx-background-image:url("/utils/assets/em.jpg");
 }
 
 .menu_item{

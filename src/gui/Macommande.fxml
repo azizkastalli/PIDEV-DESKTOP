@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/panier.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.PanierController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/macommande.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MacommandeController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -126,16 +126,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="passercm" onMouseClicked="#Passercommande" prefHeight="72.0" prefWidth="239.0" style="-fx-background-color: blue;" text="Passer commande" textFill="WHITE">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label onMouseClicked="#ViderPanier" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="vider panier" textFill="#1231ff">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
+                  
                </children>
             </VBox>
          </children>

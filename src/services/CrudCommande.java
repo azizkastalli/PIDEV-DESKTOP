@@ -121,5 +121,35 @@ public class CrudCommande implements ICrud<Commande> {
          pSmt.executeUpdate();
 
     }
+    public int findlast(int id) throws SQLException {
+ 
+        PreparedStatement pSmt = cnx.prepareStatement("SELECT id from Commande WHERE id_client=? ORDER BY id DESC " );
+         pSmt.setInt(1,id);
+         ResultSet rs = pSmt.executeQuery();
+         rs.next();
+         return(rs.getInt(1));
+
+    }
+    public List<Commande> SelectAllclient(int id) {
+        List<Commande> liste = new ArrayList<>();
+        try {
+        String requete=" SELECT * FROM commande where id_client=?";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        pSmt.setInt(1,id);
+        ResultSet rs = pSmt.executeQuery();
+        
+           while(rs.next())
+           {
+            Commande C =new Commande(rs.getInt(2),rs.getInt(1),rs.getInt(3),rs.getDouble(4));   
+            liste.add(C);
+           }
+           
+     return liste;}
+        catch (SQLException ex) {
+            Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
     
 }

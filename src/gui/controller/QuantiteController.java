@@ -6,6 +6,7 @@
 package gui.controller;
 
 import entites.Produit;
+import static gui.controller.StoreController.p;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -15,6 +16,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import static gui.controller.StoreController.panier;
+import java.util.ArrayList;
 
 /**
  * FXML Controller class
@@ -46,8 +49,12 @@ public class QuantiteController implements Initializable {
         id.setText(""+StoreController.p.getId());
         nbrArticle.setText(nbrArticle.getText());
         qt = Integer.parseInt(nbrArticle.getText());
+        ArrayList<Object> nb_pdt = new ArrayList<>();
+            nb_pdt.add(0,StoreController.p.getId());
+            nb_pdt.add(1, qt);
         System.out.println(id.getText());
-        
+        panier.set(panier.size()-1, nb_pdt);
+        System.out.println(panier);
        ((Node)(event.getSource())).getScene().getWindow().hide();
     }
 

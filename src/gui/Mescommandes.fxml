@@ -3,15 +3,17 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/panier.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.PanierController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/mescommandes.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MescommandesController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -74,10 +76,10 @@
             </Label>
             <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
                <font>
-                  <Font size="22.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
                <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
                </padding>
             </Label>
             <Label text="10£" textFill="WHITE">
@@ -110,30 +112,32 @@
       </HBox>
       <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <ScrollPane fx:id="anchorGridPane" prefHeight="524.0" prefWidth="788.0" />
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <Pane prefHeight="508.0" prefWidth="869.0">
+               <children>
+                  <TableView fx:id="tableA" prefHeight="500.0" prefWidth="677.0">
+                    <columns>
+                      <TableColumn fx:id="ref" prefWidth="119.0" text="ref" />
+                        <TableColumn fx:id="prixntot" prefWidth="116.0" text="prix totale" />
+                        <TableColumn fx:id="etat" prefWidth="100.0" text="etat" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            </Pane>
             <VBox prefHeight="524.0" prefWidth="240.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <Label prefHeight="90.0" prefWidth="246.0" onMouseClicked="#Mescommandes" style="-fx-background-color: blue;" text="mes commandes" textFill="WHITE">
+                  <Label onMouseClicked="#modifier" prefHeight="90.0" prefWidth="240.0" style="-fx-background-color: blue;" text="consulter commande" textFill="WHITE">
                      <font>
-                        <Font size="28.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lprixtot" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="Label" textFill="#1231ff">
+                  <Label prefHeight="90.0" prefWidth="251.0" style="-fx-background-color: white;" text="Panier" textFill="BLUE">
                      <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="passercm" onMouseClicked="#Passercommande" prefHeight="72.0" prefWidth="239.0" style="-fx-background-color: blue;" text="Passer commande" textFill="WHITE">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label onMouseClicked="#ViderPanier" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="vider panier" textFill="#1231ff">
-                     <font>
-                        <Font size="28.0" />
+                        <Font size="24.0" />
                      </font>
                   </Label>
                </children>
