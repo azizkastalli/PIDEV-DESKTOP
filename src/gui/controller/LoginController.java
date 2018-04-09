@@ -35,6 +35,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.swing.JOptionPane;
 import services.CrudUser;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -79,7 +83,7 @@ public class LoginController implements Initializable {
                 loggduser.setRoles(us.GetUserRole(usr));
                 loggduser.setNom(us.GetUsername(usr));
                 loggduser.setPrenom(us.GetUserprenom(usr));
-                loggduser.setEmail(us.GetUsermail(usr));
+                loggduser.setEmail(us.GetUsermail(usr).getEmail());
                 JOptionPane.showMessageDialog(null, "client " + usr.getUsername() +"  id:"+loggduser.getId()+ "role: "+loggduser.getRoles()+"!");
               Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
@@ -138,6 +142,56 @@ public class LoginController implements Initializable {
            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         
     }
+        }
+    @FXML
+    public void forgotpass(ActionEvent event) {
+        User usr=new User();
+        CrudUser servu=new CrudUser();
+        String mailtop="";
+        usr.setUsername(tfusername.getText());
+        mailtop=servu.GetUsermail(usr).getEmail();
+        String mailcont=servu.GetUsermail(usr).getPassword();
+        try{
+            
+            String host ="smtp.gmail.com" ;
+            String user = "mohamedjihed.kammoun@esprit.tn";
+            String pass = "furiothunder";
+            String to = mailtop;
+            String from = "mohamedjihed.kammoun@esprit.tn";
+            String subject = "recuperation mot de passe";
+            String messageText = "le mot de passe pour l'utilisateur "+usr.getUsername()+" est " +servu.GetUsermail(usr).getPassword();
+            System.out.println(messageText);
+            boolean sessionDebug = false;
+
+            Properties props = System.getProperties();
+
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", host);
+            props.put("mail.smtp.port", "587");
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.required", "true");
+
+            java.security.Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+            Session mailSession = Session.getDefaultInstance(props, null);
+            mailSession.setDebug(sessionDebug);
+            Message msg = new MimeMessage(mailSession);
+            msg.setFrom(new InternetAddress(from));
+            InternetAddress[] address = {new InternetAddress(to)};
+            msg.setRecipients(Message.RecipientType.TO, address);
+            msg.setSubject(subject); msg.setSentDate(new Date());
+            msg.setText(messageText);
+
+           Transport transport=mailSession.getTransport("smtp");
+           transport.connect(host, user, pass);
+           transport.sendMessage(msg, msg.getAllRecipients());
+           transport.close();
+           System.out.println("message send successfully");
+        }catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+            
+           
         }
 } 
     

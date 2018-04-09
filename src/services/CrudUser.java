@@ -206,18 +206,21 @@ return false;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String GetUsermail(User usr) {
+    public User GetUsermail(User usr) {
+        User us=new User();
         try {
-            PreparedStatement myStmt = cnx.prepareStatement("select email from utilisateur where username = ?");
+            PreparedStatement myStmt = cnx.prepareStatement("select email,password from utilisateur where username = ?");
             myStmt.setString(1, usr.getUsername());
             ResultSet myRes= myStmt.executeQuery();
             while(myRes.next())
             {
-                return myRes.getString("email");
+                us.setUsername(usr.getUsername());
+                us.setEmail(myRes.getString("email"));
+                us.setPassword(myRes.getString("password"));
             }
                     } catch (SQLException ex) {
         }
-        return "";
+        return us;
     }
     
 }
