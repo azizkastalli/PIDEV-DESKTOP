@@ -133,13 +133,19 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         p.setId_categorie(id);
         p.setSexe(sexe.getValue());
         p.setNom_image(img.getText());
+        LocalDate daten = LocalDate.now();
         LocalDate date1 = this.date.getValue();
+        if (date1.isAfter(daten)) {
+            JOptionPane.showMessageDialog(null, "date superieur a la date d'aujourd'hui");
+        }
+        else {
         Date date2 = Date.valueOf(date1);
-        p.setDate_trouvaille(date2);
+        p.setDate_trouvaille(date2);}
         p.setLieu_trouvaille(lieu.getText());
+        p.setId_client((idc.getText()));
         
         myTool.Create(p);
-        JOptionPane.showMessageDialog(null, "declamation ajoutÃ©");
+        JOptionPane.showMessageDialog(null, "reclamation ajoute");
         
     }
 
@@ -163,13 +169,20 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
          switch (dest) {
             case "services1":
             
-            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
                 destination="RubriqueServices.fxml";
                 break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
+         }
+    
             
                 
             
-         }
+         
          if(destination!="")
         {
  
@@ -190,6 +203,7 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         }
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
+
     }
 
     @Override

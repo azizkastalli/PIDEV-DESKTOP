@@ -134,9 +134,14 @@ public class ModifierASDFController implements Initializable,MapComponentInitial
         P.setId_categorie(id);
          int id2 = Integer.parseInt(idc.getText());
         P.setId_client(id2);
+        LocalDate daten = LocalDate.now();
         LocalDate date1 = this.date.getValue();
+        if (date1.isAfter(daten)) {
+            JOptionPane.showMessageDialog(null, "date superieur a la date d'aujourd'hui");
+        }
+        else {
         Date date2 = Date.valueOf(date1);
-        P.setDate_trouvaille(date2);
+        P.setDate_trouvaille(date2);}
         P.setLieu_trouvaille(lieu.getText());
         P.setSexe(sexe.getValue());
         P.setNom_image(img.getText());

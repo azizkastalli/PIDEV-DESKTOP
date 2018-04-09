@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.ListeRdvController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ListeRdvController">
     <stylesheets>
         <URL value="@/gui/css/listerdv.css" />
     </stylesheets>
@@ -91,18 +91,21 @@
             </FontAwesomeIconView>
          </children>
       </HBox>
-      <TableView fx:id="TableA" layoutX="102.0" layoutY="100.0" prefHeight="200.0" prefWidth="598.0">
+      <TableView fx:id="TableA" layoutX="164.0" layoutY="126.0" prefHeight="200.0" prefWidth="495.0">
         <columns>
-          <TableColumn fx:id="idc" prefWidth="103.0" text="id_client" />
-          <TableColumn fx:id="coordonnees" prefWidth="99.0" text="coordonnees" />
-            <TableColumn fx:id="ida" prefWidth="98.0" text="id_animal" />
-            <TableColumn fx:id="date" prefWidth="107.0" text="date Rdv" />
-            <TableColumn fx:id="etat" prefWidth="102.0" text="Etat" />
-            <TableColumn fx:id="idd" prefWidth="88.0" text="id_dresseur" />
+          <TableColumn fx:id="idc" prefWidth="103.0" text="Id Client" />
+            <TableColumn fx:id="idd" prefWidth="98.0" text="Id Dresseur" />
+            <TableColumn fx:id="date" prefWidth="107.0" text="Date Rdv" />
+            <TableColumn fx:id="ida" prefWidth="102.0" text="Id Animal" />
+            <TableColumn fx:id="etat" prefWidth="88.0" text="Etat" />
         </columns>
       </TableView>
-      <Button layoutX="216.0" layoutY="341.0" mnemonicParsing="false" onAction="#Ajout" text="Ajouter Un Rdv" />
-      <Button layoutX="375.0" layoutY="341.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
-      <Button layoutX="517.0" layoutY="341.0" mnemonicParsing="false" onAction="#Modif" text="Modifier" />
+      <Button layoutX="228.0" layoutY="354.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
+      <Button layoutX="477.0" layoutY="354.0" mnemonicParsing="false" onAction="#Modif" text="Modifier" />
+      <Label layoutX="41.0" layoutY="79.0" text="Liste des Rendez-vous">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

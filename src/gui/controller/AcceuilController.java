@@ -6,6 +6,7 @@
 package gui.controller;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import static gui.controller.LoginController.loggduser;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -119,14 +120,28 @@ public class AcceuilController implements Initializable {
          dest=ev.getId();
          }
         
+         
          switch (dest) {
+            
+         
             case "ser":
             case "serv":
             
-            
+          switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
                 destination="RubriqueServices.fxml";
                 break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
          }
+     
+    
+                
+    
+                
+         
          if(destination!="")
         {
  

@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -107,6 +108,16 @@ public class RubriqueServicesController implements Initializable {
             
                 destination="ListeDresseur.fxml";
                 break;
+            case "services":
+            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
+                destination="RubriqueServices.fxml";
+                break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
                 
             
          }

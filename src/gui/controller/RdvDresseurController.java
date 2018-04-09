@@ -94,9 +94,14 @@ public class RdvDresseurController implements Initializable {
         Rdv_Dresseur r = new Rdv_Dresseur();
          int id= ida.getValue();
         r.setId_animal(id);
+        LocalDate daten = LocalDate.now();
         LocalDate date1 = this.date.getValue();
+        if (date1.isBefore(daten)) {
+            JOptionPane.showMessageDialog(null, "date inferieur a la date d'aujourd'hui");
+        }
+        else {
         Date date2 = Date.valueOf(date1);
-        r.setDate_rdv(date2);
+        r.setDate_rdv(date2);}
         //r.setCoordonnees(coordonnees.getText());
         r.setId_client(idc.getText());
         r.setId_dresseur(idd.getText());
@@ -134,13 +139,20 @@ public class RdvDresseurController implements Initializable {
          switch (dest) {
             case "services1":
             
-            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
                 destination="RubriqueServices.fxml";
                 break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
+         }
+    
             
                 
             
-         }
+         
          if(destination!="")
         {
  
@@ -161,6 +173,7 @@ public class RdvDresseurController implements Initializable {
         }
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
+
     }
     
 }

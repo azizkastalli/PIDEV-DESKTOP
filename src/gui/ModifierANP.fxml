@@ -192,7 +192,7 @@
          </children>
       </VBox>
       <Button fx:id="ajouter" layoutX="604.0" layoutY="377.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
-      <Label layoutX="424.0" layoutY="97.0" text="Modifier l'etat d'un animal perude">
+      <Label layoutX="424.0" layoutY="97.0" text="Modifier l'etat d'un animal perude" textFill="#340dcd">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

@@ -6,6 +6,7 @@
 package gui.controller;
 
 import static gui.controller.ListeRdvController.R;
+import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -24,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -45,12 +47,11 @@ public class ModifierRDVController implements Initializable {
     private TextField idd;
     @FXML
     private TextField idc;
-    @FXML
-    private TextField coordonnees;
+   
     @FXML
     private TextField ida;
     @FXML
-    private TextField etat;
+    private ComboBox<String> etat;
     private TextField lieu;
     @FXML
     private Pane menubar;
@@ -70,15 +71,20 @@ public class ModifierRDVController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         ida.setText(String.valueOf(ListeRdvController.R.getId_animal()));
-         ida.setEditable(false);
+        
+        ida.setText(String.valueOf(ListeRdvController.R.getId_animal()));
         idc.setText(String.valueOf(ListeRdvController.R.getId_client()));
         Date date1 = ListeRdvController.R.getDate_rdv();
         LocalDate date2 = date1.toLocalDate();
         date.setValue(date2);
         idd.setText(ListeRdvController.R.getId_dresseur());
-        etat.setText(String.valueOf(ListeRdvController.R.isEtat()));
-        coordonnees.setText(ListeRdvController.R.getCoordonnees());
+        etat.getItems().addAll("confirmé","non confirmé");
+        etat.setValue((ListeRdvController.R.getEtat1()));
+        ida.setEditable(false);
+        idc.setEditable(false);
+        date.setEditable(false);
+        idd.setEditable(false);
+       
     }    
 
 
@@ -102,13 +108,20 @@ public class ModifierRDVController implements Initializable {
          switch (dest) {
             case "services1":
             
-            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
                 destination="RubriqueServices.fxml";
                 break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
+         }
+    
             
                 
             
-         }
+         
          if(destination!="")
         {
  
@@ -129,6 +142,7 @@ public class ModifierRDVController implements Initializable {
         }
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
+
     }
 
     @FXML
@@ -144,29 +158,38 @@ public class ModifierRDVController implements Initializable {
             Stage stage=new Stage();
                CrudRdv_dresseur myTool = new CrudRdv_dresseur();
                
-               if ((ida.getText().equals("")) && (idc.getText().equals("")) && (date.getValue().toString().compareTo("") == 0) && (lieu.getText().compareTo("") == 0)&& (coordonnees.getText().compareTo("") == 0)&& (idd.getText().compareTo("") == 0)) {
+               if ((ida.getText().equals("")) && (idc.getText().equals("")) && (date.getValue().toString().compareTo("") == 0) && (lieu.getText().compareTo("") == 0)&& (idd.getText().compareTo("") == 0)) {
             JOptionPane.showMessageDialog(null,"un ou plusieurs champs sont vides");
 
             } 
                   else {
                       
-        int id = Integer.parseInt(ida.getText());
+        /*int id = Integer.parseInt(ida.getText());
         R.setId_animal(id);
          
         LocalDate date1 = this.date.getValue();
         Date date2 = Date.valueOf(date1);
         R.setDate_rdv(date2);
-        R.setCoordonnees(coordonnees.getText());
+        
         R.setId_client(idc.getText());
-        R.setId_dresseur(idd.getText());
-        boolean etatt = Boolean.getBoolean(etat.getText());
-        R.setEtat(etatt);
-      
+        R.setId_dresseur(idd.getText());*/
+        //boolean etatt = String.valueOf(etat.getText());
+         String etatt= etat.getValue();
+       switch (etatt)
+       {
+           case "non confirmé": 
+               R.setEtat(false);
+               break ;
+           case "confirmé":
+               R.setEtat(true);
+               break;
+       }
+                   System.out.println(etatt);
         myTool.Update(R);
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
            alert1.setTitle("I have a great message for you!");
            alert1.setHeaderText(null);
-           alert1.setContentText("Modification rÃ©ussite !");
+           alert1.setContentText("Modification reussite !");
            alert1.showAndWait();
       Parent root = FXMLLoader.load(getClass().getResource("/gui/ListeRdv.fxml"));
             Scene scene = new Scene(root);

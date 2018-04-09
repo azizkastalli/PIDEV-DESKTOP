@@ -6,4 +6,14 @@
    .menu_bar{
     -fx-background-color: aquamarine;
 }
+.menu_item{
+    -fx-font-weight:bold;
+    -fx-font-size:18;
+    -fx-text-fill: white;
+}
 
+.menu_item:hover{
+    -fx-font-weight:bold;
+    -fx-text-fill: #4f86dd;
+    -fx-background-color: white;
+}

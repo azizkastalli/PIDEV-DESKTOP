@@ -6,6 +6,7 @@
 package gui.controller;
 
 import entites.User;
+import static gui.controller.LoginController.loggduser;
 import static gui.controller.ServiceAdminController.P;
 import java.io.IOException;
 import java.net.URL;
@@ -96,7 +97,7 @@ public class ListeDresseurController implements Initializable {
 
     @FXML
     private void Menu(MouseEvent event) {
-        String dest=""; 
+       String dest=""; 
         String destination=""; 
         String type = event.getSource().getClass().getName();
         
@@ -114,13 +115,20 @@ public class ListeDresseurController implements Initializable {
          switch (dest) {
             case "services1":
             
-            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
                 destination="RubriqueServices.fxml";
                 break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
+         }
+    
             
                 
             
-         }
+         
          if(destination!="")
         {
  
@@ -141,6 +149,7 @@ public class ListeDresseurController implements Initializable {
         }
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
+
     }
 
     @FXML

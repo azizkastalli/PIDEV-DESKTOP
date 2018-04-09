@@ -22,9 +22,9 @@
         <URL value="@/gui/css/animalsdfadmin.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="10.0" layoutY="10.0" prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
+      <VBox layoutX="2.0" layoutY="-1.0" prefHeight="586.0" prefWidth="349.0" style="-fx-background-color: #333645;">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="75.0" prefWidth="341.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="70.0" prefWidth="328.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -188,7 +188,7 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <TableView fx:id="tableA" editable="true" layoutX="25.0" layoutY="52.0" prefHeight="302.0" prefWidth="652.0">
+                  <TableView fx:id="tableA" editable="true" layoutX="35.0" layoutY="68.0" prefHeight="302.0" prefWidth="652.0">
                      <columns>
                         <TableColumn fx:id="idca" prefWidth="85.33334350585938" text="id_categorie" />
                         <TableColumn fx:id="sexe" prefWidth="86.33331298828125" text="sexe" />
@@ -201,6 +201,11 @@
                   <Button layoutX="208.0" layoutY="408.0" mnemonicParsing="false" onAction="#Modif" prefHeight="30.0" prefWidth="83.0" text="Modifier" />
                   <Button layoutX="339.0" layoutY="407.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="83.0" text="Supprimer" />
                   <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" onAction="#Referto" text="AnimalPerdu" />
+                  <Label layoutX="76.0" layoutY="20.0" text="Liste des animaus sans domicile" textFill="#1212d0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
          </children>

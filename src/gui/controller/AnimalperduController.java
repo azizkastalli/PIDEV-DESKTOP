@@ -19,6 +19,7 @@ import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import entites.Animal;
 import java.net.URL;
 import entites.AnimalPerdu;
+import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -124,9 +125,14 @@ public class AnimalperduController implements Initializable, MapComponentInitial
         Animal a = new Animal();
         int id= ida.getValue();
         p.setId_animal(id);
+        LocalDate daten = LocalDate.now();
         LocalDate date1 = this.date.getValue();
+        if (date1.isAfter(daten)) {
+            JOptionPane.showMessageDialog(null, "date superieur a la date d'aujourd'hui");
+        }
+        else {
         Date date2 = Date.valueOf(date1);
-        p.setDate_disparition(date2);
+        p.setDate_disparition(date2);}
         p.setLieu_dispairition(lieu.getText());
        //boolean etatt = Boolean.getBoolean(etat.getText());
         //p.setEtat(etatt);
@@ -156,13 +162,20 @@ public class AnimalperduController implements Initializable, MapComponentInitial
          switch (dest) {
             case "services":
             
-            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
                 destination="RubriqueServices.fxml";
                 break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
+         }
+    
             
                 
             
-         }
+         
          if(destination!="")
         {
  

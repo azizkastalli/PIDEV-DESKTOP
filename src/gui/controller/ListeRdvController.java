@@ -7,6 +7,7 @@ package gui.controller;
 
 import entites.AnimalPerdu;
 import entites.Rdv_Dresseur;
+import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -30,6 +31,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -55,8 +57,7 @@ public class ListeRdvController implements Initializable {
     
     @FXML
     private TableColumn<Rdv_Dresseur, String> idc;
-    @FXML
-    private TableColumn<Rdv_Dresseur, String> coordonnees;
+    
     @FXML
     private TableColumn<Rdv_Dresseur, Integer> ida;
     @FXML
@@ -74,13 +75,13 @@ private ObservableList <Rdv_Dresseur> data;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          CrudRdv_dresseur myTool = new CrudRdv_dresseur();
-        Rdv_Dresseur p = new Rdv_Dresseur();
+       // Rdv_Dresseur p = new Rdv_Dresseur();
         data= FXCollections.observableArrayList();
         try {
             for(int i=0;i<myTool.SelectAll().size();i++)
             {
-                p=(Rdv_Dresseur) myTool.SelectAll().get(i);
-                data.add(p);
+                R=(Rdv_Dresseur) myTool.SelectAll().get(i);
+                data.add(R);
             }
         } catch (SQLException ex) {
             Logger.getLogger(ListeRdvController.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,20 +89,73 @@ private ObservableList <Rdv_Dresseur> data;
 
         
         ida.setCellValueFactory(new PropertyValueFactory<>("id_animal"));
-        date.setCellValueFactory(new PropertyValueFactory<>("date_rdv"));
-        coordonnees.setCellValueFactory(new PropertyValueFactory<>("coordonnees"));
-        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
-        idc.setCellValueFactory(new PropertyValueFactory<>("id_client"));
         idd.setCellValueFactory(new PropertyValueFactory<>("id_dresseur"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date_rdv"));
+        etat.setCellValueFactory(new PropertyValueFactory<>("etat1"));
+        idc.setCellValueFactory(new PropertyValueFactory<>("id_client"));
+        
         
         
 
-        //tableA.setItems(null);
+       TableA.setItems(null);
        TableA.setItems(data);
     }    
 
     @FXML
     private void Menu(MouseEvent event) {
+        String dest=""; 
+        String destination=""; 
+        String type = event.getSource().getClass().getName();
+        
+        if(type.equals("javafx.scene.control.Label"))
+          {
+          Label ev = (Label) event.getSource();
+          dest=ev.getId();
+          }
+         else if(type.equals("javafx.scene.image.ImageView"))
+         {
+         ImageView ev = (ImageView) event.getSource();
+         dest=ev.getId();
+         }
+        
+         switch (dest) {
+            case "services1":
+            
+            switch (loggduser.getRoles()){
+             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
+                destination="RubriqueServices.fxml";
+                break;
+                
+             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                 destination="ListeRdv.fxml";
+                break;}
+         }
+    
+            
+                
+            
+         
+         if(destination!="")
+        {
+ 
+        
+         Parent home_page_parent = null;
+            try {
+                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                      
+                app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+       
+        }
+        MenuController menu = new MenuController();
+        menu.GestionMenu(event);
+
     }
 
     @FXML
@@ -140,7 +194,7 @@ private ObservableList <Rdv_Dresseur> data;
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
         alert1.setTitle("I have a great message for you!");
         alert1.setHeaderText(null);
-        alert1.setContentText("Suppression Réussite réussite !");
+        alert1.setContentText("Suppression RÃ©ussite rÃ©ussite !");
         alert1.showAndWait();
             
            Stage stage=new Stage();

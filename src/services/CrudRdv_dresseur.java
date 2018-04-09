@@ -95,10 +95,16 @@ String requete = "SELECT * FROM rdv_dresseur";
 
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-              
-                Rdv_Dresseur R=new Rdv_Dresseur(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getInt(4), rs.getDate(5), rs.getTime(6), rs.getBoolean(7), rs.getString(8));
+              String etat;
+               if (rs.getBoolean(7)==true){
+                   
+               etat = "confirmé";
+                Rdv_Dresseur R=new Rdv_Dresseur(rs.getInt(1), rs.getString(2), rs.getString(4), rs.getInt(8), rs.getDate(5), rs.getTime(6), rs.getString(3), etat);
                 listRdv.add(R);
-
+               }
+               else etat = "non confirmé";
+               Rdv_Dresseur R=new Rdv_Dresseur(rs.getInt(1), rs.getString(2), rs.getString(4), rs.getInt(8), rs.getDate(5), rs.getTime(6), rs.getString(3), etat);
+                listRdv.add(R);
             }
         
 
