@@ -6,6 +6,7 @@
 package entites;
 
 import java.sql.Date;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -17,27 +18,49 @@ public class AnimalPerdu {
     private int id_animal;
     private boolean etat;
     private Date date_disparition;
-    private String lieu_dispairition; 
+    private String lieu_disparition; 
+    private String etat1;
+  
+
+   
+    
+    
 
     
         public AnimalPerdu() {}
 
-        public AnimalPerdu(int id, int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
+        public AnimalPerdu(int id, int id_animal,  Date date_disparition, String lieu_disparition,boolean etat) {
         this.id = id;
         this.id_animal = id_animal;
         this.etat = etat;
         this.date_disparition = date_disparition;
-        this.lieu_dispairition = lieu_dispairition;
+        this.lieu_disparition = lieu_disparition;
     }
+
+    public AnimalPerdu(int id, int id_animal, Date date_disparition, String lieu_disparition, String etat1) {
+        this.id = id;
+        this.id_animal = id_animal;
+        this.date_disparition = date_disparition;
+        this.lieu_disparition = lieu_disparition;
+        this.etat1 = etat1;
+    }
+
+    
     
 
 
-        public AnimalPerdu( int id_animal, boolean etat, Date date_disparition, String lieu_dispairition) {
+        public AnimalPerdu( int id_animal,  Date date_disparition, String lieu_disparition, boolean etat) {
         
         this.id_animal = id_animal;
-        this.etat = etat;
         this.date_disparition = date_disparition;
-        this.lieu_dispairition = lieu_dispairition;
+        this.lieu_disparition = lieu_disparition;
+        this.etat = etat;
+        
+        
+    }
+
+    public AnimalPerdu(boolean add) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -46,7 +69,7 @@ public class AnimalPerdu {
 
     @Override
     public String toString() {
-        return "AnimalPerdu{" + "id=" + id + ", id_animal=" + id_animal + ", etat=" + etat + ", date_disparition=" + date_disparition + ", lieu_dispairition=" + lieu_dispairition + '}';
+        return "AnimalPerdu{" + "id=" + id + ", id_animal=" + id_animal + ", etat=" + etat + ", date_disparition=" + date_disparition + ", lieu_disparition=" + lieu_disparition + '}';
     }
 
     @Override
@@ -96,12 +119,21 @@ public class AnimalPerdu {
         this.date_disparition = date_disparition;
     }
 
-    public String getLieu_dispairition() {
-        return lieu_dispairition;
+    public String getLieu_disparition() {
+        return lieu_disparition;
     }
 
-    public void setLieu_dispairition(String lieu_dispairition) {
-        this.lieu_dispairition = lieu_dispairition;
+    public void setLieu_dispairition(String lieu_disparition) {
+        this.lieu_disparition = lieu_disparition;
     }
 
+    public String getEtat1() {
+        return etat1;
+    }
+
+    public void setEtat1(String etat1) {
+        this.etat1 = etat1;
+    }
+
+   
 }

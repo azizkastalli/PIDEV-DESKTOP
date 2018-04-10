@@ -13,139 +13,153 @@
 
 <VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/rubriqueservices.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RubriqueServicesController">
    <children>
-      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
-         <effect>
-            <DropShadow height="10.0" radius="4.5" width="10.0" />
-         </effect>
+      <VBox>
          <children>
-            <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../utils/assets/Zanimauxlogo.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="25.0" />
-               </HBox.margin>
-            </ImageView>
-            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="35.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="11.0" left="30.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="25.0" top="11.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
-               <font>
-                  <Font size="22.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="8.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
-               </padding>
-            </Label>
-            <Label text="10£" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Label>
-            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
-               <HBox.margin>
-                  <Insets left="12.0" />
-               </HBox.margin>
-            </FontAwesomeIconView>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
-               <HBox.margin>
-                  <Insets left="12.0" />
-               </HBox.margin>
-            </FontAwesomeIconView>
-            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <image>
-                  <Image url="@../utils/assets/profile.png" />
-               </image>
-            </ImageView>
-         </children>
-      </HBox>
-      <HBox prefHeight="529.0" prefWidth="1025.0">
-         <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
+            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
+               <effect>
+                  <DropShadow height="10.0" radius="4.5" width="10.0" />
+               </effect>
                <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
+                  <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/Zanimauxlogo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
                      <font>
-                        <Font size="59.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="35.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="11.0" left="30.0" top="11.0" />
+                     </padding>
                   </Label>
-                  <Label layoutX="121.0" layoutY="277.0" text="AFFICHE RUBRIQUES SERVICES : DRESSAGE / RECLAMATIONS ...">
+                  <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="25.0" top="11.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="23.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
                      <font>
                         <Font size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="8.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="8.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="23.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label text="10£" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
+                     <HBox.margin>
+                        <Insets left="12.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Pane>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../utils/assets/profile.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox prefHeight="528.0" prefWidth="1025.0">
+         <children>
+            <Pane prefHeight="524.0" prefWidth="378.0">
+               <children>
+                  <ImageView fx:id="animp" fitHeight="443.0" fitWidth="344.0" layoutX="13.0" layoutY="5.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/téléchargement.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="anp" layoutX="25.0" layoutY="451.0" onMouseClicked="#Menu" prefHeight="61.0" prefWidth="289.0" text="Declarer un animal perdu">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <VBox prefHeight="524.0" prefWidth="240.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
+            <Pane prefHeight="524.0" prefWidth="410.0">
                <children>
-                  <Label style="-fx-background-color: blue;" text="Label">
+                  <ImageView fx:id="ans" fitHeight="445.0" fitWidth="313.0" layoutX="32.0" layoutY="4.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/gallery-col4-img-05.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="anisdf" layoutX="46.0" layoutY="461.0" onMouseClicked="#Menu" prefHeight="46.0" prefWidth="278.0" text="Declare un animal sans domicile" textAlignment="CENTER">
                      <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
-                     </font>
-                  </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
-                     <font>
-                        <Font size="62.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
                </children>
-            </VBox>
+            </Pane>
+            <Pane prefHeight="524.0" prefWidth="381.0">
+               <children>
+                  <ImageView fx:id="rdv" fitHeight="448.0" fitWidth="299.0" layoutX="19.0" layoutY="5.0" onMouseClicked="#Menu" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/images.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="rdvs" layoutX="14.0" layoutY="452.0" prefHeight="52.0" prefWidth="303.0" text="Afficher la liste des dresseurs">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
       </HBox>
    </children>

@@ -12,17 +12,17 @@ package entites;
 public class Favoris {
    private int id;
    private int id_client;
-   private int id_produit;
+   private String id_produit;
 
     public Favoris(){}
 
-    public Favoris(int id, int id_client, int id_produit) {
+    public Favoris(int id, int id_client, String id_produit) {
         this.id = id;
         this.id_client = id_client;
         this.id_produit = id_produit;
     }
     
-    public Favoris(int id_client, int id_produit) {
+    public Favoris(int id_client, String id_produit) {
         this.id_client = id_client;
         this.id_produit = id_produit;
     }
@@ -35,7 +35,7 @@ public class Favoris {
         return id_client;
     }
 
-    public int getId_produit() {
+    public String getId_produit() {
         return id_produit;
     }
 
@@ -43,7 +43,7 @@ public class Favoris {
         this.id_client = id_client;
     }
 
-    public void setId_produit(int id_produit) {
+    public void setId_produit(String id_produit) {
         this.id_produit = id_produit;
     }
    

@@ -5,19 +5,33 @@
  */
 package gui.controller;
 
+import entites.Produit;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import javax.management.Notification;
+import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
+import services.CrudProduit;
 
 /**
  * FXML Controller class
@@ -25,16 +39,64 @@ import javafx.stage.Stage;
  * @author iheb bf
  */
 public class ProduitAdminController implements Initializable {
-
+ 
+    public static Produit P = new Produit();
+    
     @FXML
     private HBox ev;
-
+    @FXML
+    private TableView<Produit> tableA;
+    @FXML
+    private TableColumn<Produit, String> nomproduit;
+    @FXML
+    private TableColumn<Produit, String> caracteristique;
+    @FXML
+    private TableColumn<Produit, Double> prixnouv;
+    @FXML
+    private TableColumn<Produit, Double> prixanc;
+    @FXML
+    private TableColumn<Produit, String> etat;
+    @FXML
+    private TableColumn<Produit, String> description;
+    private ObservableList <Produit> data;
+    @FXML
+    private Button modifier;
+    @FXML
+    private TableColumn<Produit, Integer> quantite;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
+         
+        CrudProduit myTool = new CrudProduit();
+        Produit p = new Produit();
+        data= FXCollections.observableArrayList();
+        for(int i=0;i<myTool.SelectAll().size();i++)
+        {
+            p=(Produit) myTool.SelectAll().get(i);
+            data.add(p);
+            if(p.getQuantite()<10  && p.getEtat().equals("confirmer")){
+         Notifications notification = Notifications.create()
+                .title("Notifiaction Quantité")
+                .text("Quantité "+p.getLabel()+" est inferieur a 10!!!")
+                .hideAfter(Duration.seconds(20))
+                .position(Pos.BOTTOM_RIGHT);   
+        
+        notification.showInformation();
+        }
+            
+        }
+        nomproduit.setCellValueFactory(new PropertyValueFactory<>("label"));
+        caracteristique.setCellValueFactory(new PropertyValueFactory<>("caracteristiques"));
+        prixnouv.setCellValueFactory(new PropertyValueFactory<>("prix_nouv"));
+        prixanc.setCellValueFactory(new PropertyValueFactory<>("prix_ancien"));
+        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));
+        tableA.setItems(data);
+        
     }    
 
   @FXML
@@ -178,4 +240,29 @@ public class ProduitAdminController implements Initializable {
         
     }
     }
+
+    @FXML
+    private void modifier(ActionEvent event) throws IOException {
+         if (tableA.getSelectionModel().getSelectedItem()!=null)
+            {
+            ((Node)event.getSource()).getScene().getWindow().hide();
+            P=tableA.getSelectionModel().getSelectedItem();
+            
+                System.out.println(P.getLabel());
+            //id.setText(String.valueOf(p.getId()));
+           
+            
+            Stage stage=new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/modifProd.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); 
+            }
+            else 
+            {
+                 JOptionPane.showMessageDialog(null,"Veuillez selectionner un produit");
+            }
+        
+    }
+
 }

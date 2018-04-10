@@ -5,6 +5,7 @@
  */
 package MainTest;
 
+
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,8 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/SessionEncheres.fxml"));
+
+            root = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
         } catch (IOException ex) {
 
         }

@@ -21,6 +21,7 @@ public class Rdv_Dresseur {
     private Time duree_seance;
     private boolean etat;
     private String id_dresseur;
+    private String etat1;
 
     public Rdv_Dresseur() {}
     
@@ -33,6 +34,18 @@ public class Rdv_Dresseur {
         this.etat = etat;
         this.id_dresseur = id_dresseur;
     }
+
+    public Rdv_Dresseur(int id, String id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, String id_dresseur, String etat1) {
+        this.id = id;
+        this.id_client = id_client;
+        this.coordonnees = coordonnees;
+        this.id_animal = id_animal;
+        this.date_rdv = date_rdv;
+        this.duree_seance = duree_seance;
+        this.id_dresseur = id_dresseur;
+        this.etat1 = etat1;
+    }
+    
 
     public Rdv_Dresseur(int id, String id_client, String coordonnees, int id_animal, Date date_rdv, Time duree_seance, boolean etat, String id_dresseur) {
         this.id = id;
@@ -106,6 +119,15 @@ public class Rdv_Dresseur {
     public int getId() {
         return id;
     }
+
+    public String getEtat1() {
+        return etat1;
+    }
+
+    public void setEtat1(String etat1) {
+        this.etat1 = etat1;
+    }
+    
 
     @Override
     public int hashCode() {

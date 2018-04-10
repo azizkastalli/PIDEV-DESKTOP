@@ -45,13 +45,9 @@ public class EspaceMagasinController implements Initializable {
     @FXML
     private ImageView addstore;
     @FXML
-    private ImageView gererenchers;
-    @FXML
     private ImageView gererproduit;
     @FXML
     private Label espace;
-    @FXML
-    private ImageView addenchers;
 
     /**
      * Initializes the controller class.

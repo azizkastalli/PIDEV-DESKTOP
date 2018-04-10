@@ -16,7 +16,7 @@ public class Livraison {
    private int  id_client;
    private int  id_commande;
    private int  id_livreur;
-
+   private String  etat1;
     public Livraison() {}
 
     public Livraison(int etat, int id, int id_client, int id_commande, int id_livreur) {
@@ -25,6 +25,13 @@ public class Livraison {
         this.id_client = id_client;
         this.id_commande = id_commande;
         this.id_livreur = id_livreur;
+        switch(etat){
+            case 0 : etat1="en cours de livraison";
+            break;
+            case 1 : etat1="livraison terminée";
+            break;
+        
+        }
     }
 
     public Livraison(int etat, int id_client, int id_commande, int id_livreur) {
@@ -32,6 +39,16 @@ public class Livraison {
         this.id_client = id_client;
         this.id_commande = id_commande;
         this.id_livreur = id_livreur;
+        switch(etat){
+            case 0 : etat1="en cours de livraison";
+            break;
+            case 1 : etat1="livraison terminée";
+            break;
+        
+        }
+    }
+    public String getEtat1() {
+        return etat1;
     }
 
     public int getEtat() {
@@ -72,6 +89,9 @@ public class Livraison {
 
     public void setId_livreur(int id_livreur) {
         this.id_livreur = id_livreur;
+    }
+    public void setEtat1(String etat1) {
+        this.etat1 = etat1;
     }
   
 

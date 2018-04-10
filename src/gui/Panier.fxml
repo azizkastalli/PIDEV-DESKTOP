@@ -3,11 +3,11 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -56,7 +56,7 @@
                   <Insets bottom="11.0" left="23.0" top="11.0" />
                </padding>
             </Label>
-            <Label fx:id="veterinaire" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
                <font>
                   <Font size="22.0" />
                </font>
@@ -74,10 +74,10 @@
             </Label>
             <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="22.0" />
                </font>
                <padding>
-                  <Insets bottom="11.0" left="23.0" top="11.0" />
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
                </padding>
             </Label>
             <Label text="10£" textFill="WHITE">
@@ -110,38 +110,30 @@
       </HBox>
       <HBox prefHeight="529.0" prefWidth="1025.0">
          <children>
-            <Pane prefHeight="524.0" prefWidth="788.0">
-               <children>
-                  <Label layoutX="129.0" layoutY="146.0" text="PUT CONTENT HERE !!">
-                     <font>
-                        <Font size="59.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="211.0" layoutY="289.0" text="dans cette page on affiche le panier">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
+            <ScrollPane fx:id="anchorGridPane" prefHeight="524.0" prefWidth="788.0" />
             <VBox prefHeight="524.0" prefWidth="240.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <children>
-                  <Label style="-fx-background-color: blue;" text="Label">
+                  <Label prefHeight="90.0" prefWidth="246.0" onMouseClicked="#Mescommandes" style="-fx-background-color: blue;" text="mes commandes" textFill="WHITE">
                      <font>
-                        <Font size="62.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
+                  <Label fx:id="lprixtot" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="Label" textFill="#1231ff">
                      <font>
-                        <Font size="62.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label style="-fx-background-color: blue;" text="Label">
+                  <Label fx:id="passercm" onMouseClicked="#Passercommande" prefHeight="72.0" prefWidth="239.0" style="-fx-background-color: blue;" text="Passer commande" textFill="WHITE">
                      <font>
-                        <Font size="62.0" />
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <Label onMouseClicked="#ViderPanier" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="vider panier" textFill="#1231ff">
+                     <font>
+                        <Font size="28.0" />
                      </font>
                   </Label>
                </children>

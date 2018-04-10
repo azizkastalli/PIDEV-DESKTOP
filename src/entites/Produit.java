@@ -17,7 +17,7 @@ public class Produit {
    private String description;
    private String etat;
    private int id;
-   private int id_categorie;
+   private String id_categorie;
    private int id_propietaire;
    private String nom_image;
    private double poid;
@@ -26,11 +26,11 @@ public class Produit {
    private int quantite;
    private double vote;
    private String label;
-   private ImageView image;
+ //  private ImageView image;
 
     public Produit(){}
    
-    public Produit(String caracteristiques, String description, String etat, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
+    public Produit(String caracteristiques, String description, String etat, String id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
         this.caracteristiques = caracteristiques;
         this.description = description;
         this.etat = etat;
@@ -43,10 +43,10 @@ public class Produit {
         this.quantite = quantite;
         this.vote = vote;
         this.label = label;
-        this.image = new ImageView(new Image("/utils/assets/"+nom_image));
+      //  this.image = new ImageView(new Image("/utils/assets/"+nom_image));
     }
 
-    public Produit(String caracteristiques, String description, String etat, int id, int id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
+    public Produit(String caracteristiques, String description, String etat, int id, String id_categorie, int id_propietaire, String nom_image, double poid, double prix_ancien, double prix_nouv, int quantite, double vote, String label) {
         this.caracteristiques = caracteristiques;
         this.description = description;
         this.etat = etat;
@@ -60,8 +60,34 @@ public class Produit {
         this.quantite = quantite;
         this.vote = vote;
         this.label = label;
-        this.image = new ImageView(new Image("/utils/assets/"+nom_image));
+        //this.image = new ImageView(new Image("/utils/assets/"+nom_image));
     }
+
+    public Produit(String etat, String label) {
+        this.etat = etat;
+        this.label=label;
+    }
+
+    public Produit(String caracteristiques, String description, String etat, String id_categorie, Integer id_propietaire, String nom_image, Double poid, Double prix_ancien, Double prix_nouv, Integer quantite, Double vote) {
+        this.caracteristiques = caracteristiques;
+        this.description = description;
+        this.etat = etat;
+        this.id_categorie = id_categorie;
+        this.id_propietaire = id_propietaire;
+        this.nom_image = nom_image;
+        this.poid = poid;
+        this.prix_ancien = prix_ancien;
+        this.prix_nouv = prix_nouv;
+        this.quantite = quantite;
+        this.vote = vote;
+    }
+
+    @Override
+    public String toString() {
+        return "Produit{" + "caracteristiques=" + caracteristiques + ", description=" + description + ", etat=" + etat + ", id_categorie=" + id_categorie + ", id_propietaire=" + id_propietaire + ", nom_image=" + nom_image + ", poid=" + poid + ", prix_ancien=" + prix_ancien + ", prix_nouv=" + prix_nouv + ", quantite=" + quantite + ", vote=" + vote + ", label=" + label + '}';
+    }
+
+   
     
     
 
@@ -81,7 +107,7 @@ public class Produit {
         return id;
     }
 
-    public int getId_categorie() {
+    public String getId_categorie() {
         return id_categorie;
     }
 
@@ -129,7 +155,7 @@ public class Produit {
         this.etat = etat;
     }
 
-    public void setId_categorie(int id_categorie) {
+    public void setId_categorie(String id_categorie) {
         this.id_categorie = id_categorie;
     }
 
@@ -165,13 +191,13 @@ public class Produit {
         this.label = label;
     }
 
-    public ImageView getImage() {
+    /*public ImageView getImage() {
         return image;
     }
 
     public void setImage(ImageView image) {
         this.image = image;
     }
-    
+    */
     
 }

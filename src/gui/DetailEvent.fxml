@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/store.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.DetailEventController">
+   <children>
+      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0" />
+         </effect>
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/Zanimauxlogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="35.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="30.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="25.0" top="11.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="espace" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Espace" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label text="10£" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Label>
+            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../utils/assets/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="528.0" prefWidth="1025.0">
+         <children>
+            <Pane layoutX="513.0" layoutY="23.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
+               <children>
+                  <Text fx:id="tfDescription" fill="#44608d" layoutX="50.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="425.0000060029706">
+                     <font>
+                        <Font name="Berlin Sans FB" size="18.0" />
+                     </font></Text>
+                  <Label fx:id="titre" layoutX="14.0" layoutY="22.0" prefHeight="54.0" prefWidth="469.0" textFill="#77777a" underline="true">
+                     <font>
+                        <Font name="Bell MT Bold" size="45.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nbre" layoutX="50.0" layoutY="94.0" prefHeight="26.0" prefWidth="386.0" textFill="#44608d">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="USER" glyphStyle="-fx-fill:#44608d" layoutX="14.0" layoutY="115.0" size="2em" />
+                  <FontAwesomeIconView glyphName="COMMENTING" glyphStyle="-fx-fill:#44608d" layoutX="11.0" layoutY="252.0" size="2em" />
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="164.0" size="2em" />
+                  <Label fx:id="dateD" layoutX="50.0" layoutY="143.0" prefHeight="26.0" prefWidth="419.0" textFill="#44608d">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#44608d" layoutX="12.0" layoutY="207.0" size="2em" />
+                  <Label fx:id="dateF" layoutX="55.0" layoutY="186.0" prefHeight="26.0" prefWidth="409.0" textFill="#44608d">
+                     <font>
+                        <Font name="System Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="butt" layoutX="153.0" layoutY="404.0" mnemonicParsing="false" onAction="#ReservAnnule" prefHeight="44.0" prefWidth="214.0" style="-fx-background-color: #00A2d3;" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="14.0" layoutY="25.0" prefHeight="462.0" prefWidth="494.0" style="-fx-border-color: #88888c; -fx-border-radius: 2em; -fx-border-width: 3;">
+               <children>
+                  <ImageView fx:id="image1" fitHeight="385.0" fitWidth="442.0" layoutX="47.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="fbButt" layoutX="142.0" layoutY="404.0" mnemonicParsing="false" onAction="#FBClick" prefHeight="44.0" prefWidth="206.0" style="-fx-background-color: #3b5998;" text="Partager" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <FontAwesomeIconView glyphName="FACEBOOK_SQUARE" glyphStyle="-fx-fill:#fff" layoutX="155.0" layoutY="438.0" size="3em" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.ListeDresseurController">
+    <stylesheets>
+        <URL value="@/gui/css/listedresseur.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tableView" layoutX="216.0" layoutY="96.0" prefHeight="250.0" prefWidth="373.0">
+        <columns>
+          <TableColumn fx:id="nom" prefWidth="124.0" text="Nom" />
+          <TableColumn fx:id="prenom" prefWidth="116.0" text="Prenom" />
+            <TableColumn fx:id="email" prefWidth="132.0" text="Email" />
+        </columns>
+      </TableView>
+      <Label layoutX="30.0" layoutY="66.0" prefHeight="30.0" prefWidth="157.0" text="Liste de dresseur">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Pane fx:id="menubar">
+         <children>
+            <HBox layoutX="-1.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/rdvdresseur.css">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/Zanimauxlogo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="acceuil1" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#756c6b">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="30.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="services1" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="25.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="produits1" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="23.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="veterinaires1" onMouseClicked="#Menu" prefHeight="54.0" prefWidth="129.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="8.0" top="11.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets right="2.0" top="-5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label onMouseClicked="#Menu" prefHeight="54.0" prefWidth="111.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="8.0" top="11.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="-5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="10£">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="FF0000" size="2em">
+                     <HBox.margin>
+                        <Insets left="20.0" top="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="ff0000" size="2em">
+                     <HBox.margin>
+                        <Insets left="20.0" top="8.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Button fx:id="Rdv" layoutX="377.0" layoutY="361.0" mnemonicParsing="false" onAction="#SetRdv" text="Faire un RDV" />
+   </children>
+</AnchorPane>

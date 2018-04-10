@@ -6,6 +6,7 @@
 package gui.controller;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +52,17 @@ public class MenuController {
                 destination="RubriqueVeterinaire.fxml";
                 break;
             case "espace":
+                switch(loggduser.getRoles()){
+                    case"a:1:{i:0;s:12:\"ROLE_MAGASIN\";}":
                 destination="EspaceMagasin.fxml";
+                break;
+                case"a:1:{i:0;s:12:\"ROLE_LIVREUR\";}":
+                destination="EspaceLivreur.fxml";
+                break;
+                case"a:1:{i:0;s:16:\"ROLE_ASSOCIATION\";}":
+                destination="EspaceEvenement.fxml";
+                break;
+                }
                 break;
             case "enc":
             case "ench":
@@ -65,13 +76,13 @@ public class MenuController {
             case "ser":
                 destination="RubriqueServices.fxml";
                 break;
-            case "produits":
+            case "produits":    
                 destination="RubriqueProduits.fxml";
                 break;
             case "evenements":
             case "even":
             case "eve":
-                destination="RubriqueEvenements.fxml";
+                destination="EventClient.fxml";
                 break;
             case "pan":
             case "pani":

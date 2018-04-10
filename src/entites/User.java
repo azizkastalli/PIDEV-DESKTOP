@@ -28,10 +28,11 @@ private String  roles;
 private String  salt;
 private String  username;
 private String  username_canonical;
+private String  num_tel;
 
     public User(){}
 
-    public User(int id, String confirmation_token, String email, String email_canonical, int enabled, Date last_login, String nom, String password, Date password_requested_at, String prenom, int prix_unitaire, String roles, String salt, String username, String username_canonical) {
+    public User(int id, String confirmation_token, String email, String email_canonical, int enabled, Date last_login, String nom, String password, Date password_requested_at, String prenom, int prix_unitaire, String roles, String salt, String username, String username_canonical,String  num_tel) {
         this.id = id;
         this.confirmation_token = confirmation_token;
         this.email = email;
@@ -47,9 +48,10 @@ private String  username_canonical;
         this.salt = salt;
         this.username = username;
         this.username_canonical = username_canonical;
+        this.num_tel=num_tel;
     }
 
-    public User(String confirmation_token, String email, String email_canonical, int enabled, Date last_login, String nom, String password, Date password_requested_at, String prenom, int prix_unitaire, String roles, String salt, String username, String username_canonical) {
+    public User(String confirmation_token, String email, String email_canonical, int enabled, Date last_login, String nom, String password, Date password_requested_at, String prenom, int prix_unitaire, String roles, String salt, String username, String username_canonical,String  num_tel) {
         this.confirmation_token = confirmation_token;
         this.email = email;
         this.email_canonical = email_canonical;
@@ -64,6 +66,7 @@ private String  username_canonical;
         this.salt = salt;
         this.username = username;
         this.username_canonical = username_canonical;
+        this.num_tel=num_tel;
     }
 
     public int getId() {
@@ -112,6 +115,9 @@ private String  username_canonical;
 
     public String getRoles() {
         return roles;
+    }
+    public String getNum_tel() {
+        return num_tel;
     }
 
     public String getSalt() {
@@ -184,6 +190,9 @@ private String  username_canonical;
 
     public void setId(int id) {
         this.id = id;
+    }
+    public void setNum_tel(String num_tel) {
+        this.num_tel = num_tel;
     }
     
 }

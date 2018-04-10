@@ -177,7 +177,7 @@ public class CrudEncheres implements ICrud<Encheres> {
            while(rs.next())
            {
             Produit P =new  Produit(rs.getString(5),rs.getString(7),rs.getString(6),rs.getInt(1),
-                            rs.getInt(2),rs.getInt(3),rs.getString(12),rs.getDouble(8),
+                            rs.getString(2),rs.getInt(3),rs.getString(12),rs.getDouble(8),
                             rs.getDouble(11),rs.getDouble(10),rs.getInt(4),rs.getDouble(9),rs.getString(13));   
            
             liste.add(P);
