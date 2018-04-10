@@ -89,6 +89,20 @@ return false;
         }
         return "";
 }
+    public String GetUserphone(User usr)
+    {
+        try {
+            PreparedStatement myStmt = cnx.prepareStatement("select num_tel from utilisateur where username = ?");
+            myStmt.setString(1, usr.getUsername());
+            ResultSet myRes= myStmt.executeQuery();
+            while(myRes.next())
+            {
+                return myRes.getString("num_tel");
+            }
+                    } catch (SQLException ex) {
+        }
+        return "";
+}
     public String GetUsername(User usr)
     {
         try {

@@ -89,6 +89,7 @@ public class LoginController implements Initializable {
                 loggduser.setNom(us.GetUsername(usr));
                 loggduser.setPrenom(us.GetUserprenom(usr));
                 loggduser.setEmail(us.GetUsermail(usr).getEmail());
+                loggduser.setNum_tel(us.GetUserphone(usr));
                 JOptionPane.showMessageDialog(null, "client " + usr.getUsername() +"  id:"+loggduser.getId()+ "role: "+loggduser.getRoles()+"!");
               Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
         Scene home_page_scene = new Scene(home_page_parent);
