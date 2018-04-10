@@ -109,7 +109,13 @@ public class AjouterStoreController implements Initializable {
     @FXML
     private void ajoutproduit(ActionEvent event) throws IOException {
         
-         
+          if(nomproduit.getText().isEmpty() && caracteristique.getText().isEmpty() && description.getText().isEmpty() && image.getText().isEmpty() && poid.getText().isEmpty() && prixanc.getText().isEmpty() && quantite.getText().isEmpty())
+             {
+              Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("un ou plusieurs Champs sont vides!!");
+            alert.showAndWait();
+            
+             }
         
         
         CrudProduit CP = new CrudProduit();
@@ -134,7 +140,10 @@ public class AjouterStoreController implements Initializable {
         
         
          try {
-            CP.Create(PR);
+            
+             
+             
+                 CP.Create(PR);
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
             alert1.setTitle("I have a great message for you!");
             alert1.setHeaderText(null);
@@ -150,6 +159,9 @@ public class AjouterStoreController implements Initializable {
                 app_stage.show(); 
         } 
          catch (SQLException ex) {
+             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("un ou plusieurs Champs sont vides!!");
+            alert.showAndWait();
         }
         
           

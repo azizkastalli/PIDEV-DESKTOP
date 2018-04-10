@@ -58,7 +58,7 @@ public class ModifProdController implements Initializable {
     @FXML
     public void modifier(ActionEvent event) throws Exception
     {
-    ((Node)event.getSource()).getScene().getWindow().hide();
+    
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation modification");
         alert.setHeaderText("Look, a Confirmation Dialog");
@@ -85,14 +85,14 @@ public class ModifProdController implements Initializable {
             System.out.println(P.getEtat());
             myTool.Update(pr);
             Alert alert1 = new Alert(AlertType.INFORMATION);
-            alert1.setTitle("I have a great message for you!");
-            alert1.setHeaderText(null);
             alert1.setContentText("Modification réussite !");
             alert1.showAndWait();
+            
             Parent root = FXMLLoader.load(getClass().getResource("/gui/ProduitAdmin.fxml"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            ((Node)event.getSource()).getScene().getWindow().hide();
                 }
                       
                   }

@@ -104,15 +104,9 @@ public class CommentaireController implements Initializable {
         comment.setCellValueFactory(new PropertyValueFactory<>("texte"));
         dat.setCellValueFactory(new PropertyValueFactory<>("date"));
         tableC.setItems(data); 
-        try {
-            
-               
-                Image img = new Image(new FileInputStream(P.getNom_image()),301,345,false,false);
-                imgprod.setImage(img);
-                nomprod.setText("Produit: " +P.getLabel());
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        Image img = new Image("/utils/assets/"+P.getNom_image(),301,345,false,false);
+        imgprod.setImage(img);
+        nomprod.setText("Produit: " +P.getLabel());
             
        
             
@@ -176,7 +170,7 @@ public class CommentaireController implements Initializable {
     }
 
     @FXML
-    private void Editcomm(CellEditEvent edittedCell) throws SQLException
+    private void Editcomm(CellEditEvent edittedCell) throws SQLException, IOException
     {
     CrudCommentaire CC=new CrudCommentaire();
              if(loggduser.getUsername().equals(tableC.getSelectionModel().getSelectedItem().getId_client())){
@@ -192,9 +186,9 @@ public class CommentaireController implements Initializable {
                 
         }
                  else
-                 {
-                  new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas modifier cela!!").show();
-                 }
+             {
+                  new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas modifier cela!!").show();  
+              }
     }
 
     @FXML
@@ -227,7 +221,11 @@ public class CommentaireController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas supprimer cela!!").show();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("I have a great message for you!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ecrit ton Commentaire SVP!!");
+            alert.showAndWait();
         }
         
     }

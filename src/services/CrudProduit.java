@@ -181,7 +181,42 @@ public class CrudProduit implements ICrud<Produit> {
         }
         return liste;
     }
-        public Produit findById(int id) {
+            
+   public List<Produit> prodfav(String prod) {
+       List<Produit> liste = new ArrayList<>(); 
+       try {
+            
+            PreparedStatement myStmt = cnx.prepareStatement("SELECT * FROM produit where label=? ");
+            myStmt.setString(1, prod);
+            ResultSet rs = myStmt.executeQuery();
+            while(rs.next())
+            {
+                String caracteristiques = rs.getString("caracteristiques");
+                String description = rs.getString("description");
+                String etat = rs.getString("etat");
+                String id_categorie = rs.getString("id_categorie");
+                Integer id_propietaire = rs.getInt("id_propietaire");
+                String nom_image = rs.getString("nom_image");
+                Double poid = rs.getDouble("poid");
+                Double prix_ancien = rs.getDouble("prix_ancien");
+                Double prix_nouv = rs.getDouble("prix_nouv");
+                Integer quantite = rs.getInt("quantite");
+                Double vote= rs.getDouble("vote");
+                String label = rs.getString("label");
+                
+                
+                Produit P =new Produit(caracteristiques,description,etat,id_categorie,id_propietaire,nom_image,poid,prix_ancien,prix_nouv,quantite,vote,label);
+                liste.add(P);
+            }
+            
+            return liste;
+        } catch (SQLException ex) {
+            Logger.getLogger(CrudProduit.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+            return liste;
+    }
+   public Produit findById(int id) {
 		String req="SELECT * FROM Produit WHERE id='"+id+"'" ;
         ResultSet rs;
         Produit p=null;
@@ -208,5 +243,4 @@ public class CrudProduit implements ICrud<Produit> {
     
 		
 }
-       
 }

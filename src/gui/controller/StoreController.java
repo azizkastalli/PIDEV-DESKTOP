@@ -134,10 +134,24 @@ public class StoreController implements Initializable {
     private Button button5;
     @FXML
     private Button button6;
+    @FXML
+    private Button buttfav;
     
     public static Produit p;
     
     public static List<ArrayList> panier = new ArrayList<>();
+    @FXML
+    private Button button31;
+    @FXML
+    private Button button311;
+    @FXML
+    private Button button312;
+    @FXML
+    private Button button313;
+    @FXML
+    private Button button314;
+    @FXML
+    private Button button315;
   
      
     @Override
@@ -209,93 +223,96 @@ public class StoreController implements Initializable {
     public void AfficherPrroduits(List<Produit> myList, int CurrentPage) {
 
         
-        try {
-
-            if (myList.size() >= CurrentPage) {
-                Image img1 = new Image(new FileInputStream(myList.get(CurrentPage).getNom_image()), 520, 300, false, false);
-                String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
-                
-                image1.setImage(img1);  
-                label1.setText(myList.get(CurrentPage).getLabel());
-                label7.setText(prix);
-                button1.setVisible(true);
-            } else {
-                image1.setImage(null);
-                label1.setText("");
-                label7.setText("");
-                button1.setVisible(false);
-            }
-            if (myList.size() > CurrentPage + 1) {
-                Image img2 = new Image(new FileInputStream(myList.get(CurrentPage + 1).getNom_image()), 520, 300, false, false);
-               String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
-                image2.setImage(img2);
-                label2.setText(myList.get(CurrentPage + 1).getLabel());
-                label8.setText(prix);
-                button2.setVisible(true);
-            } else {
-                image2.setImage(null);
-                label2.setText("");
-                label8.setText("");
-                button2.setVisible(false);
-            }
-
-            if (myList.size() > CurrentPage + 2) {
-                Image img3 = new Image(new FileInputStream( myList.get(CurrentPage + 2).getNom_image()), 520, 300, false, false);
-                String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
-                image3.setImage(img3);
-                label3.setText(myList.get(CurrentPage + 2).getLabel());
-                label9.setText(prix);
-                button3.setVisible(true);
-            } else {
-                label3.setText("");
-                image3.setImage(null);
-                label9.setText("");
-                button3.setVisible(false);
-            }
-            if (myList.size() > CurrentPage + 3) {
-                Image img4 = new Image(new FileInputStream(myList.get(CurrentPage + 3).getNom_image()), 520, 300, false, false);
-                String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
-                image4.setImage(img4);
-                label4.setText(myList.get(CurrentPage + 3).getLabel());
-                label10.setText(prix);
-                button4.setVisible(true);
-            } else {
-                image4.setImage(null);
-                label4.setText("");
-                label10.setText("");
-                button4.setVisible(false);
-            }
-
-            if (myList.size() > CurrentPage + 4) {
-                Image img5 = new Image(new FileInputStream(myList.get(CurrentPage + 4).getNom_image()), 520, 300, false, false);
-                String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
-                image5.setImage(img5);
-                label5.setText(myList.get(CurrentPage + 4).getLabel());
-                label11.setText(prix);
-                button5.setVisible(true);
-            } else {
-                image5.setImage(null);
-                label5.setText("");
-                label11.setText("");
-                button5.setVisible(false);
-            }
-
-            if (myList.size() > CurrentPage + 5) {
-                Image img6 = new Image(new FileInputStream( myList.get(CurrentPage + 5).getNom_image()), 520, 300, false, false);
-                String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
-                image6.setImage(img6);
-                label6.setText(myList.get(CurrentPage + 5).getLabel());
-                label12.setText(prix);
-                button6.setVisible(true);
-            } else {
-                image6.setImage(null);
-                label6.setText("");
-                label12.setText("");
-                button6.setVisible(false);
-            }
-
-        } catch (FileNotFoundException ex) {
-                System.out.println(ex.getMessage());
+        if (myList.size() >= CurrentPage) {
+            Image img1 = new Image("/utils/assets/"+myList.get(CurrentPage).getNom_image(), 520, 300, false, false);
+            String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
+            
+            image1.setImage(img1);
+            label1.setText(myList.get(CurrentPage).getLabel());
+            label7.setText(prix + " DT");
+            button1.setVisible(true);
+            button312.setVisible(true);
+        } else {
+            image1.setImage(null);
+            label1.setText("");
+            label7.setText("");
+            button1.setVisible(false);
+            button312.setVisible(false);
+        }
+        if (myList.size() > CurrentPage + 1) {
+            Image img2 = new Image("/utils/assets/"+myList.get(CurrentPage + 1).getNom_image(), 520, 300, false, false);
+            String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
+            image2.setImage(img2);
+            label2.setText(myList.get(CurrentPage + 1).getLabel());
+            label8.setText(prix +" DT");
+            button2.setVisible(true);
+            button311.setVisible(true);
+        } else {
+            image2.setImage(null);
+            label2.setText("");
+            label8.setText("");
+            button2.setVisible(false);
+            button311.setVisible(false);
+        }
+        if (myList.size() > CurrentPage + 2) {
+            Image img3 = new Image("/utils/assets/"+myList.get(CurrentPage + 2).getNom_image(), 520, 300, false, false);
+            String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
+            image3.setImage(img3);
+            label3.setText(myList.get(CurrentPage + 2).getLabel());
+            label9.setText(prix +" DT");
+            button3.setVisible(true);
+            button31.setVisible(true);
+        } else {
+            label3.setText("");
+            image3.setImage(null);
+            label9.setText("");
+            button3.setVisible(false);
+            button31.setVisible(false);
+        }
+        if (myList.size() > CurrentPage + 3) {
+            Image img4 = new Image("/utils/assets/"+myList.get(CurrentPage + 3).getNom_image(), 520, 300, false, false);
+            String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
+            image4.setImage(img4);
+            label4.setText(myList.get(CurrentPage + 3).getLabel());
+            label10.setText(prix+" DT");
+            button4.setVisible(true);
+            button313.setVisible(true);
+        } else {
+            image4.setImage(null);
+            label4.setText("");
+            label10.setText("");
+            button4.setVisible(false);
+            button313.setVisible(false);
+        }
+        if (myList.size() > CurrentPage + 4) {
+            Image img5 = new Image("/utils/assets/"+myList.get(CurrentPage + 4).getNom_image(), 520, 300, false, false);
+            String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
+            image5.setImage(img5);
+            label5.setText(myList.get(CurrentPage + 4).getLabel());
+            label11.setText(prix+" DT");
+            button5.setVisible(true);
+            button314.setVisible(true);
+        } else {
+            image5.setImage(null);
+            label5.setText("");
+            label11.setText("");
+            button5.setVisible(false);
+            button314.setVisible(false);
+        }
+        if (myList.size() > CurrentPage + 5) {
+            Image img6 = new Image("/utils/assets/"+myList.get(CurrentPage + 5).getNom_image(), 520, 300, false, false);
+            String prix = String.valueOf(myList.get(CurrentPage).getPrix_nouv());
+            image6.setImage(img6);
+            label6.setText(myList.get(CurrentPage + 5).getLabel());
+            label12.setText(prix +" DT");
+            button6.setVisible(true);
+            button315.setVisible(true);
+        } else {
+            image6.setImage(null);
+            label6.setText("");
+            label12.setText("");
+            button6.setVisible(false);
+            button315.setVisible(false);
         }
 
     }
@@ -508,6 +525,24 @@ public class StoreController implements Initializable {
 
         
         }
+
+    @FXML
+    private void mesfavoris(ActionEvent event) {
+         try {
+           
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/Favoris.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(home_page_scene);
+        app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           
+        
+    }
+    }
 
 }
     

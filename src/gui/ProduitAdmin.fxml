@@ -185,7 +185,7 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <TableView fx:id="tableA" prefHeight="500.0" prefWidth="677.0">
+                  <TableView fx:id="tableA" prefHeight="500.0" prefWidth="751.0">
                     <columns>
                       <TableColumn fx:id="nomproduit" prefWidth="119.0" text="nom produit" />
                       <TableColumn fx:id="caracteristique" prefWidth="117.0" text="caracteristique" />
@@ -193,9 +193,10 @@
                         <TableColumn fx:id="prixanc" prefWidth="100.0" text="prix ancien" />
                         <TableColumn fx:id="etat" prefWidth="100.0" text="etat" />
                         <TableColumn fx:id="description" prefWidth="124.0" text="description" />
+                        <TableColumn fx:id="quantite" prefWidth="75.0" text="Quantite" />
                     </columns>
                   </TableView>
-                  <Button fx:id="modifier" layoutX="723.0" layoutY="186.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="110.0" text="modifier" />
+                  <Button fx:id="modifier" layoutX="751.0" layoutY="186.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="110.0" text="modifier" />
                </children>
             </Pane>
          </children>
