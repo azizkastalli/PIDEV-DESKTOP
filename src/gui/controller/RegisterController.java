@@ -48,6 +48,8 @@ public class RegisterController implements Initializable {
     private TextField rname1;
     @FXML
     private TextField rlastname2;
+    @FXML
+    private TextField rphone;
 
     /**
      * Initializes the controller class.
@@ -75,6 +77,7 @@ public class RegisterController implements Initializable {
         us.setEnabled(1);
         us.setNom(rname1.getText());
         us.setPrenom(rlastname2.getText());
+        us.setNum_tel(rphone.getText());
 
         String role=(String) roleCombo.getValue();
         switch(role){
@@ -102,6 +105,7 @@ public class RegisterController implements Initializable {
          try {
             CU.Create(us);
              System.out.println("utilisateur ajouté");
+             JOptionPane.showMessageDialog(null, "compte crée avec succées!");
         } 
          catch (SQLException ex) {
              System.out.println("erreur");

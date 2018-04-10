@@ -120,8 +120,8 @@ return false;
     @Override
     public void Create(User  obj) throws SQLException {
           
-        String requete = "INSERT INTO Utilisateur (username,password,roles,email,email_canonical,enabled,nom,prenom,username_canonical) "
-                    + "VALUES(?,?,?,?,?,?,?,?,?)";
+        String requete = "INSERT INTO Utilisateur (username,password,roles,email,email_canonical,enabled,nom,prenom,username_canonical,num_tel) "
+                    + "VALUES(?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
            
@@ -133,7 +133,8 @@ return false;
             pst.setInt(6,obj.getEnabled());  
             pst.setString(7,obj.getNom());  
             pst.setString(8,obj.getPrenom());  
-            pst.setString(9,obj.getUsername_canonical());  
+            pst.setString(9,obj.getUsername_canonical());
+            pst.setString(10,obj.getNum_tel());
             
             pst.executeUpdate();
     }
@@ -187,9 +188,10 @@ return false;
                 String salt = rs.getString("salt");
                 String username = rs.getString("username");
                 String username_canonical = rs.getString("username_canonical");
+                String num_tel=rs.getString("num_tel");
                 
                 
-                User u =new User(id,confirmation_token,email,email_canonical,enabled,last_login,nom,password,password_requested_at,prenom,prix_unitaire,roles,salt,username,username_canonical);
+                User u =new User(id,confirmation_token,email,email_canonical,enabled,last_login,nom,password,password_requested_at,prenom,prix_unitaire,roles,salt,username,username_canonical,num_tel);
                 liste.add(u);
             }
             
