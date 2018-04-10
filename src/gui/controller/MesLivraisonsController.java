@@ -61,7 +61,7 @@ public class MesLivraisonsController implements Initializable {
     private TableColumn<Livraison, Integer> ref;
     
     @FXML
-    private TableColumn<Livraison, Integer> etat;
+    private TableColumn<Livraison, String> etat;
     @FXML
     private TableColumn<Livraison, Integer> client;
     private ObservableList <Livraison> data;
@@ -82,7 +82,7 @@ public class MesLivraisonsController implements Initializable {
         }
         ref.setCellValueFactory(new PropertyValueFactory<>("id"));
         client.setCellValueFactory(new PropertyValueFactory<>("id_client"));
-        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        etat.setCellValueFactory(new PropertyValueFactory<>("etat1"));
         tableA.setItems(data);
     }    
     @FXML

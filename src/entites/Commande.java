@@ -15,6 +15,8 @@ public class Commande {
   private  int    id;
   private  int    id_client;
   private  double prix_tot;
+  private  String etat1;
+
 
     public Commande() {
     }
@@ -24,16 +26,37 @@ public class Commande {
         this.id = id;
         this.id_client = id_client;
         this.prix_tot = prix_tot;
+        switch(etat){
+            case 0 : etat1="non livrée";
+            break;
+            case 1 : etat1="en cours de livraison";
+            break;
+            case 2 : etat1="produit livrée";
+            break;
+        
+        }
     }
 
     public Commande(int etat, int id_client, double prix_tot) {
         this.etat = etat;
         this.id_client = id_client;
         this.prix_tot = prix_tot;
+        switch(etat){
+            case 0 : etat1="non livrée";
+            break;
+            case 1 : etat1="en cours de livraison";
+            break;
+            case 2 : etat1="produit livrée";
+            break;
+        
+        }
     }
 
     public int getEtat() {
         return etat;
+    }
+    public String getEtat1() {
+        return etat1;
     }
 
     public int getId() {
@@ -50,6 +73,9 @@ public class Commande {
 
     public void setEtat(int etat) {
         this.etat = etat;
+    }
+    public void setEtat1(String etat1) {
+        this.etat1 = etat1;
     }
 
     public void setId(int id) {

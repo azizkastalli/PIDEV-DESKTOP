@@ -116,12 +116,17 @@
                   <Insets />
                </opaqueInsets>
                <children>
-                  <Label prefHeight="90.0" prefWidth="246.0" onMouseClicked="#Mescommandes" style="-fx-background-color: blue;" text="mes commandes" textFill="WHITE">
+                  <Label onMouseClicked="#Mescommandes" prefHeight="90.0" prefWidth="246.0" style="-fx-background-color: blue;" text="mes commandes" textFill="WHITE">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
                   <Label fx:id="lprixtot" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="Label" textFill="#1231ff">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lprixtot1" onMouseClicked="#genererrecu" prefHeight="90.0" prefWidth="244.0" style="-fx-background-color: white;" text="generer recu" textFill="#1231ff">
                      <font>
                         <Font size="20.0" />
                      </font>

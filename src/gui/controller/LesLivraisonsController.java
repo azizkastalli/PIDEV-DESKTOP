@@ -67,7 +67,7 @@ public class LesLivraisonsController implements Initializable {
     @FXML
     private TableColumn<Commande, Double> prixntot;
     @FXML
-    private TableColumn<Commande, Integer> etat;
+    private TableColumn<Commande, String> etat;
     /**
      * Initializes the controller class.
      */
@@ -83,7 +83,7 @@ public class LesLivraisonsController implements Initializable {
         }
         ref.setCellValueFactory(new PropertyValueFactory<>("id"));
         prixntot.setCellValueFactory(new PropertyValueFactory<>("prix_tot"));
-        etat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        etat.setCellValueFactory(new PropertyValueFactory<>("etat1"));
         tableA.setItems(data);
     }
 @FXML
