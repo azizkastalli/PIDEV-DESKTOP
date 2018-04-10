@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/store.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifSuppEventController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/modifsuppevent.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifSuppEventController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -113,7 +113,7 @@
       </HBox>
       <AnchorPane prefHeight="528.0" prefWidth="1025.0">
          <children>
-            <TableView fx:id="TV" editable="true" layoutX="56.0" layoutY="45.0" onMousePressed="#ClickRow" prefHeight="374.0" prefWidth="961.0" style="-fx-background-color: #00A2d3; -fx-border-color: #00A2d3;">
+            <TableView fx:id="TV" editable="true" layoutX="32.0" layoutY="63.0" onMousePressed="#ClickRow" prefHeight="374.0" prefWidth="961.0" style="-fx-background-color: #00A2d3; -fx-border-color: #00A2d3;">
               <columns>
                 <TableColumn fx:id="NomC" prefWidth="91.0" text="Nom" />
                 <TableColumn fx:id="DescC" minWidth="6.0" prefWidth="150.0" text="Description" />
@@ -124,16 +124,21 @@
                   <TableColumn fx:id="DateFC" prefWidth="181.0" text="Date fin" />
               </columns>
             </TableView>
-            <Button layoutX="401.0" layoutY="454.0" mnemonicParsing="false" onAction="#ModifierEvenement" prefHeight="24.0" prefWidth="120.0" style="-fx-background-color: #00A2d3;" text="Modifier" textFill="WHITE">
+            <Button layoutX="634.0" layoutY="469.0" mnemonicParsing="false" onAction="#ModifierEvenement" prefHeight="24.0" prefWidth="120.0" style="-fx-background-color: #00A2d3;" text="Modifier" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button layoutX="210.0" layoutY="454.0" mnemonicParsing="false" onAction="#SupprimerEvent" prefHeight="24.0" prefWidth="120.0" style="-fx-background-color: #00A2d3;" text="supprimer" textFill="WHITE">
+            <Button layoutX="258.0" layoutY="469.0" mnemonicParsing="false" onAction="#SupprimerEvent" prefHeight="24.0" prefWidth="120.0" style="-fx-background-color: #00A2d3;" text="supprimer" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
+            <Label layoutX="359.0" layoutY="14.0" text="Gestion des Evenements" textFill="#1f8bc9" underline="true">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

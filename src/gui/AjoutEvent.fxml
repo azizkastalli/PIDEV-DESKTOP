@@ -120,16 +120,6 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <children>
-                  <FontAwesomeIconView fx:id="addstoreicon" glyphName="PLUS_SQUARE" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin></FontAwesomeIconView>
-                  <FontAwesomeIconView fx:id="addenchersicon" glyphName="EDIT" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin></FontAwesomeIconView>
-               </children>
             </VBox>
             <Pane prefHeight="524.0" prefWidth="959.0">
                <children>
@@ -138,34 +128,39 @@
                   <TextField fx:id="description" layoutX="241.0" layoutY="136.0" prefHeight="25.0" prefWidth="398.0" />
                   <DatePicker fx:id="date_debut" layoutX="241.0" layoutY="366.0" prefHeight="25.0" prefWidth="171.0" />
                   <DatePicker fx:id="date_fin" layoutX="241.0" layoutY="420.0" prefHeight="25.0" prefWidth="171.0" />
-                  <Label layoutX="20.0" layoutY="84.0" prefHeight="21.0" prefWidth="171.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Nom *" textFill="#4a7de4">
+                  <Label layoutX="20.0" layoutY="84.0" prefHeight="21.0" prefWidth="171.0" stylesheets="@css/ajoutevent.css" text="Nom *" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
-                  <Label layoutX="20.0" layoutY="138.0" prefWidth="199.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Description *" textFill="#4a7de4">
+                  <Label layoutX="20.0" layoutY="138.0" prefWidth="199.0" stylesheets="@css/ajoutevent.css" text="Description *" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
-                  <Label layoutX="20.0" layoutY="184.0" prefHeight="31.0" prefWidth="216.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="nombre participants *" textFill="#4a7de4">
+                  <Label layoutX="20.0" layoutY="184.0" prefHeight="31.0" prefWidth="216.0" stylesheets="@css/ajoutevent.css" text="nombre participants *" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
-                  <Label layoutX="20.0" layoutY="242.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Categorie" textFill="#4a7de4">
+                  <Label layoutX="20.0" layoutY="242.0" stylesheets="@css/ajoutevent.css" text="Categorie" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
-                  <Label layoutX="18.0" layoutY="300.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="nom_image *" textFill="#4a7de4">
+                  <Label layoutX="18.0" layoutY="300.0" stylesheets="@css/ajoutevent.css" text="nom_image *" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
-                  <Label layoutX="20.0" layoutY="363.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Date debut *" textFill="#4a7de4">
+                  <Label layoutX="20.0" layoutY="363.0" stylesheets="@css/ajoutevent.css" text="Date debut *" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
-                  <Label layoutX="20.0" layoutY="417.0" style="-fx-background-color: transparent; -fx-background-color: #fff;" stylesheets="@css/ajoutevent.css" text="Date fin *" textFill="#4a7de4">
+                  <Label layoutX="20.0" layoutY="417.0" stylesheets="@css/ajoutevent.css" text="Date fin *" textFill="#4a7de4">
                      <font>
                         <Font name="System Bold" size="21.0" />
                      </font></Label>
+                  <Label layoutX="42.0" layoutY="14.0" text="Ajouter Evenement" textFill="#1f8bc9" underline="true">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
                   <Button layoutX="354.0" layoutY="466.0" mnemonicParsing="false" onAction="#AjouterEvenement" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #00A2d3;" text="Ajouter" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="20.0" />

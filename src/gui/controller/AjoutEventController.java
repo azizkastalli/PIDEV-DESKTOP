@@ -51,6 +51,9 @@ import static gui.controller.LoginController.loggduser;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -196,6 +199,16 @@ public class AjoutEventController implements Initializable {
                 Evenement E = new Evenement(nom, Des, Nombre, DateDebut, DateFin, false, image, id_categorie, id_association);
 
                 CE.Create(E);
+                 new Alert(Alert.AlertType.INFORMATION, "evenement ajouté en attendant la confirmation de l'admin").show();
+                 Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/ModifSuppEvent.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               // app_stage.hide(); //optional
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
             }
         } catch (SQLException ex) {
         }

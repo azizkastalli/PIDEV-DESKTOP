@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/gererenchers.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifierEventController">
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" styleClass="main" stylesheets="@css/modifierevent.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ModifierEventController">
    <children>
       <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
          <effect>
@@ -118,35 +118,40 @@
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-               <children>
-                  <FontAwesomeIconView fx:id="addstoreicon" glyphName="PLUS_SQUARE" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin></FontAwesomeIconView>
-                  <FontAwesomeIconView fx:id="addenchersicon" glyphName="EDIT" glyphStyle="-fx-fill:#4f86dd" onMouseClicked="#MenuEspace" size="60">
-                     <VBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </VBox.margin></FontAwesomeIconView>
-               </children>
             </VBox>
             <Pane prefHeight="524.0" prefWidth="959.0">
                <children>
-                  <TextField fx:id="Nom" layoutX="175.0" layoutY="80.0" prefHeight="25.0" prefWidth="398.0" />
-                  <TextField fx:id="nom_image" editable="false" layoutX="175.0" layoutY="303.0" prefHeight="25.0" prefWidth="272.0" />
-                  <TextField fx:id="description" layoutX="175.0" layoutY="134.0" prefHeight="25.0" prefWidth="398.0" />
-                  <Label layoutX="20.0" layoutY="84.0" stylesheets="@css/ajoutevent.css" text="Nom" />
-                  <Label layoutX="20.0" layoutY="138.0" stylesheets="@css/ajoutevent.css" text="Description" />
-                  <Label layoutX="20.0" layoutY="184.0" prefHeight="27.0" prefWidth="187.0" stylesheets="@css/ajoutevent.css" text="nombre participants" />
-                  <Label layoutX="20.0" layoutY="247.0" stylesheets="@css/ajoutevent.css" text="association" />
-                  <Label layoutX="20.0" layoutY="307.0" stylesheets="@css/ajoutevent.css" text="nom_image" />
-                  <Button layoutX="298.0" layoutY="356.0" mnemonicParsing="false" onAction="#ModifierEvenement" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #00A2d3;" text="Modifier" textFill="WHITE">
+                  <TextField fx:id="Nom" layoutX="261.0" layoutY="87.0" prefHeight="25.0" prefWidth="398.0" />
+                  <TextField fx:id="nom_image" editable="false" layoutX="261.0" layoutY="303.0" prefHeight="25.0" prefWidth="272.0" />
+                  <TextField fx:id="description" layoutX="261.0" layoutY="138.0" prefHeight="25.0" prefWidth="398.0" />
+                  <Label layoutX="20.0" layoutY="84.0" stylesheets="@css/ajoutevent.css" text="Nom" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="138.0" stylesheets="@css/ajoutevent.css" text="Description" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="184.0" prefHeight="31.0" prefWidth="225.0" stylesheets="@css/ajoutevent.css" text="Nombre participants" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="247.0" stylesheets="@css/ajoutevent.css" text="Catégorie" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Label layoutX="20.0" layoutY="307.0" stylesheets="@css/ajoutevent.css" text="Image" textFill="#4a7de4">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font></Label>
+                  <Button layoutX="397.0" layoutY="391.0" mnemonicParsing="false" onAction="#ModifierEvenement" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #00A2d3;" text="Modifier" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Spinner fx:id="spin" layoutX="175.0" layoutY="185.0" prefHeight="25.0" prefWidth="398.0" />
-                  <ComboBox fx:id="catégorie" layoutX="175.0" layoutY="245.0" prefHeight="25.0" prefWidth="398.0" promptText="choisir Catégorie" />
-                  <Button layoutX="450.0" layoutY="303.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="120.0" text="upload image" />
+                  <Spinner fx:id="spin" layoutX="261.0" layoutY="187.0" prefHeight="25.0" prefWidth="398.0" />
+                  <ComboBox fx:id="catégorie" layoutX="261.0" layoutY="250.0" prefHeight="25.0" prefWidth="398.0" promptText="choisir Catégorie" />
+                  <Button layoutX="539.0" layoutY="303.0" mnemonicParsing="false" onAction="#upload" prefHeight="25.0" prefWidth="120.0" text="upload image" />
                   <Label layoutX="20.0" layoutY="14.0" text="Modifier Evenement" textFill="#1f8bc9" underline="true">
                      <font>
                         <Font name="System Bold" size="27.0" />

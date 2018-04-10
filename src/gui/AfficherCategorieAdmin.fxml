@@ -186,13 +186,18 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <TableView fx:id="listeCategorie" layoutX="183.0" layoutY="72.0" prefHeight="356.0" prefWidth="368.0">
+                  <TableView fx:id="listeCategorie" layoutX="133.0" layoutY="76.0" prefHeight="256.0" prefWidth="586.0">
                     <columns>
                       <TableColumn fx:id="id" editable="false" prefWidth="111.0" text="id" />
-                      <TableColumn fx:id="nom" onEditCommit="#EditNom" prefWidth="111.0" text="nom" />
-                        <TableColumn fx:id="type" onEditCommit="#EditType" prefWidth="156.0" text="type" />
+                      <TableColumn fx:id="nom" onEditCommit="#EditNom" prefWidth="235.0" text="nom" />
+                        <TableColumn fx:id="type" onEditCommit="#EditType" prefWidth="239.0" text="type" />
                     </columns>
                   </TableView>
+                  <Label layoutX="254.0" layoutY="29.0" prefHeight="35.0" prefWidth="363.0" text="Modifier une  Catégorie :" textOverrun="WORD_ELLIPSIS" underline="true">
+                     <font>
+                        <Font name="Bell MT Bold" size="28.0" />
+                     </font>
+                  </Label>
 
                </children>
             </Pane>

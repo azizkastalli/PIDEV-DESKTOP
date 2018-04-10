@@ -7,8 +7,9 @@ package gui.controller;
 
 
 import entites.Participation;
-
+import java.util.Date;
 import java.net.URL;
+
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -38,10 +39,13 @@ import com.restfb.Parameter;
 import com.restfb.types.FacebookType;
 import java.io.File;
 import java.io.FileInputStream;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
+import javafx.scene.control.Alert;
 
 
 /**
@@ -91,28 +95,37 @@ public class DetailEventController implements Initializable {
         try {
              String a="C:\\Users\\iheb ben fraj\\Desktop\\piJava\\pidesktop1.0\\src\\utils\\assets\\";
             Image img6 = new Image(new FileInputStream( a+E.getNom_image()),393,394, false, false);
-            
+         
             image1.setImage(img6);
             tfDescription.setText("Description : "+E.getDescription());
             nbre.setText("Nombre participants restant est :"+E.getNbr_participants());
             dateD.setText("Date Debut :"+E.getDate_debut());
             dateF.setText("Date Fin : "+E.getDate_fin());
             System.out.println(E.getId()+E.getNom());
+            System.out.println(E.getDate_debut());
             titre.setText(E.getNom());
         } catch (FileNotFoundException ex) {
             Logger.getLogger(DetailEventController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
            ServiceReservation SR=new ServiceReservation();
-        if(SR.VerifParticipation(E.getId(),loggduser.getId())==true)
+              Timestamp dateSys = new Timestamp(System.currentTimeMillis());
+        if(SR.VerifParticipation(E.getId(),loggduser.getId())==true&&E.getNbr_participants()>0&&E.getDate_debut().after(dateSys))
         {
         butt.setText("annuler");
         
-        }
-        else
-        {
+        } else if(SR.VerifParticipation(E.getId(),loggduser.getId())==false&&E.getNbr_participants()>0&&E.getDate_debut().after(dateSys)){
         butt.setText("reserver");
+        }
+        else if(E.getDate_debut().before(dateSys))
+        {
+         butt.setVisible(false);
+          new Alert(Alert.AlertType.ERROR, "date deja evenement expriré").show();
+         
        
+        }
+        else{
+             butt.setText("evenement expiré");
         }
         
         // your date
@@ -160,10 +173,15 @@ public class DetailEventController implements Initializable {
                CrudEvenement E1=new CrudEvenement();
                 E1.incrementNbrParticipant(E.getId());
                int  nb=E1.SelectAll().get(j).getNbr_participants();
+               
              nbre.setText("Nombre participants restant est :"+nb);
             } catch (SQLException ex) {
                 Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        
+        else{
+         new Alert(Alert.AlertType.ERROR, "evenement expriré").show();
         }
     }
 
@@ -174,6 +192,8 @@ public class DetailEventController implements Initializable {
         FileInputStream fis=new FileInputStream(new File("C:\\Users\\iheb ben fraj\\Desktop\\piJava\\pidesktop1.0\\src\\utils\\assets\\"+E.getNom_image()));    
         FacebookType response =fbClient.publish("me/photos",FacebookType.class,BinaryAttachment.with(E.getNom_image(),fis), Parameter.with("message",E.getDescription()));
         System.out.println("fb.com/"+response.getId());
+           new Alert(Alert.AlertType.INFORMATION, "evenement partagé sur facebook avec succés").show();
+        
         
         
         

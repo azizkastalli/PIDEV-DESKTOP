@@ -115,48 +115,66 @@
             <Pane fx:id="pane1" layoutX="2.0" layoutY="2.0" prefHeight="265.0" prefWidth="315.0" style="-fx-background-color: transparent;">
                <children>
                   <ImageView fx:id="image1" fitHeight="210.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" x="45.0" y="14.0" />
-                  <Label fx:id="label1" layoutX="50.0" layoutY="160.0" prefHeight="18.0" prefWidth="49.0" />
+                  <Label fx:id="label1" layoutX="50.0" layoutY="170.0" prefHeight="18.0" prefWidth="218.0" textFill="#022186">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
+               
+                  <Button fx:id="button1" layoutX="233.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickButt1" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"> 
+              
+            </Button>
                </children>
             </Pane>
             <Pane fx:id="pane2" layoutX="2.0" layoutY="256.0" prefHeight="265.0" prefWidth="315.0" style="-fx-background-color: transparent;">
                <children>
                   <ImageView fx:id="image4" fitHeight="210.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" x="45.0" y="14.0" />
-                  <Label fx:id="label4" layoutX="50.0" layoutY="160.0" prefHeight="18.0" prefWidth="61.0" />
+                  <Label fx:id="label4" layoutX="45.0" layoutY="172.0" prefHeight="21.0" prefWidth="218.0" textFill="#022186">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
+                  <Button fx:id="button4" layoutX="233.0" layoutY="166.0" mnemonicParsing="false" onAction="#clickButt4" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE" />
                </children>
             </Pane>
             <Pane fx:id="pane3" layoutX="332.0" layoutY="256.0" prefHeight="265.0" prefWidth="315.0" style="-fx-background-color: transparent;">
                <children>
                   <ImageView fx:id="image5" fitHeight="210.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" x="45.0" y="14.0" />
-                  <Label fx:id="label5" layoutX="50.0" layoutY="160.0" prefHeight="18.0" prefWidth="61.0" />
+                  <Label fx:id="label5" layoutX="50.0" layoutY="170.0" prefHeight="21.0" prefWidth="191.0" textFill="#022186">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
+                  <Button fx:id="button5" layoutX="234.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickButt5" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE" />
                </children>
             </Pane>
             <Pane fx:id="pane4" layoutX="685.0" layoutY="256.0" prefHeight="265.0" prefWidth="315.0" style="-fx-background-color: transparent;">
                <children>
-                  <Label fx:id="label6" layoutX="50.0" layoutY="160.0" prefHeight="18.0" prefWidth="61.0" />
+                  <Label fx:id="label6" layoutX="52.0" layoutY="170.0" prefHeight="21.0" prefWidth="191.0" textFill="#022186">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
                   <ImageView fx:id="image6" fitHeight="210.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" x="45.0" y="14.0" />
+                  <Button fx:id="button6" layoutX="233.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickButt6" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE" />
                </children>
             </Pane>
             <Pane fx:id="pane5" layoutX="332.0" layoutY="2.0" prefHeight="265.0" prefWidth="315.0" style="-fx-background-color: transparent;">
                <children>
-                  <Label fx:id="label2" layoutX="50.0" layoutY="160.0" prefHeight="18.0" prefWidth="61.0" />
+                  <Label fx:id="label2" layoutX="50.0" layoutY="170.0" prefHeight="21.0" prefWidth="201.0" textFill="#022186">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
                   <ImageView fx:id="image2" fitHeight="210.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" x="45.0" y="14.0" />
+                  <Button fx:id="button2" layoutX="233.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickButt2" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE" />
                </children>
             </Pane>
             <Pane fx:id="pane6" layoutX="685.0" layoutY="2.0" prefHeight="265.0" prefWidth="315.0" style="-fx-background-color: transparent;">
                <children>
                   <ImageView fx:id="image3" fitHeight="210.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" x="45.0" y="14.0" />
-                  <Label fx:id="label3" layoutX="50.0" layoutY="160.0" prefHeight="18.0" prefWidth="61.0" />
+                  <Label fx:id="label3" layoutX="50.0" layoutY="170.0" prefHeight="21.0" prefWidth="236.0" textFill="#022186">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font></Label>
+                  <Button fx:id="button3" layoutX="233.0" layoutY="165.0" mnemonicParsing="false" onAction="#clickButt3" prefHeight="32.0" prefWidth="61.0" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE" />
                </children>
             </Pane>
-         
-            <Button fx:id="button1" layoutX="200.0" layoutY="170.0" mnemonicParsing="false" onAction="#clickButt1"  style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"  > 
-              
-            </Button>
-            <Button fx:id="button2" layoutX="545.0" layoutY="170.0" mnemonicParsing="false" onAction="#clickButt2" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"  />
-            <Button fx:id="button3" layoutX="890.0" layoutY="170.0" mnemonicParsing="false" onAction="#clickButt3" style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"  />
-            <Button fx:id="button4" layoutX="200.0" layoutY="430.0" mnemonicParsing="false" onAction="#clickButt4"  style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"  />
-            <Button fx:id="button5" layoutX="545.0" layoutY="430.0" mnemonicParsing="false" onAction="#clickButt5"  style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"  />
-            <Button fx:id="button6" layoutX="890.0" layoutY="430.0" mnemonicParsing="false" onAction="#clickButt6"  style="-fx-background-color: #00A2d3;" text="detail" textFill="WHITE"  />
          </children></AnchorPane>
    </children>
 </VBox>

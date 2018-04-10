@@ -1,7 +1,24 @@
-/*
- * Empty Stylesheet file.
- */
 
-.mainFxmlClass {
 
+.menu_bar{
+    -fx-background-color: #4169E1;
+    -fx-background-image:url("/utils/assets/menu.png");
+}
+
+.main
+{
+        -fx-background-color: white;
+        -fx-background-image:url("/utils/assets/evenement.jpg");
+}
+
+.menu_item{
+    -fx-font-weight:bold;
+    -fx-font-size:18;
+    -fx-text-fill: white;
+}
+
+.menu_item:hover{
+    -fx-font-weight:bold;
+    -fx-text-fill: #4f86dd;
+    -fx-background-color: white;
 }

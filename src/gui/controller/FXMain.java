@@ -24,7 +24,7 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
                  Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
         } catch (IOException ex) {
            
         }

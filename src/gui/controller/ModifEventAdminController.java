@@ -244,11 +244,11 @@ public class ModifEventAdminController implements Initializable {
                 
                 if(aa.getText()=="autorise")
                 { try {
-                     String nom=TV.getSelectionModel().getSelectedItem().getNom();
+                    int id=TV.getSelectionModel().getSelectedItem().getId();
                 Evenement E1=new Evenement();
                 
                 E1.setEtat(false);
-                E1.setNom(nom);
+                E1.setId(id);
                 
                   CrudEvenement CE = new CrudEvenement();
                   
@@ -278,11 +278,12 @@ public class ModifEventAdminController implements Initializable {
                    
                else if(aa.getText()=="non autorise")
                 {try {
-                     String nom=TV.getSelectionModel().getSelectedItem().getNom();
+                     int id=TV.getSelectionModel().getSelectedItem().getId();
                 Evenement E1=new Evenement();
                 
                 E1.setEtat(true);
-                E1.setNom(nom);
+                E1.setId(id);
+                
                 
                   CrudEvenement CE = new CrudEvenement();
                     

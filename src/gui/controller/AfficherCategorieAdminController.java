@@ -245,15 +245,15 @@ public class AfficherCategorieAdminController implements Initializable {
                 
            
 
-        
-        Categorie c=new Categorie(id, nom,type);
-        
-        
+        if(nom.isEmpty()){
+                  new Alert(Alert.AlertType.INFORMATION, "champ nom  vide").show();
+           }
+           else {
+                Categorie c=new Categorie(id, nom,type);
         CC.Update(c);
+           new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
         
-        
-                        new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
-
+        }
         
     
     
@@ -278,13 +278,18 @@ public class AfficherCategorieAdminController implements Initializable {
              //   System.out.println(id+type+nom);
 
         
-        Categorie c=new Categorie(id, nom,type);
-        
-        
+       
+           if(type.isEmpty()){
+                  new Alert(Alert.AlertType.INFORMATION, "champ type vide").show();
+           }
+           else {
+                Categorie c=new Categorie(id, nom,type);
         CC.Update(c);
+           new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
         
+        }
         
-                        new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
+                     
 
         
     }

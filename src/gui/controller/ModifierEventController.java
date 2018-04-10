@@ -115,18 +115,18 @@ List<String> extension;
          extension.add("*.png");
     }    
 
-       @FXML
+   @FXML
     private void Menu(MouseEvent event) {
-    
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
-              
     }
-
 
     @FXML
     private void MenuEspace(MouseEvent event) {
+           MenuController menu = new MenuController();
+        menu.GestionMenuEspace(event);
     }
+
 
     @FXML
     private void ModifierEvenement(ActionEvent event) throws ParseException, SQLException {
