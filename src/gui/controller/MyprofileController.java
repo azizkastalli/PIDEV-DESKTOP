@@ -93,5 +93,27 @@ public class MyprofileController implements Initializable {
         menu.GestionMenu(event);
               
     }
+    @FXML
+    public void logout(MouseEvent event) {
+        
+            
+           try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        
+                                 }
+    
+                   }
     
 }

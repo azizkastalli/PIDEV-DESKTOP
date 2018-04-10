@@ -68,6 +68,11 @@ public class LoginController implements Initializable {
 }
     @FXML
     public void Authentification(ActionEvent event) {
+        if(tfusername.getText().isEmpty() || tfpassword.getText().isEmpty() )
+        {
+        JOptionPane.showMessageDialog(null, "un ou plusieurs champs necessaires sont vides !");
+        }
+        else{
         CrudUser us = new CrudUser();
         User usr = new User();
         usr.setUsername(tfusername.getText());
@@ -121,7 +126,7 @@ public class LoginController implements Initializable {
         
     }
         }
-}    
+}   } 
     @FXML
     public void Register(ActionEvent event) {
         
@@ -145,6 +150,11 @@ public class LoginController implements Initializable {
         }
     @FXML
     public void forgotpass(ActionEvent event) {
+        if(tfusername.getText().isEmpty() )
+        {
+        JOptionPane.showMessageDialog(null, "aucun username inserée !");
+        }
+        else{
         User usr=new User();
         CrudUser servu=new CrudUser();
         String mailtop="";
@@ -186,13 +196,15 @@ public class LoginController implements Initializable {
            transport.sendMessage(msg, msg.getAllRecipients());
            transport.close();
            System.out.println("message send successfully");
+           JOptionPane.showMessageDialog(null, "un mail vous a été envoyé contenant votre mot de passe !");
         }catch(Exception ex)
         {
             System.out.println(ex);
+            JOptionPane.showMessageDialog(null, "un probleme a été survenu lors de l'envoi du mail verifiez vos parametres de securité !");
         }
             
            
-        }
+        }}
 } 
     
 
