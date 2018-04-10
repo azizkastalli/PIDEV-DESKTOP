@@ -34,6 +34,7 @@ import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 import services.CrudVote;
 import static gui.controller.LoginController.loggduser;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -84,7 +85,25 @@ public class RubriqueProduitsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        rating.setOnMouseClicked(new EventHandler<MouseEvent>()
+                    {
+                        @Override
+                        public void handle(MouseEvent event) {
+                            try {
+                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               
+            alert.setContentText("Votre vote a été pris en compte!!");
+            alert.showAndWait();
+                                Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/RubriqueProduits.fxml"));
+                                Scene home_page_scene = new Scene(home_page_parent);
+                                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                app_stage.setScene(home_page_scene); 
+                                app_stage.show();   } catch (IOException ex) {
+                                Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
+                    }
+                    );
         CrudFavoris CV = new CrudFavoris();
         if(CV.VerifyIfprod(loggduser.getId(), P.getLabel())==true)
         {
@@ -115,7 +134,10 @@ public class RubriqueProduitsController implements Initializable {
                 Vo.setVote(t1);
                 Vo.setId_user(loggduser.getId());
                 try {
-                    V.Create(Vo);
+                     
+                     V.Create(Vo);
+                  
+                   
                     
                 } catch (SQLException ex) {
                     Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);

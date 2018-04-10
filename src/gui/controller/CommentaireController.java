@@ -227,7 +227,11 @@ public class CommentaireController implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Vous ne pouvez pas supprimer cela!!").show();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(CommentaireController.class.getName()).log(Level.SEVERE, null, ex);
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("I have a great message for you!");
+            alert.setHeaderText(null);
+            alert.setContentText("Ecrit ton Commentaire SVP!!");
+            alert.showAndWait();
         }
         
     }
