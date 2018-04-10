@@ -34,6 +34,8 @@ import javafx.stage.Stage;
 import org.controlsfx.control.Rating;
 import services.CrudVote;
 import static gui.controller.LoginController.loggduser;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import services.CrudFavoris;
 /**
@@ -114,6 +116,7 @@ public class RubriqueProduitsController implements Initializable {
                 Vo.setId_user(loggduser.getId());
                 try {
                     V.Create(Vo);
+                    
                 } catch (SQLException ex) {
                     Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -138,6 +141,7 @@ public class RubriqueProduitsController implements Initializable {
         rating.setVisible(true); 
         try {
             rating.ratingProperty().addListener(new ChangeListener<Number>() {
+                
             @Override
             public void changed(ObservableValue<? extends Number> ov, Number t, Number t1) {
                 
@@ -146,6 +150,7 @@ public class RubriqueProduitsController implements Initializable {
                 Vo.setId_user(loggduser.getId());
                 try {
                     V.Create(Vo);
+                    new Alert(Alert.AlertType.INFORMATION, "Votre vote a été ajouter!!").show(); 
                 } catch (SQLException ex) {
                     Logger.getLogger(RubriqueProduitsController.class.getName()).log(Level.SEVERE, null, ex);
                 }
