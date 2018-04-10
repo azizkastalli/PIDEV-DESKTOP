@@ -92,13 +92,14 @@ public class CrudEncheres implements ICrud<Encheres> {
            item="e.id_encheres";              
                
         String requete=" SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,"
-                + "u.username,c.nom,p.description,p.caracteristiques "
+                + "u.username,c.nom,p.description,p.caracteristiques,s.etat "
                 + "From produit p "
                 + "JOIN encheres e on p.id=e.id_cible "
                 + "JOIN categorie c on p.id_categorie=c.id "
+                + "JOIN session s on e.id_encheres=s.id  "
                 + "JOIN utilisateur u on p.id_propietaire=u.id "
                 + "WHERE "+item+"=? "
-                + "and e.date_debut> NOW() ";
+                + "and s.etat<> 'fini' ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         
@@ -107,10 +108,10 @@ public class CrudEncheres implements ICrud<Encheres> {
         else
                   pSmt.setInt(1,obj.getId_encheres());
           
-          System.out.println("id in crud : "+obj.getId_encheres());
           
           ResultSet rs = pSmt.executeQuery();
             rs.next();
+            obj.setEtat(rs.getString(11)); 
             obj.setCaracteristiques(rs.getString(10)); 
             obj.setDescription(rs.getString(9)); 
             obj.setCategorie(rs.getString(8)); 
@@ -130,19 +131,20 @@ public class CrudEncheres implements ICrud<Encheres> {
     public List<Encheres> SelectAll() throws SQLException {
         List<Encheres> liste = new ArrayList<Encheres>();
         
-         String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques "
+         String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques,s.etat "
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
+                      + "JOIN session s on e.id_encheres=s.id  "
                       + "JOIN categorie c on p.id_categorie=c.id "
                       + "JOIN utilisateur u on p.id_propietaire=u.id "
-                      + "Where  e.date_debut> NOW() ";
+                      + "Where  s.etat<> 'fini' ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
         
            while(rs.next())
            {
-            Encheres E =new Encheres(rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
+            Encheres E =new Encheres(rs.getString(11),rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
             rs.getString(6),rs.getDouble(5),rs.getString(1),rs.getInt(2),rs.getDouble(3),rs.getTimestamp(4));            
             liste.add(E);
            }
@@ -181,6 +183,29 @@ public class CrudEncheres implements ICrud<Encheres> {
             liste.add(P);
            }
 
+     return liste;
+    }
+    
+     public List<Encheres> SelectQuartz() throws SQLException {
+        List<Encheres> liste = new ArrayList<Encheres>();
+        
+         String requete="SELECT e.id_encheres,e.date_debut,p.label "
+                      + "From produit p "
+                      + "JOIN encheres e on p.id=e.id_cible "
+                      + "JOIN session s on e.id_encheres=s.id  "
+                      + "JOIN categorie c on p.id_categorie=c.id "
+                      + "JOIN utilisateur u on p.id_propietaire=u.id "
+                      + "Where  s.etat<> 'fini' ";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        ResultSet rs = pSmt.executeQuery();
+        
+           while(rs.next())
+           {
+            Encheres E =new Encheres(rs.getInt(1),rs.getTimestamp(2),rs.getString(3));            
+            liste.add(E);
+           }
+       
      return liste;
     }
     

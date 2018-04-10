@@ -5,15 +5,35 @@
  */
 package gui.controller;
 
+import entites.Encheres;
+import entites.Participantsencheres;
+import entites.QuartzJob;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.quartz.JobBuilder;
+import org.quartz.JobDataMap;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
+import org.quartz.impl.StdSchedulerFactory;
+import services.CrudEncheres;
+import services.ServiceParticipantEncheres;
 
 /**
  *
@@ -111,10 +131,41 @@ public class ZanimauxServer
     }                                     
 
     private void startServer() {                                        
-        Thread starter = new Thread(new ServerStart());
-        starter.start();
-        
-        System.out.println("Server started... ");
+       try {                                        
+           
+           ServiceParticipantEncheres Participants = new ServiceParticipantEncheres();
+           ArrayList<Participantsencheres> ListeParticipants = new ArrayList<>();
+            Scheduler sc = StdSchedulerFactory.getDefaultScheduler();
+            sc.start();
+           try {
+               ListeParticipants= (ArrayList<Participantsencheres>) Participants.SelectAll();
+            } catch (SQLException ex) {
+               Logger.getLogger(ZanimauxServer.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           Timestamp triggerStartTime;
+           String Triggername = "a";
+          
+           for(Participantsencheres P : ListeParticipants)
+           {
+            Triggername +="a"; 
+            
+            JobDataMap  Jobdata = new JobDataMap();
+            Jobdata.put("0",P.getId_session() );
+            JobDetail job = JobBuilder.newJob(QuartzJob.class).setJobData(Jobdata).build();
+            triggerStartTime = P.getDebut_session();
+            triggerStartTime.setMinutes(P.getDebut_session().getMinutes()-30);
+            Trigger t1 = TriggerBuilder.newTrigger().withIdentity(Triggername).startAt(triggerStartTime).build();
+            sc.scheduleJob(job,t1);
+           }
+           
+           
+           System.out.println("Server started... ");
+       } catch (SchedulerException ex) {
+           Logger.getLogger(ZanimauxServer.class.getName()).log(Level.SEVERE, null, ex);
+       }
+            Thread starter = new Thread(new ServerStart());
+            starter.start();
     }                                       
 
     private void b_usersActionPerformed() {                                        

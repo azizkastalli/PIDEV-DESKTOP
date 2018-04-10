@@ -6,6 +6,7 @@
 package gui.controller;
 
 import entites.Encheres;
+import entites.Journal;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +14,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -51,7 +54,8 @@ public class SessionEncheresController implements Initializable {
     BufferedReader reader;
     PrintWriter writer;
     Encheres E = new Encheres();
-
+    Journal J = new Journal();
+    
     @FXML
     private VBox parent;
     @FXML
@@ -98,17 +102,34 @@ public class SessionEncheresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         this.connectAction();
         
+        send.setOnAction((event) -> {
+            
            CountDownController countdown = new CountDownController();
            countdown.initForSession();
            VBox vb = countdown.setguiForSession();   
            countDown.getChildren().add(vb);
            
+            String message = textfield.getText();
+       // if pour verifier la mise (controle de saisie)
+            this.sendAction(message);
+            
+            Date d = new Date();
+            Time t = new Time(d.getTime());
+            J.setDate_mise(t);
+            J.setId_client("1");
+            J.setId_session(Integer.toString(E.getId_encheres()));
+            J.setMise(Double.parseDouble(message));
+      
+        });
+        
+           
         textarea.textProperty().addListener(
             (ObservableValue<? extends String> obs, String old, String niu) -> {
             Platform.runLater(() -> {
+                CountDownController countdown = new CountDownController();
                 countdown.initForSession();
                 VBox vb1 = countdown.setguiForSession();
-                countDown.getChildren().remove(vb);
+                countDown.getChildren().remove(0);
                 countDown.getChildren().add(vb1);
             }
           );
@@ -120,14 +141,6 @@ public class SessionEncheresController implements Initializable {
     private void Menu(MouseEvent event) {
           MenuController menu = new MenuController();
         menu.GestionMenu(event);   
-    }
-
-    @FXML
-    private void SendMise(ActionEvent event) {
-      String message = textfield.getText();
-      this.sendAction(message);
-      // if pour verifier la mise (controle de saisie)
-      
     }
     
     

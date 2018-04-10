@@ -5,14 +5,10 @@
  */
 package gui.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,7 +72,9 @@ public class AcceuilController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+          // nchouf ken l cilent l'encheres mte3ou bdet wallé 
+          // ken bdét n'affichi pane e5er sinon n5alli kol chay 3adi .  
+          
     }    
     private void minimize(ActionEvent event) {
         ((Node) event.getSource()).getScene().getWindow().hide();
@@ -98,10 +96,11 @@ public class AcceuilController implements Initializable {
 
     @FXML
     private void Menu(MouseEvent event) {
-       
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
               
     }
+    
+    
     
 }

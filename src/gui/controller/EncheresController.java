@@ -6,6 +6,8 @@
 package gui.controller;
 
 import entites.Encheres;
+import entites.Participantsencheres;
+import entites.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -31,6 +33,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import services.CrudEncheres;
+import services.CrudSession;
+import services.ServiceParticipantEncheres;
 
 /**
  * FXML Controller class
@@ -112,13 +117,27 @@ public class EncheresController implements Initializable {
               L.setPrefHeight(25);
               L.setPrefWidth(246);
                           
-           CountDownController countdown = new CountDownController();
-           countdown.init(E.getDate_debut());
-           VBox vb = countdown.setgui();
-           vb.setLayoutY(215);
-           vb.setLayoutX(0);
+                           
+              if(E.getEtat().equals("en attente"))
+              {  CountDownController countdown = new CountDownController();
+                 countdown.init(E.getDate_debut());
+                 VBox vb = countdown.setgui();
+                 vb.setLayoutY(215);
+                 vb.setLayoutX(0);
                    
-            P.getChildren().addAll(IV,L,vb);            
+                 P.getChildren().addAll(IV,L,vb);}
+              else if(E.getEtat().equals("en cours"))
+                {
+                 Label L1= new Label("enchere en cours");
+                 L1.setLayoutY(215);
+                 L1.setLayoutX(50);
+                 L1.setStyle("-fx-font-size:20");
+                 L1.setPrefHeight(25);
+                 L1.setPrefWidth(246);
+                 P.getChildren().addAll(IV,L,L1);
+                }
+              
+              
             ListePane.add(P);
             GP.add(P,j,i);            
 
@@ -187,7 +206,7 @@ public class EncheresController implements Initializable {
         
         //put DATA in GridPane
         for(Encheres E : liste)
-        {   
+        { 
                        //image set
             ImageView IV= new ImageView();
             Image I = new Image("/utils/assets/"+E.getNom_image());
@@ -211,14 +230,26 @@ public class EncheresController implements Initializable {
               //L.setStyle("-fx-text-fill: black");
               L.setPrefHeight(25);
               L.setPrefWidth(246);
-                          
-           CountDownController countdown = new CountDownController();
-           countdown.init(E.getDate_debut());
-           VBox vb = countdown.setgui();
-           vb.setLayoutY(215);
-           vb.setLayoutX(0);
+                 
+              if(E.getEtat().equals("en attente"))
+              {  CountDownController countdown = new CountDownController();
+                 countdown.init(E.getDate_debut());
+                 VBox vb = countdown.setgui();
+                 vb.setLayoutY(215);
+                 vb.setLayoutX(0);
                    
-            P.getChildren().addAll(IV,L,vb);            
+                 P.getChildren().addAll(IV,L,vb);}
+              else if(E.getEtat().equals("en cours"))
+                {
+                 Label L1= new Label("enchere en cours");
+                 L1.setLayoutY(215);
+                 L1.setLayoutX(50);
+                 L1.setStyle("-fx-font-size:20");
+                 L1.setPrefHeight(25);
+                 L1.setPrefWidth(246);
+                 P.getChildren().addAll(IV,L,L1);
+                }
+              
             ListePane.add(P);
             GP.add(P,j,i);      
 
@@ -239,10 +270,27 @@ public class EncheresController implements Initializable {
     {
      Parent home_page_parent = null;
      FXMLLoader Loader = new FXMLLoader();
-     
-     Loader.setLocation(getClass().getResource("/gui/DetailEncheres.fxml"));
-     
+     CrudEncheres serviceEncheres = new CrudEncheres();
+     Encheres E = new Encheres();
+     E.setId_encheres(Integer.parseInt(P.getId()));
         try {
+            E=serviceEncheres.Select(E);
+        } catch (SQLException ex) {
+            Logger.getLogger(EncheresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(P.getId());
+        System.out.println(E.getEtat());
+        
+     if(E.getEtat().equals("en cours"))      
+      {
+         Loader.setLocation(getClass().getResource("/gui/SessionEncheres.fxml"));
+      }
+     else
+     {
+         Loader.setLocation(getClass().getResource("/gui/DetailEncheres.fxml"));
+     }
+   
+     try{
             home_page_parent = Loader.load();
         } catch (IOException ex) {
             Logger.getLogger(EncheresController.class.getName()).log(Level.SEVERE, null, ex);
@@ -251,13 +299,21 @@ public class EncheresController implements Initializable {
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) P.getScene().getWindow();
         
-        
-        DetailEncheresController DEC = Loader.getController();  
-        DEC.Init(Integer.parseInt(P.getId()));
-        
+        if(E.getEtat().equals("en cours"))
+        { 
+        //Here you must send data to SessionEncheresController about this Enchere !!
+        }
+        else
+        {
+           DetailEncheresController DEC = Loader.getController();  
+           DEC.Init(Integer.parseInt(P.getId()));
+        }
+     
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
     }
+     
+     
 
      
 }

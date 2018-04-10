@@ -32,12 +32,10 @@ public class CrudSession implements ICrud<Session>{
                     + "VALUES(?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
-           
             pst.setInt(1,obj.getId());
             pst.setString(2,obj.getEtat());
             pst.setDouble(3,obj.getDerniere_mise());
             pst.setString(4,obj.getId_gagnant());            
-            
             pst.executeUpdate();
 
     }
@@ -108,5 +106,6 @@ public class CrudSession implements ICrud<Session>{
          pSmt.setInt(1,obj.getId());
          pSmt.executeUpdate();
     }
+    
     
 }

@@ -27,6 +27,7 @@ public class Encheres {
    private int    id_encheres;
    private int    id_cible;
    private double seuil_mise;
+   private String etat;
    private Timestamp   date_debut;
    private CheckBox checkbox;
    private ImageView IV;
@@ -52,9 +53,33 @@ public class Encheres {
         this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
         this.date_debutFX= new  JFXDatePicker(date_debut.toLocalDateTime().toLocalDate());
         this.heureFX = new JFXTimePicker(date_debut.toLocalDateTime().toLocalTime());
-        
+    }
+    
+    public Encheres(String etat,String caracteristiques, String description, String categorie, String nom_proprietaire, String nom_image, double poid, String label, int id_encheres, double seuil_mise, Timestamp date_debut) {
+        this.caracteristiques = caracteristiques;
+        this.description = description;
+        this.categorie = categorie;
+        this.nom_proprietaire = nom_proprietaire;
+        this.poid = poid;
+        this.label = label;
+        this.nom_image=nom_image;
+        this.id_encheres = id_encheres;
+        this.seuil_mise = seuil_mise;
+        this.date_debut = date_debut;
+        this.checkbox = new CheckBox();
+        this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
+        this.date_debutFX= new  JFXDatePicker(date_debut.toLocalDateTime().toLocalDate());
+        this.heureFX = new JFXTimePicker(date_debut.toLocalDateTime().toLocalTime());
+        this.etat=etat;
     }
 
+    // quartz constructor
+        public Encheres(int id_encheres, Timestamp date_debut,String label) {
+        this.id_encheres = id_encheres;
+        this.date_debut = date_debut;
+        this.label=label;
+    }
+    
     //constructeur pour ajouter et modifier les encheres
     public Encheres(int id_encheres, int id_cible, double seuil_mise, Timestamp date_debut) {
         this.id_encheres = id_encheres;
@@ -181,6 +206,14 @@ public class Encheres {
 
     public void setHeureFX(JFXTimePicker heureFX) {
         this.heureFX = heureFX;
+    }
+
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
     }
   
 

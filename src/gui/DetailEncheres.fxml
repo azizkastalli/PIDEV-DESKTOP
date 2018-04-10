@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -116,7 +116,7 @@
                   <Pane layoutX="37.0" layoutY="27.0" prefHeight="462.0" prefWidth="358.0">
                      <children>
                         <ImageView fx:id="image" fitHeight="338.0" fitWidth="356.0" layoutX="2.0" layoutY="9.0" pickOnBounds="true" />
-                        <ToggleButton fx:id="btparticipation" layoutY="378.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="357.0" text="Participer" />
+                        <JFXToggleButton fx:id="btparticipation" layoutX="14.0" layoutY="390.0" prefHeight="69.0" prefWidth="324.0" size="12.0" unToggleColor="WHITE" />
                      </children>
                   </Pane>
                   <VBox layoutX="425.0" layoutY="27.0" prefHeight="459.0" prefWidth="336.0">

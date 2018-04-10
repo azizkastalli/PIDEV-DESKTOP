@@ -28,19 +28,21 @@ public class ServiceEncheres {
     {
       ArrayList<Encheres> liste = new ArrayList<Encheres>();
 
-       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques "
+       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques,s.etat "
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
                       + "JOIN categorie c on p.id_categorie=c.id "
+                      + "JOIN session s on e.id_encheres=s.id  "
                       + "JOIN utilisateur u on p.id_propietaire=u.id "
-                      + "Where  e.date_debut> NOW() LIMIT 9 ";
+                      + "Where  s.etat<> 'fini' "      
+                      + "LIMIT 9 ";
        
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
         
            while(rs.next())
            {
-            Encheres E =new Encheres(rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
+            Encheres E =new Encheres(rs.getString(11),rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
             rs.getString(6),rs.getDouble(5),rs.getString(1),rs.getInt(2),rs.getDouble(3),rs.getTimestamp(4));            
 
             liste.add(E);
@@ -52,19 +54,21 @@ public class ServiceEncheres {
     {
       ArrayList<Encheres> liste = new ArrayList<Encheres>();
 
-       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques "
+       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques,s.etat "
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
                       + "JOIN categorie c on p.id_categorie=c.id "
+                      + "JOIN session s on e.id_encheres=s.id  "
                       + "JOIN utilisateur u on p.id_propietaire=u.id "
-                      + "Where  e.date_debut> NOW() LIMIT 9 OFFSET "+nbr;
+                      + "Where  s.etat<> 'fini' "      
+                      + "LIMIT 9 OFFSET "+nbr;
       
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();
         
            while(rs.next())
            {
-            Encheres E =new Encheres(rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
+            Encheres E =new Encheres(rs.getString(11),rs.getString(10),rs.getString(9),rs.getString(8),rs.getString(7),
             rs.getString(6),rs.getDouble(5),rs.getString(1),rs.getInt(2),rs.getDouble(3),rs.getTimestamp(4));            
 
             liste.add(E);
