@@ -28,7 +28,7 @@ public class ZanimauxApp extends Application {
         
         
         try {
-            root = FXMLLoader.load(getClass().getResource("/gui/acceuil.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/gui/Login.fxml"));
         } catch (IOException ex) {
             Logger.getLogger(ZanimauxApp.class.getName()).log(Level.SEVERE, null, ex);
         }

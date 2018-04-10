@@ -46,7 +46,7 @@ public class CrudEncheres implements ICrud<Encheres> {
             pst.executeUpdate();
             
             
-            String requete2 = "UPDATE Produit SET etat=encheres where id=?";
+            String requete2 = "UPDATE Produit SET etat='encheres' where id=?";
             PreparedStatement pst2 = cnx.prepareStatement(requete2);
             pst2.setInt(1,obj.getId_cible());
             pst2.executeUpdate();
@@ -100,6 +100,49 @@ public class CrudEncheres implements ICrud<Encheres> {
                 + "JOIN utilisateur u on p.id_propietaire=u.id "
                 + "WHERE "+item+"=? "
                 + "and s.etat<> 'fini' ";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        
+          if(obj.getId_encheres()==0)
+                  pSmt.setInt(1,obj.getId_cible());              
+        else
+                  pSmt.setInt(1,obj.getId_encheres());
+          
+          
+          ResultSet rs = pSmt.executeQuery();
+            rs.next();
+            obj.setEtat(rs.getString(11)); 
+            obj.setCaracteristiques(rs.getString(10)); 
+            obj.setDescription(rs.getString(9)); 
+            obj.setCategorie(rs.getString(8)); 
+            obj.setNom_proprietaire(rs.getString(7)); 
+            obj.setNom_image(rs.getString(6)); 
+            obj.setPoid(rs.getDouble(5)); 
+            obj.setLabel(rs.getString(1)); 
+            obj.setId_encheres(rs.getInt(2)); 
+            obj.setSeuil_mise(rs.getDouble(3)); 
+            obj.setDate_debut(rs.getTimestamp(4)); 
+                            
+                       
+       return obj;                 
+    }
+    
+    public Encheres SelectEncheres(Encheres obj) throws SQLException {
+        
+        String item="";
+          
+        if(obj.getId_encheres()==0)
+           item="e.id_cible";              
+        else
+           item="e.id_encheres";              
+               
+        String requete=" SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,"
+                + "u.username,c.nom,p.description,p.caracteristiques "
+                + "From produit p "
+                + "JOIN encheres e on p.id=e.id_cible "
+                + "JOIN categorie c on p.id_categorie=c.id "
+                + "JOIN utilisateur u on p.id_propietaire=u.id "
+                + "WHERE "+item+" =? ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         

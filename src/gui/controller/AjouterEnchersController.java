@@ -158,37 +158,6 @@ public class AjouterEnchersController implements Initializable {
                   {Ajout.setDisable(false);
                  }
                 });
-          
-        //time picker key listener pour le controle de saisie
-  /*      heure.setOnAction((event) -> {
-            
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        String dateEncheres = date.getValue().format(formatter);
-        LocalTime LT = heure.getValue();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date parsedDate = null;
-        
-            try {
-                parsedDate = dateFormat.parse(dateEncheres);
-            } catch (ParseException ex) {
-                Logger.getLogger(AjouterEnchersController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            parsedDate.setMinutes(LT.getMinute());
-            parsedDate.setHours(LT.getHour());
-            
-            Timestamp date_ajout = new Timestamp(parsedDate.getTime());
-            //current date : 
-              Date currdate = new Date();
-              Timestamp now = new Timestamp(currdate.getTime());
-            
-            long diff = date_ajout.getTime() - now.getTime();
-            long diffHours =  1 + diff / (60 * 60 * 1000) % 24;
-            //    if(diffHours<24)
-                    System.out.println(diff);
-                    System.out.println(diffHours);
-        });
-    */
   
     }    
 
@@ -206,14 +175,12 @@ public class AjouterEnchersController implements Initializable {
 
     @FXML
     private void AjoutStep1(MouseEvent event) {
-        
         Produit p = table.getSelectionModel().getSelectedItem();
         E.setId_cible(p.getId());
         tfmise.setDisable(false);
         date.setDisable(false);
         heure.setDisable(false);
        // Ajout.setDisable(false);
-       
     }
 
     @FXML
@@ -249,7 +216,7 @@ public class AjouterEnchersController implements Initializable {
             CE.Create(E);
            
             E.setId_encheres(0);
-            E=CE.Select(E);
+            E=CE.SelectEncheres(E);
             
             S.setId(E.getId_encheres());
             S.setEtat("en attente");
