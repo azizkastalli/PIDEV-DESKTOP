@@ -16,7 +16,7 @@ import javafx.scene.paint.Color;
 
 /**
  *
- * @author iheb bf
+ * @author user
  */
 public class Evenement {
     

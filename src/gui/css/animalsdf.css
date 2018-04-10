@@ -1,13 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
 
 
-.menu_bar{
-    -fx-background-color: firebrick;
-}
-
-.background
-{
-        -fx-background-color: skyblue;
-        
+    
+    .menu_bar{
+    -fx-background-color: aquamarine;
 }
 
 .menu_item{
@@ -21,3 +19,4 @@
     -fx-text-fill: #4f86dd;
     -fx-background-color: white;
 }
+

@@ -22,7 +22,7 @@ public class Dbconnection {
     private Connection connection;
     private static Dbconnection data;
 
-    private Dbconnection() {
+    public Dbconnection() {
         try {
             connection = DriverManager.getConnection(url,user,password);
             System.out.println("Connexion établie!");

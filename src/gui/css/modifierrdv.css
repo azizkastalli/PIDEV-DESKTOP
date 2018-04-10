@@ -1,15 +1,10 @@
+/*
+ * Empty Stylesheet file.
+ */
 
+.mainFxmlClass {
 
-.menu_bar{
-    -fx-background-color: firebrick;
 }
-
-.background
-{
-        -fx-background-color: skyblue;
-        
-}
-
 .menu_item{
     -fx-font-weight:bold;
     -fx-font-size:18;
