@@ -6,13 +6,13 @@
 package gui.controller;
 
 import entites.Encheres;
-import entites.Participantsencheres;
-import entites.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import services.ServiceEncheres;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,8 +34,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import services.CrudEncheres;
-import services.CrudSession;
-import services.ServiceParticipantEncheres;
 
 /**
  * FXML Controller class
@@ -69,15 +67,17 @@ public class EncheresController implements Initializable {
     private int scroll=0;   
     private ArrayList <Encheres>liste = new ArrayList<Encheres>();
     private ArrayList<Pane> ListePane = new ArrayList<>();
+     //current time
+       Date d = new Date();
+        Timestamp currdate = new Timestamp(d.getTime()); 
    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    
-      
-
+     
+        
          //setting up the GridPane
         GP.setPadding(new Insets(10,10,10,10));
         GP.setHgap(5);
@@ -118,7 +118,7 @@ public class EncheresController implements Initializable {
               L.setPrefWidth(246);
                           
                            
-              if(E.getEtat().equals("en attente"))
+              if((E.getDate_debut().getTime()-currdate.getTime())>0)
               {  CountDownController countdown = new CountDownController();
                  countdown.init(E.getDate_debut());
                  VBox vb = countdown.setgui();
@@ -126,7 +126,7 @@ public class EncheresController implements Initializable {
                  vb.setLayoutX(0);
                    
                  P.getChildren().addAll(IV,L,vb);}
-              else if(E.getEtat().equals("en cours"))
+              else 
                 {
                  Label L1= new Label("enchere en cours");
                  L1.setLayoutY(215);
@@ -139,13 +139,16 @@ public class EncheresController implements Initializable {
               
               
             ListePane.add(P);
-            GP.add(P,j,i);            
+            if(!E.getEtat().equals("fini"))
+            {GP.add(P,j,i);            
 
             j++;
             if(j>2)
             {i++;
             j=0;}
-           
+            
+            }
+            
            }
         
           anchorGridPane.setContent(GP);
@@ -194,7 +197,7 @@ public class EncheresController implements Initializable {
  private void AddDataOnScroll(ScrollEvent event)   
  {
      ArrayList <Encheres>liste = new ArrayList<Encheres>();
-  
+     
         
         if(event.getTextDeltaY()<0)
         {
@@ -206,8 +209,8 @@ public class EncheresController implements Initializable {
         
         //put DATA in GridPane
         for(Encheres E : liste)
-        { 
-                       //image set
+        {   
+            //image set
             ImageView IV= new ImageView();
             Image I = new Image("/utils/assets/"+E.getNom_image());
             IV.setImage(I);
@@ -230,8 +233,9 @@ public class EncheresController implements Initializable {
               //L.setStyle("-fx-text-fill: black");
               L.setPrefHeight(25);
               L.setPrefWidth(246);
-                 
-              if(E.getEtat().equals("en attente"))
+                          
+                           
+              if((E.getDate_debut().getTime()-currdate.getTime())>0)
               {  CountDownController countdown = new CountDownController();
                  countdown.init(E.getDate_debut());
                  VBox vb = countdown.setgui();
@@ -239,7 +243,7 @@ public class EncheresController implements Initializable {
                  vb.setLayoutX(0);
                    
                  P.getChildren().addAll(IV,L,vb);}
-              else if(E.getEtat().equals("en cours"))
+              else 
                 {
                  Label L1= new Label("enchere en cours");
                  L1.setLayoutY(215);
@@ -250,15 +254,20 @@ public class EncheresController implements Initializable {
                  P.getChildren().addAll(IV,L,L1);
                 }
               
+              
             ListePane.add(P);
-            GP.add(P,j,i);      
+            if(!E.getEtat().equals("fini"))
+            {GP.add(P,j,i);            
 
             j++;
             if(j>2)
             {i++;
             j=0;}
-           
-           }     
+            
+            }
+            
+           }
+        
       nbr=GP.getChildren().size();
       
         }
@@ -273,6 +282,7 @@ public class EncheresController implements Initializable {
      CrudEncheres serviceEncheres = new CrudEncheres();
      Encheres E = new Encheres();
      E.setId_encheres(Integer.parseInt(P.getId()));
+     
         try {
             E=serviceEncheres.Select(E);
         } catch (SQLException ex) {
@@ -281,7 +291,7 @@ public class EncheresController implements Initializable {
         System.out.println(P.getId());
         System.out.println(E.getEtat());
         
-     if(E.getEtat().equals("en cours"))      
+     if((E.getDate_debut().getTime()-currdate.getTime())<0)      
       {
          Loader.setLocation(getClass().getResource("/gui/SessionEncheres.fxml"));
       }
@@ -299,9 +309,10 @@ public class EncheresController implements Initializable {
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) P.getScene().getWindow();
         
-        if(E.getEtat().equals("en cours"))
+        if((E.getDate_debut().getTime()-currdate.getTime())<0)
         { 
-        //Here you must send data to SessionEncheresController about this Enchere !!
+          SessionEncheresController sessioncontroller = Loader.getController(); 
+          sessioncontroller.Init(Integer.parseInt(P.getId()));
         }
         else
         {
@@ -313,7 +324,6 @@ public class EncheresController implements Initializable {
                 app_stage.show();  
     }
      
-     
-
+    
      
 }

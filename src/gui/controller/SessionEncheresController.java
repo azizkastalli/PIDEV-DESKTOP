@@ -7,6 +7,9 @@ package gui.controller;
 
 import entites.Encheres;
 import entites.Journal;
+import entites.Participantsencheres;
+import entites.Session;
+import entites.User;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,19 +18,21 @@ import java.net.Socket;
 import java.net.URL;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -38,6 +43,7 @@ import javafx.scene.layout.VBox;
 import services.CrudEncheres;
 import services.CrudSession;
 import services.ServiceJournal;
+import services.ServiceParticipantEncheres;
 
 /**
  * FXML Controller class
@@ -81,13 +87,15 @@ public class SessionEncheresController implements Initializable {
     
     private ServiceJournal journal = new ServiceJournal();
     private CrudSession session = new CrudSession();
-    
+    private static Timer timer = new Timer();
+
     public SessionEncheresController()
     {}
 
     public void Init(int id_encheres) {
       CrudEncheres CE = new CrudEncheres();
       E.setId_encheres(id_encheres);
+      System.out.println(E.getId_encheres());
         try {
             E=CE.Select(E);
         } catch (SQLException ex) {
@@ -101,39 +109,157 @@ public class SessionEncheresController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.connectAction();
+       
+        ServiceJournal serviceJournal = new ServiceJournal();
+        CrudSession serviceSession = new CrudSession();
+        Session session = new Session();
+        Journal journal = new Journal();
+        //session.setId(E.getId_encheres());
+        User user = new User();
+        session.setId(152);
+        user.setId(1);
+       
         
-        send.setOnAction((event) -> {
-            
-           CountDownController countdown = new CountDownController();
-           countdown.initForSession();
-           VBox vb = countdown.setguiForSession();   
-           countDown.getChildren().add(vb);
-           
-            String message = textfield.getText();
-       // if pour verifier la mise (controle de saisie)
-            this.sendAction(message);
-            
-            Date d = new Date();
-            Time t = new Time(d.getTime());
-            J.setDate_mise(t);
-            J.setId_client("1");
-            J.setId_session(Integer.toString(E.getId_encheres()));
-            J.setMise(Double.parseDouble(message));
-      
-        });
+         //verifier si le client participe ou non à cette session 
+        ServiceParticipantEncheres serviceParticipants = new ServiceParticipantEncheres();        
+        try {
+            if(!serviceParticipants.verifierExistanceSession(user, session))
+            {
+                textfield.setDisable(true);
+                send.setVisible(false);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+       //verifier si quelqu'un dans cette session à deja fait une mise si oui init countdown
+        //----------------------------------------------------------------------------------
+        try {
+            if(serviceJournal.ExistJournal(session))
+            {//init countdown with last journal time update
+               journal=serviceJournal.Select(session);
+               CountDownController countdown = new CountDownController();
+        
+                 //current date
+         Date date = new Date();
+         Date date2 = new Date();
+         date2.setHours(journal.getDate_mise().getHours());
+         date2.setMinutes(journal.getDate_mise().getMinutes());
+         date2.setSeconds(journal.getDate_mise().getSeconds());
+         
+         Timestamp currTime = new Timestamp(date.getTime());
+         long diff = (long) (120000 - ( currTime.getTime() - date2.getTime()));
+            System.out.println("c :" + diff);   
+               
+            countdown.initForSessionVerification(journal.getDate_mise());
+               VBox vb = countdown.setguiForSession();
+               countDown.getChildren().add(vb);
+               
+               timer.schedule(new TimerTask() {
+                  @Override
+                    public void run() {
+                      try {
+                          //close the deal
+                          serviceSession.FinishSession(session);
+                          textfield.setDisable(true);
+                          send.setVisible(false);
+                      } catch (SQLException ex) {
+                          Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+                      System.out.println("wfet sayé ");
+                    }
+                    }, diff);
+                 }
+         //-----------------------------------------------------------------------------------
+                
+                send.setOnAction((event) -> {
+                          
+              try{
+                    double mise =Double.parseDouble(textfield.getText());
+                    if(serviceSession.VerifierMise(session,mise))
+                    {
+                    
+                    CountDownController countdown = new CountDownController();
+                    countdown.initForSession(0.034);
+                    VBox vb = countdown.setguiForSession();
+                    countDown.getChildren().add(vb);
+                       
+                    String message = textfield.getText();
+                    // if pour verifier la mise (controle de saisie)
+                    this.sendAction(message);
+                    
+                    Date d = new Date();
+                    Time t = new Time(d.getTime());
+                    
+                    J.setDate_mise(t);
+                    J.setId_client("1");
+                    System.out.println(E.getId_encheres());
+                    J.setId_session(Integer.toString(E.getId_encheres()));
+                    J.setMise(Double.parseDouble(message));
+                    
+                try {
+                    serviceJournal.Create(J);
+                } catch (SQLException ex) {
+                    Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    }
+                  else
+                    {
+                    //alert 
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                               alert.setTitle("notification"); 
+                               alert.setHeaderText("erreur");
+                               alert.setContentText("entrer une mise superiure ");
+                               alert.showAndWait();  
+                    }
+               }
+                       catch(Exception e)
+                        {
+                      //alert 
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                               alert.setTitle("notification"); 
+                               alert.setHeaderText("erreur");
+                               alert.setContentText("entrer un entier ou un reel");
+                               alert.showAndWait(); 
+                        }    
+                });
+        } catch (SQLException ex) {
+            Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
            
         textarea.textProperty().addListener(
             (ObservableValue<? extends String> obs, String old, String niu) -> {
             Platform.runLater(() -> {
                 CountDownController countdown = new CountDownController();
-                countdown.initForSession();
+                countdown.initForSession(0.034);
                 VBox vb1 = countdown.setguiForSession();
                 countDown.getChildren().remove(0);
                 countDown.getChildren().add(vb1);
+              
+                timer.cancel();
+                timer.purge();
+                timer = new Timer();
+                timer.schedule(new TimerTask() {
+                  @Override
+                    public void run() {
+                        //close the deal 
+                         try {
+                          //close the deal
+                          serviceSession.FinishSession(session);
+                          send.setVisible(false);
+                      } catch (SQLException ex) {
+                          Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
+                      }
+                      System.out.println("wfet sayé ");
+                    }
+                    }, 120000);
+               
             }
           );
         });
+        
     }    
 
 

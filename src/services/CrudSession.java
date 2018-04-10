@@ -42,7 +42,7 @@ public class CrudSession implements ICrud<Session>{
 
     @Override
     public void Update(Session obj) throws SQLException {
-     String requete = "UPDATE session SET etat=?,derniere_mise=?,,id_gagnant=?"
+     String requete = "UPDATE session SET etat=?,derniere_mise=?,id_gagnant=?"
                     + "where id=?";
         
         PreparedStatement pst = cnx.prepareStatement(requete);
@@ -107,5 +107,36 @@ public class CrudSession implements ICrud<Session>{
          pSmt.executeUpdate();
     }
     
+    public void FinishSession(Session S) throws SQLException
+    {
+       
+     String requete = "UPDATE session SET etat='fini' "
+                    + "where id=?";
+        
+        PreparedStatement pst = cnx.prepareStatement(requete);
+   
+        pst.setInt(1,S.getId());
+         pst.executeUpdate();
+
+    }
+    
+    public boolean VerifierMise(Session s ,double mise) throws SQLException {
+        String requete=" SELECT s.derniere_mise "
+                       + "FROM session s "
+                       + "Join produit p on p.id=(SELECT id_cible FROM Encheres WHERE id_encheres= s.id) "
+                       + "Join utilisateur u on u.id=s.id_gagnant "
+                       + " WHERE s.id=?";
+     
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        pSmt.setInt(1,s.getId());
+        ResultSet rs = pSmt.executeQuery();
+            rs.next();
+            
+            if(rs.getDouble(1)<mise)
+            return true;
+        
+                              
+       return false;               
+    }
     
 }

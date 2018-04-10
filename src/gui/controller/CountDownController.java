@@ -10,6 +10,7 @@ import eu.hansolo.tilesfx.Tile.SkinType;
 import eu.hansolo.tilesfx.TileBuilder;
 import eu.hansolo.tilesfx.fonts.Fonts;
 import eu.hansolo.tilesfx.tools.Helper;
+import java.sql.Time;
 import java.util.Date;
 import java.sql.Timestamp;
 import javafx.animation.AnimationTimer;
@@ -69,7 +70,6 @@ public class CountDownController  {
 			long diffDays = diff / (24 * 60 * 60 * 1000);
        
         double  heure_converted =1+ diffHours+ (diffDays*24) + (diffMinutes/60) + (diffSeconds/3600) ;       
-        			System.out.println("hours converted : "+heure_converted);
 
         duration = Duration.hours(heure_converted);
 
@@ -99,7 +99,7 @@ public class CountDownController  {
         };
     }
      
-     public void initForSession() {
+     public void initForSession(Double hours) {
       
          minutes  = createTile("MINUTES", "0");
          seconds  = createTile("SECONDS", "0");
@@ -107,7 +107,7 @@ public class CountDownController  {
         minutesLabel = createLabel("MINUTES");
         secondsLabel = createLabel("SECONDS");
     
-        duration = Duration.hours(0.034);
+        duration = Duration.hours(hours);
 
         lastTimerCall = System.nanoTime();
         timer = new AnimationTimer() {
@@ -203,4 +203,52 @@ public class CountDownController  {
     }
 
 
+         public void initForSessionVerification(Time T) {
+      
+         minutes  = createTile("MINUTES", "0");
+         seconds  = createTile("SECONDS", "0");
+
+        minutesLabel = createLabel("MINUTES");
+        secondsLabel = createLabel("SECONDS");
+    
+  //current date
+         Date date = new Date();
+         Date date2 = new Date();
+         date2.setHours(T.getHours());
+         date2.setMinutes(T.getMinutes());
+         date2.setSeconds(T.getSeconds());
+         
+         Timestamp ts = new Timestamp(date.getTime());
+            
+                        float diff = ts.getTime() - date2.getTime();
+			
+        float  heure_converted = (float) (0.034 - (diff/3600000)) ;  
+
+        duration = Duration.hours(heure_converted);
+
+         float diff1 = (float) (120000 - ( ts.getTime() - date2.getTime()));
+            System.out.println("c :" + diff1);  
+
+        lastTimerCall = System.nanoTime();
+        timer = new AnimationTimer() {
+            @Override public void handle(final long now) {
+                
+                if (now > lastTimerCall + 1_000_000_000l) {
+                    duration = duration.subtract(Duration.seconds(1));
+
+                    int remainingSeconds = (int) duration.toSeconds();
+                 
+                    int m = ((remainingSeconds % SECONDS_PER_DAY) % SECONDS_PER_HOUR) / SECONDS_PER_MINUTE;
+                    int s = (((remainingSeconds % SECONDS_PER_DAY) % SECONDS_PER_HOUR) % SECONDS_PER_MINUTE);
+
+                    if (m == 0 && s == 0) { timer.stop(); }
+
+                    minutes.setDescription(String.format("%02d", m));
+                    seconds.setDescription(String.format("%02d", s));
+
+                    lastTimerCall = now;
+                }
+            }
+        };
+    }
 }

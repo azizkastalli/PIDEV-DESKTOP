@@ -5,7 +5,6 @@
  */
 package gui.controller;
 
-import entites.Encheres;
 import entites.Participantsencheres;
 import entites.QuartzJob;
 import java.io.BufferedReader;
@@ -19,9 +18,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.quartz.JobBuilder;
@@ -32,7 +28,6 @@ import org.quartz.SchedulerException;
 import org.quartz.Trigger;
 import org.quartz.TriggerBuilder;
 import org.quartz.impl.StdSchedulerFactory;
-import services.CrudEncheres;
 import services.ServiceParticipantEncheres;
 
 /**

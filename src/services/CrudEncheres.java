@@ -47,7 +47,7 @@ public class CrudEncheres implements ICrud<Encheres> {
             
             
             String requete2 = "UPDATE Produit SET etat=encheres where id=?";
-            PreparedStatement pst2 = cnx.prepareStatement(requete);
+            PreparedStatement pst2 = cnx.prepareStatement(requete2);
             pst2.setInt(1,obj.getId_cible());
             pst2.executeUpdate();
              

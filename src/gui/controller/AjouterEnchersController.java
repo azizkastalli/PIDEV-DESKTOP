@@ -48,8 +48,6 @@ import services.CrudSession;
  */
 public class AjouterEnchersController implements Initializable {
     Encheres E = new Encheres();
-    Boolean verifmise = false;
-    Boolean verifdate = false;
     @FXML
     private VBox parent;
     @FXML
@@ -122,14 +120,12 @@ public class AjouterEnchersController implements Initializable {
         tfmise.setOnKeyReleased((event) -> {
             try{
            Double.parseDouble(tfmise.getText());
-           if(Ajout.isDisabled() && verifdate == true)
+           if(Ajout.isDisabled() )
                 Ajout.setDisable(false);
-                verifmise = true;
             }
             catch(Exception e)
             {
-                           Ajout.setDisable(true);
-                           verifmise=false;
+                           Ajout.setDisable(true);         
             }
                });
         
@@ -156,11 +152,11 @@ public class AjouterEnchersController implements Initializable {
            
             if(diff<0 )
                   {  Ajout.setDisable(true);
-                     verifdate = false;
+                   
                   }
-            else if(verifmise == true && diff>0 )
+            else if( diff>0 )
                   {Ajout.setDisable(false);
-                   verifdate = true;}
+                 }
                 });
           
         //time picker key listener pour le controle de saisie

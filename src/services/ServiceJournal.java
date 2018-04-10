@@ -11,7 +11,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import utils.Dbconnection;
@@ -75,14 +74,55 @@ public class ServiceJournal {
             pst.executeUpdate();
             
             
-            String requete2 = "UPDATE Session SET derniere_mise	= ? , id_gagnant = ? where id=? ";
+            String requete2 = "UPDATE Session SET derniere_mise	= ? , id_gagnant = ? , etat='en cours' where id=? ";
           
-              PreparedStatement pst2 = cnx.prepareStatement(requete);
+              PreparedStatement pst2 = cnx.prepareStatement(requete2);
               pst2.setDouble(1,obj.getMise());
               pst2.setString(2,obj.getId_client());
               pst2.setString(3,obj.getId_session());
+              
               pst2.executeUpdate();
              
     }
    
+        public boolean ExistJournal(Session S) throws SQLException
+    {
+         
+        String requete=" SELECT count(*) "
+                     + "FROM Journal j "
+                     + "JOIN utilisateur u on u.id=j.id_client "
+                     + "WHERE j.id_session= ? ";
+
+        PreparedStatement pst = cnx.prepareStatement(requete);
+        pst.setInt(1,S.getId());
+        ResultSet rs = pst.executeQuery();
+        rs.next();
+         
+          if(rs.getInt(1)!=0)
+            return true;
+          
+          return false;
+    }
+        
+     
+            public Journal Select(Session S) throws SQLException {
+      Journal j = new Journal();
+        String requete="SELECT j.id,j.date_mise,j.mise,u.username "
+                     + "FROM Journal j "
+                     + "JOIN utilisateur u on u.id=j.id_client "
+                     + "WHERE j.id_session= ? ORDER BY j.id "
+                     + "DESC LIMIT 1 ";
+     
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        pSmt.setInt(1,S.getId());
+        ResultSet rs = pSmt.executeQuery();
+            rs.next();
+            
+            j.setNom_client(rs.getString(4));
+            j.setMise(rs.getDouble(3));
+            j.setDate_mise(rs.getTime(2));
+                              
+       return j;               
+    }
+        
 }

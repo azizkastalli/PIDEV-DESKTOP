@@ -6,6 +6,7 @@
 package services;
 
 import entites.Participantsencheres;
+import entites.Session;
 import entites.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -86,6 +87,22 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
           
           ResultSet rs = psmt.executeQuery();
             rs.next();
+         if(rs.getInt(1)!=0)
+             return true;
+         else
+             return false;
+    }
+    
+    public Boolean verifierExistanceSession(User u,Session s) throws SQLException {
+                 
+        String requete=" SELECT COUNT(*) FROM participantsencheres WHERE id_user = ? and id_session = ? ";    
+        PreparedStatement psmt = cnx.prepareStatement(requete);
+        psmt.setInt(1, u.getId());
+        psmt.setInt(2, s.getId());
+          
+          ResultSet rs = psmt.executeQuery();
+            rs.next();
+            
          if(rs.getInt(1)!=0)
              return true;
          else
