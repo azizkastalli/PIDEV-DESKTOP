@@ -5,9 +5,17 @@
  */
 package gui.controller;
 
+import entites.Categorie;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,29 +23,69 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import services.CrudCategorie;
 
 /**
  * FXML Controller class
  *
  * @author iheb bf
  */
-public class EvenementAdminController implements Initializable {
+public class AfficherCategorieAdminController implements Initializable {
 
     @FXML
     private HBox ev;
+    @FXML
+    private TableView<Categorie> listeCategorie;
+    @FXML
+    private TableColumn<Categorie,Integer> id;
+    @FXML
+    private TableColumn<Categorie, String> nom;
+    @FXML
+    private TableColumn<Categorie, String> type;
+    
+      
+   
+    
+    private TableColumn<Categorie,String> buttonCol;
+    
+     
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        CrudCategorie CC=new CrudCategorie();
+        ArrayList<Categorie> arrayList=(ArrayList<Categorie>) CC.SelectAll();
+        ObservableList observableList = FXCollections.observableArrayList(arrayList);
+        listeCategorie.setItems(observableList);
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        type.setCellValueFactory(new PropertyValueFactory<>("type"));
+        listeCategorie.setEditable(true);
+        nom.setCellFactory(TextFieldTableCell.forTableColumn());
+        type.setCellFactory(TextFieldTableCell.forTableColumn());
+        
+     
+    
+        
+       
+       
+       
     }    
-
-    @FXML
+     @FXML
     private void ClickStore(MouseEvent event) {
         
        try {
@@ -87,7 +135,7 @@ public class EvenementAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-               // app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -107,7 +155,7 @@ public class EvenementAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-               // app_stage.hide(); //optional
+             //   app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -147,7 +195,7 @@ public class EvenementAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-               // app_stage.hide(); //optional
+                //app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
             
@@ -167,28 +215,6 @@ public class EvenementAdminController implements Initializable {
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
           
             
-         //       app_stage.hide(); //optional
-                app_stage.setScene(home_page_scene);
-                app_stage.show();  
-            
-        
-            
-        } catch (IOException ex) {
-           
-        
-    }
-        
-    }
-    
-    @FXML
-    private void ajouter(MouseEvent event)
-    {
-         try {
-              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/AjouterCategorieAdmin.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-          
-            
                // app_stage.hide(); //optional
                 app_stage.setScene(home_page_scene);
                 app_stage.show();  
@@ -199,54 +225,75 @@ public class EvenementAdminController implements Initializable {
            
         
     }
-    }
-         
-          @FXML
-    private void afficher(MouseEvent event)
-    {
-         try {
-              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/AfficherCategorieAdmin.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-          
-            
-               // app_stage.hide(); //optional
-                app_stage.setScene(home_page_scene);
-                app_stage.show();  
-            
-        
-            
-        } catch (IOException ex) {
-           
-        
-    }
-    
     }
 
     @FXML
-    private void EspaceEvent(MouseEvent event) {
+    private void EditNom(CellEditEvent edittedCell) throws SQLException {
         
-         try {
-              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/ModifEventAdmin.fxml"));
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-          
-            
-               // app_stage.hide(); //optional
-                app_stage.setScene(home_page_scene);
-                app_stage.show();  
-            
-        
-            
-        } catch (IOException ex) {
+        CrudCategorie CC=new CrudCategorie();
+            listeCategorie.setEditable(true);
+
+    Categorie personSelected =  listeCategorie.getSelectionModel().getSelectedItem();
+    
+    personSelected.setNom(edittedCell.getNewValue().toString());
+       
+    
+        int id =  listeCategorie.getSelectionModel().getSelectedItem().getId();
+       
+                String nom=listeCategorie.getSelectionModel().getSelectedItem().getNom();
+                 String type=listeCategorie.getSelectionModel().getSelectedItem().getType();
+                
            
+
+        if(nom.isEmpty()){
+                  new Alert(Alert.AlertType.INFORMATION, "champ nom  vide").show();
+           }
+           else {
+                Categorie c=new Categorie(id, nom,type);
+        CC.Update(c);
+           new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
+        
+        }
+        
+    
+    
+            }
+
+    @FXML
+    private void EditType(CellEditEvent edittedCell) throws SQLException {
+        
+           CrudCategorie CC=new CrudCategorie();
+            listeCategorie.setEditable(true);
+
+    Categorie personSelected =  listeCategorie.getSelectionModel().getSelectedItem();
+    
+    personSelected.setType(edittedCell.getNewValue().toString());
+       
+    
+        int id =  listeCategorie.getSelectionModel().getSelectedItem().getId();
+       
+                String nom=listeCategorie.getSelectionModel().getSelectedItem().getNom();
+                 String type=listeCategorie.getSelectionModel().getSelectedItem().getType();
+                
+             //   System.out.println(id+type+nom);
+
+        
+       
+           if(type.isEmpty()){
+                  new Alert(Alert.AlertType.INFORMATION, "champ type vide").show();
+           }
+           else {
+                Categorie c=new Categorie(id, nom,type);
+        CC.Update(c);
+           new Alert(Alert.AlertType.INFORMATION, "Catégorie modifié").show();
+        
+        }
+        
+                     
+
         
     }
     
-        
-        
-    }
     
-    }
    
-
+}

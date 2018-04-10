@@ -6,21 +6,31 @@
 package gui.controller;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author HP
+ * @author iheb bf
  */
-public class EspaceMagasinController implements Initializable {
+public class EspaceEvenementController implements Initializable {
 
     @FXML
     private VBox parent;
@@ -35,6 +45,8 @@ public class EspaceMagasinController implements Initializable {
     @FXML
     private Label evenements;
     @FXML
+    private Label espace;
+    @FXML
     private FontAwesomeIconView addstoreicon;
     @FXML
     private FontAwesomeIconView addenchersicon;
@@ -43,21 +55,19 @@ public class EspaceMagasinController implements Initializable {
     @FXML
     private FontAwesomeIconView gererenchersicon;
     @FXML
-    private ImageView addstore;
+    private ImageView ajoutEvent;
     @FXML
-    private ImageView gererproduit;
-    @FXML
-    private Label espace;
+    private ImageView gestionEvent;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+      
+       
     }    
-
-    @FXML
+     @FXML
     private void Menu(MouseEvent event) {
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
@@ -68,7 +78,33 @@ public class EspaceMagasinController implements Initializable {
            MenuController menu = new MenuController();
         menu.GestionMenuEspace(event);
     }
-    
 
-    
+    @FXML
+    private void ajoutE(MouseEvent event) throws IOException {
+        
+           FXMLLoader loader =new FXMLLoader(getClass().getResource("/gui/AjoutEvent.fxml"));
+        Parent root;
+        root=loader.load();
+        ajoutEvent.getScene().setRoot(root);
+    }
+
+    @FXML
+    private void ModifEvent(MouseEvent event) throws IOException {
+        
+           FXMLLoader loader =new FXMLLoader(getClass().getResource("/gui/ModifSuppEvent.fxml"));
+        Parent root;
+        root=loader.load();
+        ajoutEvent.getScene().setRoot(root);
+        
+    }
+
+   
+
+   
+
+   
+
+   
+
+  
 }

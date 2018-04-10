@@ -59,7 +59,11 @@ public class MenuController {
                 break;
                 case"a:1:{i:0;s:12:\"ROLE_LIVREUR\";}":
                 destination="EspaceLivreur.fxml";
-                break;}
+                break;
+                case"a:1:{i:0;s:16:\"ROLE_ASSOCIATION\";}":
+                destination="EspaceEvenement.fxml";
+                break;
+                }
                 break;
             case "enc":
             case "ench":
@@ -79,7 +83,7 @@ public class MenuController {
             case "evenements":
             case "even":
             case "eve":
-                destination="RubriqueEvenements.fxml";
+                destination="EventClient.fxml";
                 break;
             case "pan":
             case "pani":
