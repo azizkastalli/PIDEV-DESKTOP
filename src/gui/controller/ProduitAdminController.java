@@ -81,7 +81,7 @@ public class ProduitAdminController implements Initializable {
          Notifications notification = Notifications.create()
                 .title("Notifiaction Quantité")
                 .text("Quantité "+p.getLabel()+" est inferieur a 10!!!")
-                .hideAfter(Duration.seconds(10))
+                .hideAfter(Duration.seconds(20))
                 .position(Pos.BOTTOM_RIGHT);   
         
         notification.showInformation();
