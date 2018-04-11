@@ -198,5 +198,28 @@ public class AcceuilController implements Initializable {
        
         }   
     }
+
+    @FXML
+    private void Logout(MouseEvent event) throws IOException {
+            try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        
+                                 }
     
-}
+                   }
+            
+    }
+    
+

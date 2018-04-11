@@ -18,6 +18,7 @@ public class AnimalSdf {
     private String sexe;
     private Date date_trouvaille;
     private String nom_image;
+    private int etat;
     private String lieu_trouvaille;
     private int id_client;
     private int id_categorie;
@@ -35,8 +36,24 @@ public class AnimalSdf {
         this.id_categorie=id_categorie;
        this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
         IV.setFitHeight(50);
-IV.setFitWidth(50);
+        IV.setFitWidth(50);
     }
+
+    public AnimalSdf(int id, String sexe, Date date_trouvaille, String nom_image, int etat, String lieu_trouvaille, int id_client, int id_categorie) {
+        this.id = id;
+        this.sexe = sexe;
+        this.date_trouvaille = date_trouvaille;
+        this.nom_image = nom_image;
+        this.etat = etat;
+        this.lieu_trouvaille = lieu_trouvaille;
+        this.id_client = id_client;
+        this.id_categorie = id_categorie;
+        this.IV = new ImageView(new Image("/utils/assets/"+nom_image));
+        IV.setFitHeight(50);
+        IV.setFitWidth(50);
+         
+    }
+        
     
         public AnimalSdf(String sexe, String nom_image, Date date_trouvaille, String lieu_trouvaille, int id_client,int id_categorie) {
         
@@ -125,7 +142,7 @@ IV.setFitWidth(50);
 
     @Override
     public String toString() {
-        return "AnimalSdf{"  + ", sexe=" + sexe + ", date_trouvaille=" + date_trouvaille + ", lieu_trouvaille=" + lieu_trouvaille + ", id_client=" + id_client + ", nom_image=" + nom_image + '}';
+        return "AnimalSdf{"  + " sexe=" + sexe + ", date_trouvaille=" + date_trouvaille + ", lieu_trouvaille=" + lieu_trouvaille + ", id_client=" + id_client + ", nom_image=" + nom_image +", etat="+etat+ '}';
     }
 
     public ImageView getIV() {
@@ -135,6 +152,16 @@ IV.setFitWidth(50);
     public void setIV(ImageView IV) {
         this.IV = IV;
     }
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+   
     
   
 }

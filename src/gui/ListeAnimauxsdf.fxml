@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ListeRdvController">
+<AnchorPane id="AnchorPane" prefHeight="543.0" prefWidth="868.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="gui.controller.ListeAnimauxsdfController">
     <stylesheets>
-        <URL value="@/gui/css/listerdv.css" />
+        <URL value="@/gui/css/listeanimauxsdf.css" />
     </stylesheets>
    <children>
-      <HBox layoutX="10.0" layoutY="9.0" prefHeight="45.0" prefWidth="831.0" styleClass="menu_bar" stylesheets="@css/animalsdf.css">
+      <HBox prefHeight="49.0" prefWidth="868.0" styleClass="menu_bar" stylesheets="@css/animalsdf.css">
          <children>
             <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -84,28 +84,30 @@
                   <Insets left="20.0" top="8.0" />
                </HBox.margin>
             </FontAwesomeIconView>
-            <FontAwesomeIconView glyphName="GEAR" glyphStyle="ff0000" size="2em">
+            <FontAwesomeIconView glyphName="GEAR" glyphStyle="ff0000" size="2em" wrappingWidth="5.904802322387695">
                <HBox.margin>
                   <Insets left="20.0" top="8.0" />
                </HBox.margin>
             </FontAwesomeIconView>
          </children>
       </HBox>
-      <TableView fx:id="TableA" layoutX="164.0" layoutY="126.0" onMouseClicked="#Try" prefHeight="200.0" prefWidth="495.0">
-        <columns>
-          <TableColumn fx:id="idc" prefWidth="103.0" text="Id Client" />
-            <TableColumn fx:id="idd" prefWidth="98.0" text="Id Dresseur" />
-            <TableColumn fx:id="date" prefWidth="107.0" text="Date Rdv" />
-            <TableColumn fx:id="ida" prefWidth="102.0" text="Id Animal" />
-            <TableColumn fx:id="etat" prefWidth="88.0" text="Etat" />
-        </columns>
+      <TableView fx:id="tableA" editable="true" layoutX="100.0" layoutY="128.0" onMouseClicked="#Try" prefHeight="302.0" prefWidth="561.0">
+         <columns>
+            <TableColumn fx:id="id" prefWidth="85.33334350585938" text="Numero" />
+            <TableColumn fx:id="sexe" prefWidth="86.33331298828125" text="sexe" />
+            <TableColumn fx:id="img" prefWidth="119.0" text="nom_image" />
+            <TableColumn fx:id="date" minWidth="8.66668701171875" prefWidth="116.33331298828125" text="date_trouvaille" />
+            <TableColumn fx:id="lieu" prefWidth="150.66668701171875" text="lieu_trouvaille" />
+         </columns>
       </TableView>
-      <Button fx:id="supp" layoutX="228.0" layoutY="354.0" mnemonicParsing="false" onAction="#Delete" text="Supprimer" />
-      <Button fx:id="Modifier" layoutX="477.0" layoutY="354.0" mnemonicParsing="false" onAction="#Modif" text="Modifier" />
-      <Label layoutX="41.0" layoutY="79.0" text="Liste des Rendez-vous">
+      <Button fx:id="Modifier" layoutX="285.0" layoutY="454.0" mnemonicParsing="false" onAction="#Modif" prefHeight="34.0" prefWidth="73.0" text="Modifier" />
+      <Button fx:id="adopter" layoutX="447.0" layoutY="454.0" mnemonicParsing="false" onAction="#Adoter" prefHeight="37.0" prefWidth="73.0" text="Adopter" />
+      <Label layoutX="69.0" layoutY="80.0" text="Liste des animaux disponible pour adoption " textFill="#1212d0">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Button layoutX="120.0" layoutY="454.0" mnemonicParsing="false" onAction="#Ajout" prefHeight="34.0" prefWidth="97.0" text="Ajouter" />
+      <Button fx:id="and" layoutX="689.0" layoutY="256.0" mnemonicParsing="false" onAction="#ListeAdopté" prefHeight="34.0" prefWidth="149.0" text="Nos Animaux Adoptés" />
    </children>
 </AnchorPane>

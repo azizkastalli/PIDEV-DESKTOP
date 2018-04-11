@@ -104,14 +104,12 @@
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
-                     <children>
-                        <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../utils/assets/profile.png" />
-                           </image>
-                        </ImageView>
-                     </children>
                   </Pane>
+                  <Label onMouseClicked="#Logout" prefHeight="27.0" prefWidth="84.0" text="Logout" textFill="#fffafa">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </HBox>
          </children>
@@ -139,7 +137,7 @@
                         <Image url="@../utils/assets/gallery-col4-img-05.jpg" />
                      </image>
                   </ImageView>
-                  <Label fx:id="anisdf" layoutX="46.0" layoutY="461.0" onMouseClicked="#Menu" prefHeight="46.0" prefWidth="278.0" text="Declare un animal sans domicile" textAlignment="CENTER">
+                  <Label fx:id="anisdf" layoutX="46.0" layoutY="461.0" onMouseClicked="#Menu" prefHeight="46.0" prefWidth="278.0" text="Gestion Des Animaux Sdf " textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>

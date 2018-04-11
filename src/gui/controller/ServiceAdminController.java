@@ -5,8 +5,11 @@
  */
 package gui.controller;
 
-import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
+
 import entites.AnimalPerdu;
+import entites.AnimalSdf;
+import static gui.controller.LoginController.loggduser;
+import static gui.controller.ListeAnimauxsdfController.M;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -15,6 +18,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -25,6 +30,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -38,8 +44,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javax.swing.JOptionPane;
+import org.controlsfx.control.Notifications;
 import services.CrudAnimalperdu;
+import services.CrudAnimalsdf;
 import utils.Dbconnection;
 
 /**
@@ -49,19 +58,24 @@ import utils.Dbconnection;
  */
 public class ServiceAdminController implements Initializable {
     
-    public static AnimalPerdu P= new AnimalPerdu();
+    public static AnimalPerdu AP= new AnimalPerdu();
+    CrudAnimalsdf myTool2 = new CrudAnimalsdf();
+    //public static AnimalSdf S = new AnimalSdf();
+    CrudAnimalsdf CS = new CrudAnimalsdf();
+    
 
     @FXML
     private HBox ev;
     @FXML
     private TableView<AnimalPerdu> tableA;
+    
     //private TableColumn<AnimalPerdu, Integer> ada;
     //@FXML
     //private TableColumn<AnimalPerdu, Date> date;
     //private TableColumn<AnimalPerdu, String> lieu;
     //private TableColumn<AnimalPerdu, Boolean> etat;
     
-    
+
     private ObservableList <AnimalPerdu> data;
     @FXML
     private TableColumn<AnimalPerdu, Integer> ida;
@@ -100,7 +114,9 @@ public class ServiceAdminController implements Initializable {
       
         //tableA.setItems(null);
         tableA.setItems(data);
-        // TODO
+       
+        
+        
     }    
   @FXML
     private void ClickStore(MouseEvent event) {
@@ -323,7 +339,7 @@ public class ServiceAdminController implements Initializable {
          if (tableA.getSelectionModel().getSelectedItem()!=null)
             {
             ((Node)event.getSource()).getScene().getWindow().hide();
-            P=tableA.getItems().get(tableA.getSelectionModel().getSelectedIndex());
+            AP=tableA.getItems().get(tableA.getSelectionModel().getSelectedIndex());
             //id.setText(String.valueOf(p.getId()));
             Stage stage=new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/ModifierANP.fxml"));

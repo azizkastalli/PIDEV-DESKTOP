@@ -24,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -65,6 +66,8 @@ public class ModifierRDVController implements Initializable {
     private Label veterinaires1;
     @FXML
     private DatePicker date;
+    @FXML
+    private Button Modifer;
 
     /**
      * Initializes the controller class.
@@ -116,6 +119,9 @@ public class ModifierRDVController implements Initializable {
              case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
                  destination="ListeRdv.fxml";
                 break;}
+            case "acceuil1":
+                destination="acceuil.fxml";
+                break;
          }
     
             
@@ -147,7 +153,7 @@ public class ModifierRDVController implements Initializable {
 
     @FXML
     private void Modif(ActionEvent event) throws SQLException, IOException {
-        
+       
         ((Node)event.getSource()).getScene().getWindow().hide();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation modification");

@@ -17,14 +17,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AnimalsdfAdminController">
+<AnchorPane id="AnchorPane" prefHeight="580.0" prefWidth="1220.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.AnimalsdfAdminController">
     <stylesheets>
         <URL value="@/gui/css/animalsdfadmin.css" />
     </stylesheets>
    <children>
       <VBox layoutX="2.0" layoutY="-1.0" prefHeight="586.0" prefWidth="349.0" style="-fx-background-color: #333645;">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="70.0" prefWidth="328.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="87.0" prefWidth="349.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -172,7 +172,7 @@
       </VBox>
       <VBox layoutX="351.0" layoutY="11.0" prefHeight="574.0" prefWidth="868.0">
          <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="869.0" style="-fx-background-color: #fff;">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="869.0" style="-fx-background-color: #fff;">
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" color="#4ca9c3" height="29.06" radius="9.265" spread="0.07" width="10.0" />
                </effect>
@@ -188,24 +188,24 @@
             </Pane>
             <Pane prefHeight="508.0" prefWidth="869.0">
                <children>
-                  <TableView fx:id="tableA" editable="true" layoutX="35.0" layoutY="68.0" prefHeight="302.0" prefWidth="652.0">
+                  <TableView fx:id="tableA" editable="true" layoutX="79.0" layoutY="80.0" onMouseClicked="#Try" prefHeight="302.0" prefWidth="556.0">
                      <columns>
-                        <TableColumn fx:id="idca" prefWidth="85.33334350585938" text="id_categorie" />
+                        <TableColumn fx:id="id" prefWidth="85.33334350585938" text="Numero" />
                         <TableColumn fx:id="sexe" prefWidth="86.33331298828125" text="sexe" />
                         <TableColumn fx:id="img" prefWidth="119.0" text="nom_image" />
                         <TableColumn fx:id="date" minWidth="8.66668701171875" prefWidth="116.33331298828125" text="date_trouvaille" />
                         <TableColumn fx:id="lieu" prefWidth="150.66668701171875" text="lieu_trouvaille" />
-                        <TableColumn fx:id="idc" prefWidth="88.33331298828125" text="id_client" />
                      </columns>
                   </TableView>
-                  <Button layoutX="208.0" layoutY="408.0" mnemonicParsing="false" onAction="#Modif" prefHeight="30.0" prefWidth="83.0" text="Modifier" />
-                  <Button layoutX="339.0" layoutY="407.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="83.0" text="Supprimer" />
-                  <Button layoutX="490.0" layoutY="410.0" mnemonicParsing="false" onAction="#Referto" text="AnimalPerdu" />
-                  <Label layoutX="76.0" layoutY="20.0" text="Liste des animaus sans domicile" textFill="#1212d0">
+                  <Button layoutX="97.0" layoutY="412.0" mnemonicParsing="false" onAction="#Modif" prefHeight="30.0" prefWidth="83.0" text="Modifier" />
+                  <Button layoutX="213.0" layoutY="412.0" mnemonicParsing="false" onAction="#Delete" prefHeight="30.0" prefWidth="83.0" text="Supprimer" />
+                  <Button layoutX="326.0" layoutY="412.0" mnemonicParsing="false" onAction="#Referto" prefHeight="30.0" prefWidth="89.0" text="AnimalPerdu" />
+                  <Label layoutX="45.0" layoutY="25.0" text="Liste des animaux sans domicile" textFill="#1212d0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="adopt" layoutX="477.0" layoutY="414.0" mnemonicParsing="false" onAction="#Aprove" prefHeight="30.0" prefWidth="149.0" text="Approuver adoption" />
                </children>
             </Pane>
          </children>

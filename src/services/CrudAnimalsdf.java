@@ -54,7 +54,7 @@ String query ="INSERT INTO animalsdf(id_categorie,sexe,nom_image,date_trouvaille
 
     @Override
     public void Update(AnimalSdf obj) throws SQLException {
-String requete = "UPDATE animalsdf SET id_categorie=?,sexe=?, nom_image=?,date_trouvaille=?,lieu_trouvaille=?,id_client=? WHERE id=? ";
+String requete = "UPDATE animalsdf SET id_categorie=?,sexe=?, nom_image=?,date_trouvaille=?,lieu_trouvaille=?,id_client=?,etat=? WHERE id=? ";
             PreparedStatement pst = cnx.prepareStatement(requete);
       pst.setInt(1,obj.getId_categorie());
       pst.setString(2, obj.getSexe());
@@ -62,7 +62,8 @@ String requete = "UPDATE animalsdf SET id_categorie=?,sexe=?, nom_image=?,date_t
       pst.setDate(4, obj.getDate_trouvaille());
       pst.setString(5, obj.getLieu_trouvaille());
       pst.setInt(6, obj.getId_client());
-      pst.setInt(7, obj.getId());
+      pst.setInt(7, obj.getEtat());
+      pst.setInt(8, obj.getId());
            
             pst.executeUpdate();    }
 
@@ -104,7 +105,7 @@ String requete = "SELECT * FROM animalsdf";
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
               
-                 AnimalSdf A=new AnimalSdf(rs.getInt(1), rs.getString(4), rs.getDate(6), rs.getString(7), rs.getInt(3), rs.getString(5), rs.getInt(2));
+   AnimalSdf A=new AnimalSdf(rs.getInt(1), rs.getString(4), rs.getDate(6), rs.getString(5), rs.getInt(8), rs.getString(7), rs.getInt(3), rs.getInt(2));
                  listAnimals.add(A);
                 
             }

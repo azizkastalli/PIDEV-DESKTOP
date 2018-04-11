@@ -7,7 +7,7 @@ package gui.controller;
 
 import entites.User;
 import static gui.controller.LoginController.loggduser;
-import static gui.controller.ServiceAdminController.P;
+import static gui.controller.ServiceAdminController.AP;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

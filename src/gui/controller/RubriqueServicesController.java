@@ -99,7 +99,7 @@ public class RubriqueServicesController implements Initializable {
             case "ans":
             
             
-                destination="Animalsdf.fxml";
+                destination="ListeAnimauxsdf.fxml";
                 break;
                 
             case "rdvs":
@@ -118,6 +118,9 @@ public class RubriqueServicesController implements Initializable {
              case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
                  destination="ListeRdv.fxml";
                 break;}
+            case "acceuil":
+                destination="acceuil.fxml";
+                break;
                 
             
          }
@@ -142,6 +145,26 @@ public class RubriqueServicesController implements Initializable {
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
               
+    }
+
+    @FXML
+    private void Logout(MouseEvent event) throws IOException {
+         try {
+              Parent home_page_parent = FXMLLoader.load(getClass().getResource("/gui/login.fxml"));
+        Scene home_page_scene = new Scene(home_page_parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+          
+            
+               
+                app_stage.setScene(home_page_scene);
+                app_stage.show();  
+            
+        
+            
+        } catch (IOException ex) {
+           Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        
+                                 }
     }
 
     

@@ -26,6 +26,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -66,9 +67,13 @@ public class ListeRdvController implements Initializable {
     private TableColumn<Rdv_Dresseur, Boolean> etat;
     @FXML
     private TableColumn<Rdv_Dresseur, String> idd;
-private ObservableList <Rdv_Dresseur> data;
-@FXML
+    private ObservableList <Rdv_Dresseur> data;
+    @FXML
     private TableView<Rdv_Dresseur> TableA;
+    @FXML
+    private Button Modifier;
+    @FXML
+    private Button supp;
     /**
      * Initializes the controller class.
      */
@@ -99,6 +104,9 @@ private ObservableList <Rdv_Dresseur> data;
 
        TableA.setItems(null);
        TableA.setItems(data);
+        
+     
+       
     }    
 
     @FXML
@@ -129,6 +137,9 @@ private ObservableList <Rdv_Dresseur> data;
              case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
                  destination="ListeRdv.fxml";
                 break;}
+            case "acceuil1":
+                destination="acceuil.fxml";
+                break;
          }
     
             
@@ -158,7 +169,6 @@ private ObservableList <Rdv_Dresseur> data;
 
     }
 
-    @FXML
     private void Ajout(ActionEvent event) throws IOException {
             Stage stage=new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/RdvDresseur.fxml"));
@@ -215,10 +225,12 @@ private ObservableList <Rdv_Dresseur> data;
 
     @FXML
     private void Modif(ActionEvent event) throws IOException {
-         if (TableA.getSelectionModel().getSelectedItem()!=null)
+         if (TableA.getSelectionModel().getSelectedItem()!= null)
             {
+                
             ((Node)event.getSource()).getScene().getWindow().hide();
             R=TableA.getItems().get(TableA.getSelectionModel().getSelectedIndex());
+             
             //id.setText(String.valueOf(p.getId()));
             Stage stage=new Stage();
             Parent root = FXMLLoader.load(getClass().getResource("/gui/ModifierRDV.fxml"));
@@ -229,6 +241,24 @@ private ObservableList <Rdv_Dresseur> data;
             else 
             {
                  JOptionPane.showMessageDialog(null,"Veuillez selectionner une reclamation");
+            }
+    }
+
+    @FXML
+    private void Try(MouseEvent event) {
+        if (TableA.getSelectionModel().getSelectedItem()!= null)
+        {
+            System.out.println(TableA.getSelectionModel().getSelectedItem().getId_dresseur());
+                 if (String.valueOf(loggduser.getId()).equals(TableA.getSelectionModel().getSelectedItem().getId_dresseur())== false )
+       {
+           Modifier.setDisable(true);
+           supp.setDisable(true);
+       }
+                 else 
+                 {
+                      Modifier.setDisable(false);
+                      supp.setDisable(false);
+                 }
             }
     }
     

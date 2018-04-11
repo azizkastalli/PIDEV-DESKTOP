@@ -5,55 +5,39 @@
  */
 package gui.controller;
 
-import entites.Rdv_Dresseur;
+import entites.AnimalSdf;
+import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import services.CrudRdv_dresseur;
-import static gui.controller.LoginController.loggduser;
-import java.util.ArrayList;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
-import services.CrudAnimalperdu;
+import services.CrudAnimalsdf;
 
 /**
  * FXML Controller class
  *
  * @author user
  */
-public class RdvDresseurController implements Initializable {
+public class AnimalAdopteController implements Initializable {
 
-    
-    @FXML
-    private TextField idc;
-    @FXML
-    private ComboBox<Integer> ida;
-    private TextField etat;
-    @FXML
-    private TextField idd;
-    @FXML
-    private Pane menubar;
     @FXML
     private Label acceuil1;
     @FXML
@@ -63,61 +47,53 @@ public class RdvDresseurController implements Initializable {
     @FXML
     private Label veterinaires1;
     @FXML
-    private DatePicker date;
-    
+    private TableView<AnimalSdf> tableA;
+    @FXML
+    private TableColumn<AnimalSdf, Integer> id;
+    @FXML
+    private TableColumn<AnimalSdf, Date> date;
+    @FXML
+    private TableColumn<AnimalSdf, String> lieu;
+    @FXML
+    private TableColumn<AnimalSdf, String> sexe;
+    @FXML
+    private TableColumn<AnimalSdf, ImageView> img;
+    private ObservableList <AnimalSdf> data;
+    CrudAnimalsdf myTool = new CrudAnimalsdf();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       CrudAnimalperdu myTool = new CrudAnimalperdu();
-       //etat.setEditable(false);  
-       idc.setText(String.valueOf(loggduser.getId()));
-       idd.setText(String.valueOf(ListeDresseurController.U.getId()));
-       idc.setEditable(false);
-       idd.setEditable(false);
-       ArrayList  arrayList;
         
-        try {
-            arrayList = (ArrayList) myTool.ExtractId();
-            ObservableList observableList = FXCollections.observableArrayList(arrayList);
-            ida.setItems(observableList);
-        // TODO
-        } catch (SQLException ex) {
-        }
-    }    
-
-    @FXML
-    private void ajout(ActionEvent event) throws SQLException, IOException {
-        CrudRdv_dresseur myTool = new CrudRdv_dresseur();
-        Rdv_Dresseur r = new Rdv_Dresseur();
-         int id= ida.getValue();
-        r.setId_animal(id);
-        LocalDate daten = LocalDate.now();
-        LocalDate date1 = this.date.getValue();
-        if (date1.isBefore(daten)) {
-            JOptionPane.showMessageDialog(null, "date inferieur a la date d'aujourd'hui");
-        }
-        else {
-        Date date2 = Date.valueOf(date1);
-        r.setDate_rdv(date2);}
-        //r.setCoordonnees(coordonnees.getText());
-        r.setId_client(idc.getText());
-        r.setId_dresseur(idd.getText());
-//boolean etatt = Boolean.getBoolean(etat.getText());
-        
-        myTool.Create(r);
-        JOptionPane.showMessageDialog(null, "rendez vous ajoute");
+         AnimalSdf p = new AnimalSdf();
          
+        data= FXCollections.observableArrayList();
+        try {
+            for(int i=0;i<myTool.SelectAll().size();i++)
+            {
+                p=(AnimalSdf) myTool.SelectAll().get(i);
+                if (p.getEtat()==2 ){
+                data.add(p);
+            }}
+        } catch (SQLException ex) {
+            Logger.getLogger(AnimalsdfAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        date.setCellValueFactory(new PropertyValueFactory<>("date_trouvaille"));
+        lieu.setCellValueFactory(new PropertyValueFactory<>("lieu_trouvaille"));
+        sexe.setCellValueFactory(new PropertyValueFactory<>("sexe"));
+        img.setCellValueFactory(new PropertyValueFactory<>("IV"));
         
-        
-        
-    }
+        tableA.setItems(null);
+        tableA.setItems(data);
+    }    
+    
 
     @FXML
     private void Menu(MouseEvent event) {
-         String dest=""; 
+        String dest=""; 
         String destination=""; 
         String type = event.getSource().getClass().getName();
         
@@ -143,7 +119,7 @@ public class RdvDresseurController implements Initializable {
              case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
                  destination="ListeRdv.fxml";
                 break;}
-            case "acceuil1":
+            case "acceuil":
                 destination="acceuil.fxml";
                 break;
          }
@@ -172,7 +148,10 @@ public class RdvDresseurController implements Initializable {
         }
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
+    }
 
+    @FXML
+    private void Try(MouseEvent event) {
     }
     
 }

@@ -18,7 +18,7 @@ import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import entites.AnimalPerdu;
 import gui.controller.ServiceAdminController;
-import static gui.controller.ServiceAdminController.P;
+import static gui.controller.ServiceAdminController.AP;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -87,13 +87,13 @@ public class ModifierANPController implements Initializable, MapComponentInitial
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        ida.setText(String.valueOf(ServiceAdminController.P.getId_animal()));
-        Date date1 = ServiceAdminController.P.getDate_disparition();
+        ida.setText(String.valueOf(ServiceAdminController.AP.getId_animal()));
+        Date date1 = ServiceAdminController.AP.getDate_disparition();
         LocalDate date2 = date1.toLocalDate();
         date.setValue(date2);
-        lieu.setText(ServiceAdminController.P.getLieu_disparition());
+        lieu.setText(ServiceAdminController.AP.getLieu_disparition());
         etat.getItems().addAll("perdue","trouve");
-        etat.setValue(((ServiceAdminController.P.getEtat1())));
+        etat.setValue(((ServiceAdminController.AP.getEtat1())));
         ida.setEditable(false);
         date.setEditable(false);
         lieu.setEditable(false);
@@ -125,15 +125,15 @@ public class ModifierANPController implements Initializable, MapComponentInitial
        switch (etatt)
        {
            case "perdue": 
-               P.setEtat(false);
+               AP.setEtat(false);
                break ;
            case "trouve":
-               P.setEtat(true);
+               AP.setEtat(true);
                break;
        }
        
                  
-        myTool.Update(P);
+        myTool.Update(AP);
         Alert alert1 = new Alert(AlertType.INFORMATION);
            alert1.setTitle("I have a great message for you!");
            alert1.setHeaderText(null);

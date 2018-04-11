@@ -30,7 +30,7 @@
             <TextField fx:id="idc" layoutX="339.0" layoutY="133.0" prefHeight="25.0" prefWidth="174.0" />
             <TextField fx:id="ida" layoutX="340.0" layoutY="171.0" prefHeight="25.0" prefWidth="174.0" />
             <TextField fx:id="idd" layoutX="340.0" layoutY="277.0" prefHeight="25.0" prefWidth="174.0" />
-            <Button layoutX="284.0" layoutY="359.0" mnemonicParsing="false" onAction="#Modif" text="Modifier" />
+            <Button fx:id="Modifer" layoutX="284.0" layoutY="359.0" mnemonicParsing="false" onAction="#Modif" text="Modifier" />
             <Pane fx:id="menubar" layoutX="20.0" layoutY="20.0" prefHeight="49.0" prefWidth="810.0">
                <children>
                   <HBox layoutX="-19.0" layoutY="-19.0" prefHeight="49.0" prefWidth="856.0" styleClass="menu_bar" stylesheets="@css/rdvdresseur.css">

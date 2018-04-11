@@ -120,12 +120,12 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         }
         sexe.getItems().addAll("male","femelle");
         idc.setText(String.valueOf(loggduser.getId()));
-        idc.setEditable(false);
+        //idc.setEditable(false);
         
     }    
 
     @FXML
-    private void ajout(ActionEvent event) throws SQLException {
+    private void ajout(ActionEvent event) throws SQLException, IOException {
         CrudAnimalsdf myTool = new CrudAnimalsdf();
         AnimalSdf p = new AnimalSdf();
         String a=(String) idca.getValue();
@@ -142,10 +142,16 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
         Date date2 = Date.valueOf(date1);
         p.setDate_trouvaille(date2);}
         p.setLieu_trouvaille(lieu.getText());
-        p.setId_client((idc.getText()));
+        String b = (String) idc.getText();
+        p.setId_client(Integer.parseInt(b));
         
         myTool.Create(p);
         JOptionPane.showMessageDialog(null, "reclamation ajoute");
+         Stage stage=new Stage();
+            Parent root = FXMLLoader.load(getClass().getResource("/gui/ListeAnimauxsdf.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); 
         
     }
 
@@ -177,6 +183,9 @@ public class AnimalsdfController implements Initializable, MapComponentInitializ
              case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
                  destination="ListeRdv.fxml";
                 break;}
+            case "acceuil1":
+                destination="acceuil.fxml";
+                break;
          }
     
             
