@@ -5,6 +5,7 @@
  */
 package services;
 
+import static gui.controller.LoginController.loggduser;
 import utils.Dbconnection;
 import entites.Encheres;
 import entites.Produit;
@@ -38,7 +39,7 @@ public class CrudEncheres implements ICrud<Encheres> {
             pst.setInt(1,obj.getId_cible());
             
             //à modifer apres avoir creer le module user et inserer directement par code l'id du user
-            pst.setInt(2,1);
+            pst.setInt(2,loggduser.getId());
             
             pst.setTimestamp(3,obj.getDate_debut());
             pst.setDouble(4,obj.getSeuil_mise());                        
@@ -137,12 +138,11 @@ public class CrudEncheres implements ICrud<Encheres> {
            item="e.id_encheres";              
                
         String requete=" SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,"
-                + "u.username,c.nom,p.description,p.caracteristiques "
+                + "u.username,p.id_categorie,p.description,p.caracteristiques "
                 + "From produit p "
                 + "JOIN encheres e on p.id=e.id_cible "
-                + "JOIN categorie c on p.id_categorie=c.id "
-                + "JOIN utilisateur u on p.id_propietaire=u.id "
-                + "WHERE "+item+" =? ";
+                + "JOIN utilisateur u on p.id_propietaire= 2 "
+                + "WHERE "+item+" =? and u.id=? ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         
@@ -151,10 +151,11 @@ public class CrudEncheres implements ICrud<Encheres> {
         else
                   pSmt.setInt(1,obj.getId_encheres());
           
+          pSmt.setInt(2, loggduser.getId());
           
           ResultSet rs = pSmt.executeQuery();
             rs.next();
-            obj.setEtat(rs.getString(11)); 
+//            obj.setEtat(rs.getString(11)); 
             obj.setCaracteristiques(rs.getString(10)); 
             obj.setDescription(rs.getString(9)); 
             obj.setCategorie(rs.getString(8)); 
@@ -174,11 +175,10 @@ public class CrudEncheres implements ICrud<Encheres> {
     public List<Encheres> SelectAll() throws SQLException {
         List<Encheres> liste = new ArrayList<Encheres>();
         
-         String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques,s.etat "
+         String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,p.id_categorie,p.description,p.caracteristiques,s.etat "
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
                       + "JOIN session s on e.id_encheres=s.id  "
-                      + "JOIN categorie c on p.id_categorie=c.id "
                       + "JOIN utilisateur u on p.id_propietaire=u.id "
                       + "Where  s.etat<> 'fini' ";
         
@@ -205,6 +205,10 @@ public class CrudEncheres implements ICrud<Encheres> {
         PreparedStatement pSmt2 = cnx.prepareStatement("delete from Produit where id=? " );
          pSmt2.setInt(1,obj.getId_cible());
          pSmt2.executeUpdate();
+
+         PreparedStatement pSmt3 = cnx.prepareStatement("delete from Session where id=? " );
+         pSmt3.setInt(1,obj.getId_encheres());
+         pSmt3.executeUpdate();
 
          
     }

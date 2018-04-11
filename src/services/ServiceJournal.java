@@ -5,6 +5,7 @@
  */
 package services;
 
+import static gui.controller.LoginController.loggduser;
 import entites.Journal;
 import entites.Session;
 import java.sql.Connection;
@@ -65,7 +66,7 @@ public class ServiceJournal {
             PreparedStatement pst = cnx.prepareStatement(requete);
            
             pst.setString(1,obj.getId_session());
-            pst.setString(2,obj.getId_client());
+            pst.setString(2,Integer.toString(loggduser.getId()));
             pst.setDouble(3,obj.getMise());
             pst.setTime(4,obj.getDate_mise());
             
@@ -78,7 +79,7 @@ public class ServiceJournal {
           
               PreparedStatement pst2 = cnx.prepareStatement(requete2);
               pst2.setDouble(1,obj.getMise());
-              pst2.setString(2,obj.getId_client());
+              pst2.setString(2,Integer.toString(loggduser.getId()));
               pst2.setString(3,obj.getId_session());
               
               pst2.executeUpdate();

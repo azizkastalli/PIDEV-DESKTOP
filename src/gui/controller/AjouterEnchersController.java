@@ -223,7 +223,7 @@ public class AjouterEnchersController implements Initializable {
             S.setId_gagnant("");
             S.setDerniere_mise(0);
       
-            CS.Create(S);
+            CS.Create2(S,E);
             
             // alert pour notifier la creation de l'enchere
                 Alert alert = new Alert(AlertType.INFORMATION);

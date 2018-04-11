@@ -8,6 +8,7 @@ package services;
 import entites.Participantsencheres;
 import entites.Session;
 import entites.User;
+import static gui.controller.LoginController.loggduser;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +36,7 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
                 + " VALUES(?,?,?) ";
         PreparedStatement psmt = cnx.prepareStatement(requete);
           psmt.setInt(1, obj.getId_session());
-          psmt.setInt(2, obj.getId_user());
+          psmt.setInt(2, loggduser.getId());
           psmt.setTimestamp(3, obj.getDebut_session());
         
           psmt.executeUpdate();
@@ -74,7 +75,7 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
     public void Delete(Participantsencheres obj) throws SQLException {
             
         PreparedStatement psmt = cnx.prepareStatement("Delete From participantsencheres where id_user=? ");
-        psmt.setInt(1, obj.getId_user());
+        psmt.setInt(1,loggduser.getId());
         psmt.executeUpdate();
     }
     
@@ -83,21 +84,22 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
                  
         String requete=" SELECT COUNT(*) FROM participantsencheres WHERE id_user = ? ";    
         PreparedStatement psmt = cnx.prepareStatement(requete);
-        psmt.setInt(1, u.getId());
+        psmt.setInt(1, loggduser.getId());
           
           ResultSet rs = psmt.executeQuery();
             rs.next();
          if(rs.getInt(1)!=0)
              return true;
-         else
-             return false;
+        
+         
+    return false;
     }
     
     public Boolean verifierExistanceSession(User u,Session s) throws SQLException {
                  
         String requete=" SELECT COUNT(*) FROM participantsencheres WHERE id_user = ? and id_session = ? ";    
         PreparedStatement psmt = cnx.prepareStatement(requete);
-        psmt.setInt(1, u.getId());
+        psmt.setInt(1, loggduser.getId());
         psmt.setInt(2, s.getId());
           
           ResultSet rs = psmt.executeQuery();
@@ -105,7 +107,7 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
             
          if(rs.getInt(1)!=0)
              return true;
-         else
-             return false;
+        
+      return false;
     }
 }

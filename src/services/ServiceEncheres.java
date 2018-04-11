@@ -28,10 +28,9 @@ public class ServiceEncheres {
     {
       ArrayList<Encheres> liste = new ArrayList<Encheres>();
 
-       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques,s.etat "
+       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,p.id_categorie,p.description,p.caracteristiques,s.etat "
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
-                      + "JOIN categorie c on p.id_categorie=c.id "
                       + "JOIN session s on e.id_encheres=s.id  "
                       + "JOIN utilisateur u on p.id_propietaire=u.id "
                       + "Where  s.etat<> 'fini' "      
@@ -54,10 +53,9 @@ public class ServiceEncheres {
     {
       ArrayList<Encheres> liste = new ArrayList<Encheres>();
 
-       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,c.nom,p.description,p.caracteristiques,s.etat "
+       String requete="SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image,u.username,p.id_categorie,p.description,p.caracteristiques,s.etat "
                       + "From produit p "
                       + "JOIN encheres e on p.id=e.id_cible "
-                      + "JOIN categorie c on p.id_categorie=c.id "
                       + "JOIN session s on e.id_encheres=s.id  "
                       + "JOIN utilisateur u on p.id_propietaire=u.id "
                       + "Where  s.etat<> 'fini' "      

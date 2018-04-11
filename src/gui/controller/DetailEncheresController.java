@@ -134,7 +134,7 @@ public class DetailEncheresController implements Initializable {
       CrudEncheres CE = new CrudEncheres();
       E.setId_encheres(this.id_encheres);
         try {
-            E=CE.Select(E);
+            E=CE.SelectEncheres(E);
         } catch (SQLException ex) {
             Logger.getLogger(DetailEncheresController.class.getName()).log(Level.SEVERE, null, ex);
         }

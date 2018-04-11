@@ -7,7 +7,7 @@ package gui.controller;
 
 import entites.Encheres;
 import entites.Journal;
-import entites.Participantsencheres;
+import static gui.controller.LoginController.loggduser;
 import entites.Session;
 import entites.User;
 import java.io.BufferedReader;
@@ -97,7 +97,7 @@ public class SessionEncheresController implements Initializable {
       E.setId_encheres(id_encheres);
       System.out.println(E.getId_encheres());
         try {
-            E=CE.Select(E);
+            E=CE.SelectEncheres(E);
         } catch (SQLException ex) {
             Logger.getLogger(DetailEncheresController.class.getName()).log(Level.SEVERE, null, ex);
         }  
@@ -114,11 +114,9 @@ public class SessionEncheresController implements Initializable {
         CrudSession serviceSession = new CrudSession();
         Session session = new Session();
         Journal journal = new Journal();
-        //session.setId(E.getId_encheres());
         User user = new User();
-        session.setId(152);
-        user.setId(1);
-       
+        session.setId(E.getId_encheres());
+        System.out.println(session.getId());
         
          //verifier si le client participe ou non à cette session 
         ServiceParticipantEncheres serviceParticipants = new ServiceParticipantEncheres();        
@@ -392,9 +390,8 @@ public class SessionEncheresController implements Initializable {
 
     public void connectAction() {                                          
         if (isConnected == false) 
-        {Scanner sc = new Scanner(System.in);
-            System.out.println("username : ");
-            username=sc.nextLine();
+        {
+            username=loggduser.getUsername();
             try 
             {
                 sock = new Socket(address, port);
@@ -421,42 +418,7 @@ public class SessionEncheresController implements Initializable {
     private void disconnectAction() {                                             
         sendDisconnect();
         Disconnect();
-    }                                            
-
-    private void anonymousConnection() {                                            
-        if (isConnected == false) 
-        {
-            String anon="anon";
-            Random generator = new Random(); 
-            int i = generator.nextInt(999) + 1;
-            String is=String.valueOf(i);
-            anon=anon.concat(is);
-            username=anon;
-
-            try 
-            {
-                sock = new Socket(address, port);
-                InputStreamReader streamreader = new InputStreamReader(sock.getInputStream());
-                reader = new BufferedReader(streamreader);
-                writer = new PrintWriter(sock.getOutputStream());
-                
-                writer.println(anon + ":has connected.:Connect");
-                writer.flush(); 
-                isConnected = true; 
-            } 
-            catch (Exception ex) 
-            {
-                System.out.println("Cannot Connect! Try Again. ");
-                
-            }
-            
-           // ListenThread();
-            
-        } else if (isConnected == true) 
-        {
-                System.out.println("You are already connected. ");
-        }        
-    }                                           
+    }                                                                                     
 
     public void sendAction(String message) {                                       
 

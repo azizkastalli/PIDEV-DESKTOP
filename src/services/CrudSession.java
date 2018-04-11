@@ -5,6 +5,7 @@
  */
 package services;
 
+import entites.Encheres;
 import utils.Dbconnection;
 import entites.Session;
 import java.sql.Connection;
@@ -26,16 +27,16 @@ public class CrudSession implements ICrud<Session>{
         cnx = Dbconnection.getInstance().getConnection();
     }
     
-    @Override
-    public void Create(Session obj) throws SQLException {
+    
+    public void Create2(Session obj,Encheres E) throws SQLException {
      String requete = "INSERT INTO session (id,etat,derniere_mise,id_gagnant) "
                     + "VALUES(?,?,?,?)";
 
             PreparedStatement pst = cnx.prepareStatement(requete);
             pst.setInt(1,obj.getId());
             pst.setString(2,obj.getEtat());
-            pst.setDouble(3,obj.getDerniere_mise());
-            pst.setString(4,obj.getId_gagnant());            
+            pst.setDouble(3,E.getSeuil_mise());
+            pst.setString(4,"0");            
             pst.executeUpdate();
 
     }
@@ -137,6 +138,11 @@ public class CrudSession implements ICrud<Session>{
         
                               
        return false;               
+    }
+
+    @Override
+    public void Create(Session obj) throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
