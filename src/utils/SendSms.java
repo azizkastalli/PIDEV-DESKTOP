@@ -20,7 +20,7 @@ public class SendSms {
     private final static String AUTH_TOKEN = "a16dd0f9c1a70dc2de0b4289c6d4f6a5"; 
  
     public  void Send(String number,String sms) { 
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN); 
+       Twilio.init(ACCOUNT_SID, AUTH_TOKEN); 
          
         MessageCreator messageCreator;
         messageCreator = Message.creator( 
@@ -31,6 +31,7 @@ public class SendSms {
     
          
         Message message = messageCreator.create(); 
-      //  System.out.println(message.getSid()); 
+     
+  System.out.println("oooo"); 
     } 
 }

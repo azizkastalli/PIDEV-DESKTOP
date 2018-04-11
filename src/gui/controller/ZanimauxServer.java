@@ -5,6 +5,7 @@
  */
 package gui.controller;
 
+import static gui.controller.LoginController.loggduser;
 import entites.Participantsencheres;
 import entites.QuartzJob;
 import java.io.BufferedReader;
@@ -122,7 +123,6 @@ public class ZanimauxServer
         tellAll("Server:is stopping and all users will be disconnected.\n:Chat");
         System.out.println("Server stopping... ");
         
-   //     ta_chat.setText("");
     }                                     
 
     private void startServer() {                                        
@@ -144,10 +144,15 @@ public class ZanimauxServer
            for(Participantsencheres P : ListeParticipants)
            {
             Triggername +="a"; 
+            System.out.println("ok");
             
             JobDataMap  Jobdata = new JobDataMap();
-            Jobdata.put("0",P.getId_session() );
-            JobDetail job = JobBuilder.newJob(QuartzJob.class).setJobData(Jobdata).build();
+            JobDetail job = JobBuilder
+                            .newJob(QuartzJob.class)
+                            .setJobData(Jobdata)
+                            .usingJobData("number","20435370")
+                            .build();
+            
             triggerStartTime = P.getDebut_session();
             triggerStartTime.setMinutes(P.getDebut_session().getMinutes()-30);
             Trigger t1 = TriggerBuilder.newTrigger().withIdentity(Triggername).startAt(triggerStartTime).build();

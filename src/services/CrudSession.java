@@ -122,10 +122,8 @@ public class CrudSession implements ICrud<Session>{
     }
     
     public boolean VerifierMise(Session s ,double mise) throws SQLException {
-        String requete=" SELECT s.derniere_mise "
+        String requete=" SELECT derniere_mise "
                        + "FROM session s "
-                       + "Join produit p on p.id=(SELECT id_cible FROM Encheres WHERE id_encheres= s.id) "
-                       + "Join utilisateur u on u.id=s.id_gagnant "
                        + " WHERE s.id=?";
      
         PreparedStatement pSmt = cnx.prepareStatement(requete);
@@ -144,5 +142,18 @@ public class CrudSession implements ICrud<Session>{
     public void Create(Session obj) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+ 
+    public String gagnant(Session s) throws SQLException
+      {
+         String requete= "SELECT id_gagnant "
+                       + "FROM session s "
+                       + "WHERE s.id=?";
+     
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+        pSmt.setString(1,Integer.toString(s.getId()));
+        ResultSet rs = pSmt.executeQuery();
+            rs.next();
+            
+         return  rs.getString(1);
+      }
 }

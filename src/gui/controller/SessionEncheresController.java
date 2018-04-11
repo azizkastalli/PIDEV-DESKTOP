@@ -21,9 +21,7 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Level;
@@ -44,6 +42,7 @@ import services.CrudEncheres;
 import services.CrudSession;
 import services.ServiceJournal;
 import services.ServiceParticipantEncheres;
+import utils.SendSms;
 
 /**
  * FXML Controller class
@@ -84,9 +83,7 @@ public class SessionEncheresController implements Initializable {
     private Button send;
     @FXML
     private Pane countDown;
-    
-    private ServiceJournal journal = new ServiceJournal();
-    private CrudSession session = new CrudSession();
+  
     private static Timer timer = new Timer();
 
     public SessionEncheresController()
@@ -95,28 +92,18 @@ public class SessionEncheresController implements Initializable {
     public void Init(int id_encheres) {
       CrudEncheres CE = new CrudEncheres();
       E.setId_encheres(id_encheres);
-      System.out.println(E.getId_encheres());
         try {
             E=CE.SelectEncheres(E);
         } catch (SQLException ex) {
             Logger.getLogger(DetailEncheresController.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-    }
+        }
         
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        this.connectAction();
-       
-        ServiceJournal serviceJournal = new ServiceJournal();
+                ServiceJournal serviceJournal = new ServiceJournal();
         CrudSession serviceSession = new CrudSession();
         Session session = new Session();
         Journal journal = new Journal();
         User user = new User();
         session.setId(E.getId_encheres());
-        System.out.println(session.getId());
         
          //verifier si le client participe ou non à cette session 
         ServiceParticipantEncheres serviceParticipants = new ServiceParticipantEncheres();        
@@ -160,6 +147,12 @@ public class SessionEncheresController implements Initializable {
                       try {
                           //close the deal
                           serviceSession.FinishSession(session);
+                           SendSms SmS = new SendSms();
+                          if(serviceSession.gagnant(session).equals(Integer.toString(loggduser.getId())))
+                              {
+                                String msg = "Félicitations, vous avez remporté l'enchere "+E.getLabel();
+                                SmS.Send("20435370", msg);
+                               }
                           textfield.setDisable(true);
                           send.setVisible(false);
                       } catch (SQLException ex) {
@@ -225,9 +218,8 @@ public class SessionEncheresController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-           
-        textarea.textProperty().addListener(
+    
+           textarea.textProperty().addListener(
             (ObservableValue<? extends String> obs, String old, String niu) -> {
             Platform.runLater(() -> {
                 CountDownController countdown = new CountDownController();
@@ -242,11 +234,17 @@ public class SessionEncheresController implements Initializable {
                 timer.schedule(new TimerTask() {
                   @Override
                     public void run() {
-                        //close the deal 
                          try {
                           //close the deal
                           serviceSession.FinishSession(session);
-                          send.setVisible(false);
+                          SendSms SmS = new SendSms();
+                          if(serviceSession.gagnant(session).equals(Integer.toString(loggduser.getId())))
+                               {
+                                String msg = "Félicitations, vous avez remporté l'enchere "+E.getLabel();
+                                SmS.Send(loggduser.getNum_tel() , msg);
+                               }
+                               textfield.setDisable(true);
+                              send.setVisible(false);
                       } catch (SQLException ex) {
                           Logger.getLogger(SessionEncheresController.class.getName()).log(Level.SEVERE, null, ex);
                       }
@@ -258,6 +256,15 @@ public class SessionEncheresController implements Initializable {
           );
         });
         
+    
+    }
+        
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        this.connectAction();
     }    
 
 
