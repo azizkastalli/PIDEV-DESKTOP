@@ -66,7 +66,7 @@ public class EspaceMagasinController implements Initializable {
     @FXML
     private void MenuEspace(MouseEvent event) {
            MenuController menu = new MenuController();
-        menu.GestionMenuEspace(event);
+           menu.GestionMenuEspace(event);
     }
     
 

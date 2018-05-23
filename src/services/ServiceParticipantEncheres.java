@@ -32,13 +32,19 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
     @Override
     public void Create(Participantsencheres obj) throws SQLException {
         
-        String requete = "INSERT INTO participantsencheres (id_session,id_user,debut_session)"
-                + " VALUES(?,?,?) ";
-        PreparedStatement psmt = cnx.prepareStatement(requete);
+        String requete1 = "Select num_tel From utilisateur where id= ? " ;
+        PreparedStatement psmt1 = cnx.prepareStatement(requete1);
+        psmt1.setInt(1,loggduser.getId());
+        ResultSet rs2 = psmt1.executeQuery();
+        rs2.next();
+        String num = rs2.getString(1);
+        
+String requete = "INSERT INTO participantsencheres (id_session,id_user,debut_session,num) VALUES(?,?,?,?) ";
+    PreparedStatement psmt = cnx.prepareStatement(requete);
           psmt.setInt(1, obj.getId_session());
           psmt.setInt(2, loggduser.getId());
           psmt.setTimestamp(3, obj.getDebut_session());
-        
+          psmt.setString(4, num);
           psmt.executeUpdate();
           
                 }
@@ -64,7 +70,7 @@ public class ServiceParticipantEncheres implements ICrud<Participantsencheres> {
         
           while(rs.next())
            {
-            Participantsencheres P =new Participantsencheres(rs.getInt(2),rs.getInt(3),rs.getTimestamp(4));            
+            Participantsencheres P =new Participantsencheres(rs.getInt(2),rs.getInt(3),rs.getTimestamp(4),rs.getString(5));            
             liste.add(P);
            }
        

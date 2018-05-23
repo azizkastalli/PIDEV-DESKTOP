@@ -43,6 +43,7 @@ public class MenuController {
          {
          ImageView ev = (ImageView) event.getSource();
          dest=ev.getId();
+             System.out.println("dest : "+dest);
          }
        
         switch (dest) {
@@ -61,6 +62,12 @@ public class MenuController {
                 break;
                 case"a:1:{i:0;s:16:\"ROLE_ASSOCIATION\";}":
                 destination="EspaceEvenement.fxml";
+                break;
+                case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
+                destination="RubriqueServices.fxml";
+                break;
+                case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
+                destination="ListeRdv.fxml";
                 break;
                 }
                 break;
@@ -114,7 +121,9 @@ public class MenuController {
        
         }
        
-          }  public void GestionMenuEspace(MouseEvent event)
+          }  
+    
+    public void GestionMenuEspace(MouseEvent event)
     {
         String dest=""; 
         String destination=""; 
@@ -164,7 +173,6 @@ public class MenuController {
             
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                      
         app_stage.setScene(home_page_scene);
         app_stage.show();  
        

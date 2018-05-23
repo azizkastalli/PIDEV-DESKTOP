@@ -5,7 +5,6 @@
  */
 package gui.controller;
 
-import entites.Commande;
 import entites.Livraison;
 import static gui.controller.LoginController.loggduser;
 import static gui.controller.MescommandesController.C;

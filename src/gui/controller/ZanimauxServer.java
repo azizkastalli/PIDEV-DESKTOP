@@ -144,15 +144,13 @@ public class ZanimauxServer
            for(Participantsencheres P : ListeParticipants)
            {
             Triggername +="a"; 
-            System.out.println("ok");
             
             JobDataMap  Jobdata = new JobDataMap();
             JobDetail job = JobBuilder
                             .newJob(QuartzJob.class)
                             .setJobData(Jobdata)
-                            .usingJobData("number","20435370")
+                            .usingJobData("number",P.getNum())
                             .build();
-            
             triggerStartTime = P.getDebut_session();
             triggerStartTime.setMinutes(P.getDebut_session().getMinutes()-30);
             Trigger t1 = TriggerBuilder.newTrigger().withIdentity(Triggername).startAt(triggerStartTime).build();
@@ -195,13 +193,11 @@ public class ZanimauxServer
     
     public class ServerStart implements Runnable 
     {       
-            // int inc=0;
         @Override
         public void run() 
         {
             clientOutputStreams = new HashMap<>();
             users = new ArrayList();  
-            
             try 
             {
                 ServerSocket serverSock = new ServerSocket(2222);

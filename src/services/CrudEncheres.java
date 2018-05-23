@@ -128,6 +128,35 @@ public class CrudEncheres implements ICrud<Encheres> {
        return obj;                 
     }
     
+            
+    
+    public Encheres SelectEncheresD(Encheres obj) throws SQLException {           
+         
+               
+        String requete=" SELECT p.label,e.id_encheres,e.seuil_mise,e.date_debut,p.poid,p.nom_image, p.id_categorie,p.description,p.caracteristiques "
+                + " From produit p JOIN encheres e on p.id=e.id_cible "
+                + " WHERE id_encheres = ? ";
+        
+        PreparedStatement pSmt = cnx.prepareStatement(requete);
+          pSmt.setInt(1,obj.getId_encheres());              
+          
+          
+          ResultSet rs = pSmt.executeQuery();
+            rs.next();
+            
+            obj.setCaracteristiques(rs.getString(9)); 
+            obj.setDescription(rs.getString(8)); 
+            obj.setCategorie(rs.getString(7)); 
+            obj.setNom_image(rs.getString(6)); 
+            obj.setPoid(rs.getDouble(5)); 
+            obj.setLabel(rs.getString(1)); 
+            obj.setId_encheres(rs.getInt(2)); 
+            obj.setSeuil_mise(rs.getDouble(3)); 
+            obj.setDate_debut(rs.getTimestamp(4)); 
+                       
+       return obj;                 
+    }
+    
     public Encheres SelectEncheres(Encheres obj) throws SQLException {
         
         String item="";
@@ -141,21 +170,21 @@ public class CrudEncheres implements ICrud<Encheres> {
                 + "u.username,p.id_categorie,p.description,p.caracteristiques "
                 + "From produit p "
                 + "JOIN encheres e on p.id=e.id_cible "
-                + "JOIN utilisateur u on p.id_propietaire= 2 "
+                + "JOIN utilisateur u on p.id_propietaire= ? "
                 + "WHERE "+item+" =? and u.id=? ";
         
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         
           if(obj.getId_encheres()==0)
-                  pSmt.setInt(1,obj.getId_cible());              
+                  pSmt.setInt(2,obj.getId_cible());              
         else
-                  pSmt.setInt(1,obj.getId_encheres());
+                  pSmt.setInt(2,obj.getId_encheres());
           
-          pSmt.setInt(2, loggduser.getId());
+          pSmt.setInt(3, loggduser.getId());
+          pSmt.setInt(1, loggduser.getId());
           
           ResultSet rs = pSmt.executeQuery();
             rs.next();
-//            obj.setEtat(rs.getString(11)); 
             obj.setCaracteristiques(rs.getString(10)); 
             obj.setDescription(rs.getString(9)); 
             obj.setCategorie(rs.getString(8)); 
@@ -216,7 +245,7 @@ public class CrudEncheres implements ICrud<Encheres> {
     public List<Produit> SelectAllProduit() throws SQLException {
         List<Produit> liste = new ArrayList<Produit>();
      //change it
-        String requete=" SELECT * FROM produit where quantite=1";
+        String requete=" SELECT * FROM produit where quantite=1 and etat <> 'encheres' ";
 
         PreparedStatement pSmt = cnx.prepareStatement(requete);
         ResultSet rs = pSmt.executeQuery();

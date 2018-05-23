@@ -15,11 +15,20 @@ public class Participantsencheres {
     private int id;
     private int id_session;
     private int id_user;
+    private String  num;
     private Timestamp debut_session;
 
     public Participantsencheres() {
     }
 
+    
+    public Participantsencheres(int id_session, int id_user, Timestamp debut_session,String num) {
+        this.id = id;
+        this.id_session = id_session;
+        this.id_user = id_user;
+        this.debut_session = debut_session;
+        this.num=num;
+    }
     
     public Participantsencheres(int id, int id_session, int id_user, Timestamp debut_session) {
         this.id = id;
@@ -64,6 +73,10 @@ public class Participantsencheres {
 
     public void setDebut_session(Timestamp debut_session) {
         this.debut_session = debut_session;
+    }
+
+    public String getNum() {
+        return num;
     }
     
     

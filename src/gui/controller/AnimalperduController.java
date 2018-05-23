@@ -17,7 +17,6 @@ import com.lynden.gmapsfx.service.geocoding.GeocoderStatus;
 import com.lynden.gmapsfx.service.geocoding.GeocodingResult;
 import com.lynden.gmapsfx.service.geocoding.GeocodingService;
 import entites.Animal;
-import java.net.URL;
 import entites.AnimalPerdu;
 import static gui.controller.LoginController.loggduser;
 import java.io.IOException;
@@ -25,7 +24,6 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -48,12 +46,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
-import javax.xml.bind.Marshaller;
 import services.CrudAnimalperdu;
 
 /**
@@ -144,59 +139,8 @@ public class AnimalperduController implements Initializable, MapComponentInitial
 
     @FXML
     private void Menu(MouseEvent event) {
-        String dest=""; 
-        String destination=""; 
-        String type = event.getSource().getClass().getName();
-        
-        if(type.equals("javafx.scene.control.Label"))
-          {
-          Label ev = (Label) event.getSource();
-          dest=ev.getId();
-          }
-         else if(type.equals("javafx.scene.image.ImageView"))
-         {
-         ImageView ev = (ImageView) event.getSource();
-         dest=ev.getId();
-         }
-        
-         switch (dest) {
-            case "services":
-            
-            switch (loggduser.getRoles()){
-             case"a:1:{i:0;s:11:\"ROLE_CLIENT\";}":
-                destination="RubriqueServices.fxml";
-                break;
-                
-             case"a:1:{i:0;s:13:\"ROLE_DRESSEUR\";}" :
-                 destination="ListeRdv.fxml";
-                break;}
-         }
-    
-            
-                
-            
-         
-         if(destination!="")
-        {
- 
-        
-         Parent home_page_parent = null;
-            try {
-                home_page_parent = FXMLLoader.load(getClass().getResource("/gui/"+destination));
-            } catch (IOException ex) {
-                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        Scene home_page_scene = new Scene(home_page_parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                      
-                app_stage.hide(); //optional
-                app_stage.setScene(home_page_scene);
-                app_stage.show();  
-       
-        }
         MenuController menu = new MenuController();
         menu.GestionMenu(event);
-
     }
 
 

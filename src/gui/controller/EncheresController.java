@@ -284,7 +284,8 @@ public class EncheresController implements Initializable {
      E.setId_encheres(Integer.parseInt(P.getId()));
      
         try {
-            E=serviceEncheres.SelectEncheres(E);
+            System.out.println("id encheres : "+E.getId_encheres());
+            E=serviceEncheres.SelectEncheresD(E);
         } catch (SQLException ex) {
             Logger.getLogger(EncheresController.class.getName()).log(Level.SEVERE, null, ex);
         }

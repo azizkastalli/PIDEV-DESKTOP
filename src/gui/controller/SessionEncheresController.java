@@ -152,6 +152,7 @@ public class SessionEncheresController implements Initializable {
                               {
                                 String msg = "Félicitations, vous avez remporté l'enchere "+E.getLabel();
                                 SmS.Send("20435370", msg);
+                              //  SmS.Send(loggduser.getNum_tel(), msg);
                                }
                           textfield.setDisable(true);
                           send.setVisible(false);
@@ -241,7 +242,8 @@ public class SessionEncheresController implements Initializable {
                           if(serviceSession.gagnant(session).equals(Integer.toString(loggduser.getId())))
                                {
                                 String msg = "Félicitations, vous avez remporté l'enchere "+E.getLabel();
-                                SmS.Send(loggduser.getNum_tel() , msg);
+                                SmS.Send("20435370" , msg);
+                                //SmS.Send(loggduser.getNum_tel() , msg);
                                }
                                textfield.setDisable(true);
                               send.setVisible(false);
