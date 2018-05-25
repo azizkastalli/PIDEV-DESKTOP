@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="parent" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="1025.0" style="-fx-border-color: #3575c7; -fx-border-width: 2;" styleClass="main" stylesheets="@css/rubriqueveterinaire.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RubriqueVeterinaireController">
+   <children>
+      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="800.0" styleClass="menu_bar">
+         <effect>
+            <DropShadow height="10.0" radius="4.5" width="10.0" />
+         </effect>
+         <children>
+            <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../utils/assets/Zanimauxlogo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label fx:id="acceuil" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#ff6e06">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="35.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="11.0" left="30.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="services" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="25.0" top="11.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="produits" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="23.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="veterinaires" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label fx:id="evenements" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+               <font>
+                  <Font size="22.0" />
+               </font>
+               <padding>
+                  <Insets bottom="11.0" left="8.0" top="11.0" />
+               </padding>
+            </Label>
+            <Label text="10£" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Label>
+            <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#fff" size="2em">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <ImageView fitHeight="45.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../utils/assets/profile.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="hb_vet_cont" prefHeight="529.0" prefWidth="1025.0">
+         <children>
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <children>
+                  <VBox prefHeight="524.0" prefWidth="638.0">
+                     <children>
+                        <TextField fx:id="edt_search" alignment="CENTER" promptText="search ...">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TableView fx:id="tbl_vet" prefHeight="395.0" prefWidth="628.0">
+                          <columns>
+                            <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="col_nom" prefWidth="179.0" text="Nom" />
+                              <TableColumn fx:id="col_prenom" prefWidth="209.0" text="Prenom" />
+                              <TableColumn fx:id="col_tel" prefWidth="164.0" text="Tél" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="btn_consult_rdv" mnemonicParsing="false" style="-fx-background-color: #21e48c;" text="Mes rendez vous" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Pane>
+            <VBox fx:id="vb_info" prefHeight="524.0" prefWidth="538.0" style="-fx-background-color: #ffffff; -fx-border-color: #d80027; -fx-border-width: 0 0 0 2;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <HBox fx:id="hb_msg" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #39e880;">
+                     <children>
+                        <Text fx:id="txt_msg" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre demande a été envoyer avec succés">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="388.0" style="-fx-border-color: #d80027; -fx-border-width: 0 0 3 0;">
+                     <children>
+                        <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../utils/assets/veterinarian.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_nom" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="95.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_prenom" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="125.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_mail" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="155.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Tél" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_tel" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="185.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_adress" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="229.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_prix" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="48.0" prefWidth="386.0">
+                     <children>
+                        <Button fx:id="btn_reserv" mnemonicParsing="false" style="-fx-background-color: #d80027;" text="Prendre rendez vous" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox fx:id="vb_rdv" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #d80027;">
+                     <children>
+                        <Text fx:id="txt_frm_err" fill="WHITE" layoutX="15.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="355.66796875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez Vous">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="inpt_date" />
+                        <HBox prefHeight="43.0" prefWidth="376.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Durree(h)">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <TextField fx:id="inpt_duree" />
+                              <Text fx:id="txt_totale" fill="#41ffa3" strokeType="OUTSIDE" strokeWidth="0.0" text="  0 DNT">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+                        <HBox alignment="CENTER" prefHeight="66.0" prefWidth="376.0">
+                           <children>
+                              <Button fx:id="btn_cancel" mnemonicParsing="false" style="-fx-background-color: #b1b1b1;" text="ANNULER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btn_ok" mnemonicParsing="false" style="-fx-background-color: #21e48c;" text="CONFIRMER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox fx:id="hb_rdv_cont" layoutX="12.0" layoutY="62.0" prefHeight="529.0" prefWidth="1025.0">
+         <children>
+            <Pane prefHeight="524.0" prefWidth="788.0">
+               <children>
+                  <VBox prefHeight="524.0" prefWidth="638.0">
+                     <children>
+                        <Button fx:id="btn_back" mnemonicParsing="false" style="-fx-background-color: #21e48c;" text="Retour " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <TableView fx:id="tbl_rdv" prefHeight="395.0" prefWidth="628.0">
+                           <columns>
+                              <TableColumn fx:id="col_rdv_vet" prefWidth="179.0" text="Vétérinaire" />
+                              <TableColumn fx:id="col_rdv_date" prefWidth="274.0" text="Date" />
+                              <TableColumn fx:id="col_rdv_prix" prefWidth="173.0" text="Prix (DNT)" />
+                           </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Pane>
+            <VBox fx:id="vb_info_rdv" prefHeight="524.0" prefWidth="538.0" style="-fx-background-color: #ffffff; -fx-border-color: #d80027; -fx-border-width: 0 0 0 2;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <HBox fx:id="hb_msg_rdv" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #39e880;">
+                     <children>
+                        <Text fx:id="txt_msg_rdv" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre demande a été envoyer avec succés">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="69.0" prefWidth="388.0" style="-fx-border-color: #d80027; -fx-border-width: 0 0 3 0;">
+                     <children>
+                        <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../utils/assets/appo_icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Vétérinaire" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_rdv_vet" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="95.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_rdv_date" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="125.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fx:id="txt_rdv_durree" fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Durree" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_rdv_duree" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="155.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_rdv_prix" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="185.0" prefHeight="30.0" prefWidth="386.0">
+                     <children>
+                        <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Etat" wrappingWidth="150.0">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txt_rdv_etat" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="3.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="66.0" prefWidth="376.0">
+                     <children>
+                        <Button fx:id="btn_del_rdv" mnemonicParsing="false" style="-fx-background-color: #d80027;" text="ANNULER RENDEZ VOUS" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="btn_edt_rdv" mnemonicParsing="false" style="-fx-background-color: #21e48c;" text="MODIFIER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox fx:id="vb_rdv_edt" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #d80027;">
+                     <children>
+                        <Text fx:id="txt_frm_err_edt" fill="WHITE" layoutX="15.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="355.66796875">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez Vous">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Text>
+                        <DatePicker fx:id="inpt_date_edt" />
+                        <HBox prefHeight="43.0" prefWidth="376.0">
+                           <children>
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Durree(h)">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <TextField fx:id="inpt_duree_edt" />
+                              <Text fx:id="txt_totale_edt" fill="#41ffa3" strokeType="OUTSIDE" strokeWidth="0.0" text="  0    DNT">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+                        <HBox alignment="CENTER" prefHeight="66.0" prefWidth="376.0">
+                           <children>
+                              <Button fx:id="btn_cancel_edt" mnemonicParsing="false" style="-fx-background-color: #b1b1b1;" text="ANNULER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btn_ok_edt" mnemonicParsing="false" style="-fx-background-color: #21e48c;" text="CONFIRMER" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

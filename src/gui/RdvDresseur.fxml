@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="1025.0" styleClass="backgroundcolor" stylesheets="@/gui/css/rdvdresseur.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RdvDresseurController">
+   <children>
+      <Label layoutX="186.0" layoutY="160.0" text="Id Client" />
+      <Label layoutX="183.0" layoutY="197.0" text="Id animal" />
+      <Label layoutX="179.0" layoutY="234.0" text="Date Rendez-vous" />
+      <Label layoutX="184.0" layoutY="271.0" text="Id Dresseur" />
+      <TextField fx:id="idc" layoutX="551.0" layoutY="156.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="idd" layoutX="552.0" layoutY="267.0" prefHeight="25.0" prefWidth="174.0" />
+      <Button layoutX="424.0" layoutY="365.0" mnemonicParsing="false" onAction="#ajout" prefHeight="34.0" prefWidth="97.0" text="Ajouter" />
+      <Pane fx:id="menubar" layoutX="15.0" layoutY="14.0" prefHeight="49.0" prefWidth="1012.0">
+         <children>
+            <HBox layoutX="-22.0" layoutY="-14.0" prefHeight="61.0" prefWidth="1031.0" styleClass="menu_bar">
+               <children>
+                  <ImageView fitHeight="45.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/Zanimauxlogo.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="acceuil1" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Acceuil" textFill="#756c6b">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="30.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="services1" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Services" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="25.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="produits1" onMouseClicked="#Menu" prefHeight="43.0" prefWidth="120.0" styleClass="menu_item" text="Produits" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="23.0" top="11.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="veterinaires1" onMouseClicked="#Menu" prefHeight="54.0" prefWidth="129.0" styleClass="menu_item" text="Veterinaires" textFill="#837f7f">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="8.0" top="11.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets right="2.0" top="-5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label onMouseClicked="#Menu" prefHeight="54.0" prefWidth="111.0" styleClass="menu_item" text="Evenements" textFill="#837f7f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="11.0" left="8.0" top="11.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets top="-5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <stylesheets>
+                  <URL value="@css/rdvdresseur.css" />
+                  <URL value="@css/store.css" />
+               </stylesheets>
+            </HBox>
+         </children>
+      </Pane>
+      <DatePicker fx:id="date" layoutX="551.0" layoutY="228.0" prefHeight="25.0" prefWidth="174.0" />
+      <ComboBox fx:id="ida" layoutX="552.0" layoutY="191.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="53.0" layoutY="80.0" prefHeight="58.0" prefWidth="385.0" text="Faire un rendez-vous avec un dresseur">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

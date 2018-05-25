@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.VeterinaireAdminController">
+  
+     <children>
+      <VBox prefHeight="575.0" prefWidth="341.0" style="-fx-background-color: #333645;">
+         <children>
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#HomeClick" prefHeight="75.0" prefWidth="341.0" style="-fx-background-color: #00A2d3;" text="Accueil" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <HBox alignment="CENTER_LEFT">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <FontAwesomeIconView glyphName="SEARCH" glyphStyle="-fx-fill:#7C8184" size="1.3em" />
+                  <TextField prefHeight="25.0" prefWidth="290.0" promptText="Search" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Calibri Light" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickStore" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="CART_PLUS" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Store" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="ev" alignment="CENTER_LEFT" layoutX="10.0" layoutY="132.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEvenement" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="CALENDAR" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Evenements" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="172.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickEncheres" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="USERS" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Encheres" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="212.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickServices" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#7C8184" size="2em" text="" />
+                  <Label text="Gestion Services" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="252.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickVeterinaire" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="USER_MD" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Vétérinaires" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ClickProduit" prefHeight="40.0" prefWidth="332.0" styleClass="btns" stylesheets="@css/HomeAdmin.css">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <FontAwesomeIconView glyphName="TH" glyphStyle="-fx-fill:#7C8184" size="2em" />
+                  <Label text="Gestion Produits" textFill="#7c8184">
+                     <font>
+                        <Font name="Calibri Light" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutX="341.0" layoutY="1.0" prefHeight="574.0" prefWidth="868.0">
+         <children>
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="74.0" prefWidth="869.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#4ca9c3" height="29.06" radius="9.265" spread="0.07" width="10.0" />
+               </effect>
+               <children>
+                  <ImageView fitHeight="68.0" fitWidth="90.0" layoutX="3.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../utils/assets/Zanimauxlogo.png" />
+                     </image>
+                  </ImageView>
+                  <FontAwesomeIconView glyphName="BELL" glyphStyle="-fx-fill:#7c8184" layoutX="808.0" layoutY="46.0" size="1.5em" />
+                  <FontAwesomeIconView glyphName="GEAR" glyphStyle="-fx-fill:#7c8184" layoutX="839.0" layoutY="46.0" size="1.5em" />
+               </children>
+            </Pane>
+            <HBox fx:id="hb_vet_cont" prefHeight="476.0" prefWidth="869.0">
+               <children>
+                  <VBox prefHeight="476.0" prefWidth="583.0">
+                     <children>
+                        <TextField fx:id="edt_search" alignment="CENTER" promptText="search ...">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TableView fx:id="tbl_vet" prefHeight="395.0" prefWidth="628.0">
+                           <columns>
+                              <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="col_nom" prefWidth="129.0" text="Nom" />
+                              <TableColumn fx:id="col_prenom" prefWidth="171.0" text="Prenom" />
+                              <TableColumn fx:id="col_tel" prefWidth="252.0" text="Tél" />
+                           </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vb_info" prefHeight="476.0" prefWidth="338.0" style="-fx-background-color: #ffffff; -fx-border-color: #d80027; -fx-border-width: 0 0 0 2;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="69.0" prefWidth="388.0" style="-fx-border-color: #d80027; -fx-border-width: 0 0 3 0;">
+                           <children>
+                              <ImageView fitHeight="64.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../PIDEV-DESKTOP-master/src/utils/assets/veterinarian.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="15.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="386.0">
+                           <children>
+                              <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_nom" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="95.0" prefHeight="30.0" prefWidth="386.0">
+                           <children>
+                              <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_prenom" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="125.0" prefHeight="30.0" prefWidth="386.0">
+                           <children>
+                              <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_mail" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="155.0" prefHeight="30.0" prefWidth="386.0">
+                           <children>
+                              <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Tél" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_tel" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="185.0" prefHeight="30.0" prefWidth="386.0">
+                           <children>
+                              <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_adress" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="3.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="12.0" layoutY="229.0" prefHeight="30.0" prefWidth="386.0">
+                           <children>
+                              <Text fill="#909090" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix" wrappingWidth="150.0">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txt_prix" fill="#00a3ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" top="3.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
